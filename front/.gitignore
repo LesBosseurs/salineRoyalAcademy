@@ -1,0 +1,38 @@
+logs
+*.log
+npm-debug.log*
+
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.nyc_output
+.grunt
+.lock-wscript
+build/Release
+node_modules
+jspm_packages
+.npm
+.node_repl_history
+.next
+.DS_Store
+.env
+
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+package-lock.json
+
+.idea/
