@@ -23,6 +23,7 @@
     border: 1px solid $secondary-gray;
     padding: 0 20px;
     box-sizing: border-box;
+    background: transparent;
 
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 1000px white inset;
