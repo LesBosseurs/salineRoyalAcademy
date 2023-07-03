@@ -29,6 +29,8 @@ export default function Login() {
     <div className={style.container}>
       <div>
         <div className={style.background}>
+          <div className={style.first_line}></div>
+          <div className={style.second_line}></div>
           <div className={style.head_mobile}>
             <h1 className={fonts.head}>Sign in</h1>
             <p className={fonts.paragraph_regular}>Log in to your account</p>
