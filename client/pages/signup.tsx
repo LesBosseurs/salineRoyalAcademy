@@ -25,6 +25,11 @@ export default function Home() {
     e.preventDefault();
     // Envoyer les données du formulaire au backend
     console.log(formData);
+    axios({
+      method: 'POST',
+      url: '/api/signup'
+    }).then((rep) => console.log(rep))
+    .catch((err) => console.warn(err))
     // Réinitialiser le formulaire
     setFormData({
       firstName: '',
