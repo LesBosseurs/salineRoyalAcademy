@@ -1,0 +1,171 @@
+@import '../variables.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+
+  @media screen and (max-width: $breakpoint-laptop) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 28% 1fr;
+  }
+
+  > div:first-of-type {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    > .background {
+      position: absolute;
+      bottom: 0;
+      background-color: #000;
+      height: 40%;
+      width: 100%;
+
+      > .head_mobile {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+
+        > h1 {
+          color: $secondary-white;
+        }
+
+        > p {
+          color: $primary-yellow;
+        }
+
+        @media screen and (max-width: $breakpoint-laptop) {
+          display: flex;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-laptop) {
+        height: 100%;
+        background-color: #111;
+      }
+
+      > .circle {
+        background-color: $primary-yellow;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 50%;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+        z-index: 2;
+
+        @media screen and (max-width: $breakpoint-laptop) {
+          display: none;
+        }
+
+        > .circle {
+          height: 100%;
+          width: 100%;
+          background-color: $primary-yellow;
+          border-radius: 100%;
+        }
+
+        .line {
+          width: 27%;
+          height: 300%;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%) rotateZ(65deg);
+        }
+
+        > .first_line {
+          @extend .line;
+          top: 55%;
+          background-color: $secondary-white;
+          z-index: -1;
+        }
+
+        > .second_line {
+          @extend .line;
+          top: 92%;
+          background-color: $secondary-gray;
+          z-index: 3;
+        }
+      }
+    }
+  }
+
+  > div:last-of-type {
+    display: flex;
+
+    @media screen and (max-width: $breakpoint-laptop) {
+      padding: 30px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 480px;
+
+      > div:not(.terms) {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @media screen and (max-width: $breakpoint-laptop) {
+          &.desktop_title {
+            display: none;
+          }
+        }
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          &:not(div:first-of-type) {
+            padding-top: 40px;
+          }
+        }
+
+        @media screen and (max-width: $breakpoint-laptop) {
+          &:not(div:first-of-type, div:nth-of-type(2)) {
+            padding-top: 40px;
+          }
+        }
+      }
+
+      > a:first-of-type {
+        padding: 25px 0;
+        display: flex;
+        align-self: flex-end;
+        color: $secondary-gray;
+      }
+
+      > .terms {
+        display: flex;
+        padding: 40px 0;
+        gap: 10px;
+        align-items: center;
+
+        > input {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      > p:last-of-type {
+        padding-top: 20px;
+        text-align: center;
+
+        a {
+          color: $primary-yellow;
+        }
+      }
+    }
+  }
+}

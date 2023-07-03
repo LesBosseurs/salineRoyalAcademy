@@ -1,0 +1,31 @@
+@import '../variables.scss';
+@import '../fonts.module.scss';
+
+.button {
+  background: $primary-yellow;
+  border-radius: 10px;
+  border: 0px;
+  padding: 0 50px;
+}
+
+.sm {
+  @extend .button;
+  @extend .subtitle_straight !optional;
+
+  color: #fff;
+}
+
+.md {
+  @extend .button;
+  @extend .subtitle_straight !optional;
+
+  color: #fff;
+}
+
+.lg {
+  @extend .button;
+  @extend .subtitle_straight !optional;
+
+  color: #fff;
+  height: 56px;
+}
