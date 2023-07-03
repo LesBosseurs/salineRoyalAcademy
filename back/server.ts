@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { Client } from 'pg'
 import userRoutes from './routes/userRoutes';
+import masterclassRoutes from './routes/masterclassRoutes';
 import pool from './db/database';
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/users', userRoutes);
+app.use('/api/masterclass', masterclassRoutes);
 
 // Serve the frontend
 // app.use(express.static('dist')); // Assurez-vous que votre dossier de build de la partie frontend est "dist"
