@@ -14,7 +14,7 @@ export default function handler(
     method: 'POST',
     url: 'http://back:4000/api/signup'
   })
-  .then((rep) => res.json(rep.data))
+  .then((rep) => console.log(res.json(rep.data)))
   .catch((err) => {
     console.log(err.response)
     res.status(500).send(err)

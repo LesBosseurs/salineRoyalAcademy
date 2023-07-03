@@ -12,7 +12,7 @@ export default function handler(
 ) {
   axios({
     method: 'POST',
-    url: 'http://back:4000/api/signup'
+    url: 'http://back:4000/api/login'
   })
   .then((rep) => res.json(rep.data))
   .catch((err) => {

@@ -43,6 +43,6 @@ services:
     ports:
       - 4000:4000
     volumes:
-      - ./back/server.ts:/app/server.ts
+      - ./back:/app
     depends_on:
       - db
