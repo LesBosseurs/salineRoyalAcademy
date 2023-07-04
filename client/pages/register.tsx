@@ -36,6 +36,12 @@ export default function Register() {
           <div className={style.circle}>
             <div className={style.first_line}></div>
             <div className={style.circle}></div>
+            <Image
+              src="/img/musician_euphonium.png"
+              alt="a musician with a euphonium"
+              width="300"
+              height="700"
+            />
             <div className={style.second_line}></div>
           </div>
           <div className={style.sign_other_service_desktop}>

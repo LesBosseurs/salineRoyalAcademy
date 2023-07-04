@@ -25,7 +25,7 @@ export default function FormField<T extends Record<string, any>>({
   return (
     <div className={style.FormField}>
       <label>
-        {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}:
+        {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}
       </label>
       <input
         type={type}

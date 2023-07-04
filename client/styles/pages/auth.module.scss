@@ -5,6 +5,10 @@
   grid-template-columns: 1fr 1fr;
   height: 100vh;
 
+  @media screen and (min-width: $breakpoint-desktop) {
+    grid-template-columns: 800px 1fr;
+  }
+
   @media screen and (max-width: $breakpoint-laptop) {
     grid-template-columns: 1fr;
     grid-template-rows: 28% 1fr;
@@ -188,6 +192,15 @@
           width: 100%;
           background-color: $primary-yellow;
           border-radius: 100%;
+        }
+
+        > img {
+          height: 180%;
+          position: absolute;
+          bottom: -50px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90%;
         }
 
         .line {

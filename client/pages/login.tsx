@@ -38,13 +38,24 @@ export default function Login() {
           <div className={style.circle}>
             <div className={style.first_line}></div>
             <div className={style.circle}></div>
+            <Image
+              src="/img/musician_euphonium.png"
+              alt="a musician with a euphonium"
+              width="300"
+              height="700"
+            />
             <div className={style.second_line}></div>
           </div>
           <div className={style.sign_other_service_desktop}>
             <span className={fonts.paragraph_medium}>Or sign in with</span>
             <div>
               <button>
-                <Image src="/icons/fb.svg" alt="me" width="25" height="25" />
+                <Image
+                  src="/icons/fb.svg"
+                  alt="facebook icon"
+                  width="25"
+                  height="25"
+                />
                 <span>Facebook</span>
               </button>
               <button>
