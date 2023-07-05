@@ -1,6 +1,5 @@
 import { User } from "../modele/user";
 import pool from "../db/database";
-var jwt = require('jsonwebtoken');
 
 class UserRepository {
   static async getAllUsers(): Promise<User[]> {
@@ -38,6 +37,24 @@ class UserRepository {
     }
   }
 
+  static async getUserByEmailAndPassword(email: string, password: string): Promise<User> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'SELECT * FROM users WHERE email = $1 AND password = $2';
+        const values = [email, password];
+        const result = await pool.query(query, values);
+        return result.rows[0];
+      } catch (error: unknown) {
+        throw new Error(`Unable to fetch user: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch user: ${error}`);
+    }
+  }
+
   static async createUser(user: User): Promise<void> {
     try {
       const c = await pool.connect();
@@ -45,6 +62,7 @@ class UserRepository {
         const query = `
         INSERT INTO users(first_name, last_name, email, password, phone, notification, instruments, status)
         VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+        RETURNING user_id
       `;
         const values = [
           user.first_name,
@@ -56,8 +74,9 @@ class UserRepository {
           user.instruments,
           user.status
         ];
-        console.log({ values })
-        await pool.query(query, values);
+        const result = await pool.query(query, values);
+        const insertedUserId = result.rows[0].user_id;
+        return (insertedUserId)
       } catch (error) {
         throw new Error(`Unable to create user: ${error}`);
       } finally {
@@ -96,7 +115,6 @@ class UserRepository {
           updatedUser.status,
           userId,
         ];
-        console.log({ values })
         await pool.query(query, values);
       } catch (error: unknown) {
         throw new Error(`Unable to update user: ${error}`);
