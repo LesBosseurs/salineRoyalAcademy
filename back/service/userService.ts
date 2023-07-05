@@ -1,5 +1,6 @@
-import UserRepository, { User } from '../repository/userRepository';
+import UserRepository from '../repository/userRepository';
 import pool from "../db/database";
+import { User } from '../modele/user';
 
 class UserService {
   static async getAllUsers(): Promise<User[]> {
