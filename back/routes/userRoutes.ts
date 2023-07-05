@@ -21,4 +21,7 @@ router.delete('/:id', UserController.deleteUser);
 // Route pour la connexion (login)
 router.post('/login', UserController.loginUser);
 
+// Route pour la deconnexion (login)
+router.post('/disconnect', UserController.disconnectUser);
+
 export default router;
