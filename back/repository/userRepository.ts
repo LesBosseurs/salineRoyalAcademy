@@ -161,6 +161,39 @@ class UserRepository {
     }
   }
 
+  static async getUsersByFilters(filters: Partial<User>): Promise<User[]> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'SELECT * FROM users';
+        const values: any[] = [];
+        const conditions: string[] = [];
+
+        // Construire les conditions de recherche en fonction des filtres fournis
+        for (const key in filters) {
+          if (filters.hasOwnProperty(key) && filters[key as keyof User]) {
+            conditions.push(`${key} ILIKE $${values.length + 1}`);
+            values.push(`${filters[key as keyof User]}%`);
+          }
+        }
+
+        // Ajouter les conditions à la requête si des filtres ont été fournis
+        let filteredQuery = query;
+        if (conditions.length > 0) {
+          filteredQuery += ' WHERE ' + conditions.join(' AND ');
+        }
+        const result = await pool.query(filteredQuery, values);
+        return result.rows;
+      } catch (error: unknown) {
+        throw new Error(`Unable to fetch users: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch users: ${error}`);
+    }
+  }
+
 }
 
 export default UserRepository;

@@ -19,7 +19,7 @@ class UserController {
       const user = await UserService.getUserById(userId);
       res.status(200).json({ success: true, message: 'User retrieved successfully', data: user });
     } catch (error: unknown) {
-      res.status(500).json({ success: false, message: 'Failed to retrieve user', error: error as Error });
+      res.status(500).json({ success: false, message: 'Failed to retrieve user by Id', error: error as Error });
     }
   }
 
@@ -79,6 +79,18 @@ class UserController {
     res.clearCookie('access_token');
     res.status(200).json({ message: 'User disconnected successfully' });
   }
+
+  static async getUsersByFilters(req: Request, res: Response): Promise<void> {
+    try {
+      const filters = req.query;
+
+      const users = await UserService.getUsersByFilters(filters);
+
+      res.status(200).json({ success: true, message: 'Users retrieved successfully', data: users });
+    } catch (error: unknown) {
+      res.status(500).json({ success: false, message: 'Failed to retrieve users by Filters', error: error as Error });
+    }
+}
 }
 
 export default UserController;
