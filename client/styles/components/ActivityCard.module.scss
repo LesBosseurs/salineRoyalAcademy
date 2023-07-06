@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.activity_card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid $secondary-gray-light;
+  padding: 10px;
+  border-radius: 10px;
+
+  > div:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #80017f;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+    }
+  }
+}
