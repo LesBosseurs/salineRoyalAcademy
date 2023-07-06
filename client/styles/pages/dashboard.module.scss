@@ -1,0 +1,91 @@
+@import '../variables.scss';
+
+.dashboard {
+  section.card_premium {
+    height: 250px;
+    width: 100%;
+    background: linear-gradient(
+      271.41deg,
+      rgba(0, 0, 0, 0.94) 0.24%,
+      rgba(0, 0, 0, 0.85) 55.37%,
+      #000000 98.24%
+    );
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+
+    > div {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 50px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      > div {
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    .line {
+      background-color: $secondary-gray-dark;
+      width: 80px;
+      height: 200%;
+      position: absolute;
+      top: 0;
+      transform: rotateZ(45deg);
+      top: -50%;
+    }
+
+    > .first_line {
+      @extend .line;
+      right: -25px;
+    }
+
+    > .second_line {
+      @extend .line;
+      right: 120px;
+    }
+
+    > .third_line {
+      @extend .line;
+      right: 270px;
+    }
+
+    > img {
+      position: absolute;
+      top: -160px;
+      right: 0;
+      transform: rotateY(-180deg) rotateZ(-30deg);
+      z-index: 2;
+    }
+  }
+
+  .grid_courses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .activity_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .scrollable {
+    overflow: scroll;
+    width: 1000px;
+
+    .articles_container {
+      display: flex;
+      gap: 15px;
+      min-width: 100%;
+    }
+  }
+}

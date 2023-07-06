@@ -5,27 +5,27 @@
   background: $primary-yellow;
   border-radius: 10px;
   border: 0px;
-  padding: 0 50px;
+  color: #fff;
+  width: fit-content;
 }
 
 .sm {
   @extend .button;
-  @extend .subtitle_straight !optional;
-
-  color: #fff;
+  @extend .paragraph_semi_bold !optional;
+  height: 40px;
+  padding: 0 30px;
 }
 
 .md {
   @extend .button;
-  @extend .subtitle_straight !optional;
-
-  color: #fff;
+  @extend .link !optional;
+  height: 48px;
+  padding: 0 40px;
 }
 
 .lg {
   @extend .button;
   @extend .subtitle_straight !optional;
-
-  color: #fff;
   height: 56px;
+  padding: 0 50px;
 }

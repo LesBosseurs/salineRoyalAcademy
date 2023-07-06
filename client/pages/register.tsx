@@ -6,8 +6,14 @@ import fonts from '../styles/fonts.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface FormData {
+  email: string;
+  password: string;
+  confirm_password: string;
+}
+
 export default function Register() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
     confirm_password: '',

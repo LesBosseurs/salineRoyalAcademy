@@ -1,0 +1,44 @@
+.competition_card {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  gap: 10px;
+
+  > div:first-of-type {
+    display: flex;
+    gap: 5px;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #80017f;
+      height: 20px;
+      min-width: 20px;
+      border-radius: 100%;
+    }
+  }
+
+  > div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        img,
+        svg {
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+  }
+}
