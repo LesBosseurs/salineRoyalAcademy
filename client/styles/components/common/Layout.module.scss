@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+
+  .main {
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: $secondary-gray-light;
+    border-radius: 20px 0 0 20px;
+    padding: 30px 40px;
+    grid-column: 2;
+  }
+}
