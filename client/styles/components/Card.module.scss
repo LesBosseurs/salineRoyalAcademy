@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+section.section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+
+  > div.header_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    > a {
+      color: $primary-yellow;
+      text-decoration: none;
+    }
+  }
+
+  > .card {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+  }
+}
