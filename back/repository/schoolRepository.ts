@@ -1,0 +1,135 @@
+import { School } from "../modele/school";
+import pool from "../db/database";
+
+class SchoolRepository {
+  static async getAllSchools(): Promise<School[]> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'SELECT * FROM schools';
+        const result = await pool.query(query);
+        return result.rows;
+      } catch (error: unknown) {
+        throw new Error(`Unable to fetch schools: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch schools: ${error}`);
+    }
+  }
+
+  static async getSchoolById(schoolId: string): Promise<School> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'SELECT * FROM schools WHERE school_id = $1';
+        const values = [schoolId];
+        const result = await pool.query(query, values);
+        return result.rows[0];
+      } catch (error: unknown) {
+        throw new Error(`Unable to fetch school: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch school: ${error}`);
+    }
+  }
+
+  static async createSchool(school: School): Promise<void> {
+    try {
+      const c = await pool.connect();
+      try {
+        const query = `
+          INSERT INTO schools(name, code, type)
+          VALUES($1, $2, $3)
+        `;
+        const values = [school.name, school.code, school.type];
+        await pool.query(query, values);
+      } catch (error) {
+        throw new Error(`Unable to create school: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to create school: ${error}`);
+    }
+  }
+
+  static async updateSchool(schoolId: string, updatedSchool: School): Promise<void> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = `
+          UPDATE schools
+          SET name = $1,
+              code = $2,
+              type = $3
+          WHERE school_id = $4
+        `;
+        const values = [updatedSchool.name, updatedSchool.code, updatedSchool.type, schoolId];
+        await pool.query(query, values);
+      } catch (error: unknown) {
+        throw new Error(`Unable to update school: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to update school: ${error}`);
+    }
+  }
+
+  static async deleteSchool(schoolId: string): Promise<void> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'DELETE FROM schools WHERE school_id = $1';
+        const values = [schoolId];
+        await pool.query(query, values);
+      } catch (error: unknown) {
+        throw new Error(`Unable to delete school: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to delete school: ${error}`);
+    }
+  }
+
+  static async getSchoolsByFilters(filters: Partial<School>): Promise<School[]> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'SELECT * FROM schools';
+        const values: any[] = [];
+        const conditions: string[] = [];
+  
+        // Construire les conditions de recherche en fonction des filtres fournis
+        for (const key in filters) {
+          if (filters.hasOwnProperty(key) && filters[key as keyof School]) {
+            conditions.push(`${key} ILIKE $${values.length + 1}`);
+            values.push(`${filters[key as keyof School]}%`);
+          }
+        }
+  
+        // Ajouter les conditions à la requête si des filtres ont été fournis
+        let filteredQuery = query;
+        if (conditions.length > 0) {
+          filteredQuery += ' WHERE ' + conditions.join(' AND ');
+        }
+        const result = await pool.query(filteredQuery, values);
+        return result.rows;
+      } catch (error: unknown) {
+        throw new Error(`Unable to fetch schools: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch schools: ${error}`);
+    }
+  }
+  
+}
+
+export default SchoolRepository;

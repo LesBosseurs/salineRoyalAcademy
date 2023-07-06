@@ -51,6 +51,14 @@ class UserService {
       throw new Error(`Unable to get user by Email/Password: ${error}`);
     }
   }
+
+  static async getUsersByFilters(filters: Partial<User>): Promise<User[]> {
+    try {
+      return await UserRepository.getUsersByFilters(filters);
+    } catch (error) {
+      throw new Error(`Unable to get user by Filters: ${error}`);
+    }
+  }
 }
 
 export default UserService;
