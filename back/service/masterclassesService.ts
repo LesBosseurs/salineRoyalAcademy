@@ -1,4 +1,4 @@
-import MasterclassesRepository, { Masterclass } from '../repository/masterclassesRepository';
+import MasterclassesRepository, { Masterclass, MasterclassMediaPeople } from '../repository/masterclassesRepository';
 import pool from "../db/database";
 
 class MasterclassesService {
@@ -11,11 +11,11 @@ class MasterclassesService {
     }
   }
 
-  static async getMasterclassByID(masterclassId: string): Promise<Masterclass> {
+  static async getMasterclassByID(masterclassId: string): Promise<MasterclassMediaPeople> {
     try {
       return await MasterclassesRepository.getMasterclassByID(masterclassId);
     } catch (error: unknown) {
-      throw new Error(`Unable to get all masterclasses: ${error}`);
+      throw new Error(`Unable to get masterclass: ${error}`);
     }
   }
 
@@ -24,6 +24,14 @@ class MasterclassesService {
       await MasterclassesRepository.createMasterclass(masterclass);
     } catch (error) {
       throw new Error(`Unable to create masterclass: ${error}`);
+    }
+  }
+
+  static async updateMasterclass(masterclassId: string, updatedMasterclass: Masterclass): Promise<void> {
+    try {
+      await MasterclassesRepository.updateMasterclass(masterclassId, updatedMasterclass);
+    } catch (error) {
+      throw new Error(`Unable to update user: ${error}`);
     }
   }
 

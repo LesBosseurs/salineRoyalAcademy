@@ -31,10 +31,21 @@ class MasterclassesController {
       }
     }
 
+    static async updateMasterclass(req: Request, res: Response): Promise<void> {
+      try {
+        const masterclassId = req.params.id;
+        const updatedMasterclass = req.body;
+        await MasterclassesService.updateMasterclass(masterclassId, updatedMasterclass);
+        res.json({ success: true, message: 'Masterclass updated successfully' });
+      } catch (error: unknown) {
+        res.status(500).json({ success: false, message: 'Failed to update masterclass', error: error as Error });
+      }
+    }
+
     static async deleteMasterclass(req: Request, res: Response): Promise<void> {
       try {
-        const masterclass_id = req.body.masterclass_id;
-        await MasterclassesService.deleteMasterclass(masterclass_id);
+        const masterclassId = req.body.masterclass_id;
+        await MasterclassesService.deleteMasterclass(masterclassId);
         res.json({ success: true, message: 'Masterclass deleted successfully' });
       } catch (error: unknown) {
         res.status(500).json({ success: false, message: 'Failed to delete Masterclass', error: error as Error });

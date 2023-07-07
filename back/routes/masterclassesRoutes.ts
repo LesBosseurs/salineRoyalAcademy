@@ -15,6 +15,9 @@ router.post('/createMasterclass', MasterclassesController.createMasterclass)
 // Route pour delete un masterclass
 router.post('/deleteMasterclass', MasterclassesController.deleteMasterclass)
 
+// Route pour mettre à jour un utilisateur
+router.put('/:id', MasterclassesController.updateMasterclass);
+
 // Route pour recuperer tous les medias d'une masterclass
 router.post('/deleteMasterclass', MasterclassesController.deleteMasterclass)
 
