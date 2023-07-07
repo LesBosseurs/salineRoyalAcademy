@@ -185,12 +185,9 @@ class UserRepository {
           }
         }
         let filteredQuery = query;
-        console.log({ conditions });
         if (conditions.length > 0) {
           filteredQuery += ' WHERE ' + conditions.join(' AND ');
         }
-        console.log({ filteredQuery });
-        console.log({values})
         const result = await pool.query(filteredQuery, values);
         return result.rows;
       } catch (error: unknown) {
