@@ -169,12 +169,15 @@ class UserRepository {
         const values: any[] = [];
         const conditions: string[] = [];
         let index = 1;
-        console.log(filters)
         for (const key in filters) {
           if (filters.hasOwnProperty(key) && filters[key as keyof User]) {
             if (key === 'instruments') {
-              conditions.push(`'[${filters[key]}]' = any(instruments)`);
-              index++
+              const instruments = filters[key as keyof User] as string[];
+              const instrumentConditions = instruments.map((instrument) => {
+                values.push(`${instrument}`);
+                return `$${index++} ILIKE any(instruments)`;
+              });
+              conditions.push(`(${instrumentConditions.join(' OR ')})`);
             } else {
               values.push(`${filters[key as keyof User]}%`);
               conditions.push(`${key} ILIKE $${index++}`);
@@ -182,11 +185,12 @@ class UserRepository {
           }
         }
         let filteredQuery = query;
+        console.log({ conditions });
         if (conditions.length > 0) {
           filteredQuery += ' WHERE ' + conditions.join(' AND ');
         }
         console.log({ filteredQuery });
-  
+        console.log({values})
         const result = await pool.query(filteredQuery, values);
         return result.rows;
       } catch (error: unknown) {
