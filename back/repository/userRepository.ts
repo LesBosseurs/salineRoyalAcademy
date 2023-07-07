@@ -168,20 +168,25 @@ class UserRepository {
         const query = 'SELECT * FROM users';
         const values: any[] = [];
         const conditions: string[] = [];
-
-        // Construire les conditions de recherche en fonction des filtres fournis
+        let index = 1;
+        console.log(filters)
         for (const key in filters) {
           if (filters.hasOwnProperty(key) && filters[key as keyof User]) {
-            conditions.push(`${key} ILIKE $${values.length + 1}`);
-            values.push(`${filters[key as keyof User]}%`);
+            if (key === 'instruments') {
+              conditions.push(`'[${filters[key]}]' = any(instruments)`);
+              index++
+            } else {
+              values.push(`${filters[key as keyof User]}%`);
+              conditions.push(`${key} ILIKE $${index++}`);
+            }
           }
         }
-
-        // Ajouter les conditions à la requête si des filtres ont été fournis
         let filteredQuery = query;
         if (conditions.length > 0) {
           filteredQuery += ' WHERE ' + conditions.join(' AND ');
         }
+        console.log({ filteredQuery });
+  
         const result = await pool.query(filteredQuery, values);
         return result.rows;
       } catch (error: unknown) {
@@ -193,6 +198,8 @@ class UserRepository {
       throw new Error(`Unable to fetch users: ${error}`);
     }
   }
+  
+  
 
 }
 
