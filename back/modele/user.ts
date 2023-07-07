@@ -6,7 +6,7 @@ export interface User {
     password: string;
     phone: string;
     notification: string;
-    instruments: string;
+    instruments: string[];
     status: string;
   }
   
