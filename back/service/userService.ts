@@ -1,5 +1,6 @@
-import UserRepository, { User } from '../repository/userRepository';
+import UserRepository from '../repository/userRepository';
 import pool from "../db/database";
+import { User } from '../modele/user';
 
 class UserService {
   static async getAllUsers(): Promise<User[]> {
@@ -20,7 +21,8 @@ class UserService {
 
   static async createUser(user: User): Promise<void> {
     try {
-      await UserRepository.createUser(user);
+      const myUserId = await UserRepository.createUser(user);
+      return myUserId
     } catch (error) {
       throw new Error(`Unable to create user: ${error}`);
     }
@@ -39,6 +41,22 @@ class UserService {
       await UserRepository.deleteUser(userId);
     } catch (error) {
       throw new Error(`Unable to delete user: ${error}`);
+    }
+  }
+
+  static async loginUser(email: string, password: string): Promise<User> {
+    try {
+      return await UserRepository.getUserByEmailAndPassword(email, password);
+    } catch (error) {
+      throw new Error(`Unable to get user by Email/Password: ${error}`);
+    }
+  }
+
+  static async getUsersByFilters(filters: Partial<User>): Promise<User[]> {
+    try {
+      return await UserRepository.getUsersByFilters(filters);
+    } catch (error) {
+      throw new Error(`Unable to get user by Filters: ${error}`);
     }
   }
 }
