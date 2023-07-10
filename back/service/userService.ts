@@ -1,5 +1,5 @@
 import UserRepository from '../repository/userRepository';
-import pool from "../db/database";
+import StudyRepository from '../repository/studyRepository';
 import { User } from '../modele/user';
 
 class UserService {
@@ -59,6 +59,15 @@ class UserService {
       throw new Error(`Unable to get user by Filters: ${error}`);
     }
   }
+
+  static async addUserToGroup(userId: number, groupId: number, isTeacher: boolean): Promise<void> {
+    try {
+      return await StudyRepository.addUserToGroup(userId, groupId, isTeacher);
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
 
 export default UserService;

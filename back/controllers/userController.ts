@@ -90,7 +90,17 @@ class UserController {
     } catch (error: unknown) {
       res.status(500).json({ success: false, message: 'Failed to retrieve users by Filters', error: error as Error });
     }
-}
+  }
+
+  static async addUserToGroup(req: Request, res: Response): Promise<void> {
+    const { userId, groupId, isTeacher } = req.body;
+    try {
+      await UserService.addUserToGroup(userId, groupId, isTeacher);
+      res.status(200).json({ message: 'Utilisateur ajouté au groupe avec succès' });
+    } catch (error: any) {
+      res.status(500).json({ msgError: 'Erreur lors de l\'ajout de l\'utilisateur au groupe', errorDetail: error.detail });
+    }
+  }
 }
 
 export default UserController;

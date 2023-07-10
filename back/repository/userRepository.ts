@@ -6,7 +6,12 @@ class UserRepository {
     try {
       let c = await pool.connect()
       try {
-        const query = 'SELECT * FROM users';
+        const query = `
+  SELECT users.*, groups.group_id, groups.school_id
+  FROM users
+  LEFT JOIN study ON users.user_id = study.user_id
+  LEFT JOIN groups ON study.group_id = groups.group_id
+`;
         const result = await pool.query(query);
         return result.rows;
       } catch (error: unknown) {
@@ -23,7 +28,13 @@ class UserRepository {
     try {
       let c = await pool.connect()
       try {
-        const query = 'SELECT * FROM users WHERE user_id = $1';
+        const query = `
+  SELECT *
+  FROM users
+  LEFT JOIN study ON users.user_id = study.user_id
+  LEFT JOIN groups ON study.group_id = groups.group_id
+  WHERE users.user_id = $1
+`;
         const values = [userId];
         const result = await pool.query(query, values);
         return result.rows[0];
@@ -199,9 +210,6 @@ class UserRepository {
       throw new Error(`Unable to fetch users: ${error}`);
     }
   }
-  
-  
-
 }
 
 export default UserRepository;
