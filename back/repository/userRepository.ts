@@ -169,26 +169,32 @@ class UserRepository {
         const values: any[] = [];
         const conditions: string[] = [];
         let index = 1;
-        console.log(filters)
+
         for (const key in filters) {
           if (filters.hasOwnProperty(key) && filters[key as keyof User]) {
             if (key === 'instruments') {
-              conditions.push(`'[${filters[key]}]' = any(instruments)`);
-              index++
+              const instruments: string[] = filters[key] || [];
+              if (instruments.length > 0) {
+                const formattedInstruments = instruments.map(item => `'${item}'`).join(', ');
+                conditions.push(`instruments && ARRAY[${formattedInstruments}]`);
+              }
             } else {
               values.push(`${filters[key as keyof User]}%`);
               conditions.push(`${key} ILIKE $${index++}`);
             }
           }
         }
+
         let filteredQuery = query;
         if (conditions.length > 0) {
           filteredQuery += ' WHERE ' + conditions.join(' AND ');
         }
+
         console.log({ filteredQuery });
-  
+
         const result = await pool.query(filteredQuery, values);
         return result.rows;
+
       } catch (error: unknown) {
         throw new Error(`Unable to fetch users: ${error}`);
       } finally {
@@ -198,8 +204,8 @@ class UserRepository {
       throw new Error(`Unable to fetch users: ${error}`);
     }
   }
-  
-  
+
+
 
 }
 
