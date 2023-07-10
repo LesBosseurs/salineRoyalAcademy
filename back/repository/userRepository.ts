@@ -190,8 +190,6 @@ class UserRepository {
           filteredQuery += ' WHERE ' + conditions.join(' AND ');
         }
 
-        console.log({ filteredQuery });
-
         const result = await pool.query(filteredQuery, values);
         return result.rows;
 
