@@ -19,6 +19,14 @@ class MasterclassesService {
     }
   }
 
+  static async getMasterclassesByFilters(filters: Partial<Masterclass>): Promise<Masterclass[]> {
+    try {
+      return await MasterclassesRepository.getMasterclassesByFilters(filters);
+    } catch (error) {
+      throw new Error(`Unable to get masterclasses by Filters: ${error}`);
+    }
+  }
+
   static async createMasterclass(masterclass: Masterclass): Promise<void> {
     try {
       await MasterclassesRepository.createMasterclass(masterclass);
@@ -27,7 +35,7 @@ class MasterclassesService {
     }
   }
 
-  static async updateMasterclass(masterclassId: string, updatedMasterclass: Masterclass): Promise<void> {
+  static async updateMasterclass(masterclassId: number, updatedMasterclass: Masterclass): Promise<void> {
     try {
       await MasterclassesRepository.updateMasterclass(masterclassId, updatedMasterclass);
     } catch (error) {

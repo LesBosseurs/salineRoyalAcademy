@@ -11,7 +11,7 @@ export interface Masterclass {
 }
 
  export interface MasterclassMediaPeople {
-  masterclass_id: string;
+  masterclass_id: number;
   title: string;
   description: string;
   genre: string;
@@ -23,23 +23,22 @@ export interface Masterclass {
 }
 
 export interface Media {
-  media_id: string;
+  media_id: number;
   title: string;
   description: string;
   type: string;
   url: string;
-  oeuvre: Oeuvre[]
-
+  oeuvre: Oeuvre[];
 }
 
 export interface Oeuvre {
-  oeuvre_id: string;
+  oeuvre_id: number;
   title: string;
   people: People[];
 }
 
 export interface People {
-  people_id: string;
+  people_id: number;
   first_name: string;
   last_name: string;
   type: string;
@@ -145,6 +144,48 @@ class MasterclassesRepository {
       throw new Error(`Unable to fetch masterclass: ${error}`);
     }
   }
+
+  static async getMasterclassesByFilters(filters: Partial<Masterclass>): Promise<Masterclass[]> {
+    try {
+      let c = await pool.connect();
+      try {
+        const query = 'SELECT * FROM MASTERCLASSES';
+        const values: any[] = [];
+        const conditions: string[] = [];
+        let index = 1;
+        console.log(filters)
+        for (const key in filters) {
+          if (filters.hasOwnProperty(key) && filters[key as keyof Masterclass]) {
+            if (key === 'instruments') {
+              const instruments = filters[key as keyof Masterclass] as string[];
+              const instrumentConditions = instruments.map((instrument) => {
+                values.push(`${instrument}`);
+                return `$${index++} ILIKE any(instruments)`;
+              });
+              conditions.push(`(${instrumentConditions.join(' OR ')})`);
+            } else {
+              values.push(`${filters[key as keyof Masterclass]}%`);
+              conditions.push(`${key} ILIKE $${index++}`);
+            }
+          }
+        }
+        let filteredQuery = query;
+        if (conditions.length > 0) {
+          filteredQuery += ' WHERE ' + conditions.join(' AND ');
+        }
+        console.log({ filteredQuery });
+  
+        const result = await pool.query(filteredQuery, values);
+        return result.rows;
+      } catch (error: unknown) {
+        throw new Error(`Unable to fetch Masterclasses: ${error}`);
+      } finally {
+        c.release();
+      }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch Masterclasses: ${error}`);
+    }
+  }
   
   static async createMasterclass(masterclass: Masterclass): Promise<void> {
     try {
@@ -158,17 +199,17 @@ class MasterclassesRepository {
         masterclass.spoken_language,
       ];
       const query =
-        'INSERT INTO MASTERCLASSES (masterclass_id, title, description, genre, instruments, quote, published_date, spoken_language) VALUES ($1, $2, $3, $4, $5)';
+        'INSERT INTO MASTERCLASSES (title, description, genre, instruments, quote, published_date, spoken_language) VALUES ($1, $2, $3, $4, $5, $6, $7)';
       await pool.query(query, values);
     } catch (error: unknown) {
       throw new Error(`Unable to create masterclass: ${error}`);
     }
   }
 
-  static async updateMasterclass(masterclassId: string, updatedMasterclass: Masterclass): Promise<void> {
+  static async updateMasterclass(masterclassId: number, updatedMasterclass: Masterclass): Promise<void> {
     try {
       const query =
-        'UPDATE masterclasses SET title = $1, description = $2, quote = $3, genre = $4, instruments = $5, published_date = $6, spoken_date = $7  WHERE masterclass_id = $8';
+        'UPDATE MASTERCLASSES SET title = $1, description = $2, quote = $3, genre = $4, instruments = $5, published_date = $6, spoken_language = $7  WHERE masterclass_id = $8';
       const values = [
         updatedMasterclass.title,
         updatedMasterclass.description,
@@ -179,9 +220,10 @@ class MasterclassesRepository {
         updatedMasterclass.spoken_language,
         masterclassId
       ];
+      console.log(masterclassId)
       await pool.query(query, values);
     } catch (error: unknown) {
-      throw new Error(`Unable to update user: ${error}`);
+      throw new Error(`Unable to update masterclass: ${error}`);
     }
   }
 

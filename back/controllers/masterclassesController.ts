@@ -21,6 +21,18 @@ class MasterclassesController {
       }
     }
 
+    static async getMasterclassesByFilters(req: Request, res: Response): Promise<void> {
+      try {
+        const filters = req.query;
+  
+        const masterclasses = await MasterclassesService.getMasterclassesByFilters(filters);
+  
+        res.status(200).json({ success: true, message: 'Masterclasses retrieved successfully', data: masterclasses });
+      } catch (error: unknown) {
+        res.status(500).json({ success: false, message: 'Failed to retrieve masterclasses by Filters', error: error as Error });
+      }
+    }
+
     static async createMasterclass(req: Request, res: Response): Promise<void> {
       try {
         const masterclass = req.body;
@@ -33,7 +45,7 @@ class MasterclassesController {
 
     static async updateMasterclass(req: Request, res: Response): Promise<void> {
       try {
-        const masterclassId = req.params.id;
+        const masterclassId = Number(req.params.id);
         const updatedMasterclass = req.body;
         await MasterclassesService.updateMasterclass(masterclassId, updatedMasterclass);
         res.json({ success: true, message: 'Masterclass updated successfully' });
