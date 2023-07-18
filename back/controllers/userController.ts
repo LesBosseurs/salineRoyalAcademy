@@ -63,6 +63,8 @@ class UserController {
       const { email, password } = req.body;
 
       const myUser = await UserService.loginUser(email, password);
+      console.log(myUser)
+      console.log(process.env.JWT_SECRET)
 
       const token = jwt.sign({ id: myUser.user_id }, process.env.JWT_SECRET);
       res.cookie('access_token', token, {

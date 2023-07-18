@@ -11,7 +11,7 @@ export interface Masterclass {
 }
 
  export interface MasterclassMediaPeople {
-  masterclass_id: number;
+  masterclass_id: Number;
   title: string;
   description: string;
   genre: string;
@@ -23,7 +23,7 @@ export interface Masterclass {
 }
 
 export interface Media {
-  media_id: number;
+  media_id: Number;
   title: string;
   description: string;
   type: string;
@@ -32,17 +32,25 @@ export interface Media {
 }
 
 export interface Oeuvre {
-  oeuvre_id: number;
+  oeuvre_id: Number;
   title: string;
   people: People[];
 }
 
 export interface People {
-  people_id: number;
+  people_id: Number;
   first_name: string;
   last_name: string;
   type: string;
   image: string;
+}
+
+export interface SuiviMasterclass {
+  user_id: Number;
+  masterclass_id: Number;
+  start_date: Date;
+  is_validated: boolean;
+  view_number: Number;
 }
 
 
@@ -65,7 +73,32 @@ class MasterclassesRepository {
     }
   }
 
-  static async getMasterclassByID(masterclassId: string): Promise<MasterclassMediaPeople> {
+  static async getAllSuiviMasterclasses(user_id: Number): Promise<any[]> {
+    try {
+      const query = `
+        SELECT
+          masterclasses.*,
+          ARRAY_AGG(suivi_Masterclasses.start_date) AS start_dates,
+          ARRAY_AGG(suivi_Masterclasses.is_validated) AS is_validated_values,
+          ARRAY_AGG(suivi_Masterclasses.view_Number) AS view_Numbers
+        FROM
+          masterclasses
+        LEFT JOIN
+          suivi_Masterclasses ON masterclasses.masterclass_id = suivi_Masterclasses.masterclass_id
+        WHERE
+          suivi_Masterclasses.user_id = $1
+        GROUP BY
+          masterclasses.masterclass_id;`
+      ;
+      const values = [user_id];
+      const result = await pool.query(query, values);
+      return result.rows
+    } catch (error: unknown) {
+      throw new Error(`Unable to delete masterclass: ${error}`);
+    }
+  }
+
+  static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople> {
     try {
 
       // Récupérer les informations de base de la masterclass
@@ -206,7 +239,7 @@ class MasterclassesRepository {
     }
   }
 
-  static async updateMasterclass(masterclassId: number, updatedMasterclass: Masterclass): Promise<void> {
+  static async updateMasterclass(masterclassId: Number, updatedMasterclass: Masterclass): Promise<void> {
     try {
       const query =
         'UPDATE MASTERCLASSES SET title = $1, description = $2, quote = $3, genre = $4, instruments = $5, published_date = $6, spoken_language = $7  WHERE masterclass_id = $8';
@@ -236,6 +269,40 @@ class MasterclassesRepository {
       throw new Error(`Unable to delete masterclass: ${error}`);
     }
   }
+
+  static async getSuiviMasterclassByUser(user_id: Number, masterclass_id: Number): Promise<SuiviMasterclass> {
+    try {
+      let insertValues: any;
+      let query: string;
+      query = `
+        SELECT *
+        FROM suivi_Masterclasses
+        WHERE user_id = $1 AND masterclass_id = $2;`;
+      let values = [user_id, masterclass_id];
+      let result = (await pool.query(query, values))/* .rows[0] */;
+      if (result.rows.length === 0) {
+        query = `
+          INSERT INTO suivi_Masterclasses (user_id, masterclass_id, start_date, is_validated, view_number)
+          VALUES ($1, $2, $3, $4, $5);`;
+        insertValues = [user_id, masterclass_id, new Date(), false, 1];
+      } else {
+        query = `
+          UPDATE suivi_Masterclasses
+          SET start_date = $3, is_validated = $4, view_number = $5
+          WHERE user_id = $1 AND masterclass_id = $2;`;
+        result.rows[0].view_number += 1;
+        insertValues = result.rows[0];
+      }
+      console.log(query)
+      await pool.query(query, Object.values(insertValues));
+      return insertValues;
+    } catch (error: unknown) {
+      throw new Error(`Unable to get or create suivi_masterclass: ${error}`);
+    }
+  }
+  
+
+  
 
 }
 

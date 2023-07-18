@@ -1,4 +1,4 @@
-import MasterclassesRepository, { Masterclass, MasterclassMediaPeople } from '../repository/masterclassesRepository';
+import MasterclassesRepository, { Masterclass, MasterclassMediaPeople, SuiviMasterclass } from '../repository/masterclassesRepository';
 import pool from "../db/database";
 
 class MasterclassesService {
@@ -11,7 +11,15 @@ class MasterclassesService {
     }
   }
 
-  static async getMasterclassByID(masterclassId: string): Promise<MasterclassMediaPeople> {
+  static async getAllSuiviMasterclasses(user_id:Number): Promise<any[]> {
+    try {
+      return await MasterclassesRepository.getAllSuiviMasterclasses(user_id);
+    } catch (error) {
+      throw new Error(`Unable to get masterclasses: ${error}`);
+    }
+  }
+
+  static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople> {
     try {
       return await MasterclassesRepository.getMasterclassByID(masterclassId);
     } catch (error: unknown) {
@@ -35,7 +43,7 @@ class MasterclassesService {
     }
   }
 
-  static async updateMasterclass(masterclassId: number, updatedMasterclass: Masterclass): Promise<void> {
+  static async updateMasterclass(masterclassId: Number, updatedMasterclass: Masterclass): Promise<void> {
     try {
       await MasterclassesRepository.updateMasterclass(masterclassId, updatedMasterclass);
     } catch (error) {
@@ -50,6 +58,16 @@ class MasterclassesService {
       throw new Error(`Unable to delete Masterclass: ${error}`);
     }
   }
+
+  static async getSuiviMasterclassByUser(user_id:Number, masterclass_id:Number): Promise<SuiviMasterclass> {
+    try {
+      return await MasterclassesRepository.getSuiviMasterclassByUser(user_id, masterclass_id);
+    } catch (error) {
+      throw new Error(`Unable to get masterclasses: ${error}`);
+    }
+  }
+
+  
 
 }
 
