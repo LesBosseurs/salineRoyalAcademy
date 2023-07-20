@@ -1,0 +1,67 @@
+@import '../../variables.scss';
+@import './nav';
+@import './hero';
+@import './expertise';
+@import './expertise_element';
+@import './statistics';
+@import './suggestion';
+@import './coming_soon';
+@import './FAQ';
+@import './partners';
+@import './footer';
+
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: -20px;
+    padding: 100px 0;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      padding: 200px 0;
+    }
+
+    > span:first-of-type {
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      background-color: $primary-yellow;
+      opacity: 0.6;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        height: 100px;
+        width: 100px;
+      }
+    }
+
+    > span:last-of-type {
+      @include info-semi-bold;
+      color: #000;
+      width: 90px;
+      transform: translateX(-25px);
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        @include subtitle;
+        width: 170px;
+        transform: translateX(-50px);
+      }
+    }
+
+    > svg {
+      transform: translateX(-30px);
+      width: 35px;
+      height: 35px;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        transform: translateX(-40px);
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+}

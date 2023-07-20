@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import style from '../styles/components/ArticleCard.module.scss';
-import fonts from '../styles/fonts.module.scss';
 
 type ArticleCardProps = {
   instrument: string;
@@ -43,7 +42,7 @@ export default function ArticleCard({
           />
         </div>
       </div>
-      <p className={fonts.info_semi_bold}>{title}</p>
+      <p>{title}</p>
       <div>
         <Image
           src="/prov/profile-picture.jpeg"
@@ -52,8 +51,7 @@ export default function ArticleCard({
           height={20}
         />
         <p>
-          <span className={fonts.info_semi_bold}>{author}</span> ·{' '}
-          <span className={fonts.info_regular}>{formatDate(date)}</span>
+          <span>{author}</span> · <span>{formatDate(date)}</span>
         </p>
       </div>
     </div>

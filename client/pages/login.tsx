@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react';
 import style from '../styles/pages/auth.module.scss';
-import fonts from '../styles/fonts.module.scss';
 import FormField from '@/components/FormField';
 import Button from '@/components/Button';
 import Link from 'next/link';
@@ -32,8 +31,8 @@ export default function Login() {
           <div className={style.first_line}></div>
           <div className={style.second_line}></div>
           <div className={style.head_mobile}>
-            <h1 className={fonts.head}>Sign in</h1>
-            <p className={fonts.paragraph_regular}>Log in to your account</p>
+            <h1>Sign in</h1>
+            <p>Log in to your account</p>
           </div>
           <div className={style.circle}>
             <div className={style.first_line}></div>
@@ -47,7 +46,7 @@ export default function Login() {
             <div className={style.second_line}></div>
           </div>
           <div className={style.sign_other_service_desktop}>
-            <span className={fonts.paragraph_medium}>Or sign in with</span>
+            <span>Or sign in with</span>
             <div>
               <button>
                 <Image
@@ -74,8 +73,8 @@ export default function Login() {
       <div>
         <form onSubmit={handleSubmit}>
           <div className={style.desktop_title}>
-            <h1 className={fonts.title_regular}>Sign in</h1>
-            <p className={fonts.paragraph_regular}>Log in to your account</p>
+            <h1>Sign in</h1>
+            <p>Log in to your account</p>
           </div>
           <FormField
             label="email"
@@ -93,17 +92,14 @@ export default function Login() {
               setFormData(value);
             }}
           />
-          <a className={fonts.paragraph_semi_bold}>Forgot password?</a>
+          <Link href="">Forgot password?</Link>
           <Button size="lg">Login</Button>
-          <p className={fonts.paragraph_medium}>
-            Don’t have an account?{' '}
-            <Link href="/register" className={fonts.paragraph_semi_bold}>
-              Register
-            </Link>
+          <p>
+            Don’t have an account? <Link href="/register">Register</Link>
           </p>
         </form>
         <div className={style.sign_other_service_mobile}>
-          <span className={fonts.paragraph_medium}>Or sign in with</span>
+          <span>Or sign in with</span>
           <div>
             <button>
               <Image src="/icons/fb.svg" alt="me" width="25" height="25" />
@@ -114,11 +110,9 @@ export default function Login() {
               <span>Google</span>
             </button>
           </div>
-          <p className={fonts.paragraph_medium}>
-            You don't have an account?{' '}
-            <Link href="/register" className={fonts.paragraph_semi_bold}>
-              Register
-            </Link>
+          <p>
+            You don&apos;t have an account?
+            <Link href="/register">Register</Link>
           </p>
         </div>
       </div>

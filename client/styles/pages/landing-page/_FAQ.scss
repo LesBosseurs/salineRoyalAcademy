@@ -1,0 +1,93 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.landingPage {
+  .faq_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
+    padding: 0 15px;
+    gap: 30px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      padding: 0 90px;
+      gap: 45px;
+    }
+
+    > h2 {
+      @include title-regular;
+      display: flex;
+      align-self: center;
+      text-align: center;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        @include head;
+        padding-bottom: 45px;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        gap: 30px;
+      }
+
+      > h3 {
+        @include lead;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $primary-yellow;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          @include subtitle-straight;
+          gap: 10px;
+        }
+
+        > svg {
+          height: 25px;
+          width: 25px;
+        }
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          padding: 0 45px;
+          gap: 30px;
+        }
+
+        > .question_container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 15px;
+          background-color: $secondary-gray-light;
+          border-radius: 20px;
+          @include paragraph-regular;
+
+          @media screen and (min-width: $breakpoint-laptop) {
+            @include link;
+          }
+
+          > p {
+            color: $secondary-gray;
+
+            > a {
+              color: $primary-yellow;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
