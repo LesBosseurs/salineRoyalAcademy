@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import style from '../../styles/components/common/Header.module.scss';
-import fonts from '../../styles/fonts.module.scss';
 
 type HeaderProps = {
   name: string;
@@ -9,7 +8,7 @@ type HeaderProps = {
 export default function Header({ name }: HeaderProps) {
   return (
     <header className={style.header}>
-      <h1 className={fonts.subtitle}>{name}</h1>
+      <h1>{name}</h1>
       <div>
         <button className={style.notifications}>
           <Image

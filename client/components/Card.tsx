@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import style from '../styles/components/Card.module.scss';
-import fonts from '../styles/fonts.module.scss';
 
 interface CardProps {
   children: React.ReactNode;
@@ -17,10 +17,8 @@ export default function Card({
   return (
     <section className={style.section}>
       <div className={style.header_card}>
-        <h2 className={fonts.lead}>{title}</h2>
-        <a href={hrefLink} className={fonts.paragraph_semi_bold}>
-          {textLink}
-        </a>
+        <h2>{title}</h2>
+        <Link href={hrefLink}>{textLink}</Link>
       </div>
       <div className={style.card}>{children}</div>
     </section>

@@ -1,0 +1,288 @@
+.landingPage {
+  .suggestion {
+    width: 100%;
+    max-width: 1440px;
+    padding: 100px 15px 0 15px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      padding: 50px 15px 0 15px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      padding: 200px 90px 0 90px;
+    }
+
+    > h2 {
+      @include title-regular;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        @include head;
+      }
+    }
+
+    > .carousel_instruments {
+      margin: 20px 0 40px;
+      width: 100%;
+      overflow: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .intruments_container {
+        display: flex;
+        gap: 15px;
+        padding: 4px;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          gap: 20px;
+        }
+
+        .instrument_card {
+          display: flex;
+          box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          padding: 5px 8px;
+          gap: 8px;
+          align-items: center;
+
+          > div {
+            background-color: #80017f;
+            border-radius: 100%;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > svg {
+              height: 18px;
+              width: 18px;
+            }
+          }
+
+          > span {
+            @include paragraph-semi-bold;
+            white-space: nowrap;
+
+            @media screen and (min-width: $breakpoint-laptop) {
+              @include lead;
+            }
+          }
+        }
+      }
+    }
+
+    > .courses_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 45px 15px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+      gap: 30px;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        flex-direction: row;
+        padding: 20px 25px;
+      }
+
+      > div:first-of-type {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 160px;
+        border-bottom: 1px solid $secondary-gray-light;
+        gap: 15px;
+        padding-bottom: 15px;
+        aspect-ratio: 3/4;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          border: none;
+          padding: 0;
+          width: auto;
+        }
+
+        > div.pic {
+          width: 160px;
+          height: 160px;
+          border-radius: 100%;
+          background-image: url('/prov/profile-picture.jpeg');
+          background-size: cover;
+          background-position: center;
+
+          @media screen and (min-width: $breakpoint-tablet) {
+            height: 100%;
+            border-radius: 20px;
+          }
+        }
+
+        > h3 {
+          @include label-semi-bold;
+
+          @media screen and (min-width: $breakpoint-tablet) {
+            display: none;
+          }
+        }
+
+        h4 {
+          @include paragraph-medium;
+
+          @media screen and (min-width: $breakpoint-tablet) {
+            display: none;
+          }
+        }
+      }
+
+      > div:last-of-type {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        > .head_courses_container {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          h3 {
+            display: none;
+
+            @media screen and (min-width: $breakpoint-tablet) {
+              display: flex;
+              @include title-regular;
+            }
+          }
+
+          > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 30px;
+
+            > h4 {
+              display: none;
+
+              @media screen and (min-width: $breakpoint-tablet) {
+                display: flex;
+                @include subtitle;
+              }
+            }
+
+            > a:first-of-type {
+              @include paragraph-semi-bold;
+              color: $primary-yellow;
+
+              @media screen and (min-width: $breakpoint-tablet) {
+                padding: 0;
+              }
+            }
+          }
+        }
+
+        > .courses_container {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          @media screen and (min-width: $breakpoint-mobile) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+
+          @media screen and (min-width: $breakpoint-mobile) {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        > a:last-of-type {
+          display: flex;
+          align-items: center;
+          margin-top: 30px;
+          text-decoration: none;
+          margin-right: -20px;
+
+          @media screen and (max-width: $breakpoint-tablet) {
+            display: none;
+          }
+
+          @media screen and (min-width: $breakpoint-tablet) {
+            align-self: center;
+          }
+
+          > span:first-of-type {
+            height: 45px;
+            width: 45px;
+            border-radius: 100%;
+            background-color: $primary-yellow;
+            opacity: 0.6;
+
+            @media screen and (min-width: $breakpoint-tablet) {
+              height: 70px;
+              width: 70px;
+            }
+          }
+
+          > span:last-of-type {
+            @include info-semi-bold;
+            color: #000;
+            width: 120px;
+            transform: translateX(-20px);
+
+            @media screen and (min-width: $breakpoint-tablet) {
+              transform: translateX(-35px);
+              @include lead;
+              width: 180px;
+            }
+          }
+
+          > svg {
+            transform: translateX(-20px);
+            width: 25px;
+            height: 25px;
+
+            @media screen and (min-width: $breakpoint-tablet) {
+              transform: translateX(-35px);
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      > a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        margin-right: -20px;
+
+        @media screen and (min-width: $breakpoint-tablet) {
+          display: none;
+        }
+
+        > span:first-of-type {
+          height: 45px;
+          width: 45px;
+          border-radius: 100%;
+          background-color: $primary-yellow;
+          opacity: 0.6;
+        }
+
+        > span:last-of-type {
+          @include info-semi-bold;
+          color: #000;
+          width: 120px;
+          transform: translateX(-20px);
+        }
+
+        > svg {
+          transform: translateX(-20px);
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+}
