@@ -1,0 +1,61 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.landingPage {
+  > section.partners {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+    padding: 100px 15px;
+    box-sizing: border-box;
+    align-items: center;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      padding: 200px 0 100px 0;
+    }
+
+    > h2 {
+      @include title-regular;
+      display: flex;
+      align-self: center;
+      text-align: center;
+      padding-bottom: 45px;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        @include head;
+      }
+    }
+
+    > div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      width: 100%;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        max-width: 425px;
+      }
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 700px;
+      }
+
+      > .partner_bloc {
+        width: 100%;
+        aspect-ratio: 2/3;
+        border-radius: 20px;
+        background-color: $primary-yellow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > img {
+          width: 85%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

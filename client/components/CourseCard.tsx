@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import style from '../styles/components/CourseCard.module.scss';
-import fonts from '../styles/fonts.module.scss';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import InstrumentIcon from './InstrumentIcon';
 
 type CourseCardProps = {
   title: string;
   professor: string;
   difficulty: number;
-  actualChapter: string;
+  actualChapter: string | null;
+  pourcentage: number | null;
 };
 
 export default function CourseCard({
@@ -14,6 +17,7 @@ export default function CourseCard({
   professor,
   difficulty,
   actualChapter,
+  pourcentage,
 }: CourseCardProps) {
   const difficultyList = ['Easy', 'Medium', 'Hard'];
 
@@ -21,12 +25,7 @@ export default function CourseCard({
     <div className={style.course_card}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
-          <Image
-            src="/icons/piano.svg"
-            alt="piano icon"
-            height="16"
-            width="16"
-          />
+          <InstrumentIcon instrument="Piano" fill="#fff" />
         </div>
         <div className={style.progress_bar}>
           <div></div>
@@ -34,14 +33,32 @@ export default function CourseCard({
       </div>
       <div className={style.description}>
         <div>
-          <span className={fonts.paragraph_medium}>{title}</span>
-          <span className={fonts.info_semi_bold}>{professor}</span>
+          <div>
+            <div className={style.instrument}>
+              <InstrumentIcon instrument="Piano" fill="#fff" />
+            </div>
+            <span>{title}</span>
+          </div>
+          <span>{professor}</span>
         </div>
         <div>
+          {actualChapter ? <span>{actualChapter}</span> : ''}
           <span className={style.tag}>{difficultyList[difficulty]}</span>
-          <span className={fonts.info_semi_bold}>{actualChapter}</span>
         </div>
       </div>
+      {pourcentage ? (
+        <CircularProgressbar
+          styles={buildStyles({
+            textColor: '#000',
+            pathColor: '#b18b36',
+            trailColor: 'white',
+          })}
+          value={pourcentage}
+          text={`${pourcentage}%`}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 }

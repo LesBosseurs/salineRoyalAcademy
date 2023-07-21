@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import style from '../styles/components/CompetitionCard.module.scss';
-import fonts from '../styles/fonts.module.scss';
 import MedalIcon from '@/public/icons/medal';
 
 type CompetitionCardProps = {
@@ -29,13 +28,13 @@ export default function CompetitionCard({
             width={11}
           />
         </div>
-        <span className={fonts.paragraph_semi_bold}>{title}</span>
+        <span>{title}</span>
       </div>
       <div>
         <ul>
           <li>
             <Image src="/icons/ping.svg" alt="icon " height={16} width={16} />
-            <span className={fonts.info_regular}>{place}</span>
+            <span>{place}</span>
           </li>
           <li>
             <Image
@@ -44,11 +43,11 @@ export default function CompetitionCard({
               height={16}
               width={16}
             />
-            <span className={fonts.info_regular}>{/* date */}</span>
+            <span>{/* date */}</span>
           </li>
           <li>
             <MedalIcon fill="#000" />
-            <span className={fonts.info_regular}>{award}</span>
+            <span>{award}</span>
           </li>
         </ul>
       </div>

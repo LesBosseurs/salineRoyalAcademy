@@ -1,0 +1,210 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.landingPage {
+  > section.hero {
+    width: calc(100% - 20px);
+    max-width: 1440px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0px 15px;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      justify-content: space-between;
+      height: 800px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 1200px) {
+      height: 600px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      padding: 0px 90px;
+    }
+
+    @media screen and (max-width: $breakpoint-laptop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      background-color: #000;
+      position: relative;
+      border-radius: 0 0 1000px 1000px;
+      overflow: hidden;
+      height: 600px;
+      display: flex;
+    }
+
+    > div:first-of-type {
+      > div:first-of-type {
+        display: flex;
+        flex-direction: column;
+        height: 65%;
+        z-index: 3;
+
+        @media screen and (max-width: $breakpoint-mobile) {
+          padding-top: 30px;
+          justify-content: space-around;
+          height: 60%;
+        }
+
+        @media screen and (min-width: $breakpoint-mobile) and (max-width: 1200px) {
+          height: 100%;
+          gap: 80px;
+          justify-content: center;
+        }
+
+        @media screen and (min-width: 1200px) {
+          height: 100%;
+          gap: 100px;
+          justify-content: center;
+        }
+
+        > div:first-of-type {
+          color: #fff;
+          @media screen and (min-width: $breakpoint-mobile) {
+            color: #000;
+          }
+
+          > h1 {
+            white-space: nowrap;
+            @include title_regular;
+
+            @media screen and (min-width: $breakpoint-mobile) and (max-width: 1200px) {
+              font-size: 5vw;
+            }
+
+            @media screen and (min-width: $breakpoint-mobile) {
+              font-size: 7vw;
+            }
+
+            @media screen and (min-width: $breakpoint-desktop) {
+              font-size: 96px;
+              font-family: 'Lora', serif;
+            }
+          }
+
+          > h1:first-of-type {
+            font-weight: 200;
+          }
+
+          > h1:nth-of-type(2) {
+            color: $primary-yellow;
+            font-weight: 600;
+          }
+
+          > h1:last-of-type {
+            font-weight: 600;
+          }
+        }
+
+        > a {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+
+          > span:first-of-type {
+            height: 40px;
+            width: 40px;
+            background-color: $primary-yellow;
+            opacity: 0.6;
+            display: block;
+            border-radius: 100%;
+          }
+
+          > span:last-of-type {
+            color: #fff;
+            transform: translateX(-20px);
+            @include info_regular;
+
+            @media screen and (min-width: $breakpoint-mobile) {
+              color: #000;
+              font-size: 20px;
+              font-weight: 500;
+              font-family: 'Lato', sans-serif;
+            }
+          }
+
+          svg {
+            transform: translateX(-20px);
+            width: 25px;
+            padding-left: 15px;
+
+            @media screen and (min-width: $breakpoint-mobile) {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      > img {
+        position: absolute;
+        bottom: -50px;
+        z-index: 2;
+        width: 350px;
+        right: 0px;
+
+        @media screen and (min-width: $breakpoint-mobile) {
+          display: none;
+        }
+      }
+
+      > div:last-of-type {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        gap: 30px;
+        bottom: -100px;
+        right: 0px;
+        transform: rotateZ(55deg);
+
+        @media screen and (min-width: $breakpoint-mobile) {
+          display: none;
+        }
+
+        span.line {
+          background-color: $secondary-gray-dark;
+          width: 50px;
+          height: 600px;
+          display: block;
+        }
+      }
+    }
+
+    > div:last-of-type {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-right: -30px;
+      right: -50px;
+
+      > img {
+        position: absolute;
+        height: 850px;
+        width: 690px;
+        right: -60px;
+
+        @media screen and (max-width: 1200px) {
+          width: 520px;
+          height: 640px;
+          right: -30px;
+        }
+
+        @media screen and (max-width: 1200px) {
+          width: 520px;
+          height: 640px;
+          right: -30px;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        display: none;
+      }
+    }
+  }
+}

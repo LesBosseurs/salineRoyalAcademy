@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.landingPage {
+  > section.expertise {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+    padding: 100px 15px 0 15px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      padding: 50px 15px 0 15px;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      padding: 50px 90px 0 90px;
+    }
+
+    > h2 {
+      @include title-regular;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        @include head;
+      }
+    }
+
+    > p {
+      padding: 15px 0 45px 0;
+      @include paragraph-medium;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        @include lead;
+      }
+    }
+
+    > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}

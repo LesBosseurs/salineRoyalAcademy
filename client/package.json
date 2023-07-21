@@ -17,8 +17,10 @@
     "eslint-config-next": "13.4.5",
     "next": "13.4.5",
     "react": "18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "18.2.0",
     "sass": "^1.63.6",
+    "swiper": "^10.0.4",
     "typescript": "5.1.3"
   }
 }
