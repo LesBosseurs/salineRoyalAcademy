@@ -1,34 +1,35 @@
 @import '../variables.scss';
+@import '../fonts.scss';
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 28% 1fr;
   height: 100vh;
 
   @media screen and (min-width: $breakpoint-desktop) {
     grid-template-columns: 800px 1fr;
   }
 
-  @media screen and (max-width: $breakpoint-laptop) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 28% 1fr;
+  @media screen and (min-width: $breakpoint-laptop) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 
   div.sign_other_service_desktop {
-    @media screen and (max-width: $breakpoint-laptop) {
-      display: none;
+    @media screen and (min-width: $breakpoint-laptop) {
+      display: flex;
     }
   }
 
   div.sign_other_service_mobile {
-    @media screen and (min-width: $breakpoint-laptop) {
-      display: none;
+    @media screen and (max-width: $breakpoint-laptop) {
+      display: flex;
     }
   }
 
   .sign_other_service_mobile,
   .sign_other_service_desktop {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -41,7 +42,8 @@
     max-width: 350px;
 
     > span {
-      color: $secondary-white;
+      @include paragraph-semi-bold;
+      color: #111;
       display: flex;
       width: 100%;
       white-space: nowrap;
@@ -49,8 +51,8 @@
       align-items: center;
       gap: 10px;
 
-      @media screen and (max-width: $breakpoint-laptop) {
-        color: #111;
+      @media screen and (min-width: $breakpoint-laptop) {
+        color: $secondary-white;
       }
 
       &::after,
@@ -99,8 +101,11 @@
     }
 
     > p:last-of-type {
+      @include info-regular;
+      display: flex;
       text-align: center;
       margin-top: -5px;
+      gap: 3px;
 
       a {
         color: $primary-yellow;
@@ -118,10 +123,15 @@
       position: absolute;
       bottom: 0;
       background-color: $secondary-dark;
-      height: 40%;
+      height: 100%;
       width: 100%;
 
+      @media screen and (min-width: $breakpoint-laptop) {
+        height: 40%;
+      }
+
       > .line {
+        display: flex;
         position: absolute;
         width: 18%;
         height: 200%;
@@ -147,7 +157,7 @@
       }
 
       > .head_mobile {
-        display: none;
+        display: flex;
         flex-direction: column;
         gap: 10px;
         position: absolute;
@@ -155,21 +165,18 @@
         left: 30px;
 
         > h1 {
+          @include head;
           color: $secondary-white;
         }
 
         > p {
+          @include paragraph-medium;
           color: $primary-yellow;
         }
 
-        @media screen and (max-width: $breakpoint-laptop) {
-          display: flex;
+        @media screen and (min-width: $breakpoint-laptop) {
+          display: none;
         }
-      }
-
-      @media screen and (max-width: $breakpoint-laptop) {
-        height: 100%;
-        background-color: #111;
       }
 
       > .circle {
@@ -182,9 +189,10 @@
         aspect-ratio: 1/1;
         border-radius: 100%;
         z-index: 2;
+        display: none;
 
-        @media screen and (max-width: $breakpoint-laptop) {
-          display: none;
+        @media screen and (min-width: $breakpoint-laptop) {
+          display: flex;
         }
 
         > .circle {
@@ -235,10 +243,7 @@
     background-size: 180%;
     background-repeat: no-repeat;
     background-position: center 6vh;
-
-    @media screen and (max-width: $breakpoint-laptop) {
-      padding: 30px;
-    }
+    padding: 30px;
 
     @media screen and (min-width: $breakpoint-laptop) {
       justify-content: center;
@@ -253,14 +258,30 @@
       width: 100%;
       max-width: 480px;
 
+      > .terms {
+        @include paragraph-medium;
+      }
+
       > div:not(.terms) {
         display: flex;
         flex-direction: column;
         gap: 12px;
 
-        @media screen and (max-width: $breakpoint-laptop) {
+        &.desktop_title {
+          display: none;
+        }
+
+        @media screen and (min-width: $breakpoint-laptop) {
           &.desktop_title {
-            display: none;
+            display: flex;
+
+            > h1 {
+              @include title-regular;
+            }
+
+            > p {
+              @include paragraph-regular;
+            }
           }
         }
 
@@ -278,6 +299,7 @@
       }
 
       > a:first-of-type {
+        @include paragraph-medium;
         padding: 25px 0;
         display: flex;
         align-self: flex-end;
@@ -286,12 +308,12 @@
 
       > .terms {
         display: flex;
-        padding: 40px 0;
+        padding: 25px 0;
         gap: 10px;
         align-items: center;
 
-        @media screen and (max-width: $breakpoint-laptop) {
-          padding: 25px 0;
+        @media screen and (min-width: $breakpoint-laptop) {
+          padding: 40px 0;
         }
 
         > input {
@@ -305,11 +327,14 @@
       }
 
       > p:last-of-type {
+        @include paragraph-medium;
         padding-top: 20px;
         text-align: center;
+        display: none;
+        gap: 3px;
 
-        @media screen and (max-width: $breakpoint-laptop) {
-          display: none;
+        @media screen and (min-width: $breakpoint-laptop) {
+          display: flex;
         }
 
         a {

@@ -1,12 +1,12 @@
 @import '../variables.scss';
-@import '../fonts.module.scss';
+@import '../fonts.scss';
 
 .FormField {
   position: relative;
   padding-top: 8px;
 
   label {
-    @extend .paragraph_medium;
+    @include paragraph_medium;
     position: absolute;
     left: 10px;
     transform: translateY(-50%);
@@ -16,7 +16,7 @@
   }
 
   input {
-    @extend .paragraph_medium;
+    @include paragraph_medium;
     height: 60px;
     border-radius: 10px;
     width: 100%;
