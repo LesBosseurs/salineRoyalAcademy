@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Group } from '../modele/group';
-import { GroupService } from '../service/groupService';
+import GroupService from '../service/groupService';
 
 export class GroupController {
 

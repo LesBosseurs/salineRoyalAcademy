@@ -1,29 +1,46 @@
 import { Group } from "../modele/group";
 import { GroupRepository } from "../repository/groupeRepository";
-export class GroupService {
+class GroupService {
+  static async getAllGroups(): Promise<Group[]> {
+    try {
+      return await GroupRepository.getAllGroups();
+    } catch (error: unknown) {
+      throw new Error(`Unable to get all Groups: ${error}`);
+    }
+  }
+
+  static async getGroupById(groupId: number): Promise<Group> {
+    try {
+      return await GroupRepository.getGroupById(groupId);
+    } catch (error: unknown) {
+      throw new Error(`Unable to get Group by ID: ${error}`);
+    }
+  }
 
   static async createGroup(group: Group): Promise<Group> {
-    // Votre logique de création de groupe ici
-    return GroupRepository.createGroup(group);
-  }
-
-  static async getGroupById(groupId: number): Promise<Group | null> {
-    // Votre logique de récupération de groupe par ID ici
-    return GroupRepository.getGroupById(groupId);
-  }
-
-  static async getAllGroups(): Promise<Group[]> {
-    // Votre logique de récupération de tous les groupes ici
-    return GroupRepository.getAllGroups();
+    try {
+      return await GroupRepository.createGroup(group);
+    } catch (error: unknown) {
+      throw new Error(`Unable to create a Group: ${error}`);
+    }
   }
 
   static async updateGroup(groupId: number, updatedGroup: Group): Promise<void> {
-    // Votre logique de mise à jour de groupe ici
-    return GroupRepository.updateGroup(groupId, updatedGroup);
+    try {
+      await GroupRepository.updateGroup(groupId, updatedGroup);
+    } catch (error) {
+      throw new Error(`Unable to update Group: ${error}`);
+    }
   }
 
   static async deleteGroup(groupId: number): Promise<void> {
-    // Votre logique de suppression de groupe ici
-    return GroupRepository.deleteGroup(groupId);
+    try {
+      await GroupRepository.deleteGroup(groupId);
+    } catch (error) {
+      throw new Error(`Unable to delete Group: ${error}`);
+    }
   }
+
 }
+
+export default GroupService
