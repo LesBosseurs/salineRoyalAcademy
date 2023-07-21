@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import style from '../../styles/components/common/NavLeft.module.scss';
-import fonts from '../../styles/fonts.module.scss';
 import { useRouter } from 'next/router';
 import HomeIcon from '@/public/icons/home';
 import CapIcon from '@/public/icons/cap';
 import MedalIcon from '@/public/icons/medal';
 import MessagesIcon from '@/public/icons/messages';
 import SettingsIcon from '@/public/icons/settings';
+import Link from 'next/link';
 
 export default function NavLeft() {
   const router = useRouter();
@@ -20,27 +20,27 @@ export default function NavLeft() {
         width="160"
         height="40"
       />
-      <ul className={fonts.paragraph_medium}>
+      <ul>
         <li>
-          <a href="/dashboard">
+          <Link href="/dashboard">
             <HomeIcon fill={pathname === '/dashboard' ? '#b18b36' : '#000'} />
             <span className={pathname === '/dashboard' ? style.active : '#000'}>
               Dashboard
             </span>
-          </a>
+          </Link>
           {pathname === '/dashboard' ? <div></div> : ''}
         </li>
         <li>
-          <a href="/courses">
+          <Link href="/courses">
             <CapIcon fill={pathname === '/courses' ? '#b18b36' : '#000'} />
             <span className={pathname === '/courses' ? style.active : '#000'}>
               Courses
             </span>
-          </a>
+          </Link>
           {pathname === '/courses' ? <div></div> : ''}
         </li>
         <li>
-          <a href="/competitions">
+          <Link href="/competitions">
             <MedalIcon
               fill={pathname === '/competitions' ? '#b18b36' : '#000'}
             />
@@ -49,33 +49,33 @@ export default function NavLeft() {
             >
               Compétitions
             </span>
-          </a>
+          </Link>
           {pathname === '/competitions' ? <div></div> : ''}
         </li>
         <li>
-          <a href="/forum">
+          <Link href="/forum">
             <MessagesIcon
               fill={pathname === '/competitions' ? '#b18b36' : '#000'}
             />
             <span className={pathname === '/forum' ? style.active : '#000'}>
               Forum
             </span>
-          </a>
+          </Link>
           {pathname === '/forum' ? <div></div> : ''}
         </li>
         <li>
-          <a href="/settings">
+          <Link href="/settings">
             <SettingsIcon
               fill={pathname === '/settings' ? '#b18b36' : '#000'}
             />
             <span className={pathname === '/settings' ? style.active : '#000'}>
               Settings
             </span>
-          </a>
+          </Link>
           {pathname === '/settings' ? <div></div> : ''}
         </li>
       </ul>
-      <div className={fonts.paragraph_medium}>
+      <div>
         <Image
           src="/icons/disconnect.svg"
           alt="home icon"

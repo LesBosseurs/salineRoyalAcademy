@@ -1,0 +1,108 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.landingPage {
+  > nav {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    max-width: 1440px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      padding: 25px 90px;
+    }
+
+    a {
+      @include lead;
+    }
+
+    > div:first-of-type {
+      display: flex;
+      align-items: center;
+      z-index: 3;
+
+      svg {
+        height: 32px;
+        width: 130px;
+      }
+
+      > ul {
+        display: none;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          display: flex;
+          gap: 40px;
+          padding-left: 40px;
+          align-items: center;
+
+          > span {
+            height: 20px;
+            width: 1.5px;
+            background-color: #000;
+          }
+
+          a {
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
+    }
+
+    > div:nth-of-type(2) {
+      display: none;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+
+    > .burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 35px;
+      height: 20px;
+      transition: all 0.35s ease-in-out;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        display: none;
+      }
+
+      &.menuActive {
+        transform: rotateY(180deg) translateX(25%);
+      }
+
+      > span {
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.35s ease-in-out;
+        transform-origin: 0;
+
+        &.active:first-of-type {
+          transform: rotateZ(45deg);
+          width: 70%;
+        }
+
+        &.active:last-of-type {
+          transform: rotateZ(-45deg);
+          width: 70%;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/dashboard.module.scss';
 import CardContainerStyle from '../styles/components/CardContainer.module.scss';
-import fonts from '../styles/fonts.module.scss';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import Card from '@/components/Card';
@@ -19,10 +18,8 @@ export default function Dashboard() {
         <section className={style.card_premium}>
           <div>
             <div>
-              <h2 className={fonts.title_regular}>Go Premium</h2>
-              <p className={fonts.paragraph_regular}>
-                Explore 100+ courses with our professors
-              </p>
+              <h2>Go Premium</h2>
+              <p>Explore 100+ courses with our professors</p>
             </div>
             <Button size="md">Start now</Button>
           </div>
