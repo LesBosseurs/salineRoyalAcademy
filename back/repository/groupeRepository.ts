@@ -24,7 +24,7 @@ export class GroupRepository {
     }
   }
 
-  static async getGroupById(groupId: number): Promise<Group | null> {
+  static async getGroupById(groupId: number): Promise<Group> {
     try {
       const c = await pool.connect();
       try {
@@ -34,7 +34,7 @@ export class GroupRepository {
         `;
         const values = [groupId];
         const result = await pool.query(query, values);
-        return result.rows[0] || null;
+        return result.rows[0];
       } catch (error) {
         throw new Error(`Unable to fetch group: ${error}`);
       } finally {
