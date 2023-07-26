@@ -9,7 +9,7 @@ type CourseCardProps = {
   professor: string;
   difficulty: number;
   actualChapter: string | null;
-  pourcentage: number | null;
+  pourcentage?: number | null;
 };
 
 export default function CourseCard({
@@ -27,9 +27,13 @@ export default function CourseCard({
         <div className={style.instrument}>
           <InstrumentIcon instrument="Piano" fill="#fff" />
         </div>
-        <div className={style.progress_bar}>
-          <div></div>
-        </div>
+        {pourcentage ? (
+          <div className={style.progress_bar}>
+            <div style={{ width: `${pourcentage}%` }}></div>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
       <div className={style.description}>
         <div>
