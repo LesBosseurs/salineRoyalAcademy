@@ -37,6 +37,22 @@
         right: 5px;
       }
     }
+
+    > .progress_bar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 10px;
+      background-color: #00000055;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+
+      > div {
+        display: flex;
+        background-color: $primary-yellow;
+        height: 100%;
+      }
+    }
   }
 
   > .description {
@@ -114,5 +130,9 @@
     display: flex;
     align-self: center;
     margin-left: auto;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      display: none;
+    }
   }
 }

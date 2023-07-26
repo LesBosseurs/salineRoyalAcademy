@@ -41,6 +41,7 @@ export default function Dashboard() {
                 professor="Robert Shumann"
                 difficulty={2}
                 actualChapter="Chap. 2"
+                pourcentage={20}
               />
               <CourseCard
                 title="Fantasy in C"
