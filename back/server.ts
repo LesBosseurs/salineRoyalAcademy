@@ -1,9 +1,8 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { Client } from 'pg'
 import userRoutes from './routes/userRoutes';
 import schoolRoutes from './routes/schoolRoutes';
-import pool from './db/database';
+import groupeRoutes from './routes/groupRoutes';
 
 const app = express();
 const port = 4000;
@@ -15,6 +14,7 @@ app.use(cors());
 
 app.use('/api/users', userRoutes);
 app.use('/api/schools', schoolRoutes);
+app.use('/api/groups', groupeRoutes);
 
 // Serve the frontend
 // app.use(express.static('dist')); // Assurez-vous que votre dossier de build de la partie frontend est "dist"
