@@ -9,8 +9,27 @@ import CourseCard from '@/components/CourseCard';
 import ActivityCard from '@/components/ActivityCard';
 import CompetitionCard from '@/components/CompetitionCard';
 import ArticleCard from '@/components/ArticleCard';
+import { useEffect, useState } from 'react';
+import useWindowSize from '@/hooks/useWindowSize';
 
 export default function Dashboard() {
+  const size = useWindowSize();
+  const [widthContainerArticles, setWidthContainerArticles] = useState(0);
+
+  useEffect(() => {
+    handleResize();
+  }, [size.width]);
+
+  const handleResize = () => {
+    if (window.innerWidth - 340 > 1440) {
+      setWidthContainerArticles(1440);
+    } else if (window.innerWidth > 768) {
+      setWidthContainerArticles(window.innerWidth - 340);
+    } else {
+      setWidthContainerArticles(window.innerWidth - 70);
+    }
+  };
+
   return (
     <div className={style.dashboard}>
       <Header name="Dashboard" />
@@ -21,13 +40,13 @@ export default function Dashboard() {
               <h2>Go Premium</h2>
               <p>Explore 100+ courses with our professors</p>
             </div>
-            <Button size="md">Start now</Button>
+            <Button size={size.width > 425 ? 'md' : 'sm'}>Start now</Button>
           </div>
           <Image
             src="/img/musician_saxo.png"
             alt="a musician with a saxo"
-            height="450"
-            width="600"
+            height="550"
+            width="450"
           />
           <div className={style.first_line}></div>
           <div className={style.second_line}></div>
@@ -48,6 +67,7 @@ export default function Dashboard() {
                 professor="Robert Shumann"
                 difficulty={2}
                 actualChapter="Chap. 2"
+                pourcentage={50}
               />
               <CourseCard
                 title="Fantasy in C"
@@ -120,7 +140,10 @@ export default function Dashboard() {
           textLink="See all articles"
           hrefLink=""
         >
-          <div className={style.scrollable}>
+          <div
+            style={{ width: `${widthContainerArticles}px` }}
+            className={style.scrollable}
+          >
             <div className={style.articles_container}>
               <ArticleCard
                 instrument="piano"

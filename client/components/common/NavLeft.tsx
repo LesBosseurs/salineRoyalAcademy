@@ -7,6 +7,7 @@ import MedalIcon from '@/public/icons/medal';
 import MessagesIcon from '@/public/icons/messages';
 import SettingsIcon from '@/public/icons/settings';
 import Link from 'next/link';
+import SalineRoyaleAcademy from '@/public/icons/salineRoyaleAcademy';
 
 export default function NavLeft() {
   const router = useRouter();
@@ -14,12 +15,7 @@ export default function NavLeft() {
 
   return (
     <nav className={style.nav_left}>
-      <Image
-        src="/icons/saline_royale_academy.svg"
-        alt="icon royale academy academy"
-        width="160"
-        height="40"
-      />
+      <SalineRoyaleAcademy fill="#000" />
       <ul>
         <li>
           <Link href="/dashboard">

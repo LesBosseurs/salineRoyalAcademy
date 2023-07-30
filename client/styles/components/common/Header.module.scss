@@ -1,8 +1,19 @@
+@import '../../fonts.scss';
+@import '../../variables.scss';
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 30px;
+
+  > h1 {
+    @include lead;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      @include subtitle;
+    }
+  }
 
   > div {
     display: flex;

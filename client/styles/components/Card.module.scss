@@ -1,4 +1,5 @@
 @import '../variables.scss';
+@import '../fonts.scss';
 
 section.section {
   display: flex;
@@ -11,9 +12,22 @@ section.section {
     justify-content: space-between;
     align-items: end;
 
+    > h2 {
+      @include paragraph-medium;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        @include lead;
+      }
+    }
+
     > a {
+      @include info-semi-bold;
       color: $primary-yellow;
       text-decoration: none;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        @include paragraph-semi-bold;
+      }
     }
   }
 

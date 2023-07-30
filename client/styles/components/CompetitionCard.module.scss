@@ -1,3 +1,5 @@
+@import '../fonts.scss';
+
 .competition_card {
   display: flex;
   flex-direction: column;
@@ -16,6 +18,10 @@
       height: 20px;
       min-width: 20px;
       border-radius: 100%;
+    }
+
+    > span {
+      @include paragraph-semi-bold;
     }
   }
 
@@ -37,6 +43,10 @@
         svg {
           height: 16px;
           width: 16px;
+        }
+
+        > span {
+          @include info-regular;
         }
       }
     }
