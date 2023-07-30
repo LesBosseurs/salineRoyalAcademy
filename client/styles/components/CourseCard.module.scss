@@ -46,6 +46,11 @@
       background-color: #00000055;
       border-radius: 0 0 10px 10px;
       overflow: hidden;
+      display: none;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        display: flex;
+      }
 
       > div {
         display: flex;
