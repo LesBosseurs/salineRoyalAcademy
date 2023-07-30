@@ -4,7 +4,7 @@ import style from '../../styles/pages/landing-page/landingPage.module.scss';
 export default function Partners() {
   return (
     <section className={style.partners}>
-      <h2>Saline royale Academy&apos;s partners</h2>
+      <h2>Saline royale Academy's partners</h2>
       <div>
         <div className={style.partner_bloc}>
           <Image
