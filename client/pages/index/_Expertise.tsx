@@ -26,8 +26,14 @@ export default function Expertise() {
       <h2>Our expertise</h2>
       <p>Experience immersive video masterclasses wherever you are.</p>
       <div>
-        {arrayExpertises.map((element) => {
-          return <ExpertiseElement icon={element.icon} text={element.text} />;
+        {arrayExpertises.map((element, key) => {
+          return (
+            <ExpertiseElement
+              key={key}
+              icon={element.icon}
+              text={element.text}
+            />
+          );
         })}
       </div>
     </section>

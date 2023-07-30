@@ -60,7 +60,7 @@ export default function ComingSoon() {
           >
             {newsList.map((element: ComingSoonCardProps, key: number) => {
               return (
-                <SwiperSlide className={style.card} id={`${key}`}>
+                <SwiperSlide className={style.card} key={key}>
                   <ComingSoonCard
                     instrument={element.instrument}
                     title={element.title}

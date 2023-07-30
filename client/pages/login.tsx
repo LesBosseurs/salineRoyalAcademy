@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import style from '../styles/pages/auth.module.scss';
-import FormField from '@/components/FormField';
-import Button from '@/components/Button';
+import FormField from '../components/FormField';
+import Button from '../components/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 
