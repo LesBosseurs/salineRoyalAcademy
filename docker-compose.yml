@@ -1,50 +1,50 @@
-  version: '3'
-  services:
-    db:
-      image: postgres
-      restart: always
-      environment:
-        POSTGRES_USER: your_username
-        POSTGRES_PASSWORD: your_password
-        POSTGRES_DB: your_database
-      volumes:
-        - ./data:/var/lib/postgresql/data
-      ports:
-        - 5432:5432
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
 
-    front:
-      build:
-        context: ./client
-        dockerfile: Dockerfile
-      ports:
-        - 3000:3000
-      restart: always
-      volumes:
-        - ./client/pages:/app/pages
-      depends_on:
-        - db
+  front:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    restart: always
+    volumes:
+      - ./client/.next:/app/pages
+    depends_on:
+      - db
 
-    pgadmin:
-      image: dpage/pgadmin4
-      container_name: pgadmin4_container
-      restart: always
-      ports:
-        - "5050:80"
-      environment:
-        PGADMIN_DEFAULT_EMAIL: a@a.fr
-        PGADMIN_DEFAULT_PASSWORD: admin
-      volumes:
-        - ./pgadmin:/var/lib/pgadmin
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - '5050:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: a@a.fr
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
 
-    back:
-      container_name: back
-      build:
-        context: ./back
-        dockerfile: Dockerfile
-      restart: always
-      ports:
-        - 4000:4000
-      volumes:
-        - ./back:/app
-      depends_on:
-        - db
+  back:
+    container_name: back
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4000:4000
+    volumes:
+      - ./back:/app
+    depends_on:
+      - db

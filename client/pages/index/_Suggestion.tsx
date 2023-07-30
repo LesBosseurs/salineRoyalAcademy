@@ -31,9 +31,9 @@ export default function Suggestion() {
       <h2>What instrument do you play?</h2>
       <div className={style.carousel_instruments}>
         <div className={style.intruments_container}>
-          {instrumentsList.map((instrument: string) => {
+          {instrumentsList.map((instrument: string, key: number) => {
             return (
-              <div className={style.instrument_card}>
+              <div key={key} className={style.instrument_card}>
                 <div>
                   <InstrumentIcon fill="#fff" instrument={instrument} />
                 </div>
