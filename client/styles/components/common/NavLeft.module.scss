@@ -1,15 +1,21 @@
 @import '../../variables.scss';
+@import '../../fonts.scss';
 
 .nav_left {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  height: 100%;
-  box-sizing: border-box;
-  background-color: #fff;
+  display: none;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    @include paragraph-semi-bold;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
 
   ul,
   div {
