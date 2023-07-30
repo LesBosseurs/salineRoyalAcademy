@@ -4,13 +4,13 @@ import CardContainerStyle from '../styles/components/CardContainer.module.scss';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import Card from '@/components/Card';
-import CardContainer from '../components/CardContainer';
-import CourseCard from '../components/CourseCard';
-import ActivityCard from '../components/ActivityCard';
-import CompetitionCard from '../components/CompetitionCard';
-import ArticleCard from '../components/ArticleCard';
+import CardContainer from '@/components/CardContainer';
+import CourseCard from '@/components/CourseCard';
+import ActivityCard from '@/components/ActivityCard';
+import CompetitionCard from '@/components/CompetitionCard';
+import ArticleCard from '@/components/ArticleCard';
 import { useEffect, useState } from 'react';
-import useWindowSize from '../hooks/useWindowSize';
+import useWindowSize from '@/hooks/useWindowSize';
 
 export default function Dashboard() {
   const size = useWindowSize();
