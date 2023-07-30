@@ -42,9 +42,9 @@ export default function Statistics() {
       <div className={style.container}>
         <h2>The Saline Royale Academy in a few numbers</h2>
         <div>
-          {statsElementsList.map((element: any) => {
+          {statsElementsList.map((element: any, key: number) => {
             return (
-              <div>
+              <div key={key}>
                 {element.icon}
                 <div>
                   <h4>{element.statName}</h4>

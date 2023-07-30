@@ -6,10 +6,12 @@ WORKDIR /app
 
 ENV WATCHPACK_POLLING=true
 
-# Copiez le reste des fichiers du frontend dans le conteneur
-COPY . .
+COPY package*.json ./
+
 # Installez les dépendances du frontend
 RUN npm install
+
+COPY . .
 
 # Exposez le port 3000 pour le frontend Next.js
 EXPOSE 3000
