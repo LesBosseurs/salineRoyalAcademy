@@ -1,0 +1,36 @@
+@import '../variables.scss';
+@import '../fonts.scss';
+
+.listing {
+  .grid_courses {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 500px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .filterButton{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      display: none;
+    }
+  }
+
+  .search{
+    display: flex;
+    gap: 30px;
+  }
+
+
+}
