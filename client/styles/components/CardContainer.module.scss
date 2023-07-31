@@ -21,4 +21,16 @@
     flex-direction: column;
     gap: 30px;
   }
+
+  .rowReverse{
+    display: flex;
+    gap: 30px;
+    flex-direction: row-reverse;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      flex-direction: column;
+    }
+  }
+
+
 }
