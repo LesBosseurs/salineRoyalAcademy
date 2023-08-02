@@ -45,36 +45,40 @@ export default function Dashboard() {
                 </div>
 
                 <div className={CardContainerStyle.rowReverse}>
-                    <div className={CardContainerStyle.column}>
-                        <Card
-                            title="Filter"
-                            textLink=""
-                            hrefLink=""
-                        >
-                            Component filter card à faire
-                        </Card>
-                        <Card
-                            title="My courses"
-                            textLink="See all of my courses"
-                            hrefLink=""
-                        >
-                            <div className={style.grid_courses}>
-                                <CourseCard
-                                    title="Fantasy in C"
-                                    professor="Robert Shumann"
-                                    difficulty={2}
-                                    actualChapter="Chap. 2"
-                                    pourcentage={20}
-                                />
-                                <CourseCard
-                                    title="Fantasy in C"
-                                    professor="Robert Shumann"
-                                    difficulty={2}
-                                    actualChapter="Chap. 2"
-                                    pourcentage={50}
-                                />
-                            </div>
-                        </Card>
+                    <div className={style.section_test}>
+                        <div className={CardContainerStyle.column}>
+                            <Card
+                                title="Filter"
+                                textLink=""
+                                hrefLink=""
+                            >
+                                Component filter card à faire
+                            </Card>
+                            <Card
+                                title="My courses"
+                                textLink="See all of my courses"
+                                hrefLink=""
+                            >
+                                <div className={style.grid_courses_row}>
+                                    <CourseCard
+                                        title="Fantasy in C"
+                                        professor="Robert Shumann"
+                                        difficulty={2}
+                                        actualChapter="Chap. 2"
+                                        pourcentage={20}
+                                        type="list"
+                                    />
+                                    <CourseCard
+                                        title="Fantasy in C"
+                                        professor="Robert Shumann"
+                                        difficulty={2}
+                                        actualChapter="Chap. 2"
+                                        pourcentage={50}
+                                        type="list"
+                                    />
+                                </div>
+                            </Card>
+                        </div>
                     </div>
                     <Card title="My courses" textLink="" hrefLink="">
                         <div className={style.grid_courses}>

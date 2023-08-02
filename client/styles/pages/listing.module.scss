@@ -33,4 +33,18 @@
   }
 
 
+  .grid_courses_row{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .section_test {
+    @media screen and (min-width: $breakpoint-tablet) {
+      width: 100%;
+      max-width: 380px;
+      box-sizing: border-box;
+    }
+  }
 }
+
