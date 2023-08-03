@@ -4,6 +4,9 @@ import FormField from '@/components/FormField';
 import Button from '@/components/Button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getUserState } from '@/store/features/userSlice';
+import { useAppSelector } from '@/hooks/useRedux';
+import axios from 'axios';
 
 interface FormData {
   email: string;
@@ -11,6 +14,15 @@ interface FormData {
 }
 
 export default function Login() {
+  const user = useAppSelector(getUserState);
+
+  axios({
+    method: 'POST',
+    url: '/api/login',
+  })
+    .then((rep) => console.log(rep))
+    .catch((err) => console.warn(err));
+
   const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
