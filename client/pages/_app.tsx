@@ -13,7 +13,11 @@ export default function App({ Component, pageProps }: AppProps) {
     pathname === '/login' || pathname === '/register' || pathname === '/';
 
   if (excludeLayout) {
-    return <Component {...pageProps} />;
+    return (
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    );
   }
 
   return (
