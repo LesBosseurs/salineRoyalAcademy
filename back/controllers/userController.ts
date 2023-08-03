@@ -112,16 +112,17 @@ class UserController {
 
   static async loginUser(req: Request, res: Response): Promise<void> {
     try {
-      const { email, password } = req.body;
+      res.status(200).json( '123' );
+      // const { email, password } = req.body;
 
-      const myUser = await UserService.loginUser(email, password);
+      // const myUser = await UserService.loginUser(email, password);
 
-      const token = jwt.sign({ id: myUser.user_id }, process.env.JWT_SECRET);
-      res.cookie('access_token', token, {
-        httpOnly: false,
-      });
+      // const token = jwt.sign({ id: myUser.user_id }, process.env.JWT_SECRET);
+      // res.cookie('access_token', token, {
+      //   httpOnly: false,
+      // });
 
-      res.status(200).json({ token });
+      // res.status(200).json({ token });
     } catch (error: unknown) {
       res
         .status(500)
