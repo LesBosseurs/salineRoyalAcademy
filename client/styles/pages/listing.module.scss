@@ -17,6 +17,12 @@
     }
   }
 
+  //section input search + button filter
+  .search{
+    display: flex;
+    gap: 30px;
+  }
+
   .filterButton{
     display: flex;
     flex-direction: column;
@@ -27,20 +33,10 @@
     }
   }
 
-  .search{
-    display: flex;
-    gap: 30px;
-  }
-
-
-  .grid_courses_row{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .section_test {
-    @media screen and (min-width: $breakpoint-tablet) {
+  .desktop_filter{
+    display:none;
+    @media screen and (min-width: $breakpoint-laptop) {
+      display: block;
       width: 100%;
       max-width: 380px;
       box-sizing: border-box;

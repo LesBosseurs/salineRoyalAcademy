@@ -4,15 +4,21 @@ import style from '../styles/components/FormField.module.scss';
 type FormFieldProps<T> = {
   label: string;
   type: string;
+  size: 'md' | 'lg';
   value: T;
   onChange: (value: T) => void;
+  icon: React.ReactNode;
+  iconIsLeft?: boolean;
 };
 
 export default function FormField<T extends Record<string, any>>({
   label,
   type,
+  size,
   value,
   onChange,
+  icon,
+  iconIsLeft
 }: FormFieldProps<T>) {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = {
@@ -20,6 +26,15 @@ export default function FormField<T extends Record<string, any>>({
       [e.target.name]: e.target.value,
     };
     onChange(newValue);
+  };
+
+  const aspectButton = () => {
+    switch (size) {
+      case 'md':
+        return style.md;
+      case 'lg':
+        return style.lg;
+    }
   };
 
   return (
@@ -32,6 +47,7 @@ export default function FormField<T extends Record<string, any>>({
         id={label}
         name={label}
         value={value[label]}
+        className={aspectButton()}
         onChange={handleInputChange}
       />
     </div>
