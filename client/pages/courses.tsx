@@ -34,67 +34,50 @@ export default function Dashboard() {
 
     return (
         <div className={style.listing}>
-        <Header name="Courses" />
+            <Header name="Courses" />
             <CardContainer>
                 <div className={CardContainerStyle.rowReverse}>
                     <div className={style.search}>
                         <div> input recherche</div>
-                        <div className={style.filterButton}> Bouton filter</div>
+                        <div className={style.filterButton}>
+                            <Button size={'sm'}>Filter</Button>
+                        </div>
+
                     </div>
                     <div> instrument filtre</div>
                 </div>
-
                 <div className={CardContainerStyle.rowReverse}>
-                    <div className={style.section_test}>
+                    <div className={style.desktop_filter}>
                         <div className={CardContainerStyle.column}>
                             <Card
                                 title="Filter"
                                 textLink=""
                                 hrefLink=""
                             >
-                                Component filter card à faire
-                            </Card>
-                            <Card
-                                title="My courses"
-                                textLink="See all of my courses"
-                                hrefLink=""
-                            >
-                                <div className={style.grid_courses_row}>
-                                    <CourseCard
-                                        title="Fantasy in C"
-                                        professor="Robert Shumann"
-                                        difficulty={2}
-                                        actualChapter="Chap. 2"
-                                        pourcentage={20}
-                                        type="list"
-                                    />
-                                    <CourseCard
-                                        title="Fantasy in C"
-                                        professor="Robert Shumann"
-                                        difficulty={2}
-                                        actualChapter="Chap. 2"
-                                        pourcentage={50}
-                                        type="list"
-                                    />
+                                <input placeholder={"Professor"} type="Professor"/>
+                                <input placeholder={"Composer"} type="Composer"/>
+                                <input placeholder={"Subtitles languages"} type="Subtitles languages"/>
+                                <input placeholder={"Sort by"} type="Sort by"/>
+                                <div>
+                                    <a href="">Undo Filter</a>
+                                    <Button size={'sm'}>Filter</Button>
                                 </div>
                             </Card>
                         </div>
                     </div>
-                    <Card title="My courses" textLink="" hrefLink="">
+                    <Card title="Courses" textLink="" hrefLink="">
                         <div className={style.grid_courses}>
                             <CourseCard
                                 title="Fantasy in C"
                                 professor="Robert Shumann"
                                 difficulty={2}
                                 actualChapter="Chap. 2"
-                                pourcentage={20}
                             />
                             <CourseCard
                                 title="Fantasy in C"
                                 professor="Robert Shumann"
                                 difficulty={2}
                                 actualChapter="Chap. 2"
-                                pourcentage={50}
                             />
                             <CourseCard
                                 title="Fantasy in C"
@@ -124,6 +107,6 @@ export default function Dashboard() {
                     </Card>
                 </div>
             </CardContainer>
-    </div>
-);
+        </div>
+    );
 }

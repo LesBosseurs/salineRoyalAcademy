@@ -10,8 +10,6 @@ type CourseCardProps = {
   difficulty: number;
   actualChapter: string | null;
   pourcentage?: number | null;
-
-  type?: string | null;
 };
 
 export default function CourseCard({
@@ -20,12 +18,11 @@ export default function CourseCard({
   difficulty,
   actualChapter,
   pourcentage,
-  type,
 }: CourseCardProps) {
   const difficultyList = ['Easy', 'Medium', 'Hard'];
 
   return (
-    <div className={type!=null?style.course_card_row:style.course_card}>
+    <div className={style.course_card}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
           <InstrumentIcon instrument="Piano" fill="#fff" />

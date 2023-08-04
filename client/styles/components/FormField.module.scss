@@ -17,7 +17,6 @@
 
   input {
     @include paragraph_medium;
-    height: 60px;
     border-radius: 10px;
     width: 100%;
     border: 1px solid $secondary-gray;
@@ -29,4 +28,13 @@
       -webkit-box-shadow: 0 0 0 1000px white inset;
     }
   }
+    .md{
+      @extend input;
+      height: 40px;
+    }
+
+    .lg{
+      @extend input;
+      height: 56px;
+    }
 }
