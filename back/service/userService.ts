@@ -7,7 +7,7 @@ class UserService {
     try {
       return await UserRepository.getAllUsers();
     } catch (error: unknown) {
-      throw new Error(`Unable to get all users: ${error}`);
+      throw error 
     }
   }
 
@@ -15,7 +15,7 @@ class UserService {
     try {
       return await UserRepository.getUserById(userId);
     } catch (error) {
-      throw new Error(`Unable to get user by ID: ${error}`);
+      throw error;
     }
   }
 
@@ -24,7 +24,7 @@ class UserService {
       const myUserId = await UserRepository.createUser(user);
       return myUserId
     } catch (error) {
-      throw new Error(`Unable to create user: ${error}`);
+      throw error;
     }
   }
 
@@ -32,7 +32,7 @@ class UserService {
     try {
       await UserRepository.updateUser(userId, updatedUser);
     } catch (error) {
-      throw new Error(`Unable to update user: ${error}`);
+      throw error;
     }
   }
 
@@ -40,7 +40,7 @@ class UserService {
     try {
       await UserRepository.deleteUser(userId);
     } catch (error) {
-      throw new Error(`Unable to delete user: ${error}`);
+      throw error;
     }
   }
 
@@ -48,7 +48,7 @@ class UserService {
     try {
       return await UserRepository.getUserByEmailAndPassword(email, password);
     } catch (error) {
-      throw new Error(`Unable to get user by Email/Password: ${error}`);
+      throw error;
     }
   }
 
@@ -56,7 +56,7 @@ class UserService {
     try {
       return await UserRepository.getUsersByFilters(filters);
     } catch (error) {
-      throw new Error(`Unable to get user by Filters: ${error}`);
+      throw error;
     }
   }
 }
