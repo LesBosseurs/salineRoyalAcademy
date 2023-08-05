@@ -4,9 +4,9 @@ import FormField from '@/components/FormField';
 import Button from '@/components/Button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getUserState } from '@/store/features/userSlice';
-import { useAppSelector } from '@/hooks/useRedux';
-import axios from 'axios';
+import { loginUser } from '@/store/features/userSlice';
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
+import { useRouter } from 'next/router';
 
 interface FormData {
   email: string;
@@ -14,22 +14,22 @@ interface FormData {
 }
 
 export default function Login() {
-  const user = useAppSelector(getUserState);
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const { push } = useRouter();
 
-  axios({
-    method: 'POST',
-    url: '/api/login',
-  })
-    .then((rep) => console.log(rep))
-    .catch((err) => console.warn(err));
+  if (user.token) {
+    push('/dashboard');
+  }
 
   const [formData, setFormData] = useState<FormData>({
-    email: '',
-    password: '',
+    email: 'john.doe@example.com',
+    password: 'hashed_password',
   });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    dispatch(loginUser(formData));
     setFormData({
       email: '',
       password: '',

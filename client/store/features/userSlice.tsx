@@ -1,4 +1,3 @@
-import login from '../../pages/api/login';
 import UserInterface from '@/interfaces/UserInterface';
 import {
   createSlice,
@@ -6,15 +5,11 @@ import {
   Draft,
   PayloadAction,
 } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export interface UserState {
-  email: string;
-  name: string;
-}
-
-const initialState: UserState = {
-  name: '',
+const initialState: UserInterface = {
   email: '',
+  password: '',
 } as const;
 
 /* export const signupUser = createAsyncThunk(
@@ -24,26 +19,24 @@ const initialState: UserState = {
   }
 ); */
 
-/* export const loginUser = createAsyncThunk(
+export const loginUser = createAsyncThunk(
   'users/loginUser',
-  async (formInput: any) => {
-    return login(formInput).then((res: any) => {
-      console.log(res);
-      return res;
-    });
+  async (formInput: UserInterface) => {
+    console.log(formInput);
+    return axios({
+      method: 'POST',
+      url: '/api/login',
+      data: { email: formInput.email, password: formInput.password },
+    })
+      .then((response) => response.data)
+      .catch((err) => console.warn(err));
   }
-); */
+);
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setName: (
-      state: Draft<typeof initialState>,
-      action: PayloadAction<typeof initialState.name>
-    ) => {
-      state.name = action.payload;
-    },
     setEmail: (
       state: Draft<typeof initialState>,
       action: PayloadAction<typeof initialState.email>
@@ -51,10 +44,13 @@ export const userSlice = createSlice({
       state.email = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
+      state.token = payload.token;
+    });
+  },
 });
 
-export const getUserState = (state: { user: UserState }) => state.user;
-
-export const { setName, setEmail } = userSlice.actions;
+export const { setEmail } = userSlice.actions;
 
 export default userSlice.reducer;
