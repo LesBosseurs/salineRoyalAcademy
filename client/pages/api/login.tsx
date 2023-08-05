@@ -3,7 +3,9 @@ import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
-  name: string;
+  data: {
+    token: string;
+  };
 };
 
 export default function handler(
@@ -13,6 +15,7 @@ export default function handler(
   axios({
     method: 'POST',
     url: 'http://back:4000/api/users/login',
+    data: req.body,
   })
     .then((rep) => console.log(res.json(rep.data)))
     .catch((err) => {
