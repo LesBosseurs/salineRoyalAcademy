@@ -1,57 +1,8 @@
 import pool from "../db/database";
-
-export interface Masterclass {
-  title: string;
-  description: string;
-  genre: string;
-  quote: string; 
-  published_date: Date;
-  spoken_language : string;
-  instruments: Array<string>;
-}
-
- export interface MasterclassMediaPeople {
-  masterclass_id: Number;
-  title: string;
-  description: string;
-  genre: string;
-  quote: string; 
-  published_date: Date;
-  spoken_language : string;
-  instruments: Array<string>;
-  medias: Media[];
-}
-
-export interface Media {
-  media_id: Number;
-  title: string;
-  description: string;
-  type: string;
-  url: string;
-  oeuvre: Oeuvre[];
-}
-
-export interface Oeuvre {
-  oeuvre_id: Number;
-  title: string;
-  people: People[];
-}
-
-export interface People {
-  people_id: Number;
-  first_name: string;
-  last_name: string;
-  type: string;
-  image: string;
-}
-
-export interface SuiviMasterclass {
-  user_id: Number;
-  masterclass_id: Number;
-  start_date: Date;
-  is_validated: boolean;
-  view_number: Number;
-}
+import { Masterclass, MasterclassMediaPeople, SuiviMasterclass } from '../modele/masterclass';
+import { Media } from '../modele/media';
+import { Oeuvre } from '../modele/oeuvre';
+import { People } from "../modele/people";
 
 
 class MasterclassesRepository {
@@ -98,7 +49,7 @@ class MasterclassesRepository {
     }
   }
 
-  static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople> {
+  /* static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople | string> {
     try {
 
       // Récupérer les informations de base de la masterclass
@@ -106,78 +57,173 @@ class MasterclassesRepository {
       const masterclassValues = [masterclassId];
       const masterclassResult = await pool.query(masterclassQuery, masterclassValues);
   
-      if (masterclassResult.rows.length === 0) {
-        throw new Error("Masterclass not found");
+      if (masterclassResult.rows.length != 0) {
+
+        const masterclassData: MasterclassMediaPeople = {
+          masterclass_id: masterclassResult.rows[0].masterclass_id,
+          title: masterclassResult.rows[0].title,
+          description: masterclassResult.rows[0].description,
+          genre: masterclassResult.rows[0].genre,
+          quote: masterclassResult.rows[0].quote,
+          published_date: masterclassResult.rows[0].published_date,
+          spoken_language : masterclassResult.rows[0].spoken_language,
+          instruments: masterclassResult.rows[0].instruments,
+          medias: [],
+        };
+    
+        // Récupérer les médias liés à la masterclass
+        const mediaQuery = `SELECT * FROM medias WHERE masterclass_id = $1;`;
+        const mediaValues = [masterclassId];
+        const mediaResult = await pool.query(mediaQuery, mediaValues);
+    
+        for (const mediaRow of mediaResult.rows) {
+          const media: Media = {
+            media_id: mediaRow.media_id,
+            title: mediaRow.title,
+            description: mediaRow.description,
+            type: mediaRow.type,
+            url: mediaRow.url,
+            oeuvre: [],
+          };
+    
+          // Récupérer les œuvres liées au média
+          const oeuvreQuery = `SELECT * FROM OEUVRES WHERE oeuvre_id = $1;`;
+          const oeuvreValues = [mediaRow.oeuvre_id];
+          const oeuvreResult = await pool.query(oeuvreQuery, oeuvreValues);
+    
+          for (const oeuvreRow of oeuvreResult.rows) {
+            const oeuvre: Oeuvre = {
+              oeuvre_id: oeuvreRow.oeuvre_id,
+              title: oeuvreRow.title,
+              people: [],
+            };
+    
+            // Récupérer les personnes liées à l'œuvre
+            const peopleQuery = `SELECT people_id, first_name, last_name, type, image FROM peoples WHERE people_id = $1;`;
+            const peopleValues = [oeuvreRow.people_id];
+            const peopleResult = await pool.query(peopleQuery, peopleValues);
+    
+            for (const peopleRow of peopleResult.rows) {
+              const person: People = {
+                people_id: peopleRow.people_id,
+                first_name: peopleRow.first_name,
+                last_name: peopleRow.last_name,
+                type: peopleRow.type,
+                image: peopleRow.image,
+              };
+    
+              oeuvre.people.push(person);
+            }
+    
+            media.oeuvre.push(oeuvre);
+          }
+    
+          masterclassData.medias.push(media);
+        }
+    
+        return masterclassData;
+      } else {
+        return "Masterclass do not exist"
       }
+    } catch (error: unknown) {
+      throw new Error(`Unable to fetch masterclass: ${error}`);
+    }
+  } */
+
+  static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople | string> {
+    try {
+      const query = `
+        SELECT 
+          m.masterclass_id, 
+          m.title AS masterclass_title, 
+          m.description AS masterclass_description,
+          m.genre,
+          m.quote,
+          m.published_date,
+          m.spoken_language,
+          m.instruments,
+          me.media_id,
+          me.title AS media_title,
+          me.description AS media_description,
+          me.type AS media_type,
+          me.url AS media_url,
+          o.oeuvre_id,
+          o.title AS oeuvre_title,
+          p.people_id,
+          p.first_name,
+          p.last_name,
+          p.type AS people_type,
+          p.image AS people_image
+        FROM masterclasses m
+        LEFT JOIN medias me ON m.masterclass_id = me.masterclass_id
+        LEFT JOIN oeuvres o ON me.oeuvre_id = o.oeuvre_id
+        LEFT JOIN peoples p ON o.people_id = p.people_id
+        WHERE m.masterclass_id = $1;
+      `;
   
-      const masterclassData: MasterclassMediaPeople = {
-        masterclass_id: masterclassResult.rows[0].masterclass_id,
-        title: masterclassResult.rows[0].title,
-        description: masterclassResult.rows[0].description,
-        genre: masterclassResult.rows[0].genre,
-        quote: masterclassResult.rows[0].quote,
-        published_date: masterclassResult.rows[0].published_date,
-        spoken_language : masterclassResult.rows[0].spoken_language,
-        instruments: masterclassResult.rows[0].instruments,
-        medias: [],
-      };
+      const values = [masterclassId];
+      const result = await pool.query(query, values);
   
-      // Récupérer les médias liés à la masterclass
-      const mediaQuery = `SELECT * FROM medias WHERE masterclass_id = $1;`;
-      const mediaValues = [masterclassId];
-      const mediaResult = await pool.query(mediaQuery, mediaValues);
-  
-      for (const mediaRow of mediaResult.rows) {
-        const media: Media = {
-          media_id: mediaRow.media_id,
-          title: mediaRow.title,
-          description: mediaRow.description,
-          type: mediaRow.type,
-          url: mediaRow.url,
-          oeuvre: [],
+      if (result.rows.length !== 0) {
+        const masterclassData: MasterclassMediaPeople = {
+          masterclass_id: result.rows[0].masterclass_id,
+          title: result.rows[0].masterclass_title,
+          description: result.rows[0].masterclass_description,
+          genre: result.rows[0].genre,
+          quote: result.rows[0].quote,
+          published_date: result.rows[0].published_date,
+          spoken_language: result.rows[0].spoken_language,
+          instruments: result.rows[0].instruments,
+          medias: [],
         };
   
-        // Récupérer les œuvres liées au média
-        const oeuvreQuery = `SELECT * FROM OEUVRES WHERE oeuvre_id = $1;`;
-        const oeuvreValues = [mediaRow.oeuvre_id];
-        const oeuvreResult = await pool.query(oeuvreQuery, oeuvreValues);
-  
-        for (const oeuvreRow of oeuvreResult.rows) {
-          const oeuvre: Oeuvre = {
-            oeuvre_id: oeuvreRow.oeuvre_id,
-            title: oeuvreRow.title,
-            people: [],
-          };
-  
-          // Récupérer les personnes liées à l'œuvre
-          const peopleQuery = `SELECT people_id, first_name, last_name, type, image FROM peoples WHERE people_id = $1;`;
-          const peopleValues = [oeuvreRow.people_id];
-          const peopleResult = await pool.query(peopleQuery, peopleValues);
-  
-          for (const peopleRow of peopleResult.rows) {
-            const person: People = {
-              people_id: peopleRow.people_id,
-              first_name: peopleRow.first_name,
-              last_name: peopleRow.last_name,
-              type: peopleRow.type,
-              image: peopleRow.image,
+        for (const row of result.rows) {
+          if (row.media_id) {
+            const media: Media = {
+              media_id: row.media_id,
+              title: row.media_title,
+              description: row.media_description,
+              type: row.media_type,
+              url: row.media_url,
+              oeuvre: [],
             };
   
-            oeuvre.people.push(person);
-          }
+            if (row.oeuvre_id) {
+              const oeuvre: Oeuvre = {
+                oeuvre_id: row.oeuvre_id,
+                title: row.oeuvre_title,
+                people: [],
+              };
   
-          media.oeuvre.push(oeuvre);
+              if (row.people_id) {
+                const person: People = {
+                  people_id: row.people_id,
+                  first_name: row.first_name,
+                  last_name: row.last_name,
+                  type: row.people_type,
+                  image: row.people_image,
+                };
+  
+                oeuvre.people.push(person);
+              }
+  
+              media.oeuvre.push(oeuvre);
+            }
+  
+            masterclassData.medias.push(media);
+          }
         }
   
-        masterclassData.medias.push(media);
+        return masterclassData;
+      } else {
+        return "Masterclass does not exist";
       }
-  
-      return masterclassData;
     } catch (error: unknown) {
       throw new Error(`Unable to fetch masterclass: ${error}`);
     }
   }
 
+  
   static async getMasterclassesByFilters(filters: Partial<Masterclass>): Promise<Masterclass[]> {
     try {
       let c = await pool.connect();
@@ -279,7 +325,7 @@ class MasterclassesRepository {
         FROM suivi_Masterclasses
         WHERE user_id = $1 AND masterclass_id = $2;`;
       let values = [user_id, masterclass_id];
-      let result = (await pool.query(query, values))/* .rows[0] */;
+      let result = (await pool.query(query, values));
       if (result.rows.length === 0) {
         query = `
           INSERT INTO suivi_Masterclasses (user_id, masterclass_id, start_date, is_validated, view_number)

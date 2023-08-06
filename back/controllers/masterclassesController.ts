@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import MasterclassesService from '../service/masterclassesService';
+import { MasterclassMediaPeople } from '../modele/masterclass';
 var jwt = require('jsonwebtoken');
 require('dotenv').config()
 
@@ -30,13 +31,17 @@ class MasterclassesController {
         const token = req.params.token;
         const masterclassId = Number(req.params.masterclassId);
         const masterclass = await MasterclassesService.getMasterclassByID(masterclassId); 
-        const suivi = await MasterclassesController.getSuiviMasterclassByUser(token, masterclassId);
- 
-        res.json({ success: true, message: 'Masterclasses retrieved successfully', data: {
-            masterclass : masterclass,
-            suivi : suivi 
-          }
-        });
+        if (typeof(masterclass) != 'string') {
+          const suivi = await MasterclassesController.getSuiviMasterclassByUser(token, masterclassId);
+          res.json({ success: true, message: 'Masterclasses retrieved successfully', data: {
+              masterclass : masterclass,
+              suivi : suivi 
+            }
+          });
+        } else {
+          res.json({ success: true, message: 'Masterclass does not exist', data: masterclass });
+        }
+        
       } catch (error: unknown) {
         res.status(500).json({ success: false, message: 'Failed to retrieve masterclasses', error: error as Error });
       }

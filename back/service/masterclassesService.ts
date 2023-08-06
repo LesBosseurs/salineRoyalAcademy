@@ -1,4 +1,5 @@
-import MasterclassesRepository, { Masterclass, MasterclassMediaPeople, SuiviMasterclass } from '../repository/masterclassesRepository';
+import MasterclassesRepository from '../repository/masterclassesRepository';
+import { Masterclass, MasterclassMediaPeople, SuiviMasterclass } from '../modele/masterclass';
 import pool from "../db/database";
 
 class MasterclassesService {
@@ -19,7 +20,7 @@ class MasterclassesService {
     }
   }
 
-  static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople> {
+  static async getMasterclassByID(masterclassId: Number): Promise<MasterclassMediaPeople | string> {
     try {
       return await MasterclassesRepository.getMasterclassByID(masterclassId);
     } catch (error: unknown) {
