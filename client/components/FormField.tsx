@@ -12,14 +12,14 @@ type FormFieldProps<T> = {
 };
 
 export default function FormField<T extends Record<string, any>>({
-  label,
-  type,
-  size,
-  value,
-  onChange,
-  icon,
-  iconIsLeft
-}: FormFieldProps<T>) {
+                                                                   label,
+                                                                   type,
+                                                                   size,
+                                                                   value,
+                                                                   onChange,
+                                                                   icon,
+                                                                   iconIsLeft
+                                                                 }: FormFieldProps<T>) {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = {
       ...value,
@@ -36,20 +36,33 @@ export default function FormField<T extends Record<string, any>>({
         return style.lg;
     }
   };
-
   return (
-    <div className={style.FormField}>
-      <label>
-        {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}
-      </label>
-      <input
-        type={type}
-        id={label}
-        name={label}
-        value={value[label]}
-        className={aspectButton()}
-        onChange={handleInputChange}
-      />
-    </div>
+      <div className={type !== "search"? style.FormField : style.searchField}>
+        {type !== "search" ? (
+            <>
+              <label>
+                {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}
+              </label>
+              <input
+                  type={type}
+                  id={label}
+                  name={label}
+                  value={value[label]}
+                  className={aspectButton()}
+                  onChange={handleInputChange}
+              />
+            </>
+        ) : (
+            <input
+                type={type}
+                id={label}
+                name={label}
+                value={value[label]}
+                placeholder={label}
+                className={aspectButton()}
+                onChange={handleInputChange}
+            />
+        )}
+      </div>
   );
 }

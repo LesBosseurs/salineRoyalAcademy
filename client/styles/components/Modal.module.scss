@@ -1,0 +1,64 @@
+@import '../variables.scss';
+@import '../fonts.scss';
+
+.background {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+
+
+  h2 {
+    @include label-semi-bold;
+    align-self: center;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      @include lead;
+    }
+  }
+
+  .modal_card{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    bottom : 0;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: scroll;
+    height: 70%;
+    background-color : white;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .separator{
+    background-color: #b18b36;
+    height: 6px;
+    width: 60px;
+    align-self: center;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+
+  .close_icon
+  {
+    width: fit-content;
+    align-self: flex-end;
+    padding: 0px 15px 0px 0px
+  }
+
+  .content
+  {
+    padding: 15px;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+

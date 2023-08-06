@@ -5,7 +5,7 @@
   .grid_courses {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 
     @media screen and (min-width: 500px) {
       display: grid;
@@ -20,23 +20,44 @@
   //section input search + button filter
   .search{
     display: flex;
+    justify-content: center;
+    align-items: stretch;
     gap: 30px;
+
+    FormField{
+      width: 100%;
+    }
   }
 
   .filterButton{
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     @media screen and (min-width: $breakpoint-laptop) {
       display: none;
     }
   }
 
+  .mobile_submit_filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .mobile_filter_content{
+    padding: 15px;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    gap: 15px;
+  }
+
   .desktop_filter{
     display:none;
     @media screen and (min-width: $breakpoint-laptop) {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
       width: 100%;
       max-width: 380px;
       box-sizing: border-box;
