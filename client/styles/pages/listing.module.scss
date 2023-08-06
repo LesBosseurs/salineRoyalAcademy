@@ -50,6 +50,11 @@
     justify-content: stretch;
     flex-direction: column;
     gap: 15px;
+    @media screen and (min-width: $breakpoint-tablet) {
+      width: 70%;
+      justify-items: center;
+      align-self: center;
+    }
   }
 
   .desktop_filter{
