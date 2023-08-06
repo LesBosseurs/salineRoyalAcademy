@@ -23,7 +23,7 @@ class UserRepository {
     try {
       let c = await pool.connect()
       try {
-        const query = 'SELECT * FROM users WHERE user_id = $1';
+        const query = 'SELECT * FROM users, study WHERE users.user_id = $1 AND study.user_id = $1';
         const values = [userId];
         const result = await pool.query(query, values);
         return result.rows[0];
@@ -65,16 +65,15 @@ class UserRepository {
         RETURNING user_id
       `;
         const values = [
-          user.first_name,
-          user.last_name,
+          user.first_name || '',
+          user.last_name || '',
           user.email,
           user.password,
-          user.phone,
-          user.notification,
-          user.instruments,
-          user.status
+          user.phone || '',
+          user.notifications || false,
+          user.instruments || null,
+          user.status || 'New'
         ];
-        console.log(query, values)
         const result = await pool.query(query, values);
         const insertedUserId = result.rows[0].user_id;
         return (insertedUserId)
@@ -100,7 +99,7 @@ class UserRepository {
       email = $3,
       password = $4,
       phone = $5,
-      notification = $6,
+      notifications = $6,
       instruments = $7,
       status = $8
   WHERE user_id = $9
@@ -111,7 +110,7 @@ class UserRepository {
           updatedUser.email,
           updatedUser.password,
           updatedUser.phone,
-          updatedUser.notification,
+          updatedUser.notifications,
           updatedUser.instruments,
           updatedUser.status,
           userId,
@@ -131,27 +130,9 @@ class UserRepository {
     try {
       const c = await pool.connect();
       try {
-        this.deleteUserFromPeople(userId);
         const values = [userId];
-        const query = 'DELETE FROM users WHERE user_id = $1';
+        const query = 'UPDATE users SET status = \'Inactive\' WHERE user_id = $1';
         await pool.query(query, values);
-      } catch (error) {
-        throw error;
-      } finally {
-        c.release();
-      }
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  static async deleteUserFromPeople(userId: string): Promise<void> {
-    try {
-      const c = await pool.connect();
-      try {
-        const values = [userId];
-        const updateQuery = 'UPDATE peoples SET user_id = NULL WHERE user_id = $1';
-        await pool.query(updateQuery, values);
       } catch (error) {
         throw error;
       } finally {

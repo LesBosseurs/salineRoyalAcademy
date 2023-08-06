@@ -7,7 +7,7 @@ export class GroupRepository {
       const c = await pool.connect();
       try {
         const query = `
-          INSERT INTO "group" (school_id)
+          INSERT INTO groups (school_id)
           VALUES ($1)
           RETURNING *
         `;
@@ -15,33 +15,33 @@ export class GroupRepository {
         const result = await pool.query(query, values);
         return result.rows[0];
       } catch (error) {
-        throw new Error(`Unable to create group: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error) {
-      throw new Error(`Unable to create group: ${error}`);
+      throw error;
     }
   }
 
-  static async getGroupById(groupId: number): Promise<Group> {
+  static async getGroupById(groupId: string): Promise<Group> {
     try {
       const c = await pool.connect();
       try {
         const query = `
-          SELECT * FROM "group"
+          SELECT * FROM groups
           WHERE group_id = $1
         `;
         const values = [groupId];
         const result = await pool.query(query, values);
         return result.rows[0];
       } catch (error) {
-        throw new Error(`Unable to fetch group: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error) {
-      throw new Error(`Unable to fetch group: ${error}`);
+      throw error;
     }
   }
 
@@ -49,53 +49,63 @@ export class GroupRepository {
     try {
       const c = await pool.connect();
       try {
-        const query = `SELECT * FROM "group"`;
+        const query = `SELECT * FROM groups`;
         const result = await pool.query(query);
         return result.rows;
       } catch (error) {
-        throw new Error(`Unable to fetch groups: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error) {
-      throw new Error(`Unable to fetch groups: ${error}`);
+      throw error;
     }
   }
 
-  static async updateGroup( groupeId: number, updatedGroupe: Group ): Promise<void> {
+  static async updateGroup( updatedGroupe: Group ): Promise<void> {
     try {
       let c = await pool.connect();
       try {
-        const query = ` UPDATE groupe SET school_id  = $1 WHERE group_id = $2`;
-        const values = [groupeId, updatedGroupe.school_id];
+        const query =  `UPDATE groups
+        SET school_id = $2,
+        date_start = $3,
+        date_end = $4
+        WHERE group_id = $1
+      `;
+      const values = [
+        updatedGroupe.group_id,
+        updatedGroupe.school_id,
+        updatedGroupe.date_start,
+        updatedGroupe.date_end
+      ];
         await pool.query(query, values);
       } catch (error) {
-        throw new Error(`Unable to update group: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error) {
-      throw new Error(`Unable to update group: ${error}`);
+      throw error;
     }
   }
 
-  static async deleteGroup(groupId: number): Promise<void> {
+  static async deleteGroup(groupId: string): Promise<void> {
     try {
       const c = await pool.connect();
       try {
         const query = `
-          DELETE FROM "group"
+          DELETE FROM groups
           WHERE group_id = $1
         `;
         const values = [groupId];
         await pool.query(query, values);
       } catch (error) {
-        throw new Error(`Unable to delete group: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error) {
-      throw new Error(`Unable to delete group: ${error}`);
+      throw error;
     }
   }
 }
