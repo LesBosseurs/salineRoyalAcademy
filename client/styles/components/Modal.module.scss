@@ -1,7 +1,7 @@
 @import '../variables.scss';
 @import '../fonts.scss';
 
-.background {
+.modal {
   position: fixed;
   z-index: 1;
   padding-top: 100px;
@@ -12,6 +12,9 @@
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
 
+  @media screen and (min-width: $breakpoint-laptop) {
+    display: none;
+  }
 
   h2 {
     @include label-semi-bold;
@@ -52,13 +55,5 @@
     padding: 0px 15px 0px 0px
   }
 
-  .content
-  {
-    padding: 15px;
-    display: flex;
-    justify-content: stretch;
-    flex-direction: column;
-    gap: 15px;
-  }
 }
 

@@ -16,7 +16,7 @@ export default function Modal({setOpen, open, children}: ModalProps){
         return "";
     }
     return(
-        <div className={style.background}>
+        <div className={style.modal}>
             <div  className={style.modal_card}>
                 <div className={style.close_icon} onClick={() => setOpen(false)}>
                     <Cross></Cross>
