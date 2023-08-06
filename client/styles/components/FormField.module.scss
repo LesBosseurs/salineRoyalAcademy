@@ -38,3 +38,30 @@
       height: 56px;
     }
 }
+
+.searchField {
+  position: relative;
+  width: 100%;
+  input {
+    @include paragraph_medium;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid $secondary-gray;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background: transparent;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+  }
+  .md{
+    @extend input;
+    height: 40px;
+  }
+
+  .lg{
+    @extend input;
+    height: 56px;
+  }
+}
