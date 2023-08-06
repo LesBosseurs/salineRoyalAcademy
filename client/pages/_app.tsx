@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { Provider } from 'react-redux';
 import { store } from '@/store';
+import AuthWrapper from '@/components/common/AuthWrapper';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -22,9 +23,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AuthWrapper>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AuthWrapper>
     </Provider>
   );
 }
