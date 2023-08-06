@@ -12,12 +12,17 @@ const initialState: UserInterface = {
   password: '',
 } as const;
 
-/* export const signupUser = createAsyncThunk(
-  'users/signupUser',
+export const registerUser = createAsyncThunk(
+  'users/registerUser',
   async (formInput: UserInterface) => {
-    register(formInput).then((res: any) => console.log(res));
+    console.log(formInput);
+    return axios({
+      method: 'POST',
+      url: '/api/register',
+      data: { email: formInput.email, password: formInput.password },
+    }).then((res: any) => console.log(res));
   }
-); */
+);
 
 export const loginUser = createAsyncThunk(
   'users/loginUser',
