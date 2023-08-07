@@ -65,11 +65,11 @@ class UserRepository {
         RETURNING user_id
       `;
         const values = [
-          user.first_name || '',
-          user.last_name || '',
+          user.first_name || null,
+          user.last_name || null,
           user.email,
           user.password,
-          user.phone || '',
+          user.phone || null,
           user.notifications || false,
           user.instruments || null,
           user.status || 'New'
