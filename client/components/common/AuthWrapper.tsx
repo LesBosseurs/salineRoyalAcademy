@@ -17,10 +17,10 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
   }, [isAuthenticated, router]);
 
   if (!isAuthenticated) {
-    return <div>Chargement...</div>;
+    return <p>Loading...</p>;
   }
 
-  return <>{children}</>;
+  return <div>{children}</div>;
 };
 
 export default AuthWrapper;

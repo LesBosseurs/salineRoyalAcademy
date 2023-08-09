@@ -7,7 +7,7 @@ type HeaderProps = {
 
 export default function Header({ name }: HeaderProps) {
   return (
-    <header className={style.header}>
+    <nav className={style.header}>
       <h1>{name}</h1>
       <div>
         <button className={style.notifications}>
@@ -20,6 +20,6 @@ export default function Header({ name }: HeaderProps) {
         </button>
         <button className={style.profil}></button>
       </div>
-    </header>
+    </nav>
   );
 }
