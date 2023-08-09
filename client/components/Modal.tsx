@@ -11,7 +11,7 @@ type ModalProps = {
 };
 
 export default function Modal({setOpen, open, children}: ModalProps){
-    console.log(open);
+    //console.log(open);
     if(!open){
         return "";
     }

@@ -79,7 +79,7 @@ export default function Login() {
           <FormField
             label="email"
             type="email"
-            size="lg"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
@@ -88,7 +88,7 @@ export default function Login() {
           <FormField
             label="password"
             type="password"
-            size="lg"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
