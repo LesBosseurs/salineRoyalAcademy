@@ -5,12 +5,12 @@ import Card from "@/components/Card";
 import Cross from "@/public/icons/cross";
 
 type ModalProps = {
-    setOpen: (b: boolean) => void;
+    setOpenModal: (b: boolean) => void;
     open: boolean;
     children: React.ReactNode;
 };
 
-export default function Modal({setOpen, open, children}: ModalProps){
+export default function Modal({setOpenModal, open, children}: ModalProps){
     //console.log(open);
     if(!open){
         return "";
@@ -18,13 +18,12 @@ export default function Modal({setOpen, open, children}: ModalProps){
     return(
         <div className={style.modal}>
             <div  className={style.modal_card}>
-                <div className={style.close_icon} onClick={() => setOpen(false)}>
+                <div className={style.close_icon} onClick={() => setOpenModal(false)}>
                     <Cross></Cross>
                 </div>
                 <div className={style.separator}></div>
                 <h2>Filter</h2>
                 {children}
             </div>
-        </div>
-    )
+        </div>)
 }

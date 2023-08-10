@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ReactElement} from 'react';
+import React, {ChangeEvent} from 'react';
 import style from '../styles/components/FormField.module.scss';
 
 interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -6,8 +6,7 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
     type: string;
     sizeInput: 'md' | 'lg';
     onChange: (value) => void;
-    icon: React.ReactNode;
-    iconIsLeft?: boolean;
+    icon?: React.ReactNode;
 };
 
 const FormField = ({
@@ -18,7 +17,6 @@ const FormField = ({
                               value,
                               onChange,
                               icon,
-                              iconIsLeft,
                               ...props
                           }:FormFieldProps ) => {
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -39,6 +37,7 @@ const FormField = ({
 
     return (
         <div className={type !== "search"? style.FormField : style.searchField}>
+            {icon}
             {type !== "search" ? (
                 <label>
                     {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}
@@ -52,7 +51,7 @@ const FormField = ({
                 value={value[label]}
                 className={aspectButton()}
                 onChange={handleInputChange}
-            />
+            ></input>
         </div>
     );
 }

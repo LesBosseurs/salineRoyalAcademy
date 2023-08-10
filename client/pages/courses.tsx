@@ -9,11 +9,11 @@ import {FormEvent, useEffect, useState} from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import FormField from "@/components/FormField";
 import Modal from "@/components/Modal";
-import {Simulate} from "react-dom/test-utils";
-import toggle = Simulate.toggle;
 import axios from "axios";
+import {boolean} from "zod";
+import Search from '@/public/icons/search';
 
-interface FormFilter {
+interface ISelectedFilter {
     instrument: string,
     professor: string,
     composer: string,
@@ -23,37 +23,53 @@ interface FormFilter {
     display: string
 }
 
+interface Ifilter{
+    label: string,
+}
+
+interface ICourses {
+    title: string,
+    professor: string,
+    difficulty: number,
+    actualChapter: string,
+    pourcentage: number
+}
+
 export default function Dashboard() {
     const size = useWindowSize();
-    const [widthContainerArticles, setWidthContainerArticles] = useState(0);
-    const [open, setOpen] = useState(false);
-    const [course, setCourse] = useState([{
+    const [widthContainerArticles, setWidthContainerArticles] = useState<number>(0);
+    const [openModal, setOpenModal] = useState<boolean>(false);
+    const [listCourses, setListCourses] = useState([{
+        "id" : 1,
         "title":"Fantasy in C",
         "professor":"Robert Shumann",
         "difficulty":2,
         "actualChapter":"Chap. 2"},
         {
+            "id" : 2,
             "title":"tes1",
             "professor":"Robert Shumanna",
             "difficulty":2,
             "actualChapter":"Chap. 2"},
         {
+            "id" : 3,
             "title":"Fantasy in C",
             "professor":"Robert Shumanna",
             "difficulty":2,
             "actualChapter":"Chap. 2"},
         {
+            "id" : 4,
             "title":"Fantasy in C",
             "professor":"Robert Shumanna",
             "difficulty":2,
             "actualChapter":"Chap. 2"},
         {
+            "id" : 5,
             "title":"Fantasy in C",
             "professor":"Robert Shumann",
             "difficulty":2,
             "actualChapter":"Chap. 2"}]);
-
-    const [filter, setFilter] = useState<FormFilter>({
+    const [selectedFilter, setSelectedFilter] = useState<ISelectedFilter>({
         instrument: "",
         professor: "",
         composer: "",
@@ -63,18 +79,11 @@ export default function Dashboard() {
         display: "",
     });
 
+    const [filter, setFilter] = useState([{"label":"test"}, {"label":"test2"}])
+
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        //console.log(filter);
-        setFilter({
-            instrument: "",
-            professor: "",
-            composer: "",
-            sort_by: "",
-            state: "",
-            subtitles_languages: "",
-            display: "",
-        });
+        console.log(selectedFilter);
     };
 
     useEffect(() => {
@@ -110,31 +119,32 @@ export default function Dashboard() {
         }
     };
 
-    const handleOpen = (toggle) => {
-        setOpen(toggle)
-    }
+    const handleOpen = (toggle:boolean) => {
+        setOpenModal(toggle)
+    };
 
-    console.log(open);
+    // @ts-ignore
     return (
         <div className={style.listing}>
             <Header name="Courses" />
             <CardContainer>
                 <div className={CardContainerStyle.rowReverse}>
-                    <div className={style.search}>
+                    <div className={style.searchAndFilter}>
                         <FormField
                             label="search"
                             type="search"
                             sizeInput="md"
                             placeholder="Search"
-                            value={filter}
+                            icon={<Search fill={'#000'} />}
+                            value={selectedFilter}
                             onChange={function (value) {
-                                setFilter(value);
+                                setSelectedFilter(value);
                             }}
                         />
-                        <div className={style.filterButton} onClick={() => handleOpen(true)} style={open?{zIndex: 0}:{zIndex:1}}>
+                        <div className={style.filterButton} onClick={() => handleOpen(true)} style={openModal?{zIndex: 0}:{zIndex:1}}>
                             <Button size={'sm'} >Filter</Button>
                         </div>
-                        <Modal setOpen={handleOpen} open={open}>
+                        <Modal setOpenModal={handleOpen} open={openModal}>
                             <form onSubmit={handleSubmit}>
                                 <div className={style.mobile_filter_content}>
                                     <FormField
@@ -200,10 +210,14 @@ export default function Dashboard() {
                         </Modal>
                     </div>
                     <FormField
-                        label="Search instrument"
+                        label="search"
                         type="search"
                         sizeInput="md"
-                        value=""
+                        placeholder="Search instrument component"
+                        value={selectedFilter}
+                        onChange={function (value) {
+                            setSelectedFilter(value);
+                        }}
                     />
                 </div>
                 <div className={CardContainerStyle.rowReverse}>
@@ -219,54 +233,54 @@ export default function Dashboard() {
                                     label="professor"
                                     type="select"
                                     sizeInput="md"
-                                    value={filter}
+                                    value={selectedFilter}
                                     onChange={function (value) {
-                                        setFilter(value);
+                                        setSelectedFilter(value);
                                     }}
                                 />
                                 <FormField
                                     label="composer"
                                     type="select"
                                     sizeInput="md"
-                                    value={filter}
+                                    value={selectedFilter}
                                     onChange={function (value) {
-                                        setFilter(value);
+                                        setSelectedFilter(value);
                                     }}
                                 />
                                 <FormField
                                     label="subtitles_languages"
                                     type="select"
                                     sizeInput="md"
-                                    value={filter}
+                                    value={selectedFilter}
                                     onChange={function (value) {
-                                        setFilter(value);
+                                        setSelectedFilter(value);
                                     }}
                                 />
                                 <FormField
                                     label="sort_by"
                                     type="select"
                                     sizeInput="md"
-                                    value={filter}
+                                    value={selectedFilter}
                                     onChange={function (value) {
-                                        setFilter(value);
+                                        setSelectedFilter(value);
                                     }}
                                 />
                                 <FormField
                                     label="state"
                                     type="select"
                                     sizeInput="md"
-                                    value={filter}
+                                    value={selectedFilter}
                                     onChange={function (value) {
-                                        setFilter(value);
+                                        setSelectedFilter(value);
                                     }}
                                 />
                                 <FormField
                                     label="display"
                                     type="select"
                                     sizeInput="md"
-                                    value={filter}
+                                    value={selectedFilter}
                                     onChange={function (value) {
-                                        setFilter(value);
+                                        setSelectedFilter(value);
                                     }}
                                 />
                             </div>
@@ -280,11 +294,11 @@ export default function Dashboard() {
                         </Card>
                     </div>
                     <Card title="Courses" textLink="" hrefLink="">
-                        <div className={style.grid_courses}>
+                        <div className={style.grid_cards}>
                             {
-                                course.map( (item) => (
-                                    // eslint-disable-next-line react/jsx-key
+                                listCourses.map( (item) => (
                                     <CourseCard
+                                        key={item.id}
                                         title={item.title}
                                         professor={item.professor}
                                         difficulty={item.difficulty}

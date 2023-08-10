@@ -2,7 +2,7 @@
 @import '../fonts.scss';
 
 .listing {
-  .grid_courses {
+  .grid_cards {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -18,15 +18,11 @@
   }
 
   //section input search + button filter
-  .search{
+  .searchAndFilter{
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 30px;
-
-    FormField{
-      width: 100%;
-    }
   }
 
   .filterButton{
@@ -68,6 +64,12 @@
       box-sizing: border-box;
       padding-bottom: 15px;
     }
+  }
+
+  a{
+    color: #000;
+    text-decoration: none;
+    @include paragraph_semi_bold;
   }
 }
 
