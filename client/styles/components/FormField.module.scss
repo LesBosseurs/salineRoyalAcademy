@@ -42,6 +42,9 @@
 .searchField {
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+
   input {
     @include paragraph_medium;
     border-radius: 10px;
@@ -49,8 +52,10 @@
     border: 1px solid $secondary-gray;
     padding: 0 20px;
     box-sizing: border-box;
-    background: transparent;
-
+    background: #fff;
+    @media screen and (min-width: $breakpoint-laptop) {
+      width: 380px;
+    }
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 1000px white inset;
     }
@@ -63,5 +68,11 @@
   .lg{
     @extend input;
     height: 56px;
+  }
+
+  svg{
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
   }
 }
