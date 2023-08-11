@@ -20,7 +20,9 @@ export const registerUser = createAsyncThunk(
       method: 'POST',
       url: '/api/register',
       data: { email: formInput.email, password: formInput.password },
-    }).then((res: any) => console.log(res));
+    })
+      .then((res: any) => console.log(res))
+      .catch((err) => console.warn(err));
   }
 );
 
@@ -48,6 +50,7 @@ export const userSlice = createSlice({
     ) => {
       state.email = action.payload;
     },
+    disconnect: (state) => (state = initialState),
   },
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, { payload }) => {
@@ -56,6 +59,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setEmail } = userSlice.actions;
+export const { setEmail, disconnect } = userSlice.actions;
 
 export default userSlice.reducer;
