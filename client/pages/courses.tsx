@@ -75,7 +75,7 @@ export default function Dashboard() {
         display: "",
     });
 
-    const [filter, setFilter] = useState([{"label":"test"}, {"label":"test2"}])
+    console.log(Object.keys(selectedFilter));
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -143,60 +143,19 @@ export default function Dashboard() {
                         <Modal setOpenModal={handleOpen} open={openModal}>
                             <form onSubmit={handleSubmit}>
                                 <div className={style.mobile_filter_content}>
-                                    <FormField
-                                        label="professor"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="composer"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="subtitles_languages"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="sort_by"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="state"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="display"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
+                                    {
+                                        Object.keys(selectedFilter).map((filter, key)=>(
+                                            <FormField
+                                                key={key}
+                                                label={filter}
+                                                type={filter}
+                                                sizeInput="md"
+                                                value={selectedFilter}
+                                                onChange={function (value) {
+                                                    setSelectedFilter(value);
+                                                }}
+                                            />))
+                                    }
                                 </div>
                                 <div className={style.mobile_submit_filter}>
                                     <a href="">Undo Filter</a>
@@ -225,60 +184,19 @@ export default function Dashboard() {
                         >
                             <form onSubmit={handleSubmit}>
                                 <div className={style.desktop_filter}>
-                                    <FormField
-                                        label="professor"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="composer"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="subtitles_languages"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="sort_by"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="state"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
-                                    <FormField
-                                        label="display"
-                                        type="select"
-                                        sizeInput="md"
-                                        value={selectedFilter}
-                                        onChange={function (value) {
-                                            setSelectedFilter(value);
-                                        }}
-                                    />
+                                    {
+                                        Object.keys(selectedFilter).map((filter, key)=>(
+                                            <FormField
+                                                key={key}
+                                                label={filter}
+                                                type={filter}
+                                                sizeInput="md"
+                                                value={selectedFilter}
+                                                onChange={function (value) {
+                                                    setSelectedFilter(value);
+                                                }}
+                                            />))
+                                    }
                                 </div>
                                 <div className={style.mobile_submit_filter}>
                                     <a onClick={()=>setSelectedFilter({
