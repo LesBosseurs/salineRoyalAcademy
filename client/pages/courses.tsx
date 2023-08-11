@@ -281,7 +281,15 @@ export default function Dashboard() {
                                     />
                                 </div>
                                 <div className={style.mobile_submit_filter}>
-                                    <a href="">Undo Filter</a>
+                                    <a onClick={()=>setSelectedFilter({
+                                        instrument: "",
+                                        professor: "",
+                                        composer: "",
+                                        sort_by: "",
+                                        state: "",
+                                        subtitles_languages: "",
+                                        display: "",
+                                    })}>Undo Filter</a>
                                     <Button size={'sm'} >Filter</Button>
                                 </div>
                             </form>
