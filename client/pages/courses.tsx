@@ -10,7 +10,6 @@ import useWindowSize from '@/hooks/useWindowSize';
 import FormField from "@/components/FormField";
 import Modal from "@/components/Modal";
 import axios from "axios";
-import {boolean} from "zod";
 import Search from '@/public/icons/search';
 
 interface ISelectedFilter {
@@ -23,16 +22,12 @@ interface ISelectedFilter {
     display: string
 }
 
-interface Ifilter{
-    label: string,
-}
-
 interface ICourses {
     title: string,
     professor: string,
     difficulty: number,
     actualChapter: string,
-    pourcentage: number
+    percentage: number
 }
 
 export default function Dashboard() {
@@ -140,6 +135,7 @@ export default function Dashboard() {
                             onChange={function (value) {
                                 setSelectedFilter(value);
                             }}
+                            iconIsLeft={false}
                         />
                         <div className={style.filterButton} onClick={() => handleOpen(true)} style={openModal?{zIndex: 0}:{zIndex:1}}>
                             <Button size={'sm'} >Filter</Button>
@@ -228,68 +224,68 @@ export default function Dashboard() {
                             hrefLink=""
                         >
                             <form onSubmit={handleSubmit}>
-                            <div className={style.desktop_filter}>
-                                <FormField
-                                    label="professor"
-                                    type="select"
-                                    sizeInput="md"
-                                    value={selectedFilter}
-                                    onChange={function (value) {
-                                        setSelectedFilter(value);
-                                    }}
-                                />
-                                <FormField
-                                    label="composer"
-                                    type="select"
-                                    sizeInput="md"
-                                    value={selectedFilter}
-                                    onChange={function (value) {
-                                        setSelectedFilter(value);
-                                    }}
-                                />
-                                <FormField
-                                    label="subtitles_languages"
-                                    type="select"
-                                    sizeInput="md"
-                                    value={selectedFilter}
-                                    onChange={function (value) {
-                                        setSelectedFilter(value);
-                                    }}
-                                />
-                                <FormField
-                                    label="sort_by"
-                                    type="select"
-                                    sizeInput="md"
-                                    value={selectedFilter}
-                                    onChange={function (value) {
-                                        setSelectedFilter(value);
-                                    }}
-                                />
-                                <FormField
-                                    label="state"
-                                    type="select"
-                                    sizeInput="md"
-                                    value={selectedFilter}
-                                    onChange={function (value) {
-                                        setSelectedFilter(value);
-                                    }}
-                                />
-                                <FormField
-                                    label="display"
-                                    type="select"
-                                    sizeInput="md"
-                                    value={selectedFilter}
-                                    onChange={function (value) {
-                                        setSelectedFilter(value);
-                                    }}
-                                />
-                            </div>
-                            <div className={style.mobile_submit_filter}>
-                                <a href="">Undo Filter</a>
-                                <div>
-                                    <Button size={'sm'} >Filter</Button>
+                                <div className={style.desktop_filter}>
+                                    <FormField
+                                        label="professor"
+                                        type="select"
+                                        sizeInput="md"
+                                        value={selectedFilter}
+                                        onChange={function (value) {
+                                            setSelectedFilter(value);
+                                        }}
+                                    />
+                                    <FormField
+                                        label="composer"
+                                        type="select"
+                                        sizeInput="md"
+                                        value={selectedFilter}
+                                        onChange={function (value) {
+                                            setSelectedFilter(value);
+                                        }}
+                                    />
+                                    <FormField
+                                        label="subtitles_languages"
+                                        type="select"
+                                        sizeInput="md"
+                                        value={selectedFilter}
+                                        onChange={function (value) {
+                                            setSelectedFilter(value);
+                                        }}
+                                    />
+                                    <FormField
+                                        label="sort_by"
+                                        type="select"
+                                        sizeInput="md"
+                                        value={selectedFilter}
+                                        onChange={function (value) {
+                                            setSelectedFilter(value);
+                                        }}
+                                    />
+                                    <FormField
+                                        label="state"
+                                        type="select"
+                                        sizeInput="md"
+                                        value={selectedFilter}
+                                        onChange={function (value) {
+                                            setSelectedFilter(value);
+                                        }}
+                                    />
+                                    <FormField
+                                        label="display"
+                                        type="select"
+                                        sizeInput="md"
+                                        value={selectedFilter}
+                                        onChange={function (value) {
+                                            setSelectedFilter(value);
+                                        }}
+                                    />
                                 </div>
-                            </div>
+                                <div className={style.mobile_submit_filter}>
+                                    <a href="">Undo Filter</a>
+                                    <div>
+                                        <Button size={'sm'} >Filter</Button>
+                                    </div>
+                                </div>
                             </form>
                         </Card>
                     </div>
