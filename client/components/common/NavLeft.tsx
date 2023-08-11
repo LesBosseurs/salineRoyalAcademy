@@ -8,10 +8,13 @@ import MessagesIcon from '@/public/icons/messages';
 import SettingsIcon from '@/public/icons/settings';
 import Link from 'next/link';
 import SalineRoyaleAcademy from '@/public/icons/salineRoyaleAcademy';
+import { useAppDispatch } from '@/hooks/useRedux';
+import { disconnect } from '@/store/features/userSlice';
 
 export default function NavLeft() {
   const router = useRouter();
   const { pathname } = router;
+  const dispatch = useAppDispatch();
 
   return (
     <nav className={style.nav_left}>
@@ -71,7 +74,7 @@ export default function NavLeft() {
           {pathname === '/settings' ? <div></div> : ''}
         </li>
       </ul>
-      <div>
+      <div onClick={() => dispatch(disconnect())}>
         <Image
           src="/icons/disconnect.svg"
           alt="home icon"
