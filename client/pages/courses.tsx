@@ -23,11 +23,12 @@ interface ISelectedFilter {
 }
 
 interface ICourses {
+    id:number,
     title: string,
     professor: string,
     difficulty: number,
     actualChapter: string,
-    percentage: number
+    percentage?: number
 }
 
 export default function Dashboard() {
@@ -135,7 +136,6 @@ export default function Dashboard() {
                             onChange={function (value) {
                                 setSelectedFilter(value);
                             }}
-                            iconIsLeft={false}
                         />
                         <div className={style.filterButton} onClick={() => handleOpen(true)} style={openModal?{zIndex: 0}:{zIndex:1}}>
                             <Button size={'sm'} >Filter</Button>
@@ -147,54 +147,54 @@ export default function Dashboard() {
                                         label="professor"
                                         type="select"
                                         sizeInput="md"
-                                        value={filter}
+                                        value={selectedFilter}
                                         onChange={function (value) {
-                                            setFilter(value);
+                                            setSelectedFilter(value);
                                         }}
                                     />
                                     <FormField
                                         label="composer"
                                         type="select"
                                         sizeInput="md"
-                                        value={filter}
+                                        value={selectedFilter}
                                         onChange={function (value) {
-                                            setFilter(value);
+                                            setSelectedFilter(value);
                                         }}
                                     />
                                     <FormField
                                         label="subtitles_languages"
                                         type="select"
                                         sizeInput="md"
-                                        value={filter}
+                                        value={selectedFilter}
                                         onChange={function (value) {
-                                            setFilter(value);
+                                            setSelectedFilter(value);
                                         }}
                                     />
                                     <FormField
                                         label="sort_by"
                                         type="select"
                                         sizeInput="md"
-                                        value={filter}
+                                        value={selectedFilter}
                                         onChange={function (value) {
-                                            setFilter(value);
+                                            setSelectedFilter(value);
                                         }}
                                     />
                                     <FormField
                                         label="state"
                                         type="select"
                                         sizeInput="md"
-                                        value={filter}
+                                        value={selectedFilter}
                                         onChange={function (value) {
-                                            setFilter(value);
+                                            setSelectedFilter(value);
                                         }}
                                     />
                                     <FormField
                                         label="display"
                                         type="select"
                                         sizeInput="md"
-                                        value={filter}
+                                        value={selectedFilter}
                                         onChange={function (value) {
-                                            setFilter(value);
+                                            setSelectedFilter(value);
                                         }}
                                     />
                                 </div>
@@ -282,9 +282,7 @@ export default function Dashboard() {
                                 </div>
                                 <div className={style.mobile_submit_filter}>
                                     <a href="">Undo Filter</a>
-                                    <div>
-                                        <Button size={'sm'} >Filter</Button>
-                                    </div>
+                                    <Button size={'sm'} >Filter</Button>
                                 </div>
                             </form>
                         </Card>
