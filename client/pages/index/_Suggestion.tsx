@@ -24,8 +24,6 @@ export default function Suggestion() {
     'Trombone',
   ];
 
-  console.log(heightListCourses);
-
   return (
     <section className={style.suggestion}>
       <h2>What instrument do you play?</h2>
