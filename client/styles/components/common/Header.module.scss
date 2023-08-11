@@ -6,6 +6,7 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 30px;
+  position: relative;
 
   > h1 {
     @include lead;

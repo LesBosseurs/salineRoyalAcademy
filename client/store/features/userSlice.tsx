@@ -10,6 +10,7 @@ import axios from 'axios';
 const initialState: UserInterface = {
   email: '',
   password: '',
+  token: '',
 } as const;
 
 export const registerUser = createAsyncThunk(

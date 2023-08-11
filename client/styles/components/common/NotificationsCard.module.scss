@@ -1,0 +1,14 @@
+.notifications_card {
+  position: absolute;
+  z-index: 5;
+  top: 55px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+
+  .container {
+    padding: 20px;
+  }
+}
