@@ -16,7 +16,7 @@ export class GroupController {
 
   static async getGroupById(req: Request, res: Response): Promise<void> {
     try {
-      const groupId = parseInt(req.params.id, 10);
+      const groupId = req.params.id;
       const group = await GroupService.getGroupById(groupId);
       if (group) {
         res.status(200).json({ success: true, message: 'Group retrieved successfully', data: group });
@@ -39,9 +39,8 @@ export class GroupController {
 
   static async updateGroup(req: Request, res: Response): Promise<void> {
     try {
-      const groupId = parseInt(req.params.id, 10);
       const updatedGroup: Group = req.body;
-      await GroupService.updateGroup(groupId, updatedGroup);
+      await GroupService.updateGroup(updatedGroup);
       res.status(200).json({ success: true, message: 'Group updated successfully' });
     } catch (error) {
       res.status(500).json({ success: false, message: 'Failed to update group', error: error as Error });
@@ -50,7 +49,7 @@ export class GroupController {
 
   static async deleteGroup(req: Request, res: Response): Promise<void> {
     try {
-      const groupId = parseInt(req.params.id, 10);
+      const groupId = req.params.id;
       await GroupService.deleteGroup(groupId);
       res.status(200).json({ success: true, message: 'Group deleted successfully' });
     } catch (error) {

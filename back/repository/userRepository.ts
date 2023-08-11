@@ -10,12 +10,12 @@ class UserRepository {
         const result = await pool.query(query);
         return result.rows;
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch users: ${error}`);
+        throw error
       } finally {
         c.release()
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch users: ${error}`);
+      throw error;
     }
   }
 
@@ -23,17 +23,17 @@ class UserRepository {
     try {
       let c = await pool.connect()
       try {
-        const query = 'SELECT * FROM users WHERE user_id = $1';
+        const query = 'SELECT * FROM users, study WHERE users.user_id = $1 AND study.user_id = $1';
         const values = [userId];
         const result = await pool.query(query, values);
         return result.rows[0];
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch user: ${error}`);
+        throw error;
       } finally {
         c.release()
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch user: ${error}`);
+      throw error;
     }
   }
 
@@ -46,12 +46,12 @@ class UserRepository {
         const result = await pool.query(query, values);
         return result.rows[0];
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch user: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch user: ${error}`);
+      throw error;
     }
   }
 
@@ -60,30 +60,30 @@ class UserRepository {
       const c = await pool.connect();
       try {
         const query = `
-        INSERT INTO users(first_name, last_name, email, password, phone, notification, instruments, status)
+        INSERT INTO users (first_name, last_name, email, password, phone, notifications, instruments, status)
         VALUES($1, $2, $3, $4, $5, $6, $7, $8)
         RETURNING user_id
       `;
         const values = [
-          user.first_name,
-          user.last_name,
+          user.first_name || null,
+          user.last_name || null,
           user.email,
           user.password,
-          user.phone,
-          user.notification,
-          user.instruments,
-          user.status
+          user.phone || null,
+          user.notifications || false,
+          user.instruments || null,
+          user.status || 'New'
         ];
         const result = await pool.query(query, values);
         const insertedUserId = result.rows[0].user_id;
         return (insertedUserId)
       } catch (error) {
-        throw new Error(`Unable to create user: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to create user: ${error}`);
+      throw error;
     }
   }
 
@@ -99,7 +99,7 @@ class UserRepository {
       email = $3,
       password = $4,
       phone = $5,
-      notification = $6,
+      notifications = $6,
       instruments = $7,
       status = $8
   WHERE user_id = $9
@@ -110,19 +110,19 @@ class UserRepository {
           updatedUser.email,
           updatedUser.password,
           updatedUser.phone,
-          updatedUser.notification,
+          updatedUser.notifications,
           updatedUser.instruments,
           updatedUser.status,
           userId,
         ];
         await pool.query(query, values);
       } catch (error: unknown) {
-        throw new Error(`Unable to update user: ${error}`);
+        throw error;
       } finally {
         c.release()
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to create user: ${error}`);
+      throw error;
     }
   }
 
@@ -130,34 +130,16 @@ class UserRepository {
     try {
       const c = await pool.connect();
       try {
-        this.deleteUserFromPeople(userId);
         const values = [userId];
-        const query = 'DELETE FROM users WHERE user_id = $1';
+        const query = 'UPDATE users SET status = \'Inactive\' WHERE user_id = $1';
         await pool.query(query, values);
       } catch (error) {
-        throw new Error(`Unable to delete user: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error) {
-      throw new Error(`Unable to delete user: ${error}`);
-    }
-  }
-
-  static async deleteUserFromPeople(userId: string): Promise<void> {
-    try {
-      const c = await pool.connect();
-      try {
-        const values = [userId];
-        const updateQuery = 'UPDATE peoples SET user_id = NULL WHERE user_id = $1';
-        await pool.query(updateQuery, values);
-      } catch (error) {
-        throw new Error(`Unable to set userid to null on people: ${error}`);
-      } finally {
-        c.release();
-      }
-    } catch (error) {
-      throw new Error(`Unable to set userid to null on people: ${error}`);
+      throw error;
     }
   }
 
@@ -191,16 +173,16 @@ class UserRepository {
         const result = await pool.query(filteredQuery, values);
         return result.rows;
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch users: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch users: ${error}`);
+      throw error;
     }
   }
-  
-  
+
+
 
 }
 
