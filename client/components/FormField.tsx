@@ -11,14 +11,14 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const FormField = ({
 
-                              label,
-                              type,
-                              sizeInput,
-                              value,
-                              onChange,
-                              icon,
-                              ...props
-                          }:FormFieldProps ) => {
+                       label,
+                       type,
+                       sizeInput,
+                       value,
+                       onChange,
+                       icon,
+                       ...props
+                   }:FormFieldProps ) => {
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const newValue = {
             ...value,
@@ -37,12 +37,12 @@ const FormField = ({
 
     return (
         <div className={type !== "search"? style.FormField : style.searchField}>
-            {icon}
             {type !== "search" ? (
                 <label>
+                    {icon}
                     {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}
                 </label>
-            ):''}
+            ):(<>{icon}</>)}
             <input
                 {...props}
                 type={type}
