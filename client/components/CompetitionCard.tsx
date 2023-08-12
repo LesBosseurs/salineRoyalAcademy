@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import style from '../styles/components/CompetitionCard.module.scss';
 import MedalIcon from '@/public/icons/medal';
+import InstrumentIcon from './InstrumentIcon';
 
 type CompetitionCardProps = {
   instrument: string;
@@ -21,12 +22,7 @@ export default function CompetitionCard({
     <div className={style.competition_card}>
       <div>
         <div className={style.icon}>
-          <Image
-            src={`/icons/${instrument}.svg`}
-            alt="icon instrument"
-            height={10}
-            width={11}
-          />
+          <InstrumentIcon instrument={instrument} fill="#fff" />
         </div>
         <span>{title}</span>
       </div>

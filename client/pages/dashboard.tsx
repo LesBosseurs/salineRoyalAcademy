@@ -58,6 +58,7 @@ export default function Dashboard() {
               <CourseCard
                 title="Fantasy in C"
                 professor="Robert Shumann"
+                instrument="piano"
                 difficulty={2}
                 actualChapter="Chap. 2"
                 pourcentage={20}
@@ -65,33 +66,42 @@ export default function Dashboard() {
               <CourseCard
                 title="Fantasy in C"
                 professor="Robert Shumann"
+                instrument="piano"
                 difficulty={2}
                 actualChapter="Chap. 2"
-                pourcentage={50}
+                pourcentage={20}
               />
               <CourseCard
                 title="Fantasy in C"
                 professor="Robert Shumann"
+                instrument="piano"
                 difficulty={2}
                 actualChapter="Chap. 2"
+                pourcentage={20}
               />
               <CourseCard
                 title="Fantasy in C"
                 professor="Robert Shumann"
+                instrument="piano"
                 difficulty={2}
                 actualChapter="Chap. 2"
+                pourcentage={20}
               />
               <CourseCard
                 title="Fantasy in C"
                 professor="Robert Shumann"
+                instrument="piano"
                 difficulty={2}
                 actualChapter="Chap. 2"
+                pourcentage={20}
               />
               <CourseCard
                 title="Fantasy in C"
                 professor="Robert Shumann"
+                instrument="piano"
                 difficulty={2}
                 actualChapter="Chap. 2"
+                pourcentage={20}
               />
             </div>
           </Card>

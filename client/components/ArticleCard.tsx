@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import style from '../styles/components/ArticleCard.module.scss';
+import InstrumentIcon from './InstrumentIcon';
 
 type ArticleCardProps = {
   instrument: string;
@@ -32,27 +33,34 @@ export default function ArticleCard({
 
   return (
     <div className={style.article_card}>
-      <div className={style.pic}>
-        <div>
+      <div className={style.description}>
+        <div className={style.author_desc}>
           <Image
-            src={`/icons/${instrument}.svg`}
-            alt="instrument icon"
-            height={16}
-            width={18}
+            src="/prov/profile-picture.jpeg"
+            alt="profil picture of author"
+            width={20}
+            height={20}
           />
+          <span>{author}</span>
+          <span>
+            {author} · {formatDate(date)}
+          </span>
+        </div>
+        <h3>{title}</h3>
+        <div className={style.infos}>
+          <span>{formatDate(date)}</span>
+          <div>
+            <div className={style.instrument}>
+              <InstrumentIcon instrument={instrument} fill="#fff" />
+            </div>
+            <span>tag</span>
+          </div>
         </div>
       </div>
-      <p>{title}</p>
-      <div>
-        <Image
-          src="/prov/profile-picture.jpeg"
-          alt="profil picture of author"
-          width={20}
-          height={20}
-        />
-        <p>
-          <span>{author}</span> · <span>{formatDate(date)}</span>
-        </p>
+      <div className={style.pic}>
+        <div className={style.instrument}>
+          <InstrumentIcon instrument={instrument} fill="#fff" />
+        </div>
       </div>
     </div>
   );
