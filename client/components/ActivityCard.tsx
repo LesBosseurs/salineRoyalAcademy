@@ -1,8 +1,20 @@
 import Image from 'next/image';
 import style from '../styles/components/ActivityCard.module.scss';
+import InstrumentIcon from './InstrumentIcon';
 
 type ActivityCardProps = {
-  instrument: string;
+  instrument:
+    | 'cello'
+    | 'chambre music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'saxo'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
   title: string;
   author: string;
   creationDate: Date;
@@ -26,12 +38,13 @@ export default function ActivityCard({
     <div className={style.activity_card}>
       <div>
         <div className={style.icon}>
-          <Image
+          {/* <Image
             src={`/icons/${instrument}.svg`}
             alt="icon instrument"
             height="10"
             width="11"
-          />
+          /> */}
+          <InstrumentIcon instrument={instrument} fill="#fff" />
         </div>
         <span>{title}</span>
       </div>

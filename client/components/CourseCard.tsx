@@ -7,6 +7,7 @@ import InstrumentIcon from './InstrumentIcon';
 type CourseCardProps = {
   title: string;
   professor: string;
+  instrument: string;
   difficulty: number;
   actualChapter: string | null;
   pourcentage?: number | null;
@@ -15,6 +16,7 @@ type CourseCardProps = {
 export default function CourseCard({
   title,
   professor,
+  instrument,
   difficulty,
   actualChapter,
   pourcentage,
@@ -25,7 +27,7 @@ export default function CourseCard({
     <div className={style.course_card}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
-          <InstrumentIcon instrument="Piano" fill="#fff" />
+          <InstrumentIcon instrument={instrument} fill="#fff" />
         </div>
         {pourcentage ? (
           <div className={style.progress_bar}>
@@ -39,7 +41,7 @@ export default function CourseCard({
         <div>
           <div>
             <div className={style.instrument}>
-              <InstrumentIcon instrument="Piano" fill="#fff" />
+              <InstrumentIcon instrument={instrument} fill="#fff" />
             </div>
             <span>{title}</span>
           </div>

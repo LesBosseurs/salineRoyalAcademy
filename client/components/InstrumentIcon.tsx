@@ -1,5 +1,5 @@
 import CelloIcon from '@/public/icons/cello';
-import ChambreMusicIcon from '@/public/icons/chambre_music_icon';
+import ChambreMusicIcon from '@/public/icons/chambre_music';
 import ClarinetIcon from '@/public/icons/clarinet';
 import FluteIcon from '@/public/icons/flute';
 import OboeIcon from '@/public/icons/oboe';
@@ -19,25 +19,25 @@ export default function InstrumentIcon({
   instrument,
 }: InstrumentIconProps) {
   switch (instrument) {
-    case 'Piano':
+    case 'piano':
       return <PianoIcon fill={fill} />;
-    case 'Violin':
+    case 'violin':
       return <ViolinIcon fill={fill} />;
-    case 'Cello':
+    case 'cello':
       return <CelloIcon fill={fill} />;
-    case 'Voice':
+    case 'voice':
       return <VoiceIcon fill={fill} />;
-    case 'Viola':
+    case 'viola':
       return <ViolaIcon fill={fill} />;
-    case 'Clarinet':
+    case 'clarinet':
       return <ClarinetIcon fill={fill} />;
-    case 'Flute':
+    case 'flute':
       return <FluteIcon fill={fill} />;
-    case 'Oboe':
+    case 'oboe':
       return <OboeIcon fill={fill} />;
-    case 'Chambre music':
+    case 'chambre music':
       return <ChambreMusicIcon fill={fill} />;
-    case 'Trombone':
+    case 'trombone':
       return <TromboneIcon fill={fill} />;
   }
 }

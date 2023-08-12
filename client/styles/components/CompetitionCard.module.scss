@@ -15,8 +15,10 @@
       align-items: center;
       justify-content: center;
       background-color: #80017f;
-      height: 20px;
-      min-width: 20px;
+      max-height: 20px;
+      max-width: 20px;
+      box-sizing: border-box;
+      padding: 3px;
       border-radius: 100%;
     }
 
