@@ -1,14 +1,21 @@
 import { useRouter } from 'next/router';
 import { useAppSelector } from '@/hooks/useRedux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface AuthWrapperProps {
   children: React.ReactNode;
 }
 
-const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
+export default function AuthWrapper({ children }: AuthWrapperProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const router = useRouter();
   const isAuthenticated = useAppSelector((state) => state.user.token);
+  console.log(isAuthenticated);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -16,11 +23,9 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
     }
   }, [isAuthenticated, router]);
 
-  if (!isAuthenticated) {
-    return <p>Loading...</p>;
-  }
-
-  return <div>{children}</div>;
-};
-
-export default AuthWrapper;
+  return isAuthenticated && isClient ? (
+    <section>{children}</section>
+  ) : (
+    <p>Loading...</p>
+  );
+}

@@ -127,7 +127,7 @@
   }
 
   .scrollable {
-    overflow: scroll;
+    overflow-x: scroll;
 
     .articles_container {
       display: flex;
