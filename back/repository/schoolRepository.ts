@@ -1,4 +1,4 @@
-import { School } from "../modele/school";
+import { School, SchoolFormatted } from "../modele/school";
 import pool from "../db/database";
 
 class SchoolRepository {
@@ -19,14 +19,32 @@ class SchoolRepository {
     }
   }
 
-  static async getSchoolById(schoolId: string): Promise<School> {
+  static async getSchoolById(schoolId: string): Promise<any> { // a corriger
     try {
       let c = await pool.connect();
       try {
-        const query = 'SELECT * FROM schools WHERE school_id = $1';
+        const query = `
+        SELECT
+  schools.*,
+  groups.group_id,
+  groups.date_start,
+  groups.date_end,
+  users.user_id,
+  users.first_name,
+  users.last_name,
+  users.link_picture,
+  study.is_teacher
+FROM schools
+LEFT JOIN groups ON schools.school_id = groups.school_id
+LEFT JOIN study ON groups.group_id = study.group_id
+LEFT JOIN users ON study.user_id = users.user_id
+WHERE schools.school_id = $1;
+
+      `;
+  
         const values = [schoolId];
         const result = await pool.query(query, values);
-        return result.rows[0];
+        return result.rows;
       } catch (error: unknown) {
         throw error;
       } finally {
@@ -36,6 +54,7 @@ class SchoolRepository {
       throw error;
     }
   }
+  
 
   static async createSchool(school: School): Promise<void> {
     try {
