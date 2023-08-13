@@ -1,6 +1,7 @@
 import { RefObject } from 'react';
 import style from '../../styles/components/common/ProfilCard.module.scss';
 import ClickOutside from './ClickOutside';
+import Link from 'next/link';
 
 interface ProfilCardProps {
   clickOutside: (state: boolean) => void;
@@ -18,7 +19,14 @@ export default function ProfilCard({
         onClick={() => clickOutside(false)}
       >
         <div className={style.container}>
-          <span>Profil</span>
+          <ul>
+            <li>
+              <Link href="/profil">Voir le profil</Link>
+            </li>
+            <li>
+              <a>Help & Support</a>
+            </li>
+          </ul>
         </div>
       </ClickOutside>
     </div>

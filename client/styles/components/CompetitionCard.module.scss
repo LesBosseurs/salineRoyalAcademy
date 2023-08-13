@@ -4,7 +4,8 @@
 .competition_card {
   display: flex;
   flex-direction: column;
-  width: 330px;
+  min-width: 330px;
+  width: 100%;
   gap: 10px;
 
   > div:first-of-type {

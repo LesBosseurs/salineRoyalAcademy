@@ -10,5 +10,11 @@
 
   .container {
     padding: 20px;
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 }
