@@ -8,6 +8,7 @@ import Card from '@/components/Card';
 import ActivityCard from '@/components/ActivityCard';
 import CourseCard from '@/components/CourseCard';
 import CompetitionCard from '@/components/CompetitionCard';
+import CapIcon from '@/public/icons/cap';
 
 export default function Profil() {
   return (
@@ -71,7 +72,27 @@ export default function Profil() {
         </Card>
         <Card style={{ gridColumn: '5/7' }} colorBg="black" title="My stats">
           <div className={style.stats_container}>
-            <span>Test</span>
+            <ul>
+              <li>
+                <CapIcon fill="#000" />
+                <span>Courses</span>
+                <span>12</span>
+              </li>
+              <li>
+                <CapIcon fill="#000" />
+                <span>Courses</span>
+                <span>12</span>
+              </li>
+              <li>
+                <CapIcon fill="#000" />
+                <span>Courses</span>
+                <span>12</span>
+              </li>
+            </ul>
+            <div>
+              <p>Total completion rate </p>
+              <span>43%</span>
+            </div>
           </div>
         </Card>
         <Card
