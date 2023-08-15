@@ -64,6 +64,9 @@ $instrument-color-chamber-music: #c2466b;
   background-color: $instrument-color-chamber-music;
 }
 
+/* Shadows */
+$shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.12);
+
 /* Responsive Breakpoint */
 $breakpoint-mobile: 425px;
 $breakpoint-tablet: 768px;
