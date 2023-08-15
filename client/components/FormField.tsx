@@ -5,7 +5,7 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type: string;
   sizeInput: 'md' | 'lg';
-  value:string,
+  value: object,
   onChange: (value) => void;
   icon?: React.ReactNode;
 }
