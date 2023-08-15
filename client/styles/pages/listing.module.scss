@@ -17,15 +17,14 @@
     }
   }
 
-  //section input search + button filter
-  .searchAndFilter{
+  .search_and_filter{
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 30px;
   }
 
-  .filterButton{
+  .filter_button{
     display: flex;
     flex-direction: column;
     gap: 20px;
