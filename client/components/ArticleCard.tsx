@@ -3,7 +3,18 @@ import style from '../styles/components/ArticleCard.module.scss';
 import InstrumentIcon from './InstrumentIcon';
 
 type ArticleCardProps = {
-  instrument: string;
+  instrument:
+    | 'cello'
+    | 'chamber-music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'saxo'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
   title: string;
   author: string;
   date: Date;

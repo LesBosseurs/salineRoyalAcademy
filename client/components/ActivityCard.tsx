@@ -5,7 +5,7 @@ import InstrumentIcon from './InstrumentIcon';
 type ActivityCardProps = {
   instrument:
     | 'cello'
-    | 'chambre music'
+    | 'chamber-music'
     | 'clarinet'
     | 'flute'
     | 'oboe'

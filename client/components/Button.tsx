@@ -2,7 +2,7 @@ import style from '../styles/components/Button.module.scss';
 
 type ButtonProps = {
   children: React.ReactNode;
-  size: string;
+  size: 'sm' | 'md' | 'lg';
 };
 
 export default function Button({ children, size }: ButtonProps) {
