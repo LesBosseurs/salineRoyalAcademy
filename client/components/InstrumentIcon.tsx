@@ -11,7 +11,18 @@ import VoiceIcon from '@/public/icons/voice';
 
 type InstrumentIconProps = {
   fill: string;
-  instrument: string;
+  instrument:
+    | 'cello'
+    | 'chamber-music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'saxo'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
 };
 
 export default function InstrumentIcon({
@@ -35,7 +46,7 @@ export default function InstrumentIcon({
       return <FluteIcon fill={fill} />;
     case 'oboe':
       return <OboeIcon fill={fill} />;
-    case 'chambre music':
+    case 'chamber-music':
       return <ChambreMusicIcon fill={fill} />;
     case 'trombone':
       return <TromboneIcon fill={fill} />;
