@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import styleFile from '../styles/components/Card.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
+import React from 'react';
 
 interface CardProps {
+  className?: string;
   style?: React.CSSProperties;
   children: React.ReactNode;
   title: string;
@@ -12,6 +14,7 @@ interface CardProps {
 }
 
 export default function Card({
+  className,
   style,
   children,
   title,
@@ -29,7 +32,7 @@ export default function Card({
   return (
     <section
       style={size.width > 1024 ? style : { gridColumn: '1/7' }}
-      className={styleFile.section}
+      className={`${styleFile.section} ${className}`}
     >
       <div className={styleFile.header_card}>
         <h2>{title}</h2>

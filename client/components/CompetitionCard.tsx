@@ -5,7 +5,18 @@ import InstrumentIcon from './InstrumentIcon';
 import { useEffect, useState } from 'react';
 
 type CompetitionCardProps = {
-  instrument: string;
+  instrument:
+    | 'cello'
+    | 'chamber-music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'saxo'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
   title: string;
   place: string;
   date: Date;

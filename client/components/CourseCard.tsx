@@ -7,7 +7,18 @@ import InstrumentIcon from './InstrumentIcon';
 type CourseCardProps = {
   title: string;
   professor: string;
-  instrument: string;
+  instrument:
+    | 'cello'
+    | 'chamber-music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'saxo'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
   difficulty: number;
   actualChapter: string | null;
   pourcentage?: number | null;
