@@ -9,6 +9,7 @@ import ActivityCard from '@/components/ActivityCard';
 import CourseCard from '@/components/CourseCard';
 import CompetitionCard from '@/components/CompetitionCard';
 import CapIcon from '@/public/icons/cap';
+import VideoCard from '@/components/VideoCard';
 
 export default function Profil() {
   return (
@@ -38,35 +39,30 @@ export default function Profil() {
       </div>
       <CardContainer>
         <Card
+          className={style.video_card}
           style={{ gridColumn: '1/5' }}
           title="My videos"
           textLink="see all videos"
           hrefLink="/video"
         >
           <div className={style.videos_container}>
-            <CourseCard
-              title="Fantasy in C"
-              professor="Robert Shumann"
-              instrument="piano"
-              difficulty={2}
-              actualChapter="Chap. 2"
-              pourcentage={20}
+            <VideoCard
+              title="Beethoven : Sonate pour piano n°1 chre..."
+              duration="1'10"
+              instrument="trombone"
+              publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
-            <CourseCard
-              title="Fantasy in C"
-              professor="Robert Shumann"
-              instrument="piano"
-              difficulty={2}
-              actualChapter="Chap. 2"
-              pourcentage={20}
+            <VideoCard
+              title="Beethoven : Sonate pour piano n°1 chre..."
+              duration="1'10"
+              instrument="trombone"
+              publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
-            <CourseCard
-              title="Fantasy in C"
-              professor="Robert Shumann"
-              instrument="piano"
-              difficulty={2}
-              actualChapter="Chap. 2"
-              pourcentage={20}
+            <VideoCard
+              title="Beethoven : Sonate pour piano n°1 chre..."
+              duration="1'10"
+              instrument="trombone"
+              publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
           </div>
         </Card>
@@ -159,7 +155,7 @@ export default function Profil() {
                 instrument="piano"
                 title="The Queen Sonja International Music Competition"
                 place="Oslo, Norway"
-                date={new Date('2023-08-14T13:12:00.838Z')}
+                date={new Date('2023-08-31T13:12:00.838Z')}
                 award={50000}
               />
             </div>
