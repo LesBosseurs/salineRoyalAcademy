@@ -1,9 +1,7 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/listing.module.scss';
-import CardContainerStyle from '../styles/components/CardContainer.module.scss';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
-import CardContainer from '@/components/CardContainer';
 import CourseCard from '@/components/CourseCard';
 import {FormEvent, useEffect, useState} from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
@@ -25,6 +23,7 @@ interface FilterProps {
 interface CourseProps {
   id: number,
   title: string,
+  instrument:"cello" | "chamber-music" | "clarinet" | "flute" | "oboe" | "piano" | "saxo" | "trombone" | "viola" | "violin" | "voice",
   professor: string,
   difficulty: number,
   actualChapter: string,
@@ -36,15 +35,15 @@ export default function Dashboard() {
   const [widthContainerArticles, setWidthContainerArticles] = useState<number>(0);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [listCourses, setListCourses] = useState<CourseProps[]>([{
-    "id": 1, "title": "Fantasy in C", "professor": "Robert Shumann", "difficulty": 2, "actualChapter": "Chap. 2"
+    "id": 1, "title": "Fantasy in C", "instrument":"cello", "professor": "Robert Shumann", "difficulty": 2, "actualChapter": "Chap. 2"
   }, {
-    "id": 2, "title": "tes1", "professor": "Robert Shumanna", "difficulty": 2, "actualChapter": "Chap. 2"
+    "id": 2, "title": "tes1", "instrument":"cello", "professor": "Robert Shumanna", "difficulty": 2, "actualChapter": "Chap. 2"
   }, {
-    "id": 3, "title": "Fantasy in C", "professor": "Robert Shumanna", "difficulty": 2, "actualChapter": "Chap. 2"
+    "id": 3, "title": "Fantasy in C", "instrument":"cello", "professor": "Robert Shumanna", "difficulty": 2, "actualChapter": "Chap. 2"
   }, {
-    "id": 4, "title": "Fantasy in C", "professor": "Robert Shumanna", "difficulty": 2, "actualChapter": "Chap. 2"
+    "id": 4, "title": "Fantasy in C", "instrument":"cello", "professor": "Robert Shumanna", "difficulty": 2, "actualChapter": "Chap. 2"
   }, {
-    "id": 5, "title": "Fantasy in C", "professor": "Robert Shumann", "difficulty": 2, "actualChapter": "Chap. 2"
+    "id": 5, "title": "Fantasy in C", "instrument":"cello", "professor": "Robert Shumann", "difficulty": 2, "actualChapter": "Chap. 2"
   }]);
 
   const [selectedFilter, setSelectedFilter] = useState<FilterProps>({
@@ -94,11 +93,11 @@ export default function Dashboard() {
   };
 
   // @ts-ignore
-  return (<div className={style.listing}>
-    <Header name="Courses"/>
-    <CardContainer>
-      <div className={CardContainerStyle.rowReverse}>
-        <div className={style.search_and_filter}>
+  return (
+    <div className={style.list_page_content}>
+      <Header name="Courses"/>
+      <section className={style.section_filter}>
+        <div className={style.search_and_filter_inputs}>
           <FormField
             label="search"
             type="search"
@@ -145,8 +144,8 @@ export default function Dashboard() {
             setSelectedFilter(value);
           }}
         />
-      </div>
-      <div className={CardContainerStyle.rowReverse}>
+      </section>
+      <section className={style.section_cards}>
         <div className={style.desktop_filter}>
           <Card
             title="Filter"
@@ -181,18 +180,19 @@ export default function Dashboard() {
             </form>
           </Card>
         </div>
-        <Card title="Courses" textLink="" hrefLink="">
+        <Card title="Courses">
           <div className={style.grid_cards}>
             {listCourses.map((item, key) => (<CourseCard
               key={key}
               title={item.title}
+              instrument={item.instrument}
               professor={item.professor}
               difficulty={item.difficulty}
               actualChapter={item.actualChapter}
             />))}
           </div>
         </Card>
-      </div>
-    </CardContainer>
-  </div>);
+      </section>
+    </div>
+  );
 }
