@@ -127,12 +127,17 @@
   }
 
   .scrollable {
-    overflow: scroll;
+    overflow-x: scroll;
 
     .articles_container {
       display: flex;
+      flex-direction: column;
       gap: 15px;
       min-width: 100%;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        flex-direction: row;
+      }
     }
   }
 }

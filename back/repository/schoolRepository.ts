@@ -10,12 +10,12 @@ class SchoolRepository {
         const result = await pool.query(query);
         return result.rows;
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch schools: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch schools: ${error}`);
+      throw error;
     }
   }
 
@@ -28,12 +28,12 @@ class SchoolRepository {
         const result = await pool.query(query, values);
         return result.rows[0];
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch school: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch school: ${error}`);
+      throw error;
     }
   }
 
@@ -48,12 +48,12 @@ class SchoolRepository {
         const values = [school.name, school.code, school.type];
         await pool.query(query, values);
       } catch (error) {
-        throw new Error(`Unable to create school: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to create school: ${error}`);
+      throw error;
     }
   }
 
@@ -71,12 +71,12 @@ class SchoolRepository {
         const values = [updatedSchool.name, updatedSchool.code, updatedSchool.type, schoolId];
         await pool.query(query, values);
       } catch (error: unknown) {
-        throw new Error(`Unable to update school: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to update school: ${error}`);
+      throw error;
     }
   }
 
@@ -88,12 +88,12 @@ class SchoolRepository {
         const values = [schoolId];
         await pool.query(query, values);
       } catch (error: unknown) {
-        throw new Error(`Unable to delete school: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to delete school: ${error}`);
+      throw error;
     }
   }
 
@@ -121,12 +121,12 @@ class SchoolRepository {
         const result = await pool.query(filteredQuery, values);
         return result.rows;
       } catch (error: unknown) {
-        throw new Error(`Unable to fetch schools: ${error}`);
+        throw error;
       } finally {
         c.release();
       }
     } catch (error: unknown) {
-      throw new Error(`Unable to fetch schools: ${error}`);
+      throw error;
     }
   }
   
