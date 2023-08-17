@@ -1,0 +1,222 @@
+@import '../fonts.scss';
+@import '../variables.scss';
+
+.profil {
+  > div.general_infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 30px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      flex-direction: row;
+      padding-bottom: 45px;
+    }
+
+    > div:first-of-type {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        flex-direction: row;
+      }
+
+      > div.profil_pic {
+        border-radius: 100%;
+        height: 120px;
+        aspect-ratio: 1/1;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(https://media.licdn.com/dms/image/C5603AQH-1t3214NLWQ/profile-displayphoto-shrink_800_800/0/1633294035268?e=2147483647&v=beta&t=XplGvjScMgBFCp0XC3zyVfBWMl38L4wMvOSpn8in6N0);
+      }
+
+      > div.name_and_instrument {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          justify-content: space-evenly;
+        }
+
+        > h3 {
+          @include lead;
+          white-space: nowrap;
+
+          @media screen and (min-width: $breakpoint-laptop) {
+            @include title-regular;
+          }
+        }
+
+        > div.instrument {
+          display: flex;
+          gap: 10px;
+
+          > span {
+            @include paragraph-semi-bold;
+          }
+        }
+      }
+    }
+
+    > div:last-of-type {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        align-items: end;
+      }
+
+      div.stats {
+        display: flex;
+        width: 100%;
+        max-width: 425px;
+        box-sizing: border-box;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 25px 35px;
+        gap: 15px;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          background-color: transparent;
+          padding: 0;
+          max-width: 310px;
+        }
+
+        > span {
+          border-radius: 100%;
+          display: flex;
+          width: 100%;
+          aspect-ratio: 1/1;
+          background-color: $primary-yellow;
+        }
+      }
+    }
+  }
+
+  .video_card {
+    grid-row: 2;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      grid-row: 1;
+    }
+  }
+
+  .videos_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 500px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .stats_container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    > ul {
+      display: flex;
+      gap: 20px;
+
+      > li {
+        width: 100%;
+        border-radius: 20px;
+        background-color: $secondary-white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        gap: 5px;
+
+        > svg {
+          width: 25px;
+        }
+
+        > span {
+          @include info-semi-bold;
+          color: #000;
+        }
+
+        > span:last-of-type {
+          @include lead;
+          color: $primary-yellow;
+          padding-top: 10px;
+        }
+      }
+    }
+
+    > div {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background-color: $secondary-dark;
+      border-radius: 20px;
+      @include info-semi-bold;
+
+      > p {
+        color: #fff;
+      }
+
+      > span {
+        color: $primary-yellow;
+      }
+    }
+  }
+
+  .courses_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 500px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .competitions_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .competitions_card {
+      box-shadow: $shadow-md;
+      border-radius: 20px;
+      padding: 20px;
+    }
+  }
+
+  .activity_container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      max-width: 380px;
+    }
+  }
+}

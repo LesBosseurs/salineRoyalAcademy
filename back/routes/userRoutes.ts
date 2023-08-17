@@ -6,6 +6,9 @@ const router = express.Router();
 // Route pour la connexion (login)
 router.post('/login', UserController.loginUser);
 
+// Route pour ajouter un user a un groupe
+router.post('/addGroupe', UserController.addUserToGroup);
+
 // Route pour obtenir des utilisateurs par filtre(s)
 router.get('/filter', UserController.getUsersByFilters);
 
