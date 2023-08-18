@@ -3,12 +3,13 @@ import style from '../styles/pages/listing.module.scss';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
 import CourseCard from '@/components/CourseCard';
-import {FormEvent, useEffect, useState} from 'react';
+import {FormEvent, SetStateAction, useEffect, useState} from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import FormField from "@/components/FormField";
 import Modal from "@/components/Modal";
 import axios from "axios";
 import Search from '@/public/icons/search';
+
 
 interface FilterProps {
   instrument: string,
@@ -49,6 +50,10 @@ export default function Dashboard() {
   const [selectedFilter, setSelectedFilter] = useState<FilterProps>({
     instrument: "", professor: "", composer: "", sort_by: "", state: "", subtitles_languages: "", display: "",
   });
+
+  function onChange (value: Record<string, any>) {
+    setSelectedFilter(value as SetStateAction<FilterProps>);
+  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -91,6 +96,7 @@ export default function Dashboard() {
   const handleOpen = (toggle: boolean) => {
     setOpenModal(toggle)
   };
+  console.log(selectedFilter)
 
   // @ts-ignore
   return (
@@ -105,9 +111,7 @@ export default function Dashboard() {
             placeholder="Search"
             icon={<Search fill={'#000'}/>}
             value={selectedFilter}
-            onChange={function (value) {
-              setSelectedFilter(value);
-            }}
+            onChange={onChange}
           />
           <div className={style.filter_button} onClick={() => handleOpen(true)}
                style={openModal ? {zIndex: 0} : {zIndex: 1}}>
@@ -122,9 +126,7 @@ export default function Dashboard() {
                   type={filter}
                   sizeInput="md"
                   value={selectedFilter}
-                  onChange={function (value) {
-                    setSelectedFilter(value);
-                  }}
+                  onChange={onChange}
                 />))}
               </div>
               <div className={style.mobile_submit_filter}>
@@ -140,9 +142,7 @@ export default function Dashboard() {
           sizeInput="md"
           placeholder="Search instrument component"
           value={selectedFilter}
-          onChange={function (value) {
-            setSelectedFilter(value);
-          }}
+          onChange={onChange}
         />
       </section>
       <section className={style.section_cards}>
@@ -160,9 +160,7 @@ export default function Dashboard() {
                   type={filter}
                   sizeInput="md"
                   value={selectedFilter}
-                  onChange={function (value) {
-                    setSelectedFilter(value);
-                  }}
+                  onChange={onChange}
                 />))}
               </div>
               <div className={style.mobile_submit_filter}>

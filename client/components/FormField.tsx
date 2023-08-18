@@ -1,24 +1,26 @@
-import React, {ChangeEvent} from 'react';
+import React, { ChangeEvent } from 'react';
 import style from '../styles/components/FormField.module.scss';
 
-interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+type FormFieldProps = {
   label: string;
   type: string;
   sizeInput: 'md' | 'lg';
-  value: object,
-  onChange: (value) => void;
+  value: Record<string, any>;
+  onChange: (value: Record<string, any>) => void;
   icon?: React.ReactNode;
-}
+  placeholder?: string;
+};
 
-const FormField = ({
+export default function FormField({
   label,
   type,
   sizeInput,
   value,
   onChange,
   icon,
-  ...props
-  }:FormFieldProps ) => {
+  placeholder,
+  }: FormFieldProps) {
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = {
       ...value,
@@ -45,16 +47,14 @@ const FormField = ({
         </label>
       ):(<>{icon}</>)}
       <input
-        {...props}
         type={type}
         id={label}
         name={label}
         value={value[label]}
         className={aspectButton()}
         onChange={handleInputChange}
-      ></input>
+        placeholder={placeholder}
+      />
     </div>
   );
 }
-
-export default FormField;

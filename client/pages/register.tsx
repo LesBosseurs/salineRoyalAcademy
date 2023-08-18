@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import {FormEvent, SetStateAction, useState} from 'react';
 import Button from '@/components/Button';
 import FormField from '@/components/FormField';
 import style from '../styles/pages/auth.module.scss';
@@ -28,6 +28,11 @@ export default function Register() {
     password: '',
     confirm_password: '',
   });
+
+  function onChange (value: Record<string, any>) {
+    setFormData(value as SetStateAction<FormData>);
+  }
+
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -92,27 +97,21 @@ export default function Register() {
             type="email"
             sizeInput="lg"
             value={formData}
-            onChange={function (value) {
-              setFormData(value);
-            }}
+            onChange={onChange}
           />
           <FormField
             label="password"
             type="password"
             sizeInput="lg"
             value={formData}
-            onChange={function (value) {
-              setFormData(value);
-            }}
+            onChange={onChange}
           />
           <FormField
             label="confirm_password"
             type="password"
             sizeInput="lg"
             value={formData}
-            onChange={function (value) {
-              setFormData(value);
-            }}
+            onChange={onChange}
           />
           <div className={style.terms}>
             <input type="checkbox" name="" id="" />
