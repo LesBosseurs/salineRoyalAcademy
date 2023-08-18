@@ -27,9 +27,6 @@ export default function Login() {
     password: 'hashed_password',
   });
 
-  function onChange (value: Record<string, any>) {
-    setFormData(value as SetStateAction<FormData>);
-  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -97,14 +94,18 @@ export default function Login() {
             type="email"
             sizeInput="lg"
             value={formData}
-            onChange={onChange}
+            onChange={function (value) {
+              setFormData(value);
+            }}
           />
           <FormField
             label="password"
             type="password"
             sizeInput="lg"
             value={formData}
-            onChange={onChange}
+            onChange={function (value) {
+              setFormData(value);
+            }}
           />
           <Link href="">Forgot password?</Link>
           <Button size="lg">Login</Button>
