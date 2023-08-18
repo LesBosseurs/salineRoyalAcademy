@@ -1,7 +1,10 @@
 @import '../variables.scss';
 @import '../fonts.scss';
 
-.listing {
+.list_page_content {
+  display: flex;
+  flex-direction: column;
+
   .grid_cards {
     display: flex;
     flex-direction: column;
@@ -17,7 +20,24 @@
     }
   }
 
-  .search_and_filter{
+  .section_filter {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 30px;
+    @media screen and (min-width: $breakpoint-laptop) {
+      flex-direction: row-reverse;
+      gap: 30px;
+    }
+  }
+
+  .section_cards{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 30px;
+  }
+
+  .search_and_filter_inputs{
     display: flex;
     justify-content: center;
     align-items: stretch;
