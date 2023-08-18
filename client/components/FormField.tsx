@@ -1,6 +1,8 @@
 import React, {ChangeEvent,InputHTMLAttributes} from 'react';
 import style from '../styles/components/FormField.module.scss';
 
+type A = InputHTMLAttributes<HTMLInputElement>;
+
 type FormFieldProps<T> = {
   label: string;
   type: string;
@@ -8,7 +10,7 @@ type FormFieldProps<T> = {
   value: T,
   onChange: (value: T) => void;
   icon?: React.ReactNode;
-} & InputHTMLAttributes<HTMLInputElement>;
+}& Omit<A, 'value'>;
 
 export default function FormField<T extends Record<string, any>>({
   label,
