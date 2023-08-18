@@ -96,9 +96,7 @@ export default function Dashboard() {
   const handleOpen = (toggle: boolean) => {
     setOpenModal(toggle)
   };
-  console.log(selectedFilter)
 
-  // @ts-ignore
   return (
     <div className={style.list_page_content}>
       <Header name="Courses"/>
@@ -111,7 +109,9 @@ export default function Dashboard() {
             placeholder="Search"
             icon={<Search fill={'#000'}/>}
             value={selectedFilter}
-            onChange={onChange}
+            onChange={function (value) {
+              setSelectedFilter(value);
+            }}
           />
           <div className={style.filter_button} onClick={() => handleOpen(true)}
                style={openModal ? {zIndex: 0} : {zIndex: 1}}>
@@ -126,7 +126,9 @@ export default function Dashboard() {
                   type={filter}
                   sizeInput="md"
                   value={selectedFilter}
-                  onChange={onChange}
+                  onChange={function (value) {
+                    setSelectedFilter(value);
+                  }}
                 />))}
               </div>
               <div className={style.mobile_submit_filter}>
@@ -142,7 +144,9 @@ export default function Dashboard() {
           sizeInput="md"
           placeholder="Search instrument component"
           value={selectedFilter}
-          onChange={onChange}
+          onChange={function (value) {
+            setSelectedFilter(value);
+          }}
         />
       </section>
       <section className={style.section_cards}>
@@ -160,7 +164,9 @@ export default function Dashboard() {
                   type={filter}
                   sizeInput="md"
                   value={selectedFilter}
-                  onChange={onChange}
+                  onChange={function (value) {
+                    setSelectedFilter(value);
+                  }}
                 />))}
               </div>
               <div className={style.mobile_submit_filter}>

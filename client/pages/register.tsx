@@ -29,11 +29,6 @@ export default function Register() {
     confirm_password: '',
   });
 
-  function onChange (value: Record<string, any>) {
-    setFormData(value as SetStateAction<FormData>);
-  }
-
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(formData);
@@ -97,21 +92,27 @@ export default function Register() {
             type="email"
             sizeInput="lg"
             value={formData}
-            onChange={onChange}
+            onChange={function (value) {
+              setFormData(value);
+            }}
           />
           <FormField
             label="password"
             type="password"
             sizeInput="lg"
             value={formData}
-            onChange={onChange}
+            onChange={function (value) {
+              setFormData(value);
+            }}
           />
           <FormField
             label="confirm_password"
             type="password"
             sizeInput="lg"
             value={formData}
-            onChange={onChange}
+            onChange={function (value) {
+              setFormData(value);
+            }}
           />
           <div className={style.terms}>
             <input type="checkbox" name="" id="" />
