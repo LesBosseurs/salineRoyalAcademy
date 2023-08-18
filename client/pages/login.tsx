@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import {FormEvent, SetStateAction, useState} from 'react';
 import style from '../styles/pages/auth.module.scss';
 import FormField from '@/components/FormField';
 import Button from '@/components/Button';
@@ -26,6 +26,10 @@ export default function Login() {
     email: 'john.doe@example.com',
     password: 'hashed_password',
   });
+
+  function onChange (value: Record<string, any>) {
+    setFormData(value as SetStateAction<FormData>);
+  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -93,18 +97,14 @@ export default function Login() {
             type="email"
             sizeInput="lg"
             value={formData}
-            onChange={function (value) {
-              setFormData(value);
-            }}
+            onChange={onChange}
           />
           <FormField
             label="password"
             type="password"
             sizeInput="lg"
             value={formData}
-            onChange={function (value) {
-              setFormData(value);
-            }}
+            onChange={onChange}
           />
           <Link href="">Forgot password?</Link>
           <Button size="lg">Login</Button>
