@@ -1,16 +1,14 @@
-import React, {ChangeEvent,InputHTMLAttributes} from 'react';
+import React, { ChangeEvent, InputHTMLAttributes } from 'react';
 import style from '../styles/components/FormField.module.scss';
-
-type A = InputHTMLAttributes<HTMLInputElement>;
 
 type FormFieldProps<T> = {
   label: string;
   type: string;
   sizeInput: 'md' | 'lg';
-  value: T,
+  value: T;
   onChange: (value: T) => void;
   icon?: React.ReactNode;
-}& Omit<A, 'value'>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 export default function FormField<T extends Record<string, any>>({
   label,
@@ -20,7 +18,7 @@ export default function FormField<T extends Record<string, any>>({
   onChange,
   icon,
   ...props
-  }:FormFieldProps<T> ) {
+}: FormFieldProps<T>) {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = {
       ...value,
@@ -39,13 +37,15 @@ export default function FormField<T extends Record<string, any>>({
   };
 
   return (
-    <div className={type !== "search"? style.FormField : style.searchField}>
-      {type !== "search" ? (
+    <div className={type !== 'search' ? style.FormField : style.searchField}>
+      {type !== 'search' ? (
         <label>
           {icon}
           {label.charAt(0).toUpperCase() + label.slice(1).replace(/_/g, ' ')}
         </label>
-      ):(<>{icon}</>)}
+      ) : (
+        <>{icon}</>
+      )}
       <input
         {...props}
         type={type}
