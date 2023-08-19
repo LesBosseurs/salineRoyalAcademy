@@ -17,5 +17,5 @@ export default function Button({ children, size }: ButtonProps) {
     }
   };
 
-  return <button className={aspectButton()}>{children}</button>;
+  return <button className={aspectButton()} >{children}</button>;
 }
