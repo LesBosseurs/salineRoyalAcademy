@@ -9,8 +9,8 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 
   @media screen and (min-width: $breakpoint-laptop) {
     display: none;
@@ -25,21 +25,21 @@
     }
   }
 
-  .modal_card{
+  .modal_card {
     display: flex;
     flex-direction: column;
     padding-top: 15px;
-    bottom : 0;
+    bottom: 65px;
     position: fixed;
     width: 100%;
     box-sizing: border-box;
     overflow: scroll;
     height: 75%;
-    background-color : white;
+    background-color: white;
     border-radius: 20px 20px 0px 0px;
   }
 
-  .separator{
+  .separator {
     background-color: #b18b36;
     height: 6px;
     width: 60px;
@@ -48,12 +48,9 @@
     margin-bottom: 30px;
   }
 
-  .close_icon
-  {
+  .close_icon {
     width: fit-content;
     align-self: flex-end;
-    padding: 0px 15px 0px 0px
+    padding: 0px 15px 0px 0px;
   }
-
 }
-

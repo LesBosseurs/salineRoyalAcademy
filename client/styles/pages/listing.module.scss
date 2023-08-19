@@ -31,20 +31,20 @@
     }
   }
 
-  .section_cards{
+  .section_cards {
     display: flex;
     flex-direction: row-reverse;
     gap: 30px;
   }
 
-  .search_and_filter_inputs{
+  .search_and_filter_inputs {
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 30px;
   }
 
-  .filter_button{
+  .filter_button {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -53,13 +53,19 @@
     }
   }
 
-  .mobile_submit_filter{
+  .mobile_submit_filter {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+    a {
+      color: #000;
+      text-decoration: none;
+      @include paragraph_semi_bold;
+    }
   }
 
-  .mobile_filter_content{
+  .mobile_filter_content {
     padding: 15px;
     display: flex;
     justify-content: stretch;
@@ -72,8 +78,8 @@
     }
   }
 
-  .desktop_filter{
-    display:none;
+  .desktop_filter {
+    display: none;
     @media screen and (min-width: $breakpoint-laptop) {
       display: flex;
       flex-direction: column;
@@ -84,11 +90,4 @@
       padding-bottom: 15px;
     }
   }
-
-  a{
-    color: #000;
-    text-decoration: none;
-    @include paragraph_semi_bold;
-  }
 }
-
