@@ -1,15 +1,15 @@
-import Expertise from './index/_Expertise';
-import Hero from './index/_Hero';
-import Nav from './index/_Nav';
-import style from '../styles/pages/landing-page/landingPage.module.scss';
-import Statistics from './index/_Statistics';
-import Suggestion from './index/_Suggestion';
-import ComingSoon from './index/_ComingSoon';
+import Expertise from './_Expertise';
+import Hero from './_Hero';
+import Nav from './_Nav';
+import style from '../../styles/pages/landing-page/landingPage.module.scss';
+import Statistics from './_Statistics';
+import Suggestion from './_Suggestion';
+import ComingSoon from './_ComingSoon';
 import Link from 'next/link';
 import ArrowRight from '@/public/icons/arrowRight';
-import FAQ from './index/_FAQ';
-import Partners from './index/_partners';
-import Footer from './index/_Footer';
+import Partners from './_partners';
+import Footer from './_Footer';
+import FAQ from './_FAQ';
 
 export default function Home() {
   return (
