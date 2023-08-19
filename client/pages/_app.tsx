@@ -11,7 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const { pathname } = router;
   const excludeLayout =
-    pathname === '/login' || pathname === '/register' || pathname === '/';
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname === '/landing-page';
 
   if (excludeLayout) {
     return (

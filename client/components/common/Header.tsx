@@ -3,13 +3,15 @@ import style from '../../styles/components/common/Header.module.scss';
 import NotificationsCard from './NotificationsCard';
 import ProfilCard from './ProfilCard';
 import { useRef, useState } from 'react';
-import ClickOutside from './ClickOutside';
+import ArrowBackIcon from '@/public/icons/arrowBack';
+import Link from 'next/link';
 
 type HeaderProps = {
   name: string;
+  hrefBack?: string;
 };
 
-export default function Header({ name }: HeaderProps) {
+export default function Header({ name, hrefBack }: HeaderProps) {
   const btnProfilRef = useRef<HTMLButtonElement>(null);
   const btnNotifsRef = useRef<HTMLButtonElement>(null);
   const [profilCardShow, setProfilCardShow] = useState<boolean>(false);
@@ -27,8 +29,20 @@ export default function Header({ name }: HeaderProps) {
 
   return (
     <nav className={style.header}>
-      <h1>{name}</h1>
       <div>
+        {hrefBack ? (
+          <>
+            <Link href={hrefBack}>
+              <ArrowBackIcon fill="#b18b36" />
+            </Link>
+            <span></span>
+          </>
+        ) : (
+          ''
+        )}
+        <h1>{name}</h1>
+      </div>
+      <div className={style.button_container}>
         <button
           ref={btnNotifsRef}
           onClick={handleNotifsButtonClick}
