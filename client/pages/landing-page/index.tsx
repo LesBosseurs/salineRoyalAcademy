@@ -6,7 +6,7 @@ import Statistics from './_Statistics';
 import Suggestion from './_Suggestion';
 import ComingSoon from './_ComingSoon';
 import Link from 'next/link';
-import ArrowRight from '@/public/icons/arrowRight';
+import ArrowRight from '@/public/icons/others/ArrowRight';
 import Partners from './_partners';
 import Footer from './_Footer';
 import FAQ from './_FAQ';

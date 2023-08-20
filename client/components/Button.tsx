@@ -2,12 +2,14 @@ import style from '../styles/components/Button.module.scss';
 
 type ButtonProps = {
   children: React.ReactNode;
-  size: 'sm' | 'md' | 'lg';
+  size: 'xs' | 'sm' | 'md' | 'lg';
 };
 
 export default function Button({ children, size }: ButtonProps) {
   const aspectButton = () => {
     switch (size) {
+      case 'xs':
+        return style.xs;
       case 'sm':
         return style.sm;
       case 'md':

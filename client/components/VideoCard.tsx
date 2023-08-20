@@ -2,6 +2,7 @@ import Image from 'next/image';
 import style from '../styles/components/VideoCard.module.scss';
 import InstrumentIcon from './InstrumentIcon';
 import BadgeInstrument from './BadgeInstrument';
+import ButtonPlayIcon from '@/public/icons/videos/ButtonPlay';
 
 type VideoCardProps = {
   title: string;
@@ -46,12 +47,7 @@ export default function VideoCard({
   return (
     <div className={style.video_card}>
       <div className={style.thumbnail}>
-        <Image
-          height={32}
-          width={32}
-          src={'/icons/button-play.png'}
-          alt="Button play"
-        />
+        <ButtonPlayIcon fill="#b18b36" />
         <div className={style.instrument}>
           <BadgeInstrument size="lg" instrument={instrument} fill="#fff" />
         </div>

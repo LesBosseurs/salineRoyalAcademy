@@ -1,13 +1,14 @@
-import CelloIcon from '@/public/icons/cello';
-import ChambreMusicIcon from '@/public/icons/chambre_music';
-import ClarinetIcon from '@/public/icons/clarinet';
-import FluteIcon from '@/public/icons/flute';
-import OboeIcon from '@/public/icons/oboe';
-import PianoIcon from '@/public/icons/piano';
-import TromboneIcon from '@/public/icons/trombone';
-import ViolaIcon from '@/public/icons/viola';
-import ViolinIcon from '@/public/icons/violin';
-import VoiceIcon from '@/public/icons/voice';
+import CelloIcon from '@/public/icons/instruments/Cello';
+import ChambreMusicIcon from '@/public/icons/instruments/ChambreMusic';
+import ClarinetIcon from '@/public/icons/instruments/Clarinet';
+import FluteIcon from '@/public/icons/instruments/Flute';
+import OboeIcon from '@/public/icons/instruments/Oboe';
+import PianoIcon from '@/public/icons/instruments/Piano';
+import SaxoIcon from '@/public/icons/instruments/Saxo';
+import TromboneIcon from '@/public/icons/instruments/Trombone';
+import ViolaIcon from '@/public/icons/instruments/Viola';
+import ViolinIcon from '@/public/icons/instruments/Violin';
+import VoiceIcon from '@/public/icons/instruments/Voice';
 
 type InstrumentIconProps = {
   fill: string;
@@ -50,5 +51,7 @@ export default function InstrumentIcon({
       return <ChambreMusicIcon fill={fill} />;
     case 'trombone':
       return <TromboneIcon fill={fill} />;
+    case 'saxo':
+      return <SaxoIcon fill={fill} />;
   }
 }

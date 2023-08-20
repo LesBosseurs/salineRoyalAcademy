@@ -10,6 +10,8 @@ $secondary-gray-dark: #252525;
 $secondary-dark: #111;
 
 /* Color Tags */
+$tag-green: #89e07b;
+$tag-orange: #ffa768;
 $tag-red: #ff6868;
 
 /* Color instruments */
@@ -52,7 +54,7 @@ $instrument-color-chamber-music: #c2466b;
   background-color: $instrument-color-oboe;
 }
 
-.fulte {
+.flute {
   background-color: $instrument-color-fulte;
 }
 
@@ -62,6 +64,26 @@ $instrument-color-chamber-music: #c2466b;
 
 .chamber-music {
   background-color: $instrument-color-chamber-music;
+}
+
+.text {
+  background-color: $secondary-gray;
+  padding: 5px 10px;
+}
+
+.easy {
+  background-color: $tag-green;
+  padding: 2px 10px;
+}
+
+.medium {
+  background-color: $tag-orange;
+  padding: 2px 10px;
+}
+
+.hard {
+  background-color: $tag-red;
+  padding: 2px 10px;
 }
 
 /* Shadows */

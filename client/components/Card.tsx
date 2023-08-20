@@ -7,7 +7,7 @@ interface CardProps {
   className?: string;
   style?: React.CSSProperties;
   children: React.ReactNode;
-  title: string;
+  title?: string;
   colorBg?: 'white' | 'black';
   textLink?: string;
   hrefLink?: string;
@@ -34,10 +34,12 @@ export default function Card({
       style={size.width > 1024 ? style : { gridColumn: '1/7' }}
       className={`${styleFile.section} ${className}`}
     >
-      <div className={styleFile.header_card}>
-        <h2>{title}</h2>
-        {hrefLink ? <Link href={hrefLink}>{textLink}</Link> : ''}
-      </div>
+      {title && (
+        <div className={styleFile.header_card}>
+          <h2>{title}</h2>
+          {hrefLink ? <Link href={hrefLink}>{textLink}</Link> : ''}
+        </div>
+      )}
       <div
         className={styleFile.card}
         style={{ backgroundColor: colorBackgroundValue[colorBg] }}
