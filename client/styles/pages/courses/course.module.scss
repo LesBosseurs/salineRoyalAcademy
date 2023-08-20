@@ -58,7 +58,7 @@
       @include paragraph-regular;
     }
 
-    > a {
+    > span {
       @include info-semi-bold;
       text-decoration: none;
       color: $primary-yellow;
@@ -83,6 +83,54 @@
       > span {
         @include info-regular;
       }
+    }
+  }
+
+  .ressources {
+    position: relative;
+
+    > svg {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      height: 25px;
+      width: 25px;
+    }
+
+    > img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .quote {
+    position: relative;
+
+    > p {
+      @include lead;
+      padding: 10px 40px 30px;
+    }
+
+    > span {
+      position: absolute;
+      bottom: 0;
+      right: 70px;
+    }
+
+    > svg {
+      position: absolute;
+      height: 30px;
+      width: 30px;
+    }
+
+    > svg:first-of-type {
+      top: 0;
+      left: 0;
+    }
+
+    > svg:last-of-type {
+      bottom: 15px;
+      right: 0;
     }
   }
 }
