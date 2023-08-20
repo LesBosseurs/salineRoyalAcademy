@@ -3,6 +3,7 @@ import style from '../styles/components/CourseCard.module.scss';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import InstrumentIcon from './InstrumentIcon';
+import TagDifficulty from './Tag';
 
 type CourseCardProps = {
   title: string;
@@ -32,8 +33,6 @@ export default function CourseCard({
   actualChapter,
   pourcentage,
 }: CourseCardProps) {
-  const difficultyList = ['Easy', 'Medium', 'Hard'];
-
   return (
     <div className={style.course_card}>
       <div className={style.thumbnail}>
@@ -60,7 +59,8 @@ export default function CourseCard({
         </div>
         <div>
           {actualChapter ? <span>{actualChapter}</span> : ''}
-          <span className={style.tag}>{difficultyList[difficulty]}</span>
+          <TagDifficulty difficulty={difficulty} />
+          {/* <span className={style.tag}>{difficultyList[difficulty]}</span> */}
         </div>
       </div>
       {pourcentage ? (

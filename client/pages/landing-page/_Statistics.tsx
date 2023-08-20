@@ -1,6 +1,6 @@
-import CapIcon from '@/public/icons/cap';
+import CapIcon from '@/public/icons/menu/Cap';
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
-import PianoIcon from '@/public/icons/piano';
+import PianoIcon from '@/public/icons/instruments/Piano';
 
 export default function Statistics() {
   const statsElementsList = [

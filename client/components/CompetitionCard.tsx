@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import style from '../styles/components/CompetitionCard.module.scss';
-import MedalIcon from '@/public/icons/medal';
+import MedalIcon from '@/public/icons/menu/Medal';
 import InstrumentIcon from './InstrumentIcon';
 import { useEffect, useState } from 'react';
 
@@ -81,12 +81,17 @@ export default function CompetitionCard({
       <div>
         <ul>
           <li>
-            <Image src="/icons/ping.svg" alt="icon " height={16} width={16} />
+            <Image
+              src="/icons/others/ping.svg"
+              alt="icon "
+              height={16}
+              width={16}
+            />
             <span>{place}</span>
           </li>
           <li>
             <Image
-              src="/icons/calendar.svg"
+              src="/icons/others/calendar.svg"
               alt="icon "
               height={16}
               width={16}

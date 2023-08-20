@@ -117,18 +117,6 @@
       > span:first-of-type {
         @include info-regular;
       }
-
-      .tag {
-        @include info-semi-bold;
-        padding: 2px 9px 1px;
-        border-radius: 15px;
-        background-color: $tag-red;
-        color: #fff;
-
-        @media screen and (min-width: $breakpoint-mobile) {
-          height: fit-content;
-        }
-      }
     }
   }
 

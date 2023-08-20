@@ -4,19 +4,19 @@ import ExpertiseElement from './_ExpertiseElement';
 export default function Expertise() {
   const arrayExpertises = [
     {
-      icon: '/icons/book.svg',
+      icon: '/icons/others/book.svg',
       text: 'Access to the biggest and richest catalog of classical music masterclasses',
     },
     {
-      icon: '/icons/trophy.svg',
+      icon: '/icons/others/trophy.svg',
       text: "Learn from the best professors, competition's winners and jury's members.",
     },
     {
-      icon: '/icons/play.svg',
+      icon: '/icons/others/play.svg',
       text: 'New videos available every month.',
     },
     {
-      icon: '/icons/music_note.svg',
+      icon: '/icons/others/music_note.svg',
       text: 'Multi angle videos, annotated sheet with the professors recommendations and more...',
     },
   ];

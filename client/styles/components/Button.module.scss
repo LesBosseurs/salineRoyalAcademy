@@ -8,6 +8,14 @@
   color: #fff;
   width: fit-content;
   z-index: 10;
+  white-space: nowrap;
+}
+
+.xs {
+  @extend .button;
+  @include paragraph_semi_bold;
+  height: 30px;
+  padding: 0 10px;
 }
 
 .sm {

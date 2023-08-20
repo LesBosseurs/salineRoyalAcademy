@@ -1,9 +1,8 @@
-import PianoIcon from '@/public/icons/piano';
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
 import InstrumentIcon from '@/components/InstrumentIcon';
 import CourseCard from '@/components/CourseCard';
 import Link from 'next/link';
-import ArrowRight from '@/public/icons/arrowRight';
+import ArrowRight from '@/public/icons/others/ArrowRight';
 import { useRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 
@@ -12,16 +11,17 @@ export default function Suggestion() {
   const size = useWindowSize();
 
   const instrumentsList = [
-    'Piano',
-    'Violin',
-    'Cello',
-    'Voice',
-    'Viola',
-    'Clarinet',
-    'Flute',
-    'Oboe',
-    'Chambre music',
-    'Trombone',
+    'piano',
+    'violin',
+    'cello',
+    'voice',
+    'viola',
+    'clarinet',
+    'flute',
+    'oboe',
+    'saxo',
+    'chambre music',
+    'trombone',
   ];
 
   return (

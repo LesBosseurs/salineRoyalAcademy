@@ -1,6 +1,6 @@
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
-import KeyIcon from '@/public/icons/key';
-import PenIcon from '@/public/icons/pen';
+import KeyIcon from '@/public/icons/others/Key';
+import PenIcon from '@/public/icons/others/Pen';
 
 export default function FAQ() {
   return (

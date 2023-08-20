@@ -3,7 +3,7 @@ import style from '../../styles/components/common/Header.module.scss';
 import NotificationsCard from './NotificationsCard';
 import ProfilCard from './ProfilCard';
 import { useRef, useState } from 'react';
-import ArrowBackIcon from '@/public/icons/arrowBack';
+import ArrowBackIcon from '@/public/icons/others/ArrowBack';
 import Link from 'next/link';
 
 type HeaderProps = {
@@ -49,7 +49,7 @@ export default function Header({ name, hrefBack }: HeaderProps) {
           className={style.notifications}
         >
           <Image
-            src="/icons/bell.svg"
+            src="/icons/menu/bell.svg"
             alt="bell icon for notifications button"
             width="24"
             height="24"
