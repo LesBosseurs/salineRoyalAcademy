@@ -20,24 +20,25 @@ interface MasterclassProps {
 
 export default function Course() {
   const router = useRouter();
-  const { courseId } = router.query;
+  const { id } = router.query;
 
   const [masterclass, setMasterclass] = useState<MasterclassProps>({
     title: 'Loading...',
   });
+  const [modalChaptersOpen, setModalChaptersOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!courseId) {
+    if (!id) {
       return;
     }
     axios({
       method: 'GET',
       url: '/api/getMasterclassById',
       params: {
-        id: courseId,
+        id: id,
       },
     }).then((res) => setMasterclass(res.data.data));
-  }, [courseId]);
+  }, [id]);
 
   return (
     <div className={style.course_page}>
@@ -45,7 +46,9 @@ export default function Course() {
       <CardContainer>
         <div className={style.header}>
           <h2>{masterclass.title}</h2>
-          <Button size="xs">See all chapters</Button>
+          <Button size="xs" onClick={() => setModalChaptersOpen(true)}>
+            See all chapters
+          </Button>
         </div>
         <Card
           title="Chapitre 1 | Beethoven : Sonate pour piano n°1"
@@ -114,10 +117,72 @@ export default function Course() {
           </div>
         </Card>
         <Card style={{ gridColumn: '5/7', gridRow: '4/5' }}>
-          <span>Test</span>
+          <div className={style.professor}>
+            <div>
+              <Image
+                alt="professor photo"
+                src="/prov/profile-picture.jpeg"
+                height={40}
+                width={40}
+              />
+              <div>
+                <h4>Adelie Quantin</h4>
+                <span>Australian</span>
+              </div>
+            </div>
+            <div>
+              <div className={style.badges_container}>
+                <BadgeInstrument size="md" fill="#fff" instrument="piano" />
+                <BadgeInstrument size="md" fill="#fff" instrument="violin" />
+                <BadgeInstrument size="md" fill="#fff" instrument="voice" />
+              </div>
+              <Link href="/profil">See profil</Link>
+            </div>
+          </div>
         </Card>
         <Card style={{ gridColumn: '5/7' }}>
-          <span>Test</span>
+          <div className={style.infos}>
+            <ul>
+              <li>Composer : Charles Gounod</li>
+              <li>Student : Victor Bufferne</li>
+              <li>Published : 2h ago</li>
+              <li>Approximate duration : 15min</li>
+              <li>Instrument : Piano</li>
+              <li>Producer : Produced by the Saline royale Academy</li>
+              <li>Spoken language : English</li>
+            </ul>
+            <div>
+              <div>
+                <div className={style.attendees_pics}>
+                  <Image
+                    alt="professor photo"
+                    src="/prov/profile-picture.jpeg"
+                    height={40}
+                    width={40}
+                  />
+                  <Image
+                    alt="professor photo"
+                    src="/prov/profile-picture.jpeg"
+                    height={40}
+                    width={40}
+                  />
+                  <Image
+                    alt="professor photo"
+                    src="/prov/profile-picture.jpeg"
+                    height={40}
+                    width={40}
+                  />
+                </div>
+                <span>3 attendees</span>
+              </div>
+              <div>
+                <span>Share</span>
+                <button></button>
+                <button></button>
+                <button></button>
+              </div>
+            </div>
+          </div>
         </Card>
       </CardContainer>
     </div>

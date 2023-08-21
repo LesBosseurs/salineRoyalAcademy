@@ -1,11 +1,11 @@
 import style from '../styles/components/Button.module.scss';
 
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   size: 'xs' | 'sm' | 'md' | 'lg';
-};
+}
 
-export default function Button({ children, size }: ButtonProps) {
+export default function Button({ children, size, ...props }: ButtonProps) {
   const aspectButton = () => {
     switch (size) {
       case 'xs':
@@ -19,5 +19,9 @@ export default function Button({ children, size }: ButtonProps) {
     }
   };
 
-  return <button className={aspectButton()}>{children}</button>;
+  return (
+    <button {...props} className={aspectButton()}>
+      {children}
+    </button>
+  );
 }
