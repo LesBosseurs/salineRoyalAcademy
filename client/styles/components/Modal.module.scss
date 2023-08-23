@@ -29,14 +29,18 @@
     display: flex;
     flex-direction: column;
     padding-top: 15px;
-    bottom: 65px;
+    bottom: 0px;
     position: fixed;
     width: 100%;
     box-sizing: border-box;
     overflow: scroll;
-    height: 75%;
+    height: 80%;
     background-color: white;
     border-radius: 20px 20px 0px 0px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      height: 70%;
+    }
   }
 
   .separator {

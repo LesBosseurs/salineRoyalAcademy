@@ -2,10 +2,18 @@
 @import '../fonts.scss';
 
 .list_page_content {
-  display: flex;
-  flex-direction: column;
+  .section_filter {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 30px;
+    @media screen and (min-width: $breakpoint-laptop) {
+      flex-direction: row-reverse;
+      gap: 30px;
+    }
+  }
 
-  .grid_cards {
+  .list_cards {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -17,17 +25,6 @@
 
     @media screen and (min-width: $breakpoint-tablet) {
       grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .section_filter {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-bottom: 30px;
-    @media screen and (min-width: $breakpoint-laptop) {
-      flex-direction: row-reverse;
-      gap: 30px;
     }
   }
 
@@ -53,41 +50,11 @@
     }
   }
 
-  .mobile_submit_filter {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    a {
-      color: #000;
-      text-decoration: none;
-      @include paragraph_semi_bold;
-    }
-  }
-
-  .mobile_filter_content {
-    padding: 15px;
-    display: flex;
-    justify-content: stretch;
-    flex-direction: column;
-    gap: 15px;
-    @media screen and (min-width: $breakpoint-tablet) {
-      width: 70%;
-      justify-items: center;
-      align-self: center;
-    }
-  }
-
   .desktop_filter {
     display: none;
     @media screen and (min-width: $breakpoint-laptop) {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 380px;
-      box-sizing: border-box;
-      padding-bottom: 15px;
+      grid-column: 5/7;
     }
   }
 }
