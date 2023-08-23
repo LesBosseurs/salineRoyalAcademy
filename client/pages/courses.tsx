@@ -3,12 +3,14 @@ import style from '../styles/pages/listing.module.scss';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
 import CourseCard from '@/components/CourseCard';
-import { FormEvent, SetStateAction, useEffect, useState } from 'react';
+import CardContainer from "@/components/CardContainer";
+import {SetStateAction, useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import FormField from '@/components/FormField';
 import Modal from '@/components/Modal';
 import axios from 'axios';
 import Search from '@/public/icons/search';
+import FormFilter from "@/components/FormFilter";
 
 interface FilterProps {
   instrument: string;
@@ -99,15 +101,6 @@ export default function Dashboard() {
     display: '',
   });
 
-  function onChange(value: Record<string, any>) {
-    setSelectedFilter(value as SetStateAction<FilterProps>);
-  }
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log(selectedFilter);
-  };
-
   useEffect(() => {
     handleResize();
   }, [size.width]);
@@ -169,26 +162,7 @@ export default function Dashboard() {
             <Button size={'sm'}>Filter</Button>
           </div>
           <Modal setOpenModal={handleOpen} open={openModal}>
-            <form onSubmit={handleSubmit}>
-              <div className={style.mobile_filter_content}>
-                {Object.keys(selectedFilter).map((filter, key) => (
-                  <FormField
-                    key={key}
-                    label={filter}
-                    type={filter}
-                    sizeInput="md"
-                    value={selectedFilter}
-                    onChange={function (value) {
-                      setSelectedFilter(value);
-                    }}
-                  />
-                ))}
-              </div>
-              <div className={style.mobile_submit_filter}>
-                <a href="">Undo Filter</a>
-                <Button size={'sm'}>Filter</Button>
-              </div>
-            </form>
+            <FormFilter setSelectedFilter={setSelectedFilter} filterField={selectedFilter} />
           </Modal>
         </div>
         <FormField
@@ -202,47 +176,14 @@ export default function Dashboard() {
           }}
         />
       </section>
-      <section className={style.section_cards}>
+      <CardContainer>
         <div className={style.desktop_filter}>
-          <Card title="Filter" textLink="" hrefLink="">
-            <form onSubmit={handleSubmit}>
-              <div className={style.desktop_filter}>
-                {Object.keys(selectedFilter).map((filter, key) => (
-                  <FormField
-                    key={key}
-                    label={filter}
-                    type={filter}
-                    sizeInput="md"
-                    value={selectedFilter}
-                    onChange={function (value) {
-                      setSelectedFilter(value);
-                    }}
-                  />
-                ))}
-              </div>
-              <div className={style.mobile_submit_filter}>
-                <a
-                  onClick={() =>
-                    setSelectedFilter({
-                      instrument: '',
-                      professor: '',
-                      composer: '',
-                      sort_by: '',
-                      state: '',
-                      subtitles_languages: '',
-                      display: '',
-                    })
-                  }
-                >
-                  Undo Filter
-                </a>
-                <Button size={'sm'}>Filter</Button>
-              </div>
-            </form>
+          <Card title="Filter" >
+            <FormFilter setSelectedFilter={setSelectedFilter} filterField={selectedFilter} />
           </Card>
         </div>
         <Card title="Courses">
-          <div className={style.grid_cards}>
+          <div className={style.list_cards}>
             {listCourses.map((item, key) => (
               <CourseCard
                 key={key}
@@ -255,7 +196,7 @@ export default function Dashboard() {
             ))}
           </div>
         </Card>
-      </section>
+      </CardContainer>
     </div>
   );
 }

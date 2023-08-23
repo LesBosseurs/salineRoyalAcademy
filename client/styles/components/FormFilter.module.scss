@@ -1,0 +1,37 @@
+@import '../variables.scss';
+@import '../fonts.scss';
+
+.filter_form{
+  display: flex;
+  flex-direction: column;
+
+  .filter_inputs{
+    padding: 15px;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    gap: 15px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      width: 70%;
+      justify-items: center;
+      align-self: center;
+    }
+    @media screen and (min-width: $breakpoint-laptop) {
+      width: 100%;
+    }
+  }
+
+  .submit_filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    a {
+      color: #000;
+      text-decoration: none;
+      @include paragraph_semi_bold;
+    }
+  }
+
+}
