@@ -2,28 +2,24 @@ import Header from '@/components/common/Header';
 import style from '../styles/pages/listing.module.scss';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
-import CourseCard from '@/components/CourseCard';
-import CardContainer from "@/components/CardContainer";
-import {useEffect, useState } from 'react';
+import { FormEvent, SetStateAction, useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import FormField from '@/components/FormField';
 import Modal from '@/components/Modal';
 import axios from 'axios';
 import Search from '@/public/icons/search';
+import CardContainer from "@/components/CardContainer";
 import FormFilter from "@/components/FormFilter";
+import OeuvreCard from "@/components/OeuvreCard";
 
 interface FilterProps {
   instrument: string;
-  professor: string;
   composer: string;
-  subtitles_languages: string;
-  sort_by: string;
-  state: string;
-  display: string;
+  year: string;
+  style: string;
 }
 
-interface CourseProps {
-  id: number;
+interface OeuvreProps {
   title: string;
   instrument:
     | 'cello'
@@ -37,10 +33,7 @@ interface CourseProps {
     | 'viola'
     | 'violin'
     | 'voice';
-  professor: string;
-  difficulty: number;
-  actualChapter: string;
-  percentage?: number;
+  composer: string;
 }
 
 export default function Dashboard() {
@@ -48,57 +41,39 @@ export default function Dashboard() {
   const [widthContainerArticles, setWidthContainerArticles] =
     useState<number>(0);
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [listCourses, setListCourses] = useState<CourseProps[]>([
+  const [listOeuvres, setListOeuvres] = useState<OeuvreProps[]>([
     {
-      id: 1,
-      title: 'Fantasy in C',
+      title:'Violin Sonata',
       instrument: 'cello',
-      professor: 'Robert Shumann',
-      difficulty: 2,
-      actualChapter: 'Chap. 2',
+      composer:'César Franck'
     },
     {
-      id: 2,
-      title: 'tes1',
+      title:'Violin Sonata',
       instrument: 'cello',
-      professor: 'Robert Shumanna',
-      difficulty: 2,
-      actualChapter: 'Chap. 2',
+      composer:'César Franck'
     },
     {
-      id: 3,
-      title: 'Fantasy in C',
+      title:'Violin Sonata',
       instrument: 'cello',
-      professor: 'Robert Shumanna',
-      difficulty: 2,
-      actualChapter: 'Chap. 2',
+      composer:'César Franck'
     },
     {
-      id: 4,
-      title: 'Fantasy in C',
+      title:'Violin Sonata',
       instrument: 'cello',
-      professor: 'Robert Shumanna',
-      difficulty: 2,
-      actualChapter: 'Chap. 2',
+      composer:'César Franck'
     },
     {
-      id: 5,
-      title: 'Fantasy in C',
+      title:'Violin Sonata',
       instrument: 'cello',
-      professor: 'Robert Shumann',
-      difficulty: 2,
-      actualChapter: 'Chap. 2',
+      composer:'César Franck'
     },
   ]);
 
   const [selectedFilter, setSelectedFilter] = useState<FilterProps>({
     instrument: '',
-    professor: '',
     composer: '',
-    sort_by: '',
-    state: '',
-    subtitles_languages: '',
-    display: '',
+    year: '',
+    style: '',
   });
 
   useEffect(() => {
@@ -140,7 +115,7 @@ export default function Dashboard() {
 
   return (
     <div className={style.list_page_content}>
-      <Header name="Courses" />
+      <Header name="Oeuvres" />
       <section className={style.section_filter}>
         <div className={style.search_and_filter_inputs}>
           <FormField
@@ -177,22 +152,15 @@ export default function Dashboard() {
         />
       </section>
       <CardContainer>
-        <Card title="Courses"  style={{gridColumn: "1/5"}}>
+        <Card title="Courses" style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
-            {listCourses.map((item, key) => (
-              <CourseCard
-                key={key}
-                title={item.title}
-                instrument={item.instrument}
-                professor={item.professor}
-                difficulty={item.difficulty}
-                actualChapter={item.actualChapter}
-              />
+            {listOeuvres.map((item, key) => (
+              <OeuvreCard key={key} instrument={item.instrument} title={item.title} composer={item.composer}/>
             ))}
           </div>
         </Card>
         <div className={style.desktop_filter}>
-          <Card title="Filter" >
+          <Card title="Filter">
             <FormFilter setSelectedFilter={setSelectedFilter} filterField={selectedFilter} />
           </Card>
         </div>
