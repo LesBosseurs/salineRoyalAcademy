@@ -2,17 +2,6 @@
 @import '../fonts.scss';
 
 .list_page_content {
-  .section_filter {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-bottom: 30px;
-    @media screen and (min-width: $breakpoint-laptop) {
-      flex-direction: row-reverse;
-      gap: 30px;
-    }
-  }
-
   .list_cards {
     display: flex;
     flex-direction: column;
@@ -25,28 +14,6 @@
 
     @media screen and (min-width: $breakpoint-tablet) {
       grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .section_cards {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 30px;
-  }
-
-  .search_and_filter_inputs {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-  }
-
-  .filter_button {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    @media screen and (min-width: $breakpoint-laptop) {
-      display: none;
     }
   }
 

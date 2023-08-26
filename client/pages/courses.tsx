@@ -1,16 +1,12 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/listing.module.scss';
-import Button from '@/components/Button';
 import Card from '@/components/Card';
 import CourseCard from '@/components/CourseCard';
 import CardContainer from "@/components/CardContainer";
 import {useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import FormField from '@/components/FormField';
-import Modal from '@/components/Modal';
-import axios from 'axios';
-import Search from '@/public/icons/search';
 import FormFilter from "@/components/FormFilter";
+import FilterSection from "@/components/FilterSection";
 
 interface FilterProps {
   instrument: string;
@@ -45,9 +41,7 @@ interface CourseProps {
 
 export default function Dashboard() {
   const size = useWindowSize();
-  const [widthContainerArticles, setWidthContainerArticles] =
-    useState<number>(0);
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [widthContainerArticles, setWidthContainerArticles] = useState<number>(0);
   const [listCourses, setListCourses] = useState<CourseProps[]>([
     {
       id: 1,
@@ -134,48 +128,10 @@ export default function Dashboard() {
     }
   };
 
-  const handleOpen = (toggle: boolean) => {
-    setOpenModal(toggle);
-  };
-
   return (
     <div className={style.list_page_content}>
       <Header name="Courses" />
-      <section className={style.section_filter}>
-        <div className={style.search_and_filter_inputs}>
-          <FormField
-            label="search"
-            type="search"
-            sizeInput="md"
-            placeholder="Search"
-            icon={<Search fill={'#000'} />}
-            value={selectedFilter}
-            onChange={function (value) {
-              setSelectedFilter(value);
-            }}
-          />
-          <div
-            className={style.filter_button}
-            onClick={() => handleOpen(true)}
-            style={openModal ? { zIndex: 0 } : { zIndex: 1 }}
-          >
-            <Button size={'sm'}>Filter</Button>
-          </div>
-          <Modal setOpenModal={handleOpen} open={openModal}>
-            <FormFilter setSelectedFilter={setSelectedFilter} filterField={selectedFilter} />
-          </Modal>
-        </div>
-        <FormField
-          label="search"
-          type="search"
-          sizeInput="md"
-          placeholder="Search instrument component"
-          value={selectedFilter}
-          onChange={function (value) {
-            setSelectedFilter(value);
-          }}
-        />
-      </section>
+      <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter}/>
       <CardContainer>
         <Card title="Courses"  style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
@@ -193,7 +149,7 @@ export default function Dashboard() {
         </Card>
         <div className={style.desktop_filter}>
           <Card title="Filter" >
-            <FormFilter setSelectedFilter={setSelectedFilter} filterField={selectedFilter} />
+            <FormFilter setSelectedFilter={setSelectedFilter} filterFields={selectedFilter} />
           </Card>
         </div>
       </CardContainer>

@@ -1,0 +1,29 @@
+@import '../variables.scss';
+@import '../fonts.scss';
+
+.section_filter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 30px;
+  @media screen and (min-width: $breakpoint-laptop) {
+    flex-direction: row-reverse;
+    gap: 30px;
+  }
+
+  .search_and_filter_inputs {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  .filter_button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media screen and (min-width: $breakpoint-laptop) {
+      display: none;
+    }
+  }
+}
