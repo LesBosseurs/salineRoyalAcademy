@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import style from '../styles/components/CompetitionCard.module.scss';
 import MedalIcon from '@/public/icons/menu/Medal';
-import InstrumentIcon from './InstrumentIcon';
 import { useEffect, useState } from 'react';
+import BadgeInstrument from './BadgeInstrument';
 
 type CompetitionCardProps = {
   instrument:
@@ -12,7 +12,6 @@ type CompetitionCardProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -73,9 +72,7 @@ export default function CompetitionCard({
   return (
     <div className={style.competition_card}>
       <div>
-        <div className={style.icon}>
-          <InstrumentIcon instrument={instrument} fill="#fff" />
-        </div>
+        <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
         <span>{title}</span>
       </div>
       <div>

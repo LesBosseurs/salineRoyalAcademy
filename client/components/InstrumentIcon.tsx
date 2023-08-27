@@ -4,7 +4,6 @@ import ClarinetIcon from '@/public/icons/instruments/Clarinet';
 import FluteIcon from '@/public/icons/instruments/Flute';
 import OboeIcon from '@/public/icons/instruments/Oboe';
 import PianoIcon from '@/public/icons/instruments/Piano';
-import SaxoIcon from '@/public/icons/instruments/Saxo';
 import TromboneIcon from '@/public/icons/instruments/Trombone';
 import ViolaIcon from '@/public/icons/instruments/Viola';
 import ViolinIcon from '@/public/icons/instruments/Violin';
@@ -19,7 +18,6 @@ type InstrumentIconProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -51,7 +49,5 @@ export default function InstrumentIcon({
       return <ChambreMusicIcon fill={fill} />;
     case 'trombone':
       return <TromboneIcon fill={fill} />;
-    case 'saxo':
-      return <SaxoIcon fill={fill} />;
   }
 }
