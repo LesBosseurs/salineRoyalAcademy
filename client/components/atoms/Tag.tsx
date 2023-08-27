@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../styles/components/Tag.module.scss';
+import style from '../../styles/components/atoms/Tag.module.scss';
 
 type TagDifficultyProps = {
   difficulty?: 0 | 1 | 2;

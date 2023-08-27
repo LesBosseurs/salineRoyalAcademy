@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styleFile from '../styles/components/Card.module.scss';
+import styleFile from '../../styles/components/molecules/Card.module.scss';
 import useWindowSize from '@/hooks/useWindowSize';
 import React from 'react';
 

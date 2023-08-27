@@ -1,5 +1,5 @@
-import InstrumentIcon from './InstrumentIcon';
-import style from '../styles/components/BadgeIntrument.module.scss';
+import InstrumentIcon from '../atoms/InstrumentIcon';
+import style from '../../styles/components/molecules/BadgeIntrument.module.scss';
 
 interface BadgeInstrumentProps {
   fill: string;

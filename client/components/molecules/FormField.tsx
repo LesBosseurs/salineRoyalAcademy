@@ -1,5 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes } from 'react';
-import style from '../styles/components/FormField.module.scss';
+import style from '../../styles/components/molecules/FormField.module.scss';
 
 type FormFieldProps<T> = {
   label: string;

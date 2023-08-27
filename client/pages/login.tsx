@@ -1,7 +1,7 @@
-import {FormEvent, SetStateAction, useState} from 'react';
+import { FormEvent, SetStateAction, useState } from 'react';
 import style from '../styles/pages/auth.module.scss';
-import FormField from '@/components/FormField';
-import Button from '@/components/Button';
+import FormField from '@/components/molecules/FormField';
+import Button from '@/components/atoms/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { loginUser } from '@/store/features/userSlice';
@@ -26,7 +26,6 @@ export default function Login() {
     email: 'john.doe@example.com',
     password: 'hashed_password',
   });
-
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

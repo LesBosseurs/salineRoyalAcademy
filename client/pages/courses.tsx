@@ -1,13 +1,12 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/listing.module.scss';
-import Button from '@/components/Button';
-import Card from '@/components/Card';
-import CourseCard from '@/components/CourseCard';
+import Button from '@/components/atoms/Button';
+import Card from '@/components/molecules/Card';
+import CourseCard from '@/components/organisms/CourseCard';
 import { FormEvent, SetStateAction, useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import FormField from '@/components/FormField';
-import Modal from '@/components/Modal';
-import axios from 'axios';
+import FormField from '@/components/molecules/FormField';
+import Modal from '@/components/molecules/Modal';
 import Search from '@/public/icons/search';
 
 interface FilterProps {
@@ -243,7 +242,7 @@ export default function Dashboard() {
         </div>
         <Card title="Courses">
           <div className={style.grid_cards}>
-            {listCourses.map((item, key) => (
+            {listCourses.map((item: any, key: number) => (
               <CourseCard
                 key={key}
                 title={item.title}

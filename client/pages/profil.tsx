@@ -1,15 +1,15 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/profil.module.scss';
 import CardContainerStyle from '../styles/components/CardContainer.module.scss';
-import BadgeInstrument from '@/components/BadgeInstrument';
-import Button from '@/components/Button';
-import CardContainer from '@/components/CardContainer';
-import Card from '@/components/Card';
-import ActivityCard from '@/components/molecules/ActivityCard';
-import CourseCard from '@/components/CourseCard';
-import CompetitionCard from '@/components/CompetitionCard';
+import BadgeInstrument from '@/components/molecules/BadgeInstrument';
+import Button from '@/components/atoms/Button';
+import CardContainer from '@/components/molecules/CardContainer';
+import Card from '@/components/molecules/Card';
+import ActivityCard from '@/components/organisms/ActivityCard';
+import CourseCard from '@/components/organisms/CourseCard';
+import CompetitionCard from '@/components/organisms/CompetitionCard';
 import CapIcon from '@/public/icons/menu/Cap';
-import VideoCard from '@/components/VideoCard';
+import VideoCard from '@/components/organisms/VideoCard';
 
 export default function Profil() {
   return (

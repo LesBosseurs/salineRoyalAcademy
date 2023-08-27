@@ -1,11 +1,11 @@
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
 import InstrumentIcon from '@/components/InstrumentIcon';
-import CourseCard from '@/components/CourseCard';
+import CourseCard from '@/components/organisms/CourseCard';
 import Link from 'next/link';
 import ArrowRight from '@/public/icons/others/ArrowRight';
 import { useRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import BadgeInstrument from '@/components/BadgeInstrument';
+import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 
 export default function Suggestion() {
   const heightListCourses = useRef<HTMLInputElement>(null);
