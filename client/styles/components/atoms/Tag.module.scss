@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.tag {
+  @include info-semi-bold;
+  border-radius: 15px;
+  color: #fff;
+  height: fit-content;
+}

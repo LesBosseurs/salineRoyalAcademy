@@ -1,0 +1,80 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.FormField {
+  position: relative;
+  padding-top: 8px;
+
+  label {
+    @include paragraph_medium;
+    position: absolute;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 0 5px;
+    color: $secondary-gray;
+    display: flex;
+    gap: 5px;
+  }
+
+  input {
+    @include paragraph_medium;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid $secondary-gray;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background: transparent;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+  }
+  .md {
+    @extend input;
+    height: 40px;
+  }
+
+  .lg {
+    @extend input;
+    height: 56px;
+  }
+}
+
+.searchField {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  input {
+    @include paragraph_medium;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid $secondary-gray;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background: #fff;
+    @media screen and (min-width: $breakpoint-laptop) {
+      width: 380px;
+    }
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+  }
+  .md {
+    @extend input;
+    height: 40px;
+  }
+
+  .lg {
+    @extend input;
+    height: 56px;
+  }
+
+  svg {
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
+  }
+}
