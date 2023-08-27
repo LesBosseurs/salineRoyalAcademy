@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import style from '../styles/components/ActivityCard.module.scss';
-import InstrumentIcon from './InstrumentIcon';
+import style from '../../styles/components/molecules/ActivityCard.module.scss';
+import BadgeInstrument from '../BadgeInstrument';
 
 type ActivityCardProps = {
   instrument:
@@ -10,7 +9,6 @@ type ActivityCardProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -37,15 +35,7 @@ export default function ActivityCard({
   return (
     <div className={style.activity_card}>
       <div>
-        <div className={style.icon}>
-          {/* <Image
-            src={`/icons/${instrument}.svg`}
-            alt="icon instrument"
-            height="10"
-            width="11"
-          /> */}
-          <InstrumentIcon instrument={instrument} fill="#fff" />
-        </div>
+        <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
         <span>{title}</span>
       </div>
       <p>

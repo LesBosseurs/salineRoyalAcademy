@@ -15,7 +15,15 @@
     justify-content: center;
     background-color: #f0f;
 
-    > .instrument {
+    > svg {
+      background-color: $secondary-white;
+      border-radius: 100%;
+      padding: 3px;
+      height: 30px;
+      width: 30px;
+    }
+
+    > div {
       position: absolute;
       top: 5px;
       right: 5px;

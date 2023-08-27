@@ -1,27 +1,27 @@
-import PianoIcon from '@/public/icons/piano';
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
 import InstrumentIcon from '@/components/InstrumentIcon';
 import CourseCard from '@/components/CourseCard';
 import Link from 'next/link';
-import ArrowRight from '@/public/icons/arrowRight';
+import ArrowRight from '@/public/icons/others/ArrowRight';
 import { useRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
+import BadgeInstrument from '@/components/BadgeInstrument';
 
 export default function Suggestion() {
   const heightListCourses = useRef<HTMLInputElement>(null);
   const size = useWindowSize();
 
   const instrumentsList = [
-    'Piano',
-    'Violin',
-    'Cello',
-    'Voice',
-    'Viola',
-    'Clarinet',
-    'Flute',
-    'Oboe',
-    'Chambre music',
-    'Trombone',
+    'cello',
+    'chamber-music',
+    'clarinet',
+    'flute',
+    'oboe',
+    'piano',
+    'trombone',
+    'viola',
+    'violin',
+    'voice',
   ];
 
   return (
@@ -29,12 +29,14 @@ export default function Suggestion() {
       <h2>What instrument do you play?</h2>
       <div className={style.carousel_instruments}>
         <div className={style.intruments_container}>
-          {instrumentsList.map((instrument: string, key: number) => {
+          {instrumentsList.map((instrument: any, key: number) => {
             return (
               <div key={key} className={style.instrument_card}>
-                <div>
-                  <InstrumentIcon fill="#fff" instrument={instrument} />
-                </div>
+                <BadgeInstrument
+                  fill="#fff"
+                  instrument={instrument}
+                  size="md"
+                />
                 <span>{instrument}</span>
               </div>
             );
@@ -67,6 +69,7 @@ export default function Suggestion() {
           </div>
           <div className={style.courses_container}>
             <CourseCard
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -74,6 +77,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -81,6 +85,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -88,6 +93,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -95,6 +101,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -102,6 +109,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}

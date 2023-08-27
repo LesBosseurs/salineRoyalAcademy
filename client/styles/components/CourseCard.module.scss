@@ -19,18 +19,11 @@
       aspect-ratio: 16 / 10;
     }
 
-    > .instrument {
+    > div:first-of-type {
       display: none;
 
       @media screen and (min-width: $breakpoint-mobile) {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: fit-content;
-        background: #80017f;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
         position: absolute;
         top: 5px;
         right: 5px;
@@ -79,16 +72,7 @@
         align-items: center;
         gap: 5px;
 
-        > .instrument {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: fit-content;
-          background: $instrument-color-piano;
-          height: 20px;
-          width: 20px;
-          border-radius: 50%;
-
+        > div {
           @media screen and (min-width: $breakpoint-mobile) {
             display: none;
           }
@@ -115,18 +99,6 @@
 
       > span:first-of-type {
         @include info-regular;
-      }
-
-      .tag {
-        @include info-semi-bold;
-        padding: 2px 9px 1px;
-        border-radius: 15px;
-        background-color: $tag-red;
-        color: #fff;
-
-        @media screen and (min-width: $breakpoint-mobile) {
-          height: fit-content;
-        }
       }
     }
   }
