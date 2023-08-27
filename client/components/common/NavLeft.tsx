@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import style from '../../styles/components/common/NavLeft.module.scss';
 import { useRouter } from 'next/router';
-import HomeIcon from '@/public/icons/home';
-import CapIcon from '@/public/icons/cap';
-import MedalIcon from '@/public/icons/medal';
-import MessagesIcon from '@/public/icons/messages';
-import SettingsIcon from '@/public/icons/settings';
+import HomeIcon from '@/public/icons/menu/Home';
+import CapIcon from '@/public/icons/menu/Cap';
+import MedalIcon from '@/public/icons/menu/Medal';
+import MessagesIcon from '@/public/icons/menu/Messages';
+import SettingsIcon from '@/public/icons/menu/Settings';
 import Link from 'next/link';
 import SalineRoyaleAcademy from '@/public/icons/salineRoyaleAcademy';
 import { useAppDispatch } from '@/hooks/useRedux';
@@ -76,7 +76,7 @@ export default function NavLeft() {
       </ul>
       <div onClick={() => dispatch(disconnect())}>
         <Image
-          src="/icons/disconnect.svg"
+          src="/icons/menu/disconnect.svg"
           alt="home icon"
           height="24"
           width="25"

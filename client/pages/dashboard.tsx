@@ -1,14 +1,14 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/dashboard.module.scss';
 import CardContainerStyle from '../styles/components/CardContainer.module.scss';
-import Button from '@/components/Button';
+import Button from '@/components/atoms/Button';
 import Image from 'next/image';
-import Card from '@/components/Card';
-import CardContainer from '@/components/CardContainer';
-import CourseCard from '@/components/CourseCard';
-import ActivityCard from '@/components/ActivityCard';
-import CompetitionCard from '@/components/CompetitionCard';
-import ArticleCard from '@/components/ArticleCard';
+import Card from '@/components/molecules/Card';
+import CardContainer from '@/components/molecules/CardContainer';
+import CourseCard from '@/components/organisms/CourseCard';
+import ActivityCard from '@/components/organisms/ActivityCard';
+import CompetitionCard from '@/components/organisms/CompetitionCard';
+import ArticleCard from '@/components/organisms/ArticleCard';
 import { useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 

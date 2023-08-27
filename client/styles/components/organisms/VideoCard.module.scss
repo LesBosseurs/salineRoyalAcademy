@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.video_card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  > .thumbnail {
+    position: relative;
+    aspect-ratio: 16/10;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f;
+
+    > svg {
+      background-color: $secondary-white;
+      border-radius: 100%;
+      padding: 3px;
+      height: 30px;
+      width: 30px;
+    }
+
+    > div {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  > .description {
+    @include info-regular;
+
+    > p {
+      color: $secondary-gray;
+    }
+  }
+}

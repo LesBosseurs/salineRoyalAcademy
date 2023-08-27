@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.button {
+  background: $primary-yellow;
+  border-radius: 10px;
+  border: 0px;
+  color: #fff;
+  width: fit-content;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.xs {
+  @extend .button;
+  @include paragraph_semi_bold;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.sm {
+  @extend .button;
+  @include paragraph_semi_bold;
+  height: 40px;
+  padding: 0 30px;
+}
+
+.md {
+  @extend .button;
+  @include link;
+  height: 48px;
+  padding: 0 40px;
+}
+
+.lg {
+  @extend .button;
+  @include subtitle_straight;
+  height: 56px;
+  padding: 0 50px;
+}

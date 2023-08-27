@@ -1,8 +1,8 @@
-import CapIcon from '@/public/icons/cap';
-import HomeIcon from '@/public/icons/home';
-import MedalIcon from '@/public/icons/medal';
-import MessagesIcon from '@/public/icons/messages';
-import SettingsIcon from '@/public/icons/settings';
+import CapIcon from '@/public/icons/menu/Cap';
+import HomeIcon from '@/public/icons/menu/Home';
+import MedalIcon from '@/public/icons/menu/Medal';
+import MessagesIcon from '@/public/icons/menu/Messages';
+import SettingsIcon from '@/public/icons/menu/Settings';
 import Link from 'next/link';
 import style from '../../styles/components/common/NavMobile.module.scss';
 

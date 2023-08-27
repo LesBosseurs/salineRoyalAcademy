@@ -47,21 +47,6 @@
           gap: 8px;
           align-items: center;
 
-          > div {
-            background-color: #80017f;
-            border-radius: 100%;
-            height: 30px;
-            width: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            > svg {
-              height: 18px;
-              width: 18px;
-            }
-          }
-
           > span {
             @include paragraph-semi-bold;
             white-space: nowrap;

@@ -1,6 +1,6 @@
-import {FormEvent, SetStateAction, useState} from 'react';
-import Button from '@/components/Button';
-import FormField from '@/components/FormField';
+import { FormEvent, SetStateAction, useState } from 'react';
+import Button from '@/components/atoms/Button';
+import FormField from '@/components/molecules/FormField';
 import style from '../styles/pages/auth.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
