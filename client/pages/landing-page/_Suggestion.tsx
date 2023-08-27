@@ -1,5 +1,4 @@
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
-import InstrumentIcon from '@/components/InstrumentIcon';
 import CourseCard from '@/components/organisms/CourseCard';
 import Link from 'next/link';
 import ArrowRight from '@/public/icons/others/ArrowRight';

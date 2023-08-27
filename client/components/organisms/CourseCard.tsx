@@ -34,7 +34,7 @@ export default function CourseCard({
   return (
     <div className={style.course_card}>
       <div className={style.thumbnail}>
-        <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
+        <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
         {pourcentage ? (
           <div className={style.progress_bar}>
             <div style={{ width: `${pourcentage}%` }}></div>
