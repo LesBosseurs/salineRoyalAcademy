@@ -5,10 +5,10 @@ import BadgeInstrument from '@/components/BadgeInstrument';
 import Button from '@/components/Button';
 import CardContainer from '@/components/CardContainer';
 import Card from '@/components/Card';
-import ActivityCard from '@/components/ActivityCard';
+import ActivityCard from '@/components/molecules/ActivityCard';
 import CourseCard from '@/components/CourseCard';
 import CompetitionCard from '@/components/CompetitionCard';
-import CapIcon from '@/public/icons/cap';
+import CapIcon from '@/public/icons/menu/Cap';
 import VideoCard from '@/components/VideoCard';
 
 export default function Profil() {

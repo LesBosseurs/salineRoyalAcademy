@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Card from '@/components/Card';
 import CardContainer from '@/components/CardContainer';
 import CourseCard from '@/components/CourseCard';
-import ActivityCard from '@/components/ActivityCard';
+import ActivityCard from '@/components/molecules/ActivityCard';
 import CompetitionCard from '@/components/CompetitionCard';
 import ArticleCard from '@/components/ArticleCard';
 import { useEffect, useState } from 'react';

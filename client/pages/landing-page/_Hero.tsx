@@ -1,6 +1,6 @@
 import style from '../../styles/pages/landing-page/landingPage.module.scss';
 import Link from 'next/link';
-import ArrowRight from '@/public/icons/arrowRight';
+import ArrowRight from '@/public/icons/others/ArrowRight';
 import useWindowSize from '@/hooks/useWindowSize';
 import Image from 'next/image';
 

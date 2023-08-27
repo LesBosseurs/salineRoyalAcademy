@@ -11,7 +11,6 @@ interface BadgeInstrumentProps {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'

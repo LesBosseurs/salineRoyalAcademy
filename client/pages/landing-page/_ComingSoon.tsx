@@ -8,7 +8,17 @@ import { useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 
 type ComingSoonCardProps = {
-  instrument: string;
+  instrument:
+    | 'cello'
+    | 'chamber-music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
   title: string;
   text: string;
 };
@@ -18,27 +28,27 @@ export default function ComingSoon() {
 
   const [newsList, setNewsList] = useState<Array<ComingSoonCardProps>>([
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },

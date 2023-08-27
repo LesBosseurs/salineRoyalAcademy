@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import style from '../styles/components/ArticleCard.module.scss';
-import InstrumentIcon from './InstrumentIcon';
+import BadgeInstrument from './BadgeInstrument';
 
 type ArticleCardProps = {
   instrument:
@@ -10,7 +10,6 @@ type ArticleCardProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -61,17 +60,13 @@ export default function ArticleCard({
         <div className={style.infos}>
           <span>{formatDate(date)}</span>
           <div>
-            <div className={style.instrument}>
-              <InstrumentIcon instrument={instrument} fill="#fff" />
-            </div>
+            <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
             <span>tag</span>
           </div>
         </div>
       </div>
       <div className={style.pic}>
-        <div className={style.instrument}>
-          <InstrumentIcon instrument={instrument} fill="#fff" />
-        </div>
+        <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>
     </div>
   );

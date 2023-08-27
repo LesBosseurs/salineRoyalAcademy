@@ -1,0 +1,276 @@
+@import '../../fonts.scss';
+@import '../../variables.scss';
+
+.course_page {
+  .header {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/7;
+    gap: 30px;
+
+    > h2 {
+      @include subtitle;
+      grid-column: 1/7;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        @include title-regular;
+      }
+    }
+
+    > button {
+      grid-row: 6/7;
+      align-self: flex-end;
+
+      @media screen and (min-width: $breakpoint-laptop) {
+        display: none;
+      }
+    }
+  }
+
+  .player {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    > div:first-of-type {
+      display: flex;
+      justify-content: space-between;
+
+      > span:first-of-type {
+        @include info-regular;
+        color: $secondary-gray;
+      }
+    }
+
+    > video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 20px;
+      background-color: #f0f;
+    }
+
+    > div:last-of-type {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .chapters_nav {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      grid-column: 5/7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .chapters_container {
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      height: 100%;
+    }
+
+    > p {
+      @include paragraph-regular;
+    }
+
+    > span {
+      @include info-semi-bold;
+      text-decoration: none;
+      color: $primary-yellow;
+    }
+  }
+
+  .future_knowledge {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    > li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      > svg {
+        height: 16px;
+        width: 16px;
+      }
+
+      > span {
+        @include info-regular;
+      }
+    }
+  }
+
+  .ressources {
+    position: relative;
+
+    > svg {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      height: 25px;
+      width: 25px;
+    }
+
+    > img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .quote {
+    position: relative;
+
+    > p {
+      @include lead;
+      padding: 10px 40px 30px;
+    }
+
+    > span {
+      position: absolute;
+      bottom: 0;
+      right: 70px;
+    }
+
+    > svg {
+      position: absolute;
+      height: 30px;
+      width: 30px;
+    }
+
+    > svg:first-of-type {
+      top: 0;
+      left: 0;
+    }
+
+    > svg:last-of-type {
+      bottom: 15px;
+      right: 0;
+    }
+  }
+
+  .professor {
+    display: flex;
+    justify-content: space-between;
+
+    > div:first-of-type {
+      display: flex;
+      gap: 8px;
+
+      > img {
+        border-radius: 100%;
+        height: 40px;
+        width: 40px;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3px 0;
+
+        > h4 {
+          @include paragraph-regular;
+        }
+
+        > span {
+          @include info-regular;
+          color: $secondary-gray;
+        }
+      }
+    }
+
+    > div:last-of-type {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      > .badges_container {
+        display: flex;
+        justify-content: flex-end;
+
+        > div {
+          margin-left: calc(10% - 10px);
+        }
+      }
+
+      > a {
+        @include info-regular;
+        color: $primary-yellow;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .infos {
+    > ul {
+      @include paragraph-regular;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $secondary-gray-light;
+    }
+
+    > div {
+      @include info-regular;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+
+      > div {
+        display: flex;
+        align-items: center;
+      }
+
+      > div:first-of-type {
+        gap: 15px;
+
+        > .attendees_pics {
+          display: flex;
+
+          > img {
+            margin-right: calc(10% - 15px);
+            border-radius: 100%;
+            height: 25px;
+            width: 30px;
+          }
+        }
+      }
+
+      > div:last-of-type {
+        gap: 5px;
+
+        > span {
+          padding-right: 2px;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 32px;
+          width: 32px;
+          border-radius: 100%;
+          border: none;
+        }
+      }
+    }
+  }
+}

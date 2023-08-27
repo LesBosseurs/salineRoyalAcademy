@@ -80,18 +80,6 @@
         align-items: center;
         gap: 5px;
 
-        > div.instrument {
-          background: #80017f;
-          width: 20px;
-          height: 20px;
-          padding: 3px;
-          box-sizing: border-box;
-          border-radius: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
         > span {
           @include info-regular;
           padding: 5px 10px;
@@ -116,19 +104,11 @@
       position: relative;
     }
 
-    > div.instrument {
+    > div {
       display: none;
 
       @media screen and (min-width: $breakpoint-mobile) {
-        background: #80017f;
-        width: 30px;
-        height: 30px;
-        padding: 6px;
-        box-sizing: border-box;
-        border-radius: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
         position: absolute;
         top: 5px;
         right: 5px;
