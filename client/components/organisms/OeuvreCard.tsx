@@ -1,5 +1,5 @@
-import style from '../styles/components/OeuvreCard.module.scss';
-import InstrumentIcon from "@/components/InstrumentIcon";
+import style from '../../styles/components/OeuvreCard.module.scss';
+import BadgeInstrument from "@/components/molecules/BadgeInstrument";
 
 type OeuvreCardProps = {
   instrument:
@@ -9,7 +9,6 @@ type OeuvreCardProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -27,14 +26,14 @@ export default function OeuvreCard ({
     <div className={style.oeuvre_card}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
-          <InstrumentIcon instrument={instrument} fill="#fff" />
+          <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
         </div>
       </div>
       <div className={style.description}>
         <div>
           <div>
             <div className={style.instrument}>
-              <InstrumentIcon instrument={instrument} fill="#fff" />
+              <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
             </div>
             <span>{title}</span>
           </div>

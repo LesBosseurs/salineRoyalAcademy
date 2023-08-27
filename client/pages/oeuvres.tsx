@@ -1,12 +1,12 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/listing.module.scss';
-import Card from '@/components/Card';
+import Card from '@/components/molecules/Card';
 import { useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import CardContainer from "@/components/CardContainer";
-import FormFilter from "@/components/FormFilter";
-import OeuvreCard from "@/components/OeuvreCard";
-import FilterSection from "@/components/FilterSection";
+import CardContainer from "@/components/molecules/CardContainer";
+import FormFilter from "@/components/organisms/FormFilter";
+import OeuvreCard from "@/components/organisms/OeuvreCard";
+import FilterSection from "@/components/organisms/FilterSection";
 
 interface FilterProps {
   instrument: string;
@@ -43,7 +43,7 @@ export default function Dashboard() {
     },
     {
       title:'Violin Sonata',
-      instrument: 'cello',
+      instrument: 'oboe',
       composer:'César Franck'
     },
     {
@@ -53,7 +53,7 @@ export default function Dashboard() {
     },
     {
       title:'Violin Sonata',
-      instrument: 'cello',
+      instrument: 'piano',
       composer:'César Franck'
     },
     {

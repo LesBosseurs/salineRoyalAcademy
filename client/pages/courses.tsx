@@ -1,12 +1,12 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/listing.module.scss';
-import Card from '@/components/Card';
-import CourseCard from '@/components/CourseCard';
-import CardContainer from "@/components/CardContainer";
+import Card from '@/components/molecules/Card';
+import CourseCard from '@/components/organisms/CourseCard';
+import CardContainer from "@/components/molecules/CardContainer";
 import {useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import FormFilter from "@/components/FormFilter";
-import FilterSection from "@/components/FilterSection";
+import FormFilter from "@/components/organisms/FormFilter";
+import FilterSection from "@/components/organisms/FilterSection";
 
 interface FilterProps {
   instrument: string;
@@ -28,7 +28,6 @@ interface CourseProps {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -70,7 +69,7 @@ export default function Dashboard() {
     {
       id: 4,
       title: 'Fantasy in C',
-      instrument: 'cello',
+      instrument: 'piano',
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -141,7 +140,7 @@ export default function Dashboard() {
                 title={item.title}
                 instrument={item.instrument}
                 professor={item.professor}
-                difficulty={item.difficulty}
+                difficulty={0}
                 actualChapter={item.actualChapter}
               />
             ))}

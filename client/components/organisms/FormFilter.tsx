@@ -1,7 +1,7 @@
 import React, {FormEvent} from "react";
 import style from "@/styles/components/FormFilter.module.scss";
-import FormField from "@/components/FormField";
-import Button from "@/components/Button";
+import FormField from "@/components/molecules/FormField";
+import Button from "@/components/atoms/Button";
 
 type FormFilterProps<T extends Record<string, any>> = {
   filterFields: T;

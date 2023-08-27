@@ -1,8 +1,8 @@
-import FormField from "@/components/FormField";
+import FormField from "@/components/molecules/FormField";
 import Search from "@/public/icons/search";
-import Button from "@/components/Button";
-import Modal from "@/components/Modal";
-import FormFilter from "@/components/FormFilter";
+import Button from "@/components/atoms/Button";
+import Modal from "@/components/molecules/Modal";
+import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
 import style from "@/styles/components/FilterSection.module.scss";
 
@@ -39,7 +39,7 @@ export default function FilterSection<T extends Record<string, any>>({filterFiel
         >
           <Button size={'sm'}>Filter</Button>
         </div>
-        <Modal setOpenModal={handleOpen} open={openModal}>
+        <Modal title={"Filtre"} setOpenModal={handleOpen} open={openModal}>
           <FormFilter setSelectedFilter={setSelectedFilter} filterFields={filterFields} />
         </Modal>
       </div>
