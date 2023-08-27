@@ -34,7 +34,7 @@ export default function Suggestion() {
                 <BadgeInstrument
                   fill="#fff"
                   instrument={instrument}
-                  size="md"
+                  size="lg"
                 />
                 <span>{instrument}</span>
               </div>
