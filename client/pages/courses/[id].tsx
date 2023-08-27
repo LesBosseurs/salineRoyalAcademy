@@ -2,7 +2,7 @@ import Header from '@/components/common/Header';
 import axios from 'axios';
 import style from '../../styles/pages/courses/course.module.scss';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CardContainer from '@/components/CardContainer';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
@@ -13,6 +13,8 @@ import CapRoundedIcon from '@/public/icons/others/CapRounded';
 import DownloadIcon from '@/public/icons/others/Download';
 import Image from 'next/image';
 import QuoteIcon from '@/public/icons/others/Quote';
+import ChapterBlock from '@/components/molecules/ChapterBlock';
+import useWindowSize from '@/hooks/useWindowSize';
 
 interface MasterclassProps {
   title: string;
@@ -21,11 +23,19 @@ interface MasterclassProps {
 export default function Course() {
   const router = useRouter();
   const { id } = router.query;
+  const playerRef = useRef<HTMLVideoElement | null>(null);
+  const windowSize = useWindowSize();
 
   const [masterclass, setMasterclass] = useState<MasterclassProps>({
     title: 'Loading...',
   });
+  const [heightPlayer, setHeightPlayer] = useState<number>(0);
   const [modalChaptersOpen, setModalChaptersOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setHeightPlayer(playerRef?.current?.clientHeight || 0);
+    console.log(playerRef?.current?.clientHeight);
+  }, [playerRef?.current?.clientHeight, windowSize.width]);
 
   useEffect(() => {
     if (!id) {
@@ -59,7 +69,7 @@ export default function Course() {
               <span>published 2h ago</span>
               <Tag difficulty={1} />
             </div>
-            <video src=""></video>
+            <video ref={playerRef} src=""></video>
             <div>
               <BadgeInstrument fill="#fff" size="lg" instrument="piano" />
               <Tag>Charles Gounod</Tag>
@@ -68,6 +78,86 @@ export default function Course() {
             </div>
           </div>
         </Card>
+        <div className={style.chapters_nav}>
+          <Card title="Chapters">
+            <div
+              className={style.chapters_container}
+              style={{ height: heightPlayer }}
+            >
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+              <ChapterBlock
+                title="Chapter 2 : Gounod, Romeo and Juliet"
+                instrument="piano"
+                author="Adelie Quantin"
+                duration="1'10"
+                timeViewed={60}
+              />
+            </div>
+          </Card>
+          <Button size="md">Submit your work</Button>
+        </div>
         <Card style={{ gridColumn: '1/5', gridRow: '3/5' }} title="Description">
           <div className={style.description}>
             <p>

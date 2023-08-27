@@ -2,8 +2,8 @@ import Image from 'next/image';
 import style from '../styles/components/CourseCard.module.scss';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import InstrumentIcon from './InstrumentIcon';
 import TagDifficulty from './Tag';
+import BadgeInstrument from './BadgeInstrument';
 
 type CourseCardProps = {
   title: string;
@@ -15,12 +15,11 @@ type CourseCardProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
     | 'voice';
-  difficulty: number;
+  difficulty: 0 | 1 | 2;
   actualChapter: string | null;
   pourcentage?: number | null;
 };
@@ -36,9 +35,7 @@ export default function CourseCard({
   return (
     <div className={style.course_card}>
       <div className={style.thumbnail}>
-        <div className={style.instrument}>
-          <InstrumentIcon instrument={instrument} fill="#fff" />
-        </div>
+        <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
         {pourcentage ? (
           <div className={style.progress_bar}>
             <div style={{ width: `${pourcentage}%` }}></div>
@@ -50,9 +47,7 @@ export default function CourseCard({
       <div className={style.description}>
         <div>
           <div>
-            <div className={style.instrument}>
-              <InstrumentIcon instrument={instrument} fill="#fff" />
-            </div>
+            <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
             <span>{title}</span>
           </div>
           <span>{professor}</span>

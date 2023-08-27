@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import style from '../styles/components/VideoCard.module.scss';
-import InstrumentIcon from './InstrumentIcon';
 import BadgeInstrument from './BadgeInstrument';
 import ButtonPlayIcon from '@/public/icons/videos/ButtonPlay';
 
@@ -14,7 +12,6 @@ type VideoCardProps = {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
@@ -48,9 +45,7 @@ export default function VideoCard({
     <div className={style.video_card}>
       <div className={style.thumbnail}>
         <ButtonPlayIcon fill="#b18b36" />
-        <div className={style.instrument}>
-          <BadgeInstrument size="lg" instrument={instrument} fill="#fff" />
-        </div>
+        <BadgeInstrument size="lg" instrument={instrument} fill="#fff" />
       </div>
       <div className={style.description}>
         <h3>{title}</h3>
