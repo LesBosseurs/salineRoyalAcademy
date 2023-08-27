@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import style from '../styles/components/ArticleCard.module.scss';
-import BadgeInstrument from './BadgeInstrument';
+import style from '../../styles/components/organisms/ArticleCard.module.scss';
+import BadgeInstrument from '../molecules/BadgeInstrument';
 
 type ArticleCardProps = {
   instrument:

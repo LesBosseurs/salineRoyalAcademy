@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import style from '../../styles/components/molecules/ChapterBlock.module.scss';
-import BadgeInstrument from '../BadgeInstrument';
+import BadgeInstrument from './BadgeInstrument';
 
 type ChapterBlockProps = {
   title: string;

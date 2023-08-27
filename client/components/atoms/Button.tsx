@@ -1,4 +1,4 @@
-import style from '../styles/components/Button.module.scss';
+import style from '../../styles/components/atoms/Button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -18,7 +18,6 @@ export default function Button({ children, size, ...props }: ButtonProps) {
         return style.lg;
     }
   };
-
 
   return (
     <button {...props} className={aspectButton()}>

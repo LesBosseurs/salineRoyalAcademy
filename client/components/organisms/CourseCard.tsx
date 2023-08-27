@@ -1,9 +1,8 @@
-import Image from 'next/image';
-import style from '../styles/components/CourseCard.module.scss';
+import style from '../../styles/components/organisms/CourseCard.module.scss';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import TagDifficulty from './Tag';
-import BadgeInstrument from './BadgeInstrument';
+import TagDifficulty from '@/components/atoms/Tag';
+import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 
 type CourseCardProps = {
   title: string;

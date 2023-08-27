@@ -1,4 +1,4 @@
-import BadgeInstrument from '@/components/BadgeInstrument';
+import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import style from '../../styles/pages/landing-page/_coming_soon_card.module.scss';
 
 type ComingSoonCardProps = {

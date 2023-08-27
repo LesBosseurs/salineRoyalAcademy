@@ -1,4 +1,4 @@
-import Button from '@/components/Button';
+import Button from '@/components/atoms/Button';
 import { useState } from 'react';
 import SalineRoyaleAcademy from '@/public/icons/salineRoyaleAcademy';
 import style from '../../styles/pages/landing-page/landingPage.module.scss';

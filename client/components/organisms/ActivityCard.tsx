@@ -1,5 +1,5 @@
-import style from '../../styles/components/molecules/ActivityCard.module.scss';
-import BadgeInstrument from '../BadgeInstrument';
+import style from '../../styles/components/organisms/ActivityCard.module.scss';
+import BadgeInstrument from '../molecules/BadgeInstrument';
 
 type ActivityCardProps = {
   instrument:

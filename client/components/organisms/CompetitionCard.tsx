@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import style from '../styles/components/CompetitionCard.module.scss';
+import style from '../../styles/components/organisms/CompetitionCard.module.scss';
 import MedalIcon from '@/public/icons/menu/Medal';
 import { useEffect, useState } from 'react';
-import BadgeInstrument from './BadgeInstrument';
+import BadgeInstrument from '../molecules/BadgeInstrument';
 
 type CompetitionCardProps = {
   instrument:

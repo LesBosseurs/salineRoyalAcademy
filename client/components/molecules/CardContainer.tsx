@@ -1,4 +1,4 @@
-import style from '../styles/components/CardContainer.module.scss';
+import style from '../../styles/components/molecules/CardContainer.module.scss';
 
 type CardContainerProps = {
   children: React.ReactNode;

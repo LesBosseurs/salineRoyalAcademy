@@ -1,5 +1,5 @@
-import style from '../styles/components/VideoCard.module.scss';
-import BadgeInstrument from './BadgeInstrument';
+import style from '../../styles/components/organisms/VideoCard.module.scss';
+import BadgeInstrument from '../molecules/BadgeInstrument';
 import ButtonPlayIcon from '@/public/icons/videos/ButtonPlay';
 
 type VideoCardProps = {
