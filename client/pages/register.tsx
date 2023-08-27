@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import {FormEvent, SetStateAction, useState} from 'react';
 import Button from '@/components/Button';
 import FormField from '@/components/FormField';
 import style from '../styles/pages/auth.module.scss';
@@ -90,6 +90,7 @@ export default function Register() {
           <FormField
             label="email"
             type="email"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
@@ -98,6 +99,7 @@ export default function Register() {
           <FormField
             label="password"
             type="password"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
@@ -106,6 +108,7 @@ export default function Register() {
           <FormField
             label="confirm_password"
             type="password"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
