@@ -1,21 +1,24 @@
 import Header from '@/components/common/Header';
-import style from '../styles/pages/listing.module.scss';
+import style from '../../styles/pages/listing.module.scss';
 import Card from '@/components/molecules/Card';
-import { useEffect, useState } from 'react';
-import useWindowSize from '@/hooks/useWindowSize';
+import CourseCard from '@/components/organisms/CourseCard';
 import CardContainer from "@/components/molecules/CardContainer";
+import {useEffect, useState } from 'react';
+import useWindowSize from '@/hooks/useWindowSize';
 import FormFilter from "@/components/organisms/FormFilter";
-import OeuvreCard from "@/components/organisms/OeuvreCard";
 import FilterSection from "@/components/organisms/FilterSection";
 
 interface FilterProps {
   instrument: string;
+  professor: string;
   composer: string;
-  year: string;
-  style: string;
+  subtitles_languages: string;
+  sort_by: string;
+  state: string;
+  display: string;
 }
 
-interface OeuvreProps {
+interface CourseProps {
   title: string;
   instrument:
     | 'cello'
@@ -24,50 +27,65 @@ interface OeuvreProps {
     | 'flute'
     | 'oboe'
     | 'piano'
-    | 'saxo'
     | 'trombone'
     | 'viola'
     | 'violin'
     | 'voice';
-  composer: string;
+  professor: string;
+  difficulty: 0 | 1 | 2;
+  actualChapter: string;
+  percentage?: number;
 }
 
 export default function Dashboard() {
   const size = useWindowSize();
   const [widthContainerArticles, setWidthContainerArticles] = useState<number>(0);
-  const [listOeuvres, setListOeuvres] = useState<OeuvreProps[]>([
+  const [listCourses, setListCourses] = useState<CourseProps[]>([
     {
-      title:'Violin Sonata',
+      title: 'Fantasy in C',
       instrument: 'cello',
-      composer:'César Franck'
+      professor: 'Robert Shumann',
+      difficulty: 0,
+      actualChapter: 'Chap. 2',
     },
     {
-      title:'Violin Sonata',
-      instrument: 'oboe',
-      composer:'César Franck'
-    },
-    {
-      title:'Violin Sonata',
+      title: 'tes1',
       instrument: 'cello',
-      composer:'César Franck'
+      professor: 'Robert Shumanna',
+      difficulty: 2,
+      actualChapter: 'Chap. 2',
     },
     {
-      title:'Violin Sonata',
+      title: 'Fantasy in C',
+      instrument: 'cello',
+      professor: 'Robert Shumanna',
+      difficulty: 2,
+      actualChapter: 'Chap. 2',
+    },
+    {
+      title: 'Fantasy in C',
       instrument: 'piano',
-      composer:'César Franck'
+      professor: 'Robert Shumanna',
+      difficulty: 2,
+      actualChapter: 'Chap. 2',
     },
     {
-      title:'Violin Sonata',
+      title: 'Fantasy in C',
       instrument: 'cello',
-      composer:'César Franck'
+      professor: 'Robert Shumann',
+      difficulty: 2,
+      actualChapter: 'Chap. 2',
     },
   ]);
 
   const [selectedFilter, setSelectedFilter] = useState<FilterProps>({
     instrument: '',
+    professor: '',
     composer: '',
-    year: '',
-    style: '',
+    sort_by: '',
+    state: '',
+    subtitles_languages: '',
+    display: '',
   });
 
   useEffect(() => {
@@ -105,19 +123,26 @@ export default function Dashboard() {
 
   return (
     <div className={style.list_page_content}>
-      <Header name="Oeuvres" />
-      <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter}/>
+      <Header name="Courses" />
+      <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter} haveFilter={true}/>
       <CardContainer>
-        <Card title="Courses" style={{gridColumn: "1/5"}}>
+        <Card title="Courses"  style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
-            {listOeuvres.map((item, key) => (
-              <OeuvreCard key={key} instrument={item.instrument} title={item.title} composer={item.composer}/>
+            {listCourses.map((item, key) => (
+              <CourseCard
+                key={key}
+                title={item.title}
+                instrument={item.instrument}
+                professor={item.professor}
+                difficulty={0}
+                actualChapter={item.actualChapter}
+              />
             ))}
           </div>
         </Card>
         <div className={style.desktop_filter}>
-          <Card title="Filter">
-            <FormFilter filterFields={selectedFilter} setSelectedFilter={setSelectedFilter}/>
+          <Card title="Filter" >
+            <FormFilter setSelectedFilter={setSelectedFilter} filterFields={selectedFilter} />
           </Card>
         </div>
       </CardContainer>
