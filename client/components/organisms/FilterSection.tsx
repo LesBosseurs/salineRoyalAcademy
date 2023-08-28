@@ -7,11 +7,12 @@ import {useState} from "react";
 import style from "@/styles/components/FilterSection.module.scss";
 
 type FilterSectionProps<T extends Record<string, any>> = {
+  haveFilter: boolean,
   filterFields: T;
   setSelectedFilter: (value: T ) => void;
 }
 
-export default function FilterSection<T extends Record<string, any>>({filterFields, setSelectedFilter}: FilterSectionProps<T>) {
+export default function FilterSection<T extends Record<string, any>>({haveFilter, filterFields, setSelectedFilter}: FilterSectionProps<T>) {
 
   const [openModal, setOpenModal] = useState<boolean>(false);
   const handleOpen = (toggle: boolean) => {
@@ -32,16 +33,22 @@ export default function FilterSection<T extends Record<string, any>>({filterFiel
             setSelectedFilter(value);
           }}
         />
-        <div
-          className={style.filter_button}
-          onClick={() => handleOpen(true)}
-          style={openModal ? { zIndex: 0 } : { zIndex: 1 }}
-        >
-          <Button size={'sm'}>Filter</Button>
-        </div>
-        <Modal title={"Filtre"} setOpenModal={handleOpen} open={openModal}>
-          <FormFilter setSelectedFilter={setSelectedFilter} filterFields={filterFields} />
-        </Modal>
+        {haveFilter ? (
+          <>
+            <div
+              className={style.filter_button}
+              onClick={() => handleOpen(true)}
+              style={openModal ? { zIndex: 0 } : { zIndex: 1 }}
+            >
+              <Button size={'sm'}>Filter</Button>
+            </div>
+            <Modal title={"Filter"} setOpenModal={handleOpen} open={openModal}>
+              <FormFilter setSelectedFilter={setSelectedFilter} filterFields={filterFields} />
+            </Modal>
+          </>
+        ) : (
+          ''
+        )}
       </div>
       <FormField
         label="search"
