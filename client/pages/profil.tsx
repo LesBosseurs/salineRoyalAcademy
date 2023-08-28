@@ -1,6 +1,5 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/profil.module.scss';
-import CardContainerStyle from '../styles/components/CardContainer.module.scss';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import Button from '@/components/atoms/Button';
 import CardContainer from '@/components/molecules/CardContainer';
@@ -21,7 +20,7 @@ export default function Profil() {
           <div className={style.name_and_instrument}>
             <h3>My name</h3>
             <div className={style.instrument}>
-              <BadgeInstrument size="md" fill="#fff" instrument="piano" />
+              <BadgeInstrument size="lg" fill="#fff" instrument="piano" />
               <span>piano</span>
             </div>
           </div>
@@ -155,7 +154,7 @@ export default function Profil() {
                 instrument="piano"
                 title="The Queen Sonja International Music Competition"
                 place="Oslo, Norway"
-                date={new Date('2023-08-31T13:12:00.838Z')}
+                date={new Date('2023-09-18T09:00:00.838Z')}
                 award={50000}
               />
             </div>
