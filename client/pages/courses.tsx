@@ -19,7 +19,6 @@ interface FilterProps {
 }
 
 interface CourseProps {
-  id: number;
   title: string;
   instrument:
     | 'cello'
@@ -33,7 +32,7 @@ interface CourseProps {
     | 'violin'
     | 'voice';
   professor: string;
-  difficulty: number;
+  difficulty: 0 | 1 | 2;
   actualChapter: string;
   percentage?: number;
 }
@@ -43,15 +42,13 @@ export default function Dashboard() {
   const [widthContainerArticles, setWidthContainerArticles] = useState<number>(0);
   const [listCourses, setListCourses] = useState<CourseProps[]>([
     {
-      id: 1,
       title: 'Fantasy in C',
       instrument: 'cello',
       professor: 'Robert Shumann',
-      difficulty: 2,
+      difficulty: 0,
       actualChapter: 'Chap. 2',
     },
     {
-      id: 2,
       title: 'tes1',
       instrument: 'cello',
       professor: 'Robert Shumanna',
@@ -59,7 +56,6 @@ export default function Dashboard() {
       actualChapter: 'Chap. 2',
     },
     {
-      id: 3,
       title: 'Fantasy in C',
       instrument: 'cello',
       professor: 'Robert Shumanna',
@@ -67,7 +63,6 @@ export default function Dashboard() {
       actualChapter: 'Chap. 2',
     },
     {
-      id: 4,
       title: 'Fantasy in C',
       instrument: 'piano',
       professor: 'Robert Shumanna',
@@ -75,7 +70,6 @@ export default function Dashboard() {
       actualChapter: 'Chap. 2',
     },
     {
-      id: 5,
       title: 'Fantasy in C',
       instrument: 'cello',
       professor: 'Robert Shumann',
@@ -130,7 +124,7 @@ export default function Dashboard() {
   return (
     <div className={style.list_page_content}>
       <Header name="Courses" />
-      <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter}/>
+      <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter} haveFilter={true}/>
       <CardContainer>
         <Card title="Courses"  style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
