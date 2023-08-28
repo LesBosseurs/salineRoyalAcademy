@@ -53,6 +53,7 @@
         > div.instrument {
           display: flex;
           gap: 10px;
+          align-items: center;
 
           > span {
             @include paragraph-semi-bold;
