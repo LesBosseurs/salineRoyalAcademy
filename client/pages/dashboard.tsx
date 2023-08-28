@@ -144,7 +144,7 @@ export default function Dashboard() {
             instrument="piano"
             title="The Queen Sonja International Music Competition"
             place="Oslo, Norway"
-            date={new Date('2023-08-31T13:12:00.838Z')}
+            date={new Date('2023-09-18T09:00:00.838Z')}
             award={50000}
           />
         </Card>
