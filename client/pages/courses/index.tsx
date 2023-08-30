@@ -7,6 +7,7 @@ import {useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import FormFilter from "@/components/organisms/FormFilter";
 import FilterSection from "@/components/organisms/FilterSection";
+import axios from "axios";
 
 interface FilterProps {
   instrument: string;
@@ -86,24 +87,16 @@ export default function Courses() {
     subtitles_languages: '',
     display: '',
   });
-  /*useEffect( () => {
-      axios.get('/user?ID=12345')
-          .then(function (response) {
-              // handle success
-              //console.log(response);
-          })
-          .catch(function (error) {
-              // handle error
-              console.log(error);
-          })
-      //TODO GET_all_courses
-      setCourse();
-  },[]);
 
-  useEffect( () => {
-      //TODO axios filter_courses
-      //setCourse()
-  }, [filter]);*/
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: '/api/getAllMasterclass',
+    }).then((res) => {
+      setListCourses(res.data.data);
+      console.log({listCourses});
+    });
+  }, []);
 
   return (
     <div className={style.list_page_content}>
@@ -116,8 +109,8 @@ export default function Courses() {
               <CourseCard
                 key={key}
                 title={item.title}
-                instrument={item.instrument}
-                professor={item.professor}
+                instrument={'cello'}
+                professor={'Robert Shumann'}
                 difficulty={0}
                 actualChapter={item.actualChapter}
               />
