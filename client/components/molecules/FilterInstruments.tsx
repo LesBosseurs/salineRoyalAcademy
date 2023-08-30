@@ -33,7 +33,7 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
 
   console.log(windowSize.width);
   return (
-    <div className={style.filterInstruments}>
+    <div className={style.filter_instruments}>
         <div className={style.intruments_container}>
           <Swiper
             modules={[Navigation]}
