@@ -1,5 +1,5 @@
 import React, {FormEvent} from "react";
-import style from "@/styles/components/FormFilter.module.scss";
+import style from "@/styles/components/molecules/FormFilter.module.scss";
 import FormField from "@/components/molecules/FormField";
 import Button from "@/components/atoms/Button";
 

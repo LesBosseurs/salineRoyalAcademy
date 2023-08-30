@@ -4,7 +4,8 @@ import Button from "@/components/atoms/Button";
 import Modal from "@/components/molecules/Modal";
 import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
-import style from "@/styles/components/FilterSection.module.scss";
+import style from "@/styles/components/organisms/FilterSection.module.scss";
+import FilterInstruments from "@/components/molecules/FilterInstruments";
 
 type FilterSectionProps<T extends Record<string, any>> = {
   haveFilter: boolean,
@@ -50,16 +51,7 @@ export default function FilterSection<T extends Record<string, any>>({haveFilter
           ''
         )}
       </div>
-      <FormField
-        label="search"
-        type="search"
-        sizeInput="md"
-        placeholder="Search instrument component"
-        value={filterFields}
-        onChange={function (value) {
-          setSelectedFilter(value);
-        }}
-      />
+      <FilterInstruments navigation={true}/>
     </section>
   );
 }
