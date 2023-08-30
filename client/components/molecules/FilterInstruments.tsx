@@ -1,5 +1,4 @@
 import style from '../../styles/components/molecules/FilterInstruments.module.scss';
-import { useRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -34,7 +33,7 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
 
   console.log(windowSize.width);
   return (
-    <section className={style.filterInstruments}>
+    <div className={style.filterInstruments}>
         <div className={style.intruments_container}>
           <Swiper
             modules={[Navigation]}
@@ -59,6 +58,6 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
             })}
           </Swiper>
         </div>
-    </section>
+    </div>
   );
 }
