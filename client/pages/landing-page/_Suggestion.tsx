@@ -13,7 +13,7 @@ export default function Suggestion() {
   return (
     <section className={style.suggestion}>
       <h2>What instrument do you play?</h2>
-      <div className={style.carousel_instruments}>
+      <div className={style.section_filter_instruments}>
         <div className={style.intruments_container}>
           <FilterInstruments navigation={true}/>
         </div>

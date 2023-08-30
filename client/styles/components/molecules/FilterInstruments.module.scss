@@ -3,7 +3,7 @@
 
 .filterInstruments {
   width: 100%;
-  max-width: 780px;
+  max-width: 1440px;
   box-sizing: border-box;
 
   > h2 {
@@ -14,9 +14,9 @@
     }
   }
 
-
   .intruments_container {
     display: flex;
+    width: 100%;
     gap: 15px;
 
     @media screen and (min-width: $breakpoint-laptop) {
@@ -25,13 +25,9 @@
   }
 
   .slider_container {
-    padding: 30px 2px;
+    padding: 2px 2px;
     --swiper-navigation-size: 24px;
     --swiper-navigation-color: $secondary-gray;
-
-    @media screen and (min-width: $breakpoint-laptop) {
-      padding: 30px;
-    }
   }
 
   .card {

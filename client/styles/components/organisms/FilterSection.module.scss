@@ -4,17 +4,21 @@
 .section_filter {
   display: flex;
   flex-direction: column;
+  padding-bottom: 15px;
 
   @media screen and (min-width: $breakpoint-laptop) {
     flex-direction: row-reverse;
     gap: 30px;
+    align-items: flex-start;
   }
+
 
   .search_and_filter_inputs {
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 30px;
+    padding-bottom: 15px;
   }
 
   .filter_button {
