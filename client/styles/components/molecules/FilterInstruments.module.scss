@@ -5,7 +5,9 @@
   width: 100%;
   max-width: 1440px;
   box-sizing: border-box;
-
+  @media screen and (min-width: $breakpoint-laptop) {
+    width: 65%;
+  }
   > h2 {
     @include title-regular;
 
