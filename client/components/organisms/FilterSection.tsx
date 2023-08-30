@@ -21,8 +21,8 @@ export default function FilterSection<T extends Record<string, any>>({haveFilter
   };
 
   return (
-    <section className={style.section_filter}>
-      <div className={style.search_and_filter_inputs}>
+    <section className={style.section}>
+      <div className={style.search_input}>
         <FormField
           label="search"
           type="search"
@@ -51,7 +51,9 @@ export default function FilterSection<T extends Record<string, any>>({haveFilter
           ''
         )}
       </div>
-      <FilterInstruments navigation={true}/>
+      <div className={style.instruments}>
+        <FilterInstruments navigation={true}/>
+      </div>
     </section>
   );
 }
