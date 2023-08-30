@@ -1,4 +1,4 @@
-import style from '../../styles/components/OeuvreCard.module.scss';
+import style from '../../styles/components/organisms/OeuvreCard.module.scss';
 import BadgeInstrument from "@/components/molecules/BadgeInstrument";
 
 type OeuvreCardProps = {

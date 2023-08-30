@@ -1,11 +1,10 @@
-@import '../variables.scss';
-@import '../fonts.scss';
+@import '../../variables';
+@import '../../fonts';
 
 .section_filter {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding-bottom: 30px;
+
   @media screen and (min-width: $breakpoint-laptop) {
     flex-direction: row-reverse;
     gap: 30px;
