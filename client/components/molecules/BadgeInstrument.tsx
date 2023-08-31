@@ -5,16 +5,16 @@ interface BadgeInstrumentProps {
   fill: string;
   size: 'md' | 'lg';
   instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+    | 'Cello'
+    | 'Chamber-music'
+    | 'Clarinet'
+    | 'Flute'
+    | 'Oboe'
+    | 'Piano'
+    | 'Trombone'
+    | 'Viola'
+    | 'Violin'
+    | 'Voice';
 }
 
 export default function BadgeInstrument({

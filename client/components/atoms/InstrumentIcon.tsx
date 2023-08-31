@@ -12,16 +12,16 @@ import VoiceIcon from '@/public/icons/instruments/Voice';
 type InstrumentIconProps = {
   fill: string;
   instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+    | 'Cello'
+    | 'Chamber-music'
+    | 'Clarinet'
+    | 'Flute'
+    | 'Oboe'
+    | 'Piano'
+    | 'Trombone'
+    | 'Viola'
+    | 'Violin'
+    | 'Voice';
 };
 
 export default function InstrumentIcon({
@@ -29,25 +29,25 @@ export default function InstrumentIcon({
   instrument,
 }: InstrumentIconProps) {
   switch (instrument) {
-    case 'piano':
+    case 'Piano':
       return <PianoIcon fill={fill} />;
-    case 'violin':
+    case 'Violin':
       return <ViolinIcon fill={fill} />;
-    case 'cello':
+    case 'Cello':
       return <CelloIcon fill={fill} />;
-    case 'voice':
+    case 'Voice':
       return <VoiceIcon fill={fill} />;
-    case 'viola':
+    case 'Viola':
       return <ViolaIcon fill={fill} />;
-    case 'clarinet':
+    case 'Clarinet':
       return <ClarinetIcon fill={fill} />;
-    case 'flute':
+    case 'Flute':
       return <FluteIcon fill={fill} />;
-    case 'oboe':
+    case 'Oboe':
       return <OboeIcon fill={fill} />;
-    case 'chamber-music':
+    case 'Chamber-music':
       return <ChambreMusicIcon fill={fill} />;
-    case 'trombone':
+    case 'Trombone':
       return <TromboneIcon fill={fill} />;
   }
 }
