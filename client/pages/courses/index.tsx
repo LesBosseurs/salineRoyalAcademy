@@ -18,20 +18,22 @@ interface FilterProps {
   display: string;
 }
 
+type instruments =
+  | 'cello'
+  | 'chamber-music'
+  | 'clarinet'
+  | 'flute'
+  | 'oboe'
+  | 'piano'
+  | 'trombone'
+  | 'viola'
+  | 'violin'
+  | 'voice';
+
 interface CourseProps {
   id:number;
   title: string;
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  instrument:instruments[];
   professor: string;
   difficulty: 0 | 1 | 2;
   actualChapter: string;
@@ -43,7 +45,7 @@ export default function Courses() {
     {
       id:1,
       title: 'Fantasy in C',
-      instrument: 'cello',
+      instrument: ['cello'],
       professor: 'Robert Shumann',
       difficulty: 0,
       actualChapter: 'Chap. 2',
@@ -51,7 +53,7 @@ export default function Courses() {
     {
       id:2,
       title: 'tes1',
-      instrument: 'cello',
+      instrument: ['cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -59,7 +61,7 @@ export default function Courses() {
     {
       id:3,
       title: 'Fantasy in C',
-      instrument: 'cello',
+      instrument: ['cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -67,7 +69,7 @@ export default function Courses() {
     {
       id:4,
       title: 'Fantasy in C',
-      instrument: 'piano',
+      instrument: ['cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -75,7 +77,7 @@ export default function Courses() {
     {
       id:5,
       title: 'Fantasy in C',
-      instrument: 'cello',
+      instrument: ['cello'],
       professor: 'Robert Shumann',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -115,7 +117,7 @@ export default function Courses() {
                 key={key}
                 id={item.id}
                 title={item.title}
-                instrument={'cello'}
+                instrument={item.instrument[0]}
                 professor={'Robert Shumann'}
                 difficulty={0}
                 actualChapter={item.actualChapter}

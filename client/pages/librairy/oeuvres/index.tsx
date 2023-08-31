@@ -14,20 +14,22 @@ interface FilterProps {
   style: string;
 }
 
+type instruments =
+  | 'Cello'
+  | 'Chamber-music'
+  | 'Clarinet'
+  | 'Flute'
+  | 'Oboe'
+  | 'Piano'
+  | 'Trombone'
+  | 'Viola'
+  | 'Violin'
+  | 'Voice';
+
 interface OeuvreProps {
   id: number;
   title: string;
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  instrument: instruments[];
   composer: string;
 }
 export default function Oeuvres() {
@@ -35,31 +37,31 @@ export default function Oeuvres() {
     {
       id: 1,
       title:'Violin Sonata',
-      instrument: 'cello',
+      instrument: ['Cello'],
       composer:'César Franck'
     },
     {
       id: 2,
       title:'Violin Sonata',
-      instrument: 'oboe',
+      instrument: ['Cello'],
       composer:'César Franck'
     },
     {
       id: 3,
       title:'Violin Sonata',
-      instrument: 'cello',
+      instrument: ['Cello'],
       composer:'César Franck'
     },
     {
       id: 4,
       title:'Violin Sonata',
-      instrument: 'piano',
+      instrument:['Cello'],
       composer:'César Franck'
     },
     {
       id: 5,
       title:'Violin Sonata',
-      instrument: 'cello',
+      instrument: ['Cello'],
       composer:'César Franck'
     },
   ]);
@@ -82,7 +84,7 @@ export default function Oeuvres() {
               <OeuvreCard
                 key={key}
                 id={item.id}
-                instrument={item.instrument}
+                instrument={item.instrument[0]}
                 title={item.title}
                 composer={item.composer}
               />
