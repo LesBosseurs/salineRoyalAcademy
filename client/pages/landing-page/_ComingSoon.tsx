@@ -9,16 +9,16 @@ import useWindowSize from '@/hooks/useWindowSize';
 
 type ComingSoonCardProps = {
   instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+    | 'Cello'
+    | 'Chamber-music'
+    | 'Clarinet'
+    | 'Flute'
+    | 'Oboe'
+    | 'Piano'
+    | 'Trombone'
+    | 'Viola'
+    | 'Violin'
+    | 'Voice';
   title: string;
   text: string;
 };
@@ -28,27 +28,27 @@ export default function ComingSoon() {
 
   const [newsList, setNewsList] = useState<Array<ComingSoonCardProps>>([
     {
-      instrument: 'piano',
+      instrument: 'Piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'piano',
+      instrument: 'Piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'piano',
+      instrument: 'Piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'piano',
+      instrument: 'Piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'piano',
+      instrument: 'Piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },

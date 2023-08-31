@@ -3,16 +3,16 @@ import style from '../../styles/pages/landing-page/_coming_soon_card.module.scss
 
 type ComingSoonCardProps = {
   instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+    | 'Cello'
+    | 'Chamber-music'
+    | 'Clarinet'
+    | 'Flute'
+    | 'Oboe'
+    | 'Piano'
+    | 'Trombone'
+    | 'Viola'
+    | 'Violin'
+    | 'Voice';
   title: string;
   text: string;
 };

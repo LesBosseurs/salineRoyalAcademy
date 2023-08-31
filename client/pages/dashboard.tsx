@@ -1,6 +1,5 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/dashboard.module.scss';
-import CardContainerStyle from '../styles/components/CardContainer.module.scss';
 import Button from '@/components/atoms/Button';
 import Image from 'next/image';
 import Card from '@/components/molecules/Card';
@@ -62,7 +61,7 @@ export default function Dashboard() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="piano"
+              instrument="Piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -70,7 +69,7 @@ export default function Dashboard() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="piano"
+              instrument="Piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -78,7 +77,7 @@ export default function Dashboard() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="piano"
+              instrument="Piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -86,7 +85,7 @@ export default function Dashboard() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="piano"
+              instrument="Piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -94,7 +93,7 @@ export default function Dashboard() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="piano"
+              instrument="Piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -102,7 +101,7 @@ export default function Dashboard() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="piano"
+              instrument="Piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -117,7 +116,7 @@ export default function Dashboard() {
         >
           <div className={style.activity_container}>
             <ActivityCard
-              instrument="piano"
+              instrument="Piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -125,7 +124,7 @@ export default function Dashboard() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
-              instrument="piano"
+              instrument="Piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -141,7 +140,7 @@ export default function Dashboard() {
           hrefLink=""
         >
           <CompetitionCard
-            instrument="piano"
+            instrument="Piano"
             title="The Queen Sonja International Music Competition"
             place="Oslo, Norway"
             date={new Date('2023-09-18T09:00:00.838Z')}
@@ -160,55 +159,55 @@ export default function Dashboard() {
           >
             <div className={style.articles_container}>
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
-                instrument="piano"
+                instrument="Piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
