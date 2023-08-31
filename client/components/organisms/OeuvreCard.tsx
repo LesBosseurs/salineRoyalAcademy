@@ -2,6 +2,7 @@ import style from '../../styles/components/organisms/OeuvreCard.module.scss';
 import BadgeInstrument from "@/components/molecules/BadgeInstrument";
 
 type OeuvreCardProps = {
+  id: number;
   instrument:
     | 'cello'
     | 'chamber-music'
@@ -18,12 +19,13 @@ type OeuvreCardProps = {
 }
 
 export default function OeuvreCard ({
+  id,
   title,
   instrument,
   composer,
 }: OeuvreCardProps){
   return (
-    <div className={style.oeuvre_card}>
+    <a className={style.oeuvre_card} href={id?("http://localhost:3000/librairy/oeuvre/"+id):("")}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
           <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
@@ -40,6 +42,6 @@ export default function OeuvreCard ({
           <span>{composer}</span>
         </div>
       </div>
-    </div>
+    </a>
   );
 }

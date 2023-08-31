@@ -4,7 +4,6 @@ import Card from '@/components/molecules/Card';
 import CourseCard from '@/components/organisms/CourseCard';
 import CardContainer from "@/components/molecules/CardContainer";
 import {useEffect, useState } from 'react';
-import useWindowSize from '@/hooks/useWindowSize';
 import FormFilter from "@/components/organisms/FormFilter";
 import FilterSection from "@/components/organisms/FilterSection";
 import axios from "axios";
@@ -40,7 +39,6 @@ interface CourseProps {
 }
 
 export default function Courses() {
-  const windowSize = useWindowSize();
   const [listCourses, setListCourses] = useState<CourseProps[]>([
     {
       id:1,
@@ -81,6 +79,7 @@ export default function Courses() {
       professor: 'Robert Shumann',
       difficulty: 2,
       actualChapter: 'Chap. 2',
+      percentage: 10,
     },
   ]);
 
@@ -102,7 +101,7 @@ export default function Courses() {
       setListCourses(res.data.data);
       console.log({listCourses});
     });
-  }, []);
+  });
 
   return (
     <div className={style.list_page_content}>
@@ -120,6 +119,7 @@ export default function Courses() {
                 professor={'Robert Shumann'}
                 difficulty={0}
                 actualChapter={item.actualChapter}
+                pourcentage={item.percentage}
               />
             ))}
           </div>
