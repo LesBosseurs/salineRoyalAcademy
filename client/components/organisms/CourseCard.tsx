@@ -5,6 +5,7 @@ import TagDifficulty from '@/components/atoms/Tag';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 
 type CourseCardProps = {
+  id?: number;
   title: string;
   professor: string;
   instrument:
@@ -24,6 +25,7 @@ type CourseCardProps = {
 };
 
 export default function CourseCard({
+  id,
   title,
   professor,
   instrument,
@@ -32,7 +34,7 @@ export default function CourseCard({
   pourcentage,
 }: CourseCardProps) {
   return (
-    <div className={style.course_card}>
+    <a className={style.course_card} href={id?("http://localhost:3000/courses/"+id):("")}>
       <div className={style.thumbnail}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
         {pourcentage ? (
@@ -70,6 +72,6 @@ export default function CourseCard({
       ) : (
         ''
       )}
-    </div>
+    </a>
   );
 }

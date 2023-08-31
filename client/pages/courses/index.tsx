@@ -20,6 +20,7 @@ interface FilterProps {
 }
 
 interface CourseProps {
+  id:number;
   title: string;
   instrument:
     | 'cello'
@@ -42,6 +43,7 @@ export default function Courses() {
   const windowSize = useWindowSize();
   const [listCourses, setListCourses] = useState<CourseProps[]>([
     {
+      id:1,
       title: 'Fantasy in C',
       instrument: 'cello',
       professor: 'Robert Shumann',
@@ -49,6 +51,7 @@ export default function Courses() {
       actualChapter: 'Chap. 2',
     },
     {
+      id:2,
       title: 'tes1',
       instrument: 'cello',
       professor: 'Robert Shumanna',
@@ -56,6 +59,7 @@ export default function Courses() {
       actualChapter: 'Chap. 2',
     },
     {
+      id:3,
       title: 'Fantasy in C',
       instrument: 'cello',
       professor: 'Robert Shumanna',
@@ -63,6 +67,7 @@ export default function Courses() {
       actualChapter: 'Chap. 2',
     },
     {
+      id:4,
       title: 'Fantasy in C',
       instrument: 'piano',
       professor: 'Robert Shumanna',
@@ -70,6 +75,7 @@ export default function Courses() {
       actualChapter: 'Chap. 2',
     },
     {
+      id:5,
       title: 'Fantasy in C',
       instrument: 'cello',
       professor: 'Robert Shumann',
@@ -108,6 +114,7 @@ export default function Courses() {
             {listCourses.map((item, key) => (
               <CourseCard
                 key={key}
+                id={item.id}
                 title={item.title}
                 instrument={'cello'}
                 professor={'Robert Shumann'}
