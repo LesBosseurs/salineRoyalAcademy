@@ -18,7 +18,7 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
     'Clarinet',
     'Flute',
     'Oboe',
-    'piano',
+    'Piano',
     'Trombone',
     'Viola',
     'Violin',
