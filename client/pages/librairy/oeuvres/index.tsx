@@ -1,5 +1,3 @@
-
-import useWindowSize from '@/hooks/useWindowSize';
 import style from "@/styles/pages/listing.module.scss";
 import Header from "@/components/common/Header";
 import FilterSection from "@/components/organisms/FilterSection";
@@ -17,6 +15,7 @@ interface FilterProps {
 }
 
 interface OeuvreProps {
+  id: number;
   title: string;
   instrument:
     | 'cello'
@@ -32,34 +31,39 @@ interface OeuvreProps {
   composer: string;
 }
 export default function Oeuvres() {
-  const windowSize = useWindowSize();
   const [listOeuvres, setListOeuvres] = useState<OeuvreProps[]>([
     {
+      id: 1,
       title:'Violin Sonata',
       instrument: 'cello',
       composer:'César Franck'
     },
     {
+      id: 2,
       title:'Violin Sonata',
       instrument: 'oboe',
       composer:'César Franck'
     },
     {
+      id: 3,
       title:'Violin Sonata',
       instrument: 'cello',
       composer:'César Franck'
     },
     {
+      id: 4,
       title:'Violin Sonata',
       instrument: 'piano',
       composer:'César Franck'
     },
     {
+      id: 5,
       title:'Violin Sonata',
       instrument: 'cello',
       composer:'César Franck'
     },
   ]);
+
   const [selectedFilter, setSelectedFilter] = useState<FilterProps>({
     instrument: '',
     composer: '',
@@ -67,7 +71,6 @@ export default function Oeuvres() {
     style: '',
   });
 
-  console.log(windowSize);
   return (
     <div className={style.list_page_content}>
       <Header name="Oeuvres" />
@@ -76,7 +79,13 @@ export default function Oeuvres() {
         <Card title="Courses" style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
             {listOeuvres.map((item, key) => (
-              <OeuvreCard key={key} instrument={item.instrument} title={item.title} composer={item.composer}/>
+              <OeuvreCard
+                key={key}
+                id={item.id}
+                instrument={item.instrument}
+                title={item.title}
+                composer={item.composer}
+              />
             ))}
           </div>
         </Card>
