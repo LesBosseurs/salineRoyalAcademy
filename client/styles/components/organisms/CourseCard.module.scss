@@ -4,6 +4,9 @@
 .course_card {
   display: flex;
   gap: 5px;
+  width: unset;
+  text-decoration: unset;
+  color: $secondary-dark;
 
   @media screen and (min-width: $breakpoint-mobile) {
     flex-direction: column;
