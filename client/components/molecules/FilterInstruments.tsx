@@ -13,16 +13,16 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
   const windowSize = useWindowSize();
 
   const instrumentsList = [
-    'cello',
-    'chamber-music',
-    'clarinet',
-    'flute',
-    'oboe',
+    'Cello',
+    'Chamber-music',
+    'Clarinet',
+    'Flute',
+    'Oboe',
     'piano',
-    'trombone',
-    'viola',
-    'violin',
-    'voice',
+    'Trombone',
+    'Viola',
+    'Violin',
+    'Voice',
   ];
   let navigationOn;
   if(navigation){
@@ -31,7 +31,6 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
     navigationOn = navigation;
   }
 
-  console.log(windowSize.width);
   return (
     <div className={style.filter_instruments}>
         <div className={style.intruments_container}>

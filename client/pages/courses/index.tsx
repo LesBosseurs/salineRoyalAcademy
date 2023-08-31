@@ -19,16 +19,16 @@ interface FilterProps {
 }
 
 type instruments =
-  | 'cello'
-  | 'chamber-music'
-  | 'clarinet'
-  | 'flute'
-  | 'oboe'
-  | 'piano'
-  | 'trombone'
-  | 'viola'
-  | 'violin'
-  | 'voice';
+  | 'Cello'
+  | 'Chamber-music'
+  | 'Clarinet'
+  | 'Flute'
+  | 'Oboe'
+  | 'Piano'
+  | 'Trombone'
+  | 'Viola'
+  | 'Violin'
+  | 'Voice';
 
 interface CourseProps {
   id:number;
@@ -45,7 +45,7 @@ export default function Courses() {
     {
       id:1,
       title: 'Fantasy in C',
-      instrument: ['cello'],
+      instrument: ['Cello'],
       professor: 'Robert Shumann',
       difficulty: 0,
       actualChapter: 'Chap. 2',
@@ -53,7 +53,7 @@ export default function Courses() {
     {
       id:2,
       title: 'tes1',
-      instrument: ['cello'],
+      instrument: ['Cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -61,7 +61,7 @@ export default function Courses() {
     {
       id:3,
       title: 'Fantasy in C',
-      instrument: ['cello'],
+      instrument: ['Cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -69,7 +69,7 @@ export default function Courses() {
     {
       id:4,
       title: 'Fantasy in C',
-      instrument: ['cello'],
+      instrument: ['Cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -77,7 +77,7 @@ export default function Courses() {
     {
       id:5,
       title: 'Fantasy in C',
-      instrument: ['cello'],
+      instrument: ['Cello'],
       professor: 'Robert Shumann',
       difficulty: 2,
       actualChapter: 'Chap. 2',
