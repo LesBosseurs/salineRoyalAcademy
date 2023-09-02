@@ -33,17 +33,7 @@ app.listen(port, () => {
   console.log(`Serveur en cours d'exécution sur le port ${port}`);
 });
 
-
-
-
-
-
-
-
-
-
-
-// CHAT SOCKET SERVER
+// SOCKET SERVER
 
 const server = http.createServer(app);
 
