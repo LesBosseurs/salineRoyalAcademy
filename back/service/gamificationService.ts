@@ -108,28 +108,27 @@ class GamificationService{
     };
 
     // Fonction qui update la progression des tous les badges d'un user
-    static async updateUserBadges(user_id : Number, badges? : Badge[]): Promise<Boolean> {
+    static async updateUserBadges(user_id : Number, allBadges? : Badge[], allUserBadges? : user_badges[]): Promise<user_badges[]> {
         try {
-            if (!badges) {
-                const badges = await this.getBadges();
+            let updateUserBadges: user_badges[] = [];
+            if(allBadges && allUserBadges) {
                 const userStats = await this.getBadgesStatsByUser(user_id);
-                const updateUserBadges = await GamificationRepository.updateUserBadges(user_id, badges, userStats);
-                return updateUserBadges;
-            }else {
+                updateUserBadges = await GamificationRepository.updateUserBadges(user_id, allBadges, allUserBadges, userStats);
+            }else if(!allBadges) {
+                const allBadges = await this.getBadges();
+                const allUserBadges = await this.getUserBadges(user_id);
                 const userStats = await this.getBadgesStatsByUser(user_id);
-                const updateUserBadges = await GamificationRepository.updateUserBadges(user_id, badges, userStats);
-                return updateUserBadges;
-            }
-            
+                updateUserBadges = await GamificationRepository.updateUserBadges(user_id, allBadges, allUserBadges, userStats);
+            } 
+            return updateUserBadges;
         } catch (error: unknown) {
             throw new Error(`Unable to update userBadges : ${error}`);
         }
     };
 
-    
-
-    
-
 }
 
 export default GamificationService
+
+/* scp -P 9120 C:/Users/symch/Desktop/image_badge.png hetic@hetic-projects.arcplex.tech:~/saline/public/assets/badges/
+ */

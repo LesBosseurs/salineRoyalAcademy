@@ -117,15 +117,14 @@ export class GamificationController {
         try {
             const user_id : Number = parseInt(req.params.user_id);
             const result = await GamificationService.updateUserBadges(user_id); 
-            if (result == true) {
-                res.status(200).json({ success: result, message: 'UserBadges update successfully for user_id = ' + user_id });
+            if (result.length > 0) {
+                res.status(200).json({ success: true, message: 'UserBadges update successfully for user_id = ' + user_id , modifiedBadges : result} );
             }else {
-                res.status(200).json({ success: result, message: 'Failed to update UserBadges for user_id = ' + user_id });
+                res.status(200).json({ success: true, message: 'UserBadges already update for user_id = ' + user_id });
             }
         } catch (error) {
             res.status(500).json({ success: false, message: 'Failed to update UserBadges', error: error as Error });
         };
     };
-
     
 }

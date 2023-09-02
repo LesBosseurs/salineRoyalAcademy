@@ -4,8 +4,6 @@ import { GamificationController } from '../controllers/gamificationController';
 
 const router = express.Router();
 
-//ROUTE GET 
-
 router.get('/getBadge/:badge_id', GamificationController.getBadge);
 
 router.get('/getBadges', GamificationController.getBadges);
@@ -20,8 +18,6 @@ router.get('/getBadgesStatsByUser/:user_id', GamificationController.getBadgesSta
 
 router.get('/getSchoolStats/:school_id', GamificationController.getSchoolStats);
 
-// ROUTE POST 
-
 router.post('/createBadge', GamificationController.createBadge);
 
 router.post('/createBadges', GamificationController.createBadges);
@@ -29,8 +25,5 @@ router.post('/createBadges', GamificationController.createBadges);
 router.post('/updateBadge/:badge_id', GamificationController.updateBadge);
 
 router.post('/updateUserBadges/:user_id', GamificationController.updateUserBadges);
-
-
-
 
 export default router;

@@ -348,9 +348,8 @@ class GamificationRepository {
     // Fonction utiliser pour getAllBadgesWithUserBadges
     // Permet d'update la progression des tous les badges d'un user
     // Si c'est un nouvelle utilisateur, cela creer la progression 
-    static async updateUserBadges(user_id: Number, allBadges: Badge[], stats: UserStats): Promise<Boolean> {
+    static async updateUserBadges(user_id: Number, allBadges: Badge[], allUserBadges: user_badges[], stats: UserStats): Promise<user_badges[]> {
         try {    
-
             let currentDate = new Date();
             const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
             currentDate = new Date(formattedDate);
@@ -358,13 +357,16 @@ class GamificationRepository {
             yesterdayDate.setDate(yesterdayDate.getDate() - 1);
             const formattedYesterdayDate = `${yesterdayDate.getFullYear()}-${(yesterdayDate.getMonth() + 1).toString().padStart(2, '0')}-${yesterdayDate.getDate().toString().padStart(2, '0')}`;
 
+            let new_user_badges : user_badges[] = [];
+
             for (const badge of allBadges) {
 
                 let query = `
                     INSERT INTO user_badges_tracking (user_id, badge_id, step, badge_experiences, date_earned)
                     VALUES ($1, $2, $3, $4, $5::DATE)
                     ON CONFLICT (user_id, badge_id) DO UPDATE
-                    SET step = EXCLUDED.step, badge_experiences = EXCLUDED.badge_experiences, date_earned = $5::DATE;
+                    SET step = EXCLUDED.step, badge_experiences = EXCLUDED.badge_experiences, date_earned = $5::DATE
+                    RETURNING *;
                 `;
 
                 let user_badge = {
@@ -397,7 +399,8 @@ class GamificationRepository {
                             VALUES ($1, $2, $3, $4, $5::DATE)
                             ON CONFLICT (user_id, badge_id) DO UPDATE
                             SET step = EXCLUDED.step, badge_experiences = EXCLUDED.badge_experiences, date_earned = $5::DATE
-                            WHERE EXCLUDED.step > user_badges_tracking.step;
+                            WHERE EXCLUDED.step > user_badges_tracking.step
+                            RETURNING *;
                     `;
                 };
 
@@ -410,9 +413,33 @@ class GamificationRepository {
                     };
                 };
                 const values = [user_badge.user_id, user_badge.badge_id, user_badge.step, user_badge.badge_experience, user_badge.date_earned];
-                await pool.query(query, values);  
+                const response = await pool.query(query, values);
+                const new_user_badge = response.rows[0] as user_badges;
+                new_user_badges.push(new_user_badge)
             }
-            return true;
+
+            const modifiedStepBadges: user_badges[] = [];
+        
+            for (const new_user_badge of new_user_badges) {
+                if(new_user_badge != undefined) {
+                    let previousUserBadgeNotAlreadyCreate = true;
+                    for (const previousUserBadge of allUserBadges) {                        
+                        if (new_user_badge.badge_id == previousUserBadge.badge_id){
+                            previousUserBadgeNotAlreadyCreate = false
+                            if(new_user_badge.step != previousUserBadge.step){
+                                modifiedStepBadges.push(new_user_badge)
+                            }
+                            break
+                        }
+                        
+                    }
+                    if(previousUserBadgeNotAlreadyCreate == true && new_user_badge.step != 0){
+                        console.log("previousUserBadgeNotAlreadyCreate == true  && new_user_badge.step != 0")
+                        modifiedStepBadges.push(new_user_badge)
+                    }
+                }  
+            }
+            return modifiedStepBadges;
 
         } catch (error) {
             console.error(error);
