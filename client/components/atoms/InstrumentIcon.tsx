@@ -24,30 +24,30 @@ type InstrumentIconProps = {
     | 'voice';
 };
 
-export default function InstrumentIcon({
+export default function InstrumentIcon ({
   fill,
-  instrument,
+  instrument
 }: InstrumentIconProps) {
   switch (instrument) {
     case 'piano':
-      return <PianoIcon fill={fill} />;
+      return <PianoIcon fill={fill} />
     case 'violin':
-      return <ViolinIcon fill={fill} />;
-    case 'cello':
-      return <CelloIcon fill={fill} />;
+      return <ViolinIcon fill={fill} />
+    case 'cello' :
+      return <CelloIcon fill={fill} />
     case 'voice':
-      return <VoiceIcon fill={fill} />;
+      return <VoiceIcon fill={fill} />
     case 'viola':
-      return <ViolaIcon fill={fill} />;
+      return <ViolaIcon fill={fill} />
     case 'clarinet':
-      return <ClarinetIcon fill={fill} />;
+      return <ClarinetIcon fill={fill} />
     case 'flute':
-      return <FluteIcon fill={fill} />;
+      return <FluteIcon fill={fill} />
     case 'oboe':
-      return <OboeIcon fill={fill} />;
+      return <OboeIcon fill={fill} />
     case 'chamber-music':
-      return <ChambreMusicIcon fill={fill} />;
+      return <ChambreMusicIcon fill={fill} />
     case 'trombone':
-      return <TromboneIcon fill={fill} />;
+      return <TromboneIcon fill={fill} />
   }
 }

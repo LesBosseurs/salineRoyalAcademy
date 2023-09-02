@@ -6,9 +6,9 @@ import { useRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 import FilterInstruments from "@/components/molecules/FilterInstruments";
 
-export default function Suggestion() {
-  const heightListCourses = useRef<HTMLInputElement>(null);
-  const size = useWindowSize();
+export default function Suggestion () {
+  const heightListCourses = useRef<HTMLInputElement>(null)
+  const size = useWindowSize()
 
   return (
     <section className={style.suggestion}>
@@ -25,7 +25,7 @@ export default function Suggestion() {
               size.width > 768
                 ? {
                     minWidth:
-                      (heightListCourses.current?.offsetHeight || 300) / 1.5,
+                      (heightListCourses.current?.offsetHeight || 300) / 1.5
                   }
                 : {}
             }
@@ -48,62 +48,62 @@ export default function Suggestion() {
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
-              actualChapter=""
-              pourcentage={null}
+              actualChapter=''
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
-              actualChapter=""
-              pourcentage={null}
+              actualChapter=''
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
-              actualChapter=""
-              pourcentage={null}
+              actualChapter=''
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
-              actualChapter=""
-              pourcentage={null}
+              actualChapter=''
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
-              actualChapter=""
-              pourcentage={null}
+              actualChapter=''
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
-              actualChapter=""
-              pourcentage={null}
+              actualChapter=''
+              pourcentage={0}
             />
           </div>
-          <Link href="">
+          <Link href=''>
             <span></span>
             <span>VIEW ALL VIOLIN LESSONS</span>
             <ArrowRight fill={'#000'} />
           </Link>
         </div>
-        <Link href="">
+        <Link href=''>
           <span></span>
           <span>VIEW ALL VIOLIN LESSONS</span>
           <ArrowRight fill={'#000'} />
         </Link>
       </div>
     </section>
-  );
+  )
 }
