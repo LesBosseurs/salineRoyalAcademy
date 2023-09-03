@@ -1,0 +1,58 @@
+@import '../../../variables.scss';
+@import '../../../fonts.scss';
+
+.oeuvre {
+  .picture {
+    border-radius: 20px;
+    background: $secondary-gray-light2;
+    grid-column: 1/7;
+    min-height: 130px;
+    grid-row: 2;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      grid-column: 1/4;
+      grid-row: span 2;
+    }
+  }
+
+  .title {
+    grid-column: 1/7;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      grid-column: 4/7;
+    }
+
+    h2 {
+      @include subtitle;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        @include title-regular;
+      }
+      padding-bottom: 3px;
+    }
+
+    p {
+      @include info-regular;
+    }
+  }
+
+  .infos {
+    @include paragraph-regular;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .description {
+    @include paragraph-regular;
+  }
+
+  .grid_courses {
+    display: flex;
+    gap: 15px;
+
+    .slider_container {
+      --swiper-navigation-color: #b18b36;
+    }
+  }
+}
