@@ -3,29 +3,16 @@ import Header from "@/components/common/Header";
 import FilterSection from "@/components/organisms/FilterSection";
 import CardContainer from "@/components/molecules/CardContainer";
 import Card from "@/components/molecules/Card";
-import OeuvreCard from "@/components/organisms/OeuvreCard";
 import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
 import PersonCard from "@/components/organisms/PersonCard";
-
+import {instruments} from "@/interfaces/InstrumentsInterface";
 interface FilterProps {
   instrument: string;
   composer: string;
   year: string;
   style: string;
 }
-
-type instruments =
-  | 'Cello'
-  | 'Chamber-music'
-  | 'Clarinet'
-  | 'Flute'
-  | 'Oboe'
-  | 'Piano'
-  | 'Trombone'
-  | 'Viola'
-  | 'Violin'
-  | 'Voice';
 
 type types = 'Jury'|'Teacher'|'Composer';
 
@@ -40,7 +27,7 @@ export default function Persons() {
   const [listPersons, setListPersons] = useState<PersonCardProps[]>([
     {
       id: 1,
-      instrument: ['Violin'],
+      instrument: ['violin'],
       name:'Svetlana Makarova',
       types:['Jury','Teacher'],
       description:'In 1987 he won First Prize in the Jean-Pierre Rampal International Competition in Paris.',

@@ -1,19 +1,8 @@
 import style from '../../styles/components/organisms/PersonCard.module.scss';
 import BadgeInstrument from "@/components/molecules/BadgeInstrument";
 import Tag from '@/components/atoms/Tag';
-
-
-type instruments =
-  | 'Cello'
-  | 'Chamber-music'
-  | 'Clarinet'
-  | 'Flute'
-  | 'Oboe'
-  | 'Piano'
-  | 'Trombone'
-  | 'Viola'
-  | 'Violin'
-  | 'Voice';
+import {instruments} from "@/interfaces/InstrumentsInterface";
+import Link from "next/link";
 
 type types = 'Jury'|'Teacher'|'Composer';
 
@@ -33,7 +22,7 @@ export default function PersonCard ({
   description,
   }: PersonCardProps){
   return (
-    <a className={style.person_card} href={id?("http://localhost:3000/librairy/juries/"+id):("")}>
+    <Link className={style.person_card} href={id?("http://localhost:3000/librairy/juries/"+id):("")}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
           {instrument.map((item, key)=>(
@@ -59,6 +48,6 @@ export default function PersonCard ({
           <span>{description}</span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
