@@ -7,6 +7,7 @@ import {useEffect, useState } from 'react';
 import FormFilter from "@/components/organisms/FormFilter";
 import FilterSection from "@/components/organisms/FilterSection";
 import axios from "axios";
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 interface FilterProps {
   instrument: string;
@@ -17,18 +18,6 @@ interface FilterProps {
   state: string;
   display: string;
 }
-
-type instruments =
-  | 'Cello'
-  | 'Chamber-music'
-  | 'Clarinet'
-  | 'Flute'
-  | 'Oboe'
-  | 'Piano'
-  | 'Trombone'
-  | 'Viola'
-  | 'Violin'
-  | 'Voice';
 
 interface CourseProps {
   id:number;
@@ -45,7 +34,7 @@ export default function Courses() {
     {
       id:1,
       title: 'Fantasy in C',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       professor: 'Robert Shumann',
       difficulty: 0,
       actualChapter: 'Chap. 2',
@@ -53,7 +42,7 @@ export default function Courses() {
     {
       id:2,
       title: 'tes1',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -61,7 +50,7 @@ export default function Courses() {
     {
       id:3,
       title: 'Fantasy in C',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -69,7 +58,7 @@ export default function Courses() {
     {
       id:4,
       title: 'Fantasy in C',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       professor: 'Robert Shumanna',
       difficulty: 2,
       actualChapter: 'Chap. 2',
@@ -77,7 +66,7 @@ export default function Courses() {
     {
       id:5,
       title: 'Fantasy in C',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       professor: 'Robert Shumann',
       difficulty: 2,
       actualChapter: 'Chap. 2',

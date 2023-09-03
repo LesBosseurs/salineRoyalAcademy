@@ -20,7 +20,7 @@ export default function Profil() {
           <div className={style.name_and_instrument}>
             <h3>My name</h3>
             <div className={style.instrument}>
-              <BadgeInstrument size="lg" fill="#fff" instrument="Piano" />
+              <BadgeInstrument size="lg" fill="#fff" instrument="piano" />
               <span>piano</span>
             </div>
           </div>
@@ -48,19 +48,19 @@ export default function Profil() {
             <VideoCard
               title="Beethoven : Sonate pour piano n°1 chre..."
               duration="1'10"
-              instrument="Trombone"
+              instrument="piano"
               publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
             <VideoCard
               title="Beethoven : Sonate pour piano n°1 chre..."
               duration="1'10"
-              instrument="Trombone"
+              instrument="piano"
               publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
             <VideoCard
               title="Beethoven : Sonate pour piano n°1 chre..."
               duration="1'10"
-              instrument="Trombone"
+              instrument="piano"
               publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
           </div>
@@ -100,7 +100,7 @@ export default function Profil() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="Trombone"
+              instrument="piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -108,7 +108,7 @@ export default function Profil() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="Piano"
+              instrument="piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -116,7 +116,7 @@ export default function Profil() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="Piano"
+              instrument="piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -124,7 +124,7 @@ export default function Profil() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="Piano"
+              instrument="piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -132,7 +132,7 @@ export default function Profil() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="Piano"
+              instrument="piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -140,7 +140,7 @@ export default function Profil() {
             <CourseCard
               title="Fantasy in C"
               professor="Robert Shumann"
-              instrument="Piano"
+              instrument="piano"
               difficulty={2}
               actualChapter="Chap. 2"
               pourcentage={20}
@@ -151,7 +151,7 @@ export default function Profil() {
           <div className={style.competitions_container}>
             <div className={style.competitions_card}>
               <CompetitionCard
-                instrument="Piano"
+                instrument="piano"
                 title="The Queen Sonja International Music Competition"
                 place="Oslo, Norway"
                 date={new Date('2023-09-18T09:00:00.838Z')}
@@ -163,7 +163,7 @@ export default function Profil() {
         <Card style={{ gridColumn: '5/7', gridRow: '2/4' }} title="My topics">
           <div className={style.activity_container}>
             <ActivityCard
-              instrument="Piano"
+              instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -171,7 +171,7 @@ export default function Profil() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
-              instrument="Piano"
+              instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -179,7 +179,7 @@ export default function Profil() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
-              instrument="Piano"
+              instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -187,7 +187,7 @@ export default function Profil() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
-              instrument="Piano"
+              instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -195,7 +195,7 @@ export default function Profil() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
-              instrument="Piano"
+              instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}
@@ -203,7 +203,7 @@ export default function Profil() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
-              instrument="Piano"
+              instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
               creationDate={new Date('2023-01-22T13:06:58.838Z')}

@@ -1,18 +1,9 @@
 import style from '../../styles/components/organisms/ActivityCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type ActivityCardProps = {
-  instrument:
-    | 'Cello'
-    | 'Chamber-music'
-    | 'Clarinet'
-    | 'Flute'
-    | 'Oboe'
-    | 'Piano'
-    | 'Trombone'
-    | 'Viola'
-    | 'Violin'
-    | 'Voice';
+  instrument:instruments;
   title: string;
   author: string;
   creationDate: Date;
