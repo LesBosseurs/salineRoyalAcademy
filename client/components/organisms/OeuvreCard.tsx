@@ -1,19 +1,10 @@
 import style from '../../styles/components/organisms/OeuvreCard.module.scss';
 import BadgeInstrument from "@/components/molecules/BadgeInstrument";
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type OeuvreCardProps = {
   id: number;
-  instrument:
-    | 'Cello'
-    | 'Chamber-music'
-    | 'Clarinet'
-    | 'Flute'
-    | 'Oboe'
-    | 'Piano'
-    | 'Trombone'
-    | 'Viola'
-    | 'Violin'
-    | 'Voice';
+  instrument:instruments;
   title: string;
   composer:string;
 }

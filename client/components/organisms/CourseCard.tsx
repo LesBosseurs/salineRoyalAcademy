@@ -9,16 +9,16 @@ type CourseCardProps = {
   title: string;
   professor: string;
   instrument:
-    | 'Cello'
-    | 'Chamber-music'
-    | 'Clarinet'
-    | 'Flute'
-    | 'Oboe'
-    | 'Piano'
-    | 'Trombone'
-    | 'Viola'
-    | 'Violin'
-    | 'Voice';
+    | 'cello'
+    | 'chamber-music'
+    | 'clarinet'
+    | 'flute'
+    | 'oboe'
+    | 'piano'
+    | 'trombone'
+    | 'viola'
+    | 'violin'
+    | 'voice';
   difficulty: 0 | 1 | 2;
   actualChapter: string | null;
   pourcentage?: number | null;
