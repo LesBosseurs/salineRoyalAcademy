@@ -3,6 +3,7 @@ import useWindowSize from '@/hooks/useWindowSize';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -13,17 +14,18 @@ export default function FilterInstruments({navigation}:FilterInstrumentsProps) {
   const windowSize = useWindowSize();
 
   const instrumentsList = [
-    'Cello',
-    'Chamber-music',
-    'Clarinet',
-    'Flute',
-    'Oboe',
-    'Piano',
-    'Trombone',
-    'Viola',
-    'Violin',
-    'Voice',
+    'cello',
+    'chamber-music',
+    'clarinet',
+    'flute',
+    'oboe',
+    'piano',
+    'trombone',
+    'viola',
+    'violin',
+    'voice'
   ];
+
   let navigationOn;
   if(navigation){
     navigationOn = windowSize.width > 550;

@@ -3,19 +3,10 @@ import style from '../../styles/components/organisms/CompetitionCard.module.scss
 import MedalIcon from '@/public/icons/menu/Medal';
 import { useEffect, useState } from 'react';
 import BadgeInstrument from '../molecules/BadgeInstrument';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type CompetitionCardProps = {
-  instrument:
-    | 'Cello'
-    | 'Chamber-music'
-    | 'Clarinet'
-    | 'Flute'
-    | 'Oboe'
-    | 'Piano'
-    | 'Trombone'
-    | 'Viola'
-    | 'Violin'
-    | 'Voice';
+  instrument:instruments;
   title: string;
   place: string;
   date: Date;

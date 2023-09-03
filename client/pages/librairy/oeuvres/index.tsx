@@ -6,6 +6,7 @@ import Card from "@/components/molecules/Card";
 import OeuvreCard from "@/components/organisms/OeuvreCard";
 import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 interface FilterProps {
   instrument: string;
@@ -13,18 +14,6 @@ interface FilterProps {
   year: string;
   style: string;
 }
-
-type instruments =
-  | 'Cello'
-  | 'Chamber-music'
-  | 'Clarinet'
-  | 'Flute'
-  | 'Oboe'
-  | 'Piano'
-  | 'Trombone'
-  | 'Viola'
-  | 'Violin'
-  | 'Voice';
 
 interface OeuvreProps {
   id: number;
@@ -37,31 +26,31 @@ export default function Oeuvres() {
     {
       id: 1,
       title:'Violin Sonata',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       composer:'César Franck'
     },
     {
       id: 2,
       title:'Violin Sonata',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       composer:'César Franck'
     },
     {
       id: 3,
       title:'Violin Sonata',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       composer:'César Franck'
     },
     {
       id: 4,
       title:'Violin Sonata',
-      instrument:['Cello'],
+      instrument:['cello'],
       composer:'César Franck'
     },
     {
       id: 5,
       title:'Violin Sonata',
-      instrument: ['Cello'],
+      instrument: ['cello'],
       composer:'César Franck'
     },
   ]);

@@ -44,7 +44,7 @@ export default function Suggestion() {
           </div>
           <div className={style.courses_container}>
             <CourseCard
-              instrument="Piano"
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -52,7 +52,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
-              instrument="Piano"
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -60,7 +60,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
-              instrument="Piano"
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -68,7 +68,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
-              instrument="Piano"
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -76,7 +76,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
-              instrument="Piano"
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
@@ -84,7 +84,7 @@ export default function Suggestion() {
               pourcentage={null}
             />
             <CourseCard
-              instrument="Piano"
+              instrument="piano"
               title="Fantasy in C No"
               professor="Gerard Poulet"
               difficulty={2}
