@@ -6,19 +6,10 @@ import { Pagination } from 'swiper/modules';
 import ComingSoonCard from './_ComingSoonCard';
 import { useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type ComingSoonCardProps = {
-  instrument:
-    | 'Cello'
-    | 'Chamber-music'
-    | 'Clarinet'
-    | 'Flute'
-    | 'Oboe'
-    | 'Piano'
-    | 'Trombone'
-    | 'Viola'
-    | 'Violin'
-    | 'Voice';
+  instrument:instruments;
   title: string;
   text: string;
 };
@@ -28,27 +19,27 @@ export default function ComingSoon() {
 
   const [newsList, setNewsList] = useState<Array<ComingSoonCardProps>>([
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },
     {
-      instrument: 'Piano',
+      instrument: 'piano',
       title: 'Miriam Fried',
       text: 'Professor of violin at New England Conservatory in  England',
     },

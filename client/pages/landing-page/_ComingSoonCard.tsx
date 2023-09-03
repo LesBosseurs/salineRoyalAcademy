@@ -1,18 +1,9 @@
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import style from '../../styles/pages/landing-page/_coming_soon_card.module.scss';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type ComingSoonCardProps = {
-  instrument:
-    | 'Cello'
-    | 'Chamber-music'
-    | 'Clarinet'
-    | 'Flute'
-    | 'Oboe'
-    | 'Piano'
-    | 'Trombone'
-    | 'Viola'
-    | 'Violin'
-    | 'Voice';
+  instrument:instruments;
   title: string;
   text: string;
 };
