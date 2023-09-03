@@ -1,0 +1,128 @@
+@import '../../variables';
+@import '../../fonts';
+.person_card {
+  display: flex;
+  gap: 5px;
+  width: unset;
+  text-decoration: unset;
+  color: $secondary-dark;
+
+  @media screen and (min-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
+
+  > .thumbnail {
+    min-width: 100px;
+    min-height: 50px;
+    background-color: #f0f;
+    border-radius: 10px;
+    position: relative;
+    aspect-ratio: 16 / 10;
+
+    > .instrument {
+      display: none;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        background: #80017f;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    }
+
+  }
+
+  > .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    > div:first-of-type {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        > .instrument {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
+          background: $instrument-color-piano;
+          height: 20px;
+          border-radius: 50%;
+
+          @media screen and (min-width: $breakpoint-mobile) {
+            display: none;
+          }
+
+          > svg {
+            width: 12px;
+          }
+        }
+
+        > span {
+          @include paragraph-semi-bold;
+        }
+      }
+
+      > span {
+        @include info-regular;
+      }
+    }
+
+    > div:last-of-type {
+      display: flex;
+      gap: 10px;
+
+      @media screen and (min-width: $breakpoint-tablet) {
+        gap: 5px;
+      }
+
+      > span:first-of-type {
+        @include info-regular;
+
+      }
+
+      .tag {
+        @include info-semi-bold;
+        padding: 2px 9px 1px;
+        border-radius: 15px;
+        background-color: $tag-red;
+        color: #fff;
+
+        @media screen and (min-width: $breakpoint-mobile) {
+          height: fit-content;
+        }
+      }
+    }
+  }
+
+  > svg {
+    @include info-semi-bold;
+    height: 55px;
+    width: 55px;
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+}
