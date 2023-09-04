@@ -1,25 +1,75 @@
 import Image from 'next/image';
 import style from '../../styles/components/common/Header.module.scss';
+import NotificationsCard from './NotificationsCard';
+import ProfilCard from './ProfilCard';
+import { useRef, useState } from 'react';
+import ArrowBackIcon from '@/public/icons/others/ArrowBack';
+import Link from 'next/link';
 
 type HeaderProps = {
   name: string;
+  hrefBack?: string;
 };
 
-export default function Header({ name }: HeaderProps) {
+export default function Header({ name, hrefBack }: HeaderProps) {
+  const btnProfilRef = useRef<HTMLButtonElement>(null);
+  const btnNotifsRef = useRef<HTMLButtonElement>(null);
+  const [profilCardShow, setProfilCardShow] = useState<boolean>(false);
+  const [notifsCardShow, setNotifsCardShow] = useState<boolean>(false);
+
+  const handleNotifsButtonClick = () => {
+    setNotifsCardShow(!notifsCardShow);
+    setProfilCardShow(false);
+  };
+
+  const handleProfilButtonClick = () => {
+    setProfilCardShow(!profilCardShow);
+    setNotifsCardShow(false);
+  };
+
   return (
-    <header className={style.header}>
-      <h1>{name}</h1>
+    <nav className={style.header}>
       <div>
-        <button className={style.notifications}>
+        {hrefBack ? (
+          <>
+            <Link href={hrefBack}>
+              <ArrowBackIcon fill="#b18b36" />
+            </Link>
+            <span></span>
+          </>
+        ) : (
+          ''
+        )}
+        <h1>{name}</h1>
+      </div>
+      <div className={style.button_container}>
+        <button
+          ref={btnNotifsRef}
+          onClick={handleNotifsButtonClick}
+          className={style.notifications}
+        >
           <Image
-            src="/icons/bell.svg"
+            src="/icons/menu/bell.svg"
             alt="bell icon for notifications button"
             width="24"
             height="24"
           />
         </button>
-        <button className={style.profil}></button>
+        <button
+          ref={btnProfilRef}
+          onClick={handleProfilButtonClick}
+          className={style.profil}
+        ></button>
       </div>
-    </header>
+      {notifsCardShow && (
+        <NotificationsCard
+          btnExcept={btnNotifsRef}
+          clickOutside={setNotifsCardShow}
+        />
+      )}
+      {profilCardShow && (
+        <ProfilCard btnExcept={btnProfilRef} clickOutside={setProfilCardShow} />
+      )}
+    </nav>
   );
 }

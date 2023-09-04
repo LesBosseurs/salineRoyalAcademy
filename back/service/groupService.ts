@@ -9,7 +9,7 @@ class GroupService {
     }
   }
 
-  static async getGroupById(groupId: number): Promise<Group> {
+  static async getGroupById(groupId: string): Promise<Group> {
     try {
       return await GroupRepository.getGroupById(groupId);
     } catch (error: unknown) {
@@ -25,15 +25,15 @@ class GroupService {
     }
   }
 
-  static async updateGroup(groupId: number, updatedGroup: Group): Promise<void> {
+  static async updateGroup(updatedGroup: Group): Promise<void> {
     try {
-      await GroupRepository.updateGroup(groupId, updatedGroup);
+      await GroupRepository.updateGroup(updatedGroup);
     } catch (error) {
       throw new Error(`Unable to update Group: ${error}`);
     }
   }
 
-  static async deleteGroup(groupId: number): Promise<void> {
+  static async deleteGroup(groupId: string): Promise<void> {
     try {
       await GroupRepository.deleteGroup(groupId);
     } catch (error) {

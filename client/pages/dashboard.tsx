@@ -1,14 +1,14 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/dashboard.module.scss';
 import CardContainerStyle from '../styles/components/CardContainer.module.scss';
-import Button from '@/components/Button';
+import Button from '@/components/atoms/Button';
 import Image from 'next/image';
-import Card from '@/components/Card';
-import CardContainer from '@/components/CardContainer';
-import CourseCard from '@/components/CourseCard';
-import ActivityCard from '@/components/ActivityCard';
-import CompetitionCard from '@/components/CompetitionCard';
-import ArticleCard from '@/components/ArticleCard';
+import Card from '@/components/molecules/Card';
+import CardContainer from '@/components/molecules/CardContainer';
+import CourseCard from '@/components/organisms/CourseCard';
+import ActivityCard from '@/components/organisms/ActivityCard';
+import CompetitionCard from '@/components/organisms/CompetitionCard';
+import ArticleCard from '@/components/organisms/ArticleCard';
 import { useEffect, useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
 
@@ -34,7 +34,7 @@ export default function Dashboard() {
     <div className={style.dashboard}>
       <Header name="Dashboard" />
       <CardContainer>
-        <section className={style.card_premium}>
+        <section style={{ gridColumn: '1/7' }} className={style.card_premium}>
           <div>
             <div>
               <h2>Go Premium</h2>
@@ -52,90 +52,104 @@ export default function Dashboard() {
           <div className={style.second_line}></div>
           <div className={style.third_line}></div>
         </section>
-        <div className={CardContainerStyle.row}>
-          <Card title="My courses" textLink="See all courses" hrefLink="">
-            <div className={style.grid_courses}>
-              <CourseCard
-                title="Fantasy in C"
-                professor="Robert Shumann"
-                difficulty={2}
-                actualChapter="Chap. 2"
-                pourcentage={20}
-              />
-              <CourseCard
-                title="Fantasy in C"
-                professor="Robert Shumann"
-                difficulty={2}
-                actualChapter="Chap. 2"
-                pourcentage={50}
-              />
-              <CourseCard
-                title="Fantasy in C"
-                professor="Robert Shumann"
-                difficulty={2}
-                actualChapter="Chap. 2"
-              />
-              <CourseCard
-                title="Fantasy in C"
-                professor="Robert Shumann"
-                difficulty={2}
-                actualChapter="Chap. 2"
-              />
-              <CourseCard
-                title="Fantasy in C"
-                professor="Robert Shumann"
-                difficulty={2}
-                actualChapter="Chap. 2"
-              />
-              <CourseCard
-                title="Fantasy in C"
-                professor="Robert Shumann"
-                difficulty={2}
-                actualChapter="Chap. 2"
-              />
-            </div>
-          </Card>
-          <div className={CardContainerStyle.column}>
-            <Card
-              title="Last Activities"
-              textLink="See all activities"
-              hrefLink=""
-            >
-              <div className={style.activity_container}>
-                <ActivityCard
-                  instrument="piano"
-                  title="Bach Invention 10 in G major"
-                  author="parisoperafan"
-                  creationDate={new Date('2023-01-22T13:06:58.838Z')}
-                  authorLastMessage="fire-clarinet"
-                  timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
-                />
-                <ActivityCard
-                  instrument="piano"
-                  title="Bach Invention 10 in G major"
-                  author="parisoperafan"
-                  creationDate={new Date('2023-01-22T13:06:58.838Z')}
-                  authorLastMessage="fire-clarinet"
-                  timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
-                />
-              </div>
-            </Card>
-            <Card
-              title="Next Competition"
-              textLink="See all competitions"
-              hrefLink=""
-            >
-              <CompetitionCard
-                instrument="piano"
-                title="The Queen Sonja International Music Competition"
-                place="Oslo, Norway"
-                date={new Date('2023-07-02T13:12:00.838Z')}
-                award={50000}
-              />
-            </Card>
-          </div>
-        </div>
         <Card
+          style={{ gridColumn: '1/5', gridRow: '2/4' }}
+          title="My courses"
+          textLink="See all courses"
+          hrefLink=""
+        >
+          <div className={style.grid_courses}>
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+          </div>
+        </Card>
+        <Card
+          style={{ gridColumn: '5/7' }}
+          title="Last Activities"
+          textLink="See all activities"
+          hrefLink=""
+        >
+          <div className={style.activity_container}>
+            <ActivityCard
+              instrument="piano"
+              title="Bach Invention 10 in G major"
+              author="parisoperafan"
+              creationDate={new Date('2023-01-22T13:06:58.838Z')}
+              authorLastMessage="fire-clarinet"
+              timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
+            />
+            <ActivityCard
+              instrument="piano"
+              title="Bach Invention 10 in G major"
+              author="parisoperafan"
+              creationDate={new Date('2023-01-22T13:06:58.838Z')}
+              authorLastMessage="fire-clarinet"
+              timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
+            />
+          </div>
+        </Card>
+        <Card
+          style={{ gridColumn: '5/7' }}
+          title="Next Competition"
+          textLink="See all competitions"
+          hrefLink=""
+        >
+          <CompetitionCard
+            instrument="piano"
+            title="The Queen Sonja International Music Competition"
+            place="Oslo, Norway"
+            date={new Date('2023-09-18T09:00:00.838Z')}
+            award={50000}
+          />
+        </Card>
+        <Card
+          style={{ gridColumn: '1/7' }}
           title="Articles Recommandations"
           textLink="See all articles"
           hrefLink=""

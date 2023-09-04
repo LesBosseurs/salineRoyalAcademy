@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+div.nav_mobile {
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 5;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+
+  > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 24px;
+
+    SVG {
+      height: 26px;
+      width: 26px;
+    }
+  }
+}

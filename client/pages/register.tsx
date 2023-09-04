@@ -1,9 +1,12 @@
-import { FormEvent, useState } from 'react';
-import Button from '@/components/Button';
-import FormField from '@/components/FormField';
+import { FormEvent, SetStateAction, useState } from 'react';
+import Button from '@/components/atoms/Button';
+import FormField from '@/components/molecules/FormField';
 import style from '../styles/pages/auth.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
+import { useRouter } from 'next/router';
+import { registerUser } from '@/store/features/userSlice';
 
 interface FormData {
   email: string;
@@ -12,6 +15,14 @@ interface FormData {
 }
 
 export default function Register() {
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const { push } = useRouter();
+
+  if (user.token) {
+    push('/dashboard');
+  }
+
   const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
@@ -21,6 +32,7 @@ export default function Register() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(formData);
+    dispatch(registerUser(formData));
     setFormData({
       email: '',
       password: '',
@@ -78,6 +90,7 @@ export default function Register() {
           <FormField
             label="email"
             type="email"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
@@ -86,6 +99,7 @@ export default function Register() {
           <FormField
             label="password"
             type="password"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
@@ -94,6 +108,7 @@ export default function Register() {
           <FormField
             label="confirm_password"
             type="password"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);

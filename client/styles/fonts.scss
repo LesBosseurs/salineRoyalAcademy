@@ -6,6 +6,12 @@
   font-family: 'Lora', serif;
 }
 
+@mixin title-semi-bold {
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'Lora', serif;
+}
+
 @mixin title-regular {
   font-size: 36px;
   font-weight: 400;

@@ -1,17 +1,20 @@
 import Image from 'next/image';
 import style from '../../styles/components/common/NavLeft.module.scss';
 import { useRouter } from 'next/router';
-import HomeIcon from '@/public/icons/home';
-import CapIcon from '@/public/icons/cap';
-import MedalIcon from '@/public/icons/medal';
-import MessagesIcon from '@/public/icons/messages';
-import SettingsIcon from '@/public/icons/settings';
+import HomeIcon from '@/public/icons/menu/Home';
+import CapIcon from '@/public/icons/menu/Cap';
+import MedalIcon from '@/public/icons/menu/Medal';
+import MessagesIcon from '@/public/icons/menu/Messages';
 import Link from 'next/link';
 import SalineRoyaleAcademy from '@/public/icons/salineRoyaleAcademy';
+import { useAppDispatch } from '@/hooks/useRedux';
+import { disconnect } from '@/store/features/userSlice';
+import BookIcon from '@/public/icons/menu/Book';
 
 export default function NavLeft() {
   const router = useRouter();
   const { pathname } = router;
+  const dispatch = useAppDispatch();
 
   return (
     <nav className={style.nav_left}>
@@ -49,31 +52,27 @@ export default function NavLeft() {
           {pathname === '/competitions' ? <div></div> : ''}
         </li>
         <li>
+          <Link href="/librairy">
+            <BookIcon fill={pathname === '/librairy' ? '#b18b36' : '#000'} />
+            <span className={pathname === '/librairy' ? style.active : '#000'}>
+              Librairy
+            </span>
+          </Link>
+          {pathname === '/librairy' ? <div></div> : ''}
+        </li>
+        <li>
           <Link href="/forum">
-            <MessagesIcon
-              fill={pathname === '/competitions' ? '#b18b36' : '#000'}
-            />
+            <MessagesIcon fill={pathname === '/forum' ? '#b18b36' : '#000'} />
             <span className={pathname === '/forum' ? style.active : '#000'}>
               Forum
             </span>
           </Link>
           {pathname === '/forum' ? <div></div> : ''}
         </li>
-        <li>
-          <Link href="/settings">
-            <SettingsIcon
-              fill={pathname === '/settings' ? '#b18b36' : '#000'}
-            />
-            <span className={pathname === '/settings' ? style.active : '#000'}>
-              Settings
-            </span>
-          </Link>
-          {pathname === '/settings' ? <div></div> : ''}
-        </li>
       </ul>
-      <div>
+      <div onClick={() => dispatch(disconnect())}>
         <Image
-          src="/icons/disconnect.svg"
+          src="/icons/menu/disconnect.svg"
           alt="home icon"
           height="24"
           width="25"

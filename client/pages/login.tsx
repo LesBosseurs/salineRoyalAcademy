@@ -1,9 +1,12 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, SetStateAction, useState } from 'react';
 import style from '../styles/pages/auth.module.scss';
-import FormField from '@/components/FormField';
-import Button from '@/components/Button';
+import FormField from '@/components/molecules/FormField';
+import Button from '@/components/atoms/Button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { loginUser } from '@/store/features/userSlice';
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
+import { useRouter } from 'next/router';
 
 interface FormData {
   email: string;
@@ -11,13 +14,22 @@ interface FormData {
 }
 
 export default function Login() {
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const { push } = useRouter();
+
+  if (user.token) {
+    push('/dashboard');
+  }
+
   const [formData, setFormData] = useState<FormData>({
-    email: '',
-    password: '',
+    email: 'john.doe@example.com',
+    password: 'hashed_password',
   });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    dispatch(loginUser(formData));
     setFormData({
       email: '',
       password: '',
@@ -79,6 +91,7 @@ export default function Login() {
           <FormField
             label="email"
             type="email"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);
@@ -87,6 +100,7 @@ export default function Login() {
           <FormField
             label="password"
             type="password"
+            sizeInput="lg"
             value={formData}
             onChange={function (value) {
               setFormData(value);

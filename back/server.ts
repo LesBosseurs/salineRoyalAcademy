@@ -3,17 +3,17 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes';
 import schoolRoutes from './routes/schoolRoutes';
 import groupeRoutes from './routes/groupRoutes';
-import gamificationRoutes from './routes/gamificationRoutes'
+import gamificationRoutes from './routes/gamificationRoutes';
 import GamificationService from './service/gamificationService';
-import { Server/* , Socket */ } from "socket.io";
-/* const { Server } = require("socket.io"); */
+import masterclassRoutes from './routes/masterclassRoutes'
+import { Server} from "socket.io";
 const http = require("http");
 require('dotenv').config();
 
-
-
 const app = express();
 const port = 4000;
+const portSocket = 4031;
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -24,6 +24,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/schools', schoolRoutes);
 app.use('/api/groups', groupeRoutes);
 app.use('/api/gamifications', gamificationRoutes);
+app.use('/api/masterclass', masterclassRoutes);
 
 // Serve the frontend
 // app.use(express.static('dist')); // Assurez-vous que votre dossier de build de la partie frontend est "dist"
@@ -47,8 +48,8 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
 
-  console.log("Nouveau client connecté")
-  const room = socket.id + process.env.SOCKET_SECRET
+  console.log("Nouveau client connecté");
+  const room = socket.id + process.env.SOCKET_SECRET;
 
   socket.on("joinRoom", () => {
     socket.join(room);
@@ -68,7 +69,7 @@ io.on("connection", (socket) => {
 
 });
 
-server.listen(3031, () => {
-  console.log("SERVER SOCKET RUNNING");
+server.listen(portSocket, () => {
+  console.log(`Serveur en cours d'exécution sur le port ${portSocket}`);
 });
 

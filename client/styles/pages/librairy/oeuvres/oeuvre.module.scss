@@ -1,0 +1,75 @@
+@import '../../../variables.scss';
+@import '../../../fonts.scss';
+
+.oeuvre {
+  .picture {
+    border-radius: 20px;
+    background: $secondary-gray-light2;
+    grid-column: 1/7;
+    min-height: 130px;
+    grid-row: 2;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      grid-column: 1/4;
+      grid-row: span 2;
+    }
+  }
+
+  .title {
+    grid-column: 1/7;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      grid-column: 4/7;
+    }
+
+    h2 {
+      @include subtitle;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        @include title-regular;
+      }
+      padding-bottom: 3px;
+    }
+
+    p {
+      @include info-regular;
+    }
+  }
+
+  .infos {
+    @include paragraph-regular;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .description {
+    @include paragraph-regular;
+  }
+
+  .grid_list {
+    display: flex;
+
+    .grid_list_container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  .grid_courses {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      display: flex;
+    }
+
+    .slider_container {
+      --swiper-navigation-color: #b18b36;
+    }
+  }
+}
