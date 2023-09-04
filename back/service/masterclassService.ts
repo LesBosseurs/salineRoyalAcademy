@@ -20,6 +20,23 @@ class MasterclassService {
     }
   }
 
+  
+  static async getMasterclassByUserId(userId: number): Promise<number[]> {
+    try {
+      const res = await MasterclassRepository.getMasterclassByUserId(userId);
+      const masterclassIds = res
+        .map(item => item.masterclass_id) 
+        .filter(id => id !== undefined)
+        .map(id => id as number); 
+  
+      return masterclassIds;
+    } catch (error) {
+      throw error;
+    }
+  }
+  
+  
+
   static async createMasterclass(masterclass: Masterclass): Promise<void> {
     try {
       await MasterclassRepository.createMasterclass(masterclass);

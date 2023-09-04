@@ -25,10 +25,40 @@ class MasterclassRepository {
     try {
       let c = await pool.connect()
       try {
-        const query = 'SELECT * FROM masterclasses WHERE masterclass_id = $1';
+        const query = `
+        SELECT m.*, p.first_name, p.last_name
+FROM masterclasses m
+INNER JOIN people_masterclass_mapping pm ON m.masterclass_id = pm.masterclass_id
+INNER JOIN people p ON pm.people_id = p.people_id
+WHERE m.masterclass_id = $1;
+
+        `;
         const values = [masterclassId];
         const result = await pool.query(query, values);
         return result.rows[0];
+      } catch (error: unknown) {
+        throw error;
+      } finally {
+        c.release()
+      }
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+  static async getMasterclassByUserId(userId: number): Promise<Masterclass[]> {
+    try {
+      let c = await pool.connect()
+      try {
+         const query = `
+      SELECT m.masterclass_id
+      FROM masterclasses m
+      INNER JOIN user_masterclass_tracking umt ON m.masterclass_id = umt.masterclass_id
+      WHERE umt.user_id = $1;
+    `;
+        const values = [userId];
+        const result = await pool.query(query, values);
+        return result.rows;
       } catch (error: unknown) {
         throw error;
       } finally {
