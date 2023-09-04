@@ -13,7 +13,7 @@ export default function SchoolCard ({
   director
 }: SchoolCardProps){
   return (
-      <Link className={style.person_card} href={id?("http://localhost:3000/librairy/juries/"+id):("")}>
+      <Link className={style.person_card} href={id?("http://localhost:3000/schools/"+id):("")}>
         <div className={style.thumbnail}>
         </div>
         <div className={style.description}>

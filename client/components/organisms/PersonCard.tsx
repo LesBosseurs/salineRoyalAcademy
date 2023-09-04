@@ -21,8 +21,11 @@ export default function PersonCard ({
   types,
   description,
   }: PersonCardProps){
+
+  let type_card = types.includes('Composer')?"composers":"persons";
+
   return (
-    <Link className={style.person_card} href={id?("http://localhost:3000/librairy/juries/"+id):("")}>
+    <Link className={style.person_card} href={id?("http://localhost:3000/librairy/"+type_card+"/"+id):("")}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
           <div className={style.badges_container}>
