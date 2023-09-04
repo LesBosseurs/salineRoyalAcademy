@@ -5,7 +5,7 @@ import Link from "next/link";
 
 type OeuvreCardProps = {
   id: number;
-  instrument:instruments;
+  instrument:instruments[];
   title: string;
   composer:string;
 }
@@ -20,14 +20,22 @@ export default function OeuvreCard ({
     <Link className={style.oeuvre_card} href={id?("http://localhost:3000/librairy/oeuvre/"+id):("")}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
-          <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
+          <div className={style.badges_container}>
+            {instrument.map((item, key)=>(
+                <BadgeInstrument key={key} fill="#fff" instrument={item} size="lg" />
+            ))}
+          </div>
         </div>
       </div>
       <div className={style.description}>
         <div>
           <div>
             <div className={style.instrument}>
-              <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
+              <div className={style.badges_container}>
+                {instrument.map((item, key)=>(
+                    <BadgeInstrument key={key} fill="#fff" instrument={item} size="lg" />
+                ))}
+              </div>
             </div>
             <span>{title}</span>
           </div>

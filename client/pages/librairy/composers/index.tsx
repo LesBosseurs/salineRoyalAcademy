@@ -27,6 +27,27 @@ export default function Composers() {
   const [listPersons, setListPersons] = useState<PersonCardProps[]>([
     {
       id: 1,
+      instrument: ['violin', 'piano'],
+      name:'Svetlana Makarova',
+      types:['Composer'],
+      description:'In 1987 he won First Prize in the Jean-Pierre Rampal International Competition in Paris.',
+    },
+    {
+      id: 2,
+      instrument: ['violin'],
+      name:'Svetlana Makarova',
+      types:['Composer'],
+      description:'In 1987 he won First Prize in the Jean-Pierre Rampal International Competition in Paris.',
+    },
+    {
+      id: 3,
+      instrument: ['violin'],
+      name:'Svetlana Makarova',
+      types:['Composer'],
+      description:'In 1987 he won First Prize in the Jean-Pierre Rampal International Competition in Paris.',
+    },
+    {
+      id: 4,
       instrument: ['violin'],
       name:'Svetlana Makarova',
       types:['Composer'],
@@ -43,10 +64,10 @@ export default function Composers() {
 
   return (
     <div className={style.list_page_content}>
-      <Header name="Oeuvres" />
+      <Header name="Composers" />
       <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter} haveFilter={true}/>
       <CardContainer>
-        <Card title="Courses" style={{gridColumn: "1/5"}}>
+        <Card title="Composers" style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
             {listPersons.map((item, key) => (
               <PersonCard

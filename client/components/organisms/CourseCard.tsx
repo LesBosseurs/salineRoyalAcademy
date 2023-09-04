@@ -21,8 +21,8 @@ type CourseCardProps = {
     | 'violin'
     | 'voice';
   difficulty: 0 | 1 | 2;
-  actualChapter: string | null;
-  pourcentage?: number | null;
+  actualChapter: string;
+  pourcentage?: number;
 };
 
 export default function CourseCard({
