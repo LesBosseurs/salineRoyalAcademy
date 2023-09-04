@@ -5,6 +5,7 @@ import MessagesIcon from '@/public/icons/menu/Messages';
 import SettingsIcon from '@/public/icons/menu/Settings';
 import Link from 'next/link';
 import style from '../../styles/components/common/NavMobile.module.scss';
+import BookIcon from '@/public/icons/menu/Book';
 
 export default function NavMobile() {
   return (
@@ -31,8 +32,8 @@ export default function NavMobile() {
           </Link>
         </li>
         <li>
-          <Link href="/settings">
-            <SettingsIcon fill="#000" />
+          <Link href="/librairy">
+            <BookIcon fill="#000" />
           </Link>
         </li>
       </ul>
