@@ -47,9 +47,26 @@
     @include paragraph-regular;
   }
 
-  .grid_courses {
+  .grid_list {
     display: flex;
-    gap: 15px;
+
+    .grid_list_container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  .grid_courses {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      display: flex;
+    }
 
     .slider_container {
       --swiper-navigation-color: #b18b36;

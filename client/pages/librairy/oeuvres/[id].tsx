@@ -57,6 +57,63 @@ export default function Oeuvre() {
           title="Related masterclasses"
           textLink="see all masterclasses"
           style={{ gridColumn: '1/7' }}
+          className={style.grid_list}
+        >
+          <div className={style.grid_list_container}>
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+            <CourseCard
+              title="Fantasy in C"
+              professor="Robert Shumann"
+              instrument="piano"
+              difficulty={2}
+              actualChapter="Chap. 2"
+              pourcentage={20}
+            />
+          </div>
+        </Card>
+        <Card
+          title="Related masterclasses"
+          textLink="see all masterclasses"
+          style={{ gridColumn: '1/7' }}
           className={style.grid_courses}
         >
           <Swiper
