@@ -70,6 +70,6 @@ io.on("connection", (socket) => {
 });
 
 server.listen(portSocket, () => {
-  console.log(`Serveur en cours d'exécution sur le port ${portSocket}`);
+  console.log(`Serveur socket en cours d'exécution sur le port ${portSocket}`);
 });
 
