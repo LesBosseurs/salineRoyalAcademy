@@ -1,4 +1,4 @@
-import style from '../../styles/components/organisms/CourseCard.module.scss';
+import style from '../../styles/components/organisms/GroupCard.module.scss';
 import 'react-circular-progressbar/dist/styles.css';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import Link from "next/link";

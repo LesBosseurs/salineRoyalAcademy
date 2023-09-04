@@ -55,9 +55,9 @@ export default function Groups() {
 
   return (
     <div className={style.list_page_content}>
-      <Header name="Courses" />
+      <Header name="Groups" />
       <CardContainer>
-        <Card title="Courses"  style={{gridColumn: "1/7"}}>
+        <Card title="Groups"  style={{gridColumn: "1/7"}}>
           <div className={style.list_cards}>
             {listGroups.map((item, key) => (
               <GroupCard
