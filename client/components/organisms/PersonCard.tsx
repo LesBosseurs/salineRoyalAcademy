@@ -25,18 +25,22 @@ export default function PersonCard ({
     <Link className={style.person_card} href={id?("http://localhost:3000/librairy/juries/"+id):("")}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
-          {instrument.map((item, key)=>(
-            <BadgeInstrument key={key} fill="#fff" instrument={item} size="lg" />
-          ))}
+          <div className={style.badges_container}>
+            {instrument.map((item, key)=>(
+                <BadgeInstrument key={key} fill="#fff" instrument={item} size="lg" />
+            ))}
+          </div>
         </div>
       </div>
       <div className={style.description}>
         <div>
           <div>
             <div className={style.instrument}>
-              {instrument.map((item, key)=>(
-                <BadgeInstrument key={key} fill="#fff" instrument={item} size="lg" />
-              ))}
+              <div className={style.badges_container}>
+                {instrument.map((item, key)=>(
+                  <BadgeInstrument key={key} fill="#fff" instrument={item} size="lg" />
+                ))}
+              </div>
             </div>
             <span>{name}</span>
           </div>

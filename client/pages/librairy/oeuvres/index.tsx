@@ -26,7 +26,7 @@ export default function Oeuvres() {
     {
       id: 1,
       title:'Violin Sonata',
-      instrument: ['cello'],
+      instrument: ['cello', 'piano'],
       composer:'César Franck'
     },
     {
@@ -67,13 +67,13 @@ export default function Oeuvres() {
       <Header name="Oeuvres" />
       <FilterSection setSelectedFilter={setSelectedFilter} filterFields={selectedFilter} haveFilter={true}/>
       <CardContainer>
-        <Card title="Courses" style={{gridColumn: "1/5"}}>
+        <Card title="Oeuvres" style={{gridColumn: "1/5"}}>
           <div className={style.list_cards}>
             {listOeuvres.map((item, key) => (
               <OeuvreCard
                 key={key}
                 id={item.id}
-                instrument={item.instrument[0]}
+                instrument={item.instrument}
                 title={item.title}
                 composer={item.composer}
               />

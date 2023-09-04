@@ -14,7 +14,7 @@ interface FilterProps {
   style: string;
 }
 
-type types = 'Jury'|'Teacher'|'Composer';
+type types = 'Jury'|'Teacher';
 
 type PersonCardProps = {
   id: number;

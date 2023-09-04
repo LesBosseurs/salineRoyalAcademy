@@ -110,7 +110,7 @@ export default function Courses() {
                 professor={'Robert Shumann'}
                 difficulty={0}
                 actualChapter={item.actualChapter}
-                pourcentage={item.percentage}
+                pourcentage={item.percentage?item.percentage:0}
               />
             ))}
           </div>

@@ -27,13 +27,25 @@
         align-items: center;
         justify-content: center;
         width: fit-content;
-        background: #80017f;
         height: 30px;
         border-radius: 50%;
         position: absolute;
         top: 5px;
         right: 5px;
+
+        > .badges_container {
+          display: inline-flex;
+          padding: 0;
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+
+          div + div {
+            margin-left: -8px;
+          }
+        }
       }
+
     }
 
   }
@@ -66,6 +78,18 @@
           background: $instrument-color-piano;
           height: 20px;
           border-radius: 50%;
+
+          > .badges_container {
+            display: inline-flex;
+            padding: 0;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+
+            div + div {
+              margin-left: -8px;
+            }
+          }
 
           @media screen and (min-width: $breakpoint-mobile) {
             display: none;
