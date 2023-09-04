@@ -20,5 +20,10 @@ div.nav_mobile {
     display: flex;
     justify-content: space-evenly;
     height: 24px;
+
+    SVG {
+      height: 26px;
+      width: 26px;
+    }
   }
 }
