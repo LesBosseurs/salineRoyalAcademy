@@ -145,6 +145,7 @@ export default function Dashboard() {
             place="Oslo, Norway"
             date={new Date('2023-09-18T09:00:00.838Z')}
             award={50000}
+            thumbnail={false}
           />
         </Card>
         <Card
