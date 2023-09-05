@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 @import '../../fonts.scss';
 
-.competition_card {
+.competition_card_without_thumbnail {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -64,6 +64,77 @@
       justify-content: center;
       border-radius: 40px;
       border: 1px solid $secondary-gray-light;
+    }
+  }
+}
+
+.competition_card_with_thumbnail{
+  display: flex;
+  gap: 5px;
+  width: unset;
+  text-decoration: unset;
+  color: $secondary-dark;
+
+  @media screen and (min-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
+
+  > .thumbnail {
+    min-width: 100px;
+    min-height: fit-content;
+    background-color: #f0f;
+    border-radius: 10px;
+    position: relative;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      aspect-ratio: 16 / 10;
+    }
+
+    > div:first-of-type {
+      display: none;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        display: flex;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    }
+  }
+
+  > .description {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+
+    > .title_section {
+      display: flex;
+      gap: 5px;
+
+      > span {
+        @include paragraph-semi-bold;
+        max-width: 15ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @media screen and (min-width: $breakpoint-tablet){
+          max-width: 10ch;
+        }
+
+        @media screen and (min-width: $breakpoint-desktop) {
+          max-width: 20ch;
+        }
+      }
+    }
+
+    > .info_section{
+      display: flex;
+      color:red;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      > span {
+        @include info-regular;
+      }
     }
   }
 }
