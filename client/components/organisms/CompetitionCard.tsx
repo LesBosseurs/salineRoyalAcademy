@@ -7,6 +7,7 @@ import {instruments} from "@/interfaces/InstrumentsInterface";
 import TagDifficulty from "@/components/atoms/Tag";
 
 type CompetitionCardProps = {
+  id:number;
   instrument:instruments;
   title: string;
   place: string;
@@ -16,6 +17,7 @@ type CompetitionCardProps = {
 };
 
 export default function CompetitionCard({
+  id,
   instrument,
   title,
   place,

@@ -3,7 +3,6 @@ import useWindowSize from '@/hooks/useWindowSize';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import {instruments} from "@/interfaces/InstrumentsInterface";
 import 'swiper/css';
 import 'swiper/css/navigation';
 

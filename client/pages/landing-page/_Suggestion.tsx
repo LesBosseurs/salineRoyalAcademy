@@ -49,7 +49,7 @@ export default function Suggestion() {
               professor="Gerard Poulet"
               difficulty={2}
               actualChapter=""
-              pourcentage={null}
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
@@ -57,7 +57,7 @@ export default function Suggestion() {
               professor="Gerard Poulet"
               difficulty={2}
               actualChapter=""
-              pourcentage={null}
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
@@ -65,7 +65,7 @@ export default function Suggestion() {
               professor="Gerard Poulet"
               difficulty={2}
               actualChapter=""
-              pourcentage={null}
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
@@ -73,7 +73,7 @@ export default function Suggestion() {
               professor="Gerard Poulet"
               difficulty={2}
               actualChapter=""
-              pourcentage={null}
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
@@ -81,7 +81,7 @@ export default function Suggestion() {
               professor="Gerard Poulet"
               difficulty={2}
               actualChapter=""
-              pourcentage={null}
+              pourcentage={0}
             />
             <CourseCard
               instrument="piano"
@@ -89,7 +89,7 @@ export default function Suggestion() {
               professor="Gerard Poulet"
               difficulty={2}
               actualChapter=""
-              pourcentage={null}
+              pourcentage={0}
             />
           </div>
           <Link href="">
