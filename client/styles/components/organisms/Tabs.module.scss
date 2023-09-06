@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  ul {
+    display: flex;
+    gap: 15px;
+
+    li {
+      @include paragraph-semi-bold;
+      position: relative;
+      padding-bottom: 10px;
+      cursor: pointer;
+
+      .underline {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: $primary-yellow;
+      }
+    }
+  }
+}
