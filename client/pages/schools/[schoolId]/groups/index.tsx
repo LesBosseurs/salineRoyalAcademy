@@ -5,6 +5,7 @@ import CardContainer from "@/components/molecules/CardContainer";
 import { useState } from 'react';
 import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import GroupCard from "@/components/organisms/GroupCard";
+import {usePathname} from "next/navigation";
 
 interface GroupsProps {
   id:number;
@@ -52,6 +53,8 @@ export default function Groups() {
       dates: '18/03/23 - 24/03/23',
     },
   ]);
+  
+  console.log(usePathname())
 
   return (
     <div className={style.list_page_content}>

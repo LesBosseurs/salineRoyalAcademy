@@ -3,6 +3,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import Link from "next/link";
 import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
+import {usePathname} from "next/navigation";
 
 type GroupCardProps = {
   id?: number;
@@ -19,8 +20,9 @@ export default function GroupCard({
   instrument,
   date,
 }: GroupCardProps) {
+  let current_url = usePathname();
   return (
-    <Link className={style.course_card} href={id?("http://localhost:3000/groups/"+id):("")}>
+    <Link className={style.course_card} href={id?(current_url+"/"+id):("")}>
       <div className={style.thumbnail}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>

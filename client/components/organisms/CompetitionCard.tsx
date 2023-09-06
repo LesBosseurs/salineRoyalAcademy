@@ -66,7 +66,7 @@ export default function CompetitionCard({
   }, []);
 
   return (
-    <Link className={style.competition_card} href={id?("http://localhost:3000/competitions/"+id):("")}>
+    <Link className={style.competition_card} href={id?("/competitions/"+id):("")}>
       {!thumbnail?(
       <div className={style.competition_card_without_thumbnail}>
         <div>

@@ -27,7 +27,7 @@ export default function ActivityCard({
   };
 
   return (
-    <Link className={style.activity_card} href={id?("http://localhost:3000/activities/"+id):("")}>
+    <Link className={style.activity_card} href={id?("/activities/"+id):("")}>
       <div>
         <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
         <span>{title}</span>

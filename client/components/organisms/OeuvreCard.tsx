@@ -17,7 +17,7 @@ export default function OeuvreCard ({
   composer,
 }: OeuvreCardProps){
   return (
-    <Link className={style.oeuvre_card} href={id?("http://localhost:3000/librairy/oeuvres/"+id):("")}>
+    <Link className={style.oeuvre_card} href={id?("/librairy/oeuvres/"+id):("")}>
       <div className={style.thumbnail}>
         <div className={style.instrument}>
           <div className={style.badges_container}>

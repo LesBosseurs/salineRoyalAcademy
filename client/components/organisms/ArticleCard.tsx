@@ -36,7 +36,7 @@ export default function ArticleCard({
   }
 
   return (
-    <Link className={style.article_card} href={id?("http://localhost:3000/articles/"+id):("")}>
+    <Link className={style.article_card} href={id?("/articles/"+id):("")}>
       <div className={style.description}>
         <div className={style.author_desc}>
           <Image
