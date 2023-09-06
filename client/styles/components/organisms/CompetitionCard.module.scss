@@ -121,6 +121,10 @@
           max-width: 10ch;
         }
 
+        @media screen and (min-width: $breakpoint-laptop){
+          max-width: 15ch;
+        }
+
         @media screen and (min-width: $breakpoint-desktop) {
           max-width: 20ch;
         }
@@ -131,7 +135,7 @@
       display: flex;
       color:red;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: space-evenly;
       > span {
         @include info-regular;
       }
