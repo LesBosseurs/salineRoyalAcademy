@@ -1,17 +1,32 @@
 import style from "@/styles/pages/listing.module.scss";
+import schoolStyle from '@/styles/pages/schools/SchoolCard.module.scss';
 import Header from "@/components/common/Header";
-import FilterSection from "@/components/organisms/FilterSection";
 import CardContainer from "@/components/molecules/CardContainer";
 import Card from "@/components/molecules/Card";
-import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
-import SchoolCard from "@/components/organisms/SchoolCard";
+import Link from "next/link";
 
 type SchoolCardProps = {
   id: number;
   name:string;
   director:string;
 }
+
+function SchoolCard(id, name, director){
+  return (
+      <Link className={schoolStyle.school_card} href={id?("/schools/"+id):("")}>
+        <div className={schoolStyle.thumbnail}>
+        </div>
+        <div className={schoolStyle.description}>
+          <div>
+            <span>{name}</span>
+            <span>{director}</span>
+          </div>
+        </div>
+      </Link>
+  );
+}
+
 export default function Schools() {
   const [listSchool, setListSchool] = useState<SchoolCardProps[]>([
     {
@@ -48,12 +63,7 @@ export default function Schools() {
           <Card title="Schools" style={{gridColumn: "1/7"}}>
             <div className={style.list_cards}>
               {listSchool.map((item, key) => (
-                  <SchoolCard
-                      key={key}
-                      id={item.id}
-                      name={item.name}
-                      director={item.director}
-                  />
+                  SchoolCard(item.id, item.name, item.director)
               ))}
             </div>
           </Card>

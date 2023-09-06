@@ -22,7 +22,7 @@ export default function GroupCard({
 }: GroupCardProps) {
   let current_url = usePathname();
   return (
-    <Link className={style.course_card} href={id?(current_url+"/"+id):("")}>
+    <Link className={style.group_card} href={id?(current_url+"/"+id):("")}>
       <div className={style.thumbnail}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>
