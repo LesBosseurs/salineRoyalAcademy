@@ -8,6 +8,8 @@
   border: 1px solid $secondary-gray-light;
   padding: 10px;
   border-radius: 10px;
+  text-decoration: unset;
+  color: $secondary-dark;
 
   > div:first-of-type {
     display: flex;
@@ -35,7 +37,7 @@
     @include info-regular;
   }
 
-  > div:last-of-type {
+  > .attendees {
     > span {
       @include info-semi-bold;
     }

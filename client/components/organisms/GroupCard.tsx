@@ -20,7 +20,7 @@ export default function GroupCard({
   date,
 }: GroupCardProps) {
   return (
-    <Link className={style.course_card} href={id?("http://localhost:3000/courses/"+id):("")}>
+    <Link className={style.course_card} href={id?("http://localhost:3000/groups/"+id):("")}>
       <div className={style.thumbnail}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>

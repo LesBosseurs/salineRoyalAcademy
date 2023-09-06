@@ -2,8 +2,10 @@ import Image from 'next/image';
 import style from '../../styles/components/organisms/ArticleCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
 import {instruments} from "@/interfaces/InstrumentsInterface";
+import Link from "next/link";
 
 type ArticleCardProps = {
+  id: number;
   instrument:instruments;
   title: string;
   author: string;
@@ -11,6 +13,7 @@ type ArticleCardProps = {
 };
 
 export default function ArticleCard({
+  id,
   instrument,
   title,
   author,
@@ -33,7 +36,7 @@ export default function ArticleCard({
   }
 
   return (
-    <div className={style.article_card}>
+    <Link className={style.article_card} href={id?("http://localhost:3000/articles/"+id):("")}>
       <div className={style.description}>
         <div className={style.author_desc}>
           <Image
@@ -59,6 +62,6 @@ export default function ArticleCard({
       <div className={style.pic}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>
-    </div>
+    </Link>
   );
 }

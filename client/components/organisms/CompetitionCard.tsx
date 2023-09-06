@@ -4,7 +4,7 @@ import MedalIcon from '@/public/icons/menu/Medal';
 import { useEffect, useState } from 'react';
 import BadgeInstrument from '../molecules/BadgeInstrument';
 import {instruments} from "@/interfaces/InstrumentsInterface";
-import TagDifficulty from "@/components/atoms/Tag";
+import Link from "next/link";
 
 type CompetitionCardProps = {
   id:number;
@@ -66,7 +66,7 @@ export default function CompetitionCard({
   }, []);
 
   return (
-    <>
+    <Link className={style.competition_card} href={id?("http://localhost:3000/competitions/"+id):("")}>
       {!thumbnail?(
       <div className={style.competition_card_without_thumbnail}>
         <div>
@@ -120,6 +120,6 @@ export default function CompetitionCard({
             </div>
         </div>
       </div>)}
-    </>
+    </Link>
   );
 }

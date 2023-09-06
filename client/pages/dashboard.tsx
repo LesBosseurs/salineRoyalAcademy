@@ -116,6 +116,7 @@ export default function Dashboard() {
         >
           <div className={style.activity_container}>
             <ActivityCard
+              id={1}
               instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
@@ -124,6 +125,7 @@ export default function Dashboard() {
               timeLastMessage={new Date('2023-06-03T13:06:58.838Z')}
             />
             <ActivityCard
+              id={2}
               instrument="piano"
               title="Bach Invention 10 in G major"
               author="parisoperafan"
@@ -140,6 +142,7 @@ export default function Dashboard() {
           hrefLink=""
         >
           <CompetitionCard
+            id={1}
             instrument="piano"
             title="The Queen Sonja International Music Competition"
             place="Oslo, Norway"
@@ -160,54 +163,63 @@ export default function Dashboard() {
           >
             <div className={style.articles_container}>
               <ArticleCard
+                id={1}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={2}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={3}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={4}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={5}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={6}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={7}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={8}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
               />
               <ArticleCard
+                id={9}
                 instrument="piano"
                 title="Where to listen classical music at Paris"
                 author="parisoperafan"

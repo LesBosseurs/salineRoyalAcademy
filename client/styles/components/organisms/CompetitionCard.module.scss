@@ -1,143 +1,147 @@
 @import '../../variables.scss';
 @import '../../fonts.scss';
 
-.competition_card_without_thumbnail {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-
-  > div:first-of-type {
-    display: flex;
-    gap: 5px;
-
-    .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #80017f;
-      max-height: 20px;
-      max-width: 20px;
-      box-sizing: border-box;
-      padding: 3px;
-      border-radius: 100%;
-    }
-
-    > span {
-      @include paragraph-semi-bold;
-    }
-  }
-
-  > div:last-of-type {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-
-      li {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-
-        img,
-        svg {
-          height: 16px;
-          width: 16px;
-        }
-
-        > span {
-          @include info-regular;
-        }
-      }
-    }
-
-    span.countdown {
-      @include paragraph-medium;
-      height: 40px;
-      width: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 40px;
-      border: 1px solid $secondary-gray-light;
-    }
-  }
-}
-
-.competition_card_with_thumbnail{
-  display: flex;
-  gap: 5px;
-  width: unset;
+.competition_card{
   text-decoration: unset;
   color: $secondary-dark;
-
-  @media screen and (min-width: $breakpoint-mobile) {
-    flex-direction: column;
-  }
-
-  > .thumbnail {
-    min-width: 100px;
-    min-height: fit-content;
-    background-color: #f0f;
-    border-radius: 10px;
-    position: relative;
-
-    @media screen and (min-width: $breakpoint-mobile) {
-      aspect-ratio: 16 / 10;
-    }
-
-    > div:first-of-type {
-      display: none;
-
-      @media screen and (min-width: $breakpoint-mobile) {
-        display: flex;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-      }
-    }
-  }
-
-  > .description {
+  .competition_card_without_thumbnail {
     display: flex;
     flex-direction: column;
-    gap:5px;
+    width: 100%;
+    gap: 10px;
 
-    > .title_section {
+    > div:first-of-type {
       display: flex;
       gap: 5px;
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #80017f;
+        max-height: 20px;
+        max-width: 20px;
+        box-sizing: border-box;
+        padding: 3px;
+        border-radius: 100%;
+      }
 
       > span {
         @include paragraph-semi-bold;
-        max-width: 15ch;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      }
+    }
 
-        @media screen and (min-width: $breakpoint-tablet){
-          max-width: 10ch;
+    > div:last-of-type {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          img,
+          svg {
+            height: 16px;
+            width: 16px;
+          }
+
+          > span {
+            @include info-regular;
+          }
         }
+      }
 
-        @media screen and (min-width: $breakpoint-laptop){
-          max-width: 15ch;
-        }
+      span.countdown {
+        @include paragraph-medium;
+        height: 40px;
+        width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 40px;
+        border: 1px solid $secondary-gray-light;
+      }
+    }
+  }
 
-        @media screen and (min-width: $breakpoint-desktop) {
-          max-width: 20ch;
+  .competition_card_with_thumbnail{
+    display: flex;
+    gap: 5px;
+    width: unset;
+    text-decoration: unset;
+    color: $secondary-dark;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      flex-direction: column;
+    }
+
+    > .thumbnail {
+      min-width: 100px;
+      min-height: fit-content;
+      background-color: #f0f;
+      border-radius: 10px;
+      position: relative;
+
+      @media screen and (min-width: $breakpoint-mobile) {
+        aspect-ratio: 16 / 10;
+      }
+
+      > div:first-of-type {
+        display: none;
+
+        @media screen and (min-width: $breakpoint-mobile) {
+          display: flex;
+          position: absolute;
+          top: 5px;
+          right: 5px;
         }
       }
     }
 
-    > .info_section{
+    > .description {
       display: flex;
-      color:red;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      > span {
-        @include info-regular;
+      flex-direction: column;
+      gap:5px;
+
+      > .title_section {
+        display: flex;
+        gap: 5px;
+
+        > span {
+          @include paragraph-semi-bold;
+          max-width: 15ch;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          @media screen and (min-width: $breakpoint-tablet){
+            max-width: 10ch;
+          }
+
+          @media screen and (min-width: $breakpoint-laptop){
+            max-width: 15ch;
+          }
+
+          @media screen and (min-width: $breakpoint-desktop) {
+            max-width: 20ch;
+          }
+        }
+      }
+
+      > .info_section{
+        display: flex;
+        color:red;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        > span {
+          @include info-regular;
+        }
       }
     }
   }
