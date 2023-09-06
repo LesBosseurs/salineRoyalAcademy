@@ -5,13 +5,13 @@
     // @media screen and (min-width: $breakpoint-laptop) {
     //     grid-row: 1;
     //   }
-    > div.general_infos {
+    > div div.general_infos {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         align-content: flex-start;
-        gap: $gap-sm; 
+        gap: $gap-sm;
         > figure.person_pic {
             border-radius: 20px;
             width: 360px;
@@ -22,11 +22,31 @@
             background-position: center;
             background-color: #fff;
         }
+        div.infos_details {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
 
+            div.tag_list {
+                display: flex;
+                gap: $gap-sm;
+                min-height: fit-content;
+                @include paragraph-regular;
+                
+            }
+
+            div.main_infos {
+                display: flex;
+                flex-direction: column;
+            }
+        }
         > div.name_and_instrument {
             display: flex;
             align-items: center;
             gap: 5px;
+
             > div.instrument_list {
                 display: inline-flex;
                 padding: 0;
@@ -47,36 +67,35 @@
             }
         }
 
-        > div.tag_list {
-            display: flex;
-            gap: $gap-sm;
-            > div.tag {
-            }
-        }
-
-        > div.main_infos {
-            
-        }
-
         > div.description {
         }
     }
-    > div.participated_academies_container {
-        > div.academies_card {
+
+    > div div.participated_academies_container {
+       
+    }
+
+    >div div .related_masterclasses_container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @media screen and (min-width: 500px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (min-width: $breakpoint-tablet) {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
-    > div.related_masterclasses_container {
-        > div.masterclass.card {
-        }
-    }
-
-    > div.related_competitions_container {
+    > div div.related_competitions_container {
         > div.competitions_card {
         }
     }
 
-    > div.related_articles_container {
+    > div div.related_articles_container {
         > div.article_card {
         }
     }

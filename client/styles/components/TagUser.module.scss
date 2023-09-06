@@ -8,6 +8,8 @@
   color: $secondary-dark;
   width: fit-content;
   z-index: 10;
+  min-height: max-content; 
+  box-sizing: content-box; 
 }
 
 .sm {
