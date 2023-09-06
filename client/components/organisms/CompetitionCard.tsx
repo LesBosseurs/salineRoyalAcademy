@@ -3,12 +3,12 @@ import style from '../../styles/components/organisms/CompetitionCard.module.scss
 import MedalIcon from '@/public/icons/menu/Medal';
 import { useEffect, useState } from 'react';
 import BadgeInstrument from '../molecules/BadgeInstrument';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import Link from "next/link";
 
 type CompetitionCardProps = {
   id:number;
-  instrument:instruments;
+  instrument:instrumentsProps;
   title: string;
   place: string;
   date: Date;

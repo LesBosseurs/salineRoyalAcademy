@@ -1,11 +1,11 @@
 import style from '../../styles/components/organisms/OeuvreCard.module.scss';
 import BadgeInstrument from "@/components/molecules/BadgeInstrument";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import Link from "next/link";
 
 type OeuvreCardProps = {
   id: number;
-  instrument:instruments[];
+  instrument:instrumentsProps[];
   title: string;
   composer:string;
 }

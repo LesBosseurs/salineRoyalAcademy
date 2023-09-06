@@ -6,7 +6,7 @@ import Card from "@/components/molecules/Card";
 import OeuvreCard from "@/components/organisms/OeuvreCard";
 import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 interface FilterProps {
   instrument: string;
@@ -18,7 +18,7 @@ interface FilterProps {
 interface OeuvreProps {
   id: number;
   title: string;
-  instrument: instruments[];
+  instrument: instrumentsProps[];
   composer: string;
 }
 export default function Oeuvres() {

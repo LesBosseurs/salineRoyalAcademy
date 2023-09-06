@@ -1,10 +1,10 @@
 import InstrumentIcon from '../atoms/InstrumentIcon';
 import style from '../../styles/components/molecules/BadgeIntrument.module.scss';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 interface BadgeInstrumentProps {
   fill: string;
   size: 'md' | 'lg';
-  instrument:instruments;
+  instrument:instrumentsProps;
 }
 
 export default function BadgeInstrument({

@@ -6,7 +6,7 @@ import Card from "@/components/molecules/Card";
 import FormFilter from "@/components/organisms/FormFilter";
 import {useState} from "react";
 import PersonCard from "@/components/organisms/PersonCard";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 interface FilterProps {
   instrument: string;
   composer: string;
@@ -18,7 +18,7 @@ type types = 'Jury'|'Teacher';
 
 type PersonCardProps = {
   id: number;
-  instrument:instruments[];
+  instrument:instrumentsProps[];
   name: string;
   types:types[];
   description:string;

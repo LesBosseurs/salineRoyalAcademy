@@ -2,13 +2,13 @@ import style from '../../styles/components/organisms/GroupCard.module.scss';
 import 'react-circular-progressbar/dist/styles.css';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import Link from "next/link";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 type GroupCardProps = {
   id?: number;
   title: string;
   professor: string;
-  instrument:instruments;
+  instrument:instrumentsProps;
   date: string;
 };
 

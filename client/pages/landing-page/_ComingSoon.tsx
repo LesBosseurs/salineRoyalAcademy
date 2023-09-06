@@ -6,10 +6,10 @@ import { Pagination } from 'swiper/modules';
 import ComingSoonCard from './_ComingSoonCard';
 import { useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 type ComingSoonCardProps = {
-  instrument:instruments;
+  instrument:instrumentsProps;
   title: string;
   text: string;
 };

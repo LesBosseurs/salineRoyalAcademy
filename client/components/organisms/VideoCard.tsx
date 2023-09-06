@@ -1,12 +1,12 @@
 import style from '../../styles/components/organisms/VideoCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
 import ButtonPlayIcon from '@/public/icons/videos/ButtonPlay';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 type VideoCardProps = {
   title: string;
   duration: string;
-  instrument:instruments;
+  instrument:instrumentsProps;
   publicationDate: Date;
 };
 

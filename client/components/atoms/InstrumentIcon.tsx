@@ -8,11 +8,11 @@ import TromboneIcon from '@/public/icons/instruments/Trombone';
 import ViolaIcon from '@/public/icons/instruments/Viola';
 import ViolinIcon from '@/public/icons/instruments/Violin';
 import VoiceIcon from '@/public/icons/instruments/Voice';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 type InstrumentIconProps = {
   fill: string;
-  instrument:instruments;
+  instrument:instrumentsProps;
 };
 
 export default function InstrumentIcon({

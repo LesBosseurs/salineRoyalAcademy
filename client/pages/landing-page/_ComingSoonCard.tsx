@@ -1,9 +1,9 @@
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import style from '../../styles/pages/landing-page/_coming_soon_card.module.scss';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 type ComingSoonCardProps = {
-  instrument:instruments;
+  instrument:instrumentsProps;
   title: string;
   text: string;
 };

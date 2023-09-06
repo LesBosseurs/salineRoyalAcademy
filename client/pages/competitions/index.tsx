@@ -6,7 +6,7 @@ import {useEffect, useState } from 'react';
 import FormFilter from "@/components/organisms/FormFilter";
 import FilterSection from "@/components/organisms/FilterSection";
 import axios from "axios";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import CompetitionCard from "@/components/organisms/CompetitionCard";
 
 interface FilterProps {
@@ -24,7 +24,7 @@ interface CompetitionsProps {
     title: string;
     place:string;
     award: number;
-    instrument : instruments;
+    instrument : instrumentsProps;
     date: Date;
 
 }

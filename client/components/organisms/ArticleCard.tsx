@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import style from '../../styles/components/organisms/ArticleCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import Link from "next/link";
 
 type ArticleCardProps = {
   id: number;
-  instrument:instruments;
+  instrument:instrumentsProps;
   title: string;
   author: string;
   date: Date;

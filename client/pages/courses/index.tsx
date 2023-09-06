@@ -7,7 +7,7 @@ import {useEffect, useState } from 'react';
 import FormFilter from "@/components/organisms/FormFilter";
 import FilterSection from "@/components/organisms/FilterSection";
 import axios from "axios";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 interface FilterProps {
   instrument: string;
@@ -22,7 +22,7 @@ interface FilterProps {
 interface CourseProps {
   id:number;
   title: string;
-  instrument:instruments[];
+  instrument:instrumentsProps[];
   professor: string;
   difficulty: 0 | 1 | 2;
   actualChapter: string;

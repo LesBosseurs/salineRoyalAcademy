@@ -1,11 +1,11 @@
 import style from '../../styles/components/organisms/ActivityCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import Link from "next/link";
 
 type ActivityCardProps = {
   id?: number;
-  instrument:instruments;
+  instrument:instrumentsProps;
   title: string;
   author: string;
   creationDate: Date;

@@ -3,13 +3,13 @@ import style from '../../../../styles/pages/listing.module.scss';
 import Card from '@/components/molecules/Card';
 import CardContainer from "@/components/molecules/CardContainer";
 import { useState } from 'react';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import GroupCard from "@/components/organisms/GroupCard";
 
 interface GroupsProps {
   id:number;
   title: string;
-  instrument:instruments;
+  instrument:instrumentsProps;
   professor: string;
   dates: string;
 }

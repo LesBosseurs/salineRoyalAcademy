@@ -1,4 +1,4 @@
-export type instruments =
+export type instrumentsProps =
   | 'cello'
   | 'chamber-music'
   | 'clarinet'

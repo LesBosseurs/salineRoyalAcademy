@@ -4,13 +4,13 @@ import 'react-circular-progressbar/dist/styles.css';
 import TagDifficulty from '@/components/atoms/Tag';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
 import Link from "next/link";
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 
 type CourseCardProps = {
   id?: number;
   title: string;
   professor: string;
-  instrument:instruments;
+  instrument:instrumentsProps;
   difficulty: 0 | 1 | 2;
   actualChapter: string;
   pourcentage?: number;

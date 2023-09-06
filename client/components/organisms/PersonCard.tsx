@@ -1,14 +1,14 @@
 import style from '../../styles/components/organisms/PersonCard.module.scss';
 import BadgeInstrument from "@/components/molecules/BadgeInstrument";
 import Tag from '@/components/atoms/Tag';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 import Link from "next/link";
 
 type types = 'Jury'|'Teacher'|'Composer';
 
 type PersonCardProps = {
   id: number;
-  instrument:instruments[];
+  instrument:instrumentsProps[];
   name: string;
   types:types[];
   description:string;
