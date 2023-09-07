@@ -87,7 +87,54 @@
         > div.description {
         }
     }
+    > div div .description {
+        @include paragraph-regular;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $gap-sm;
 
+        .readMoreState {
+            display: none;
+        }
+
+        .readMoreState:checked ~ p {
+            height: auto;
+            -webkit-transition: max-height 3s;
+            -moz-transition: max-height 3s;
+            -ms-transition: max-height 3s;
+            -o-transition: max-height 3s;
+            transition: max-height 3s;
+            overflow: hidden;
+            max-height: 10000px;
+        }
+
+        .readMoreState ~ .readMoreTrigger:before {
+            content: "see more ...";
+        }
+
+        .readMoreState:checked ~ .readMoreTrigger:before {
+            content: "see less";
+        }
+
+        .readMoreTrigger {
+            cursor: pointer;
+            display: inline-block;
+            padding: 0 0.5em;
+            color: $primary-yellow;
+            font-size: 0.9em;
+            line-height: 2;
+            @include paragraph-medium
+        }
+
+        p {
+            overflow: hidden;
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-height: 80px;
+        }
+    }
     > div div.academies_card {
         flex-direction: column;
         display: flex;

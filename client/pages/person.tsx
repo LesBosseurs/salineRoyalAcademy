@@ -51,21 +51,62 @@ export default function Person () {
           <Card style={{ gridColumn: '3/7' }}>
             <div className={style.general_infos}>
               {/* <CardContainer> */}
-                <div className={style.infos_details}>
-                  <div className={style.tag_list}>
-                    <TagUser size='sm'>Teacher</TagUser>
-                    <TagUser size='sm'>Student</TagUser>
-                  </div>
-                  <span>Nationality: Russian</span>
-                  <span>Instruments: Violin, Piano, Oboe</span>
+              <div className={style.infos_details}>
+                <div className={style.tag_list}>
+                  <TagUser size='sm'>Teacher</TagUser>
+                  <TagUser size='sm'>Student</TagUser>
                 </div>
+                <span>Nationality: Russian</span>
+                <span>Instruments: Violin, Piano, Oboe</span>
+              </div>
             </div>
           </Card>
           {/* </CardContainer> */}
         </div>
       </div>
       <CardContainer>
-      
+        <Card style={{ gridColumn: '3/7' }}>
+          <div className={style.description}>
+          <input type="checkbox" className={style.readMoreState} id="post-1" />
+
+            <p>
+              Svetlana Makarova TF Svetlana Makarova VIOLIN Born in Moscow,
+              violinist Svetlana Makarova won first prize in the Moscow
+              International Youth Tchaikovsky Competition at the age of just
+              ten, and thereafter received many other awards. After gaining her
+              master’s degree and postgraduate diploma as well as her PhD with
+              Maya Glezarova at Moscow Conservatory, in 2008 she was invited by
+              Lorin Maazel to join the orchestra of Palau de Les Arts Reina
+              Sofía in Spain. An artist in popular demand, Svetlana Makarova
+              regularly performs at major international festivals such as the
+              Verbier Festival, the Kuhmo Chamber Music Festival, the Miyazaki
+              Shrine Grand Festival and the Paganiniana Festival. She has played
+              in halls including Zurich’s Tonhalle, the La Scala, La Fenice and
+              La Pergola opera houses, the Auditorio Nacional de Música in
+              Madrid, the Seoul Arts Center and Moscow’s Tchaikovsky Concert
+              Hall. Chamber music plays an important role in her musical career,
+              and has led her to work with respected artists such as Frans
+              Helmerson, Pavel Vernikov, Natalia Gutman, Gilles Apap and Patrick
+              Demenga. As an established soloist she has performed with renowned
+              orchestras including the Lithuanian Chamber Orchestra, Kremerata
+              Baltica, Württembergische Philharmonie Reutlingen, South-west
+              German Chamber Orchestra Pforzheim, the Valencia Orchestra, the
+              Korean Soloists Orchestra, Moscow Philharmonic Orchestra and the
+              Odessa State Symphony Orchestra. In addition to performing,
+              Svetlana Makarova conveys her experience to the next generation as
+              a teacher. Prior to becoming a professor at the Haute Ecole de
+              Musique de Lausanne in 2014, she taught at institutions including
+              Gnessin State Musical College (Moscow), Scuola di Musica di
+              Fiesole (Florence) and at Lieceu Conservatory (Barcelona).
+              Furthermore, she gives numerous masterclasses in Italy, France,
+              Switzerland, Austria, Germany, Russia, Japan, Korea and China. As
+              a respected teacher, she is regularly invited to sit on the juries
+              of international competitions. Svetlana Makarova plays a violin by
+              Niccolò Gagliano dating from 1745.
+            </p>
+            <label htmlFor="post-1" className={style.readMoreTrigger}></label>
+          </div>
+        </Card>
         <Card title='Participated academies' style={{ gridColumn: '1/3' }}>
           <div className={style.academies_card}>
             <div className={style.academy_details}>
