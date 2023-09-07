@@ -13,6 +13,7 @@ type CompetitionCardProps = {
   date: Date;
   award: number;
   thumbnail: boolean;
+  id?: number
 };
 
 export default function CompetitionCard({

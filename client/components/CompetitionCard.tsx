@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import style from '../styles/components/CompetitionCard.module.scss';
-import MedalIcon from '@/public/icons/medal';
-import InstrumentIcon from './InstrumentIcon';
+import MedalIcon from '../public/icons/menu/Medal';
+import InstrumentIcon from './atoms/InstrumentIcon';
 import { useEffect, useState } from 'react';
-import { Instruments } from '../types/instruments';
+import { instruments } from '@/interfaces/InstrumentsInterface';
 
 type CompetitionCardProps = {
-  instrument: Instruments, 
+  instrument: instruments, 
   title: string;
   place: string;
   date: Date;

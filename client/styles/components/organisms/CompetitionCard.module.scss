@@ -1,11 +1,22 @@
-@import '../../variables.scss';
-@import '../../fonts.scss';
+@import "../../variables.scss";
+@import "../../fonts.scss";
 
 .competition_card_without_thumbnail {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 10px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+
+  padding: 20px;
+  max-width: 300px;
+
+  @media screen and (min-width: $breakpoint-laptop) {
+    max-width: 370px;
+  }
 
   > div:first-of-type {
     display: flex;
@@ -68,7 +79,7 @@
   }
 }
 
-.competition_card_with_thumbnail{
+.competition_card_with_thumbnail {
   display: flex;
   gap: 5px;
   width: unset;
@@ -105,7 +116,7 @@
   > .description {
     display: flex;
     flex-direction: column;
-    gap:5px;
+    gap: 5px;
 
     > .title_section {
       display: flex;
@@ -117,7 +128,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
-        @media screen and (min-width: $breakpoint-tablet){
+        @media screen and (min-width: $breakpoint-tablet) {
           max-width: 10ch;
         }
 
@@ -127,9 +138,9 @@
       }
     }
 
-    > .info_section{
+    > .info_section {
       display: flex;
-      color:red;
+      color: red;
       flex-wrap: wrap;
       justify-content: space-between;
       > span {

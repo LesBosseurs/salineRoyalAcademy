@@ -1,34 +1,32 @@
-import Header from '@/components/common/Header'
+import Header from '../components/common/Header'
 import style from '../styles/pages/person.module.scss'
 import CardContainerStyle from '../styles/components/CardContainer.module.scss'
-import BadgeInstrument from '@/components/BadgeInstrument'
-import TagUser from '@/components/TagUser'
-import Button from '@/components/Button'
-import CardContainer from '@/components/CardContainer'
-import Card from '@/components/Card'
-import ActivityCard from '@/components/ActivityCard'
-import CourseCard from '@/components/CourseCard'
-import ArticleCard from '@/components/ArticleCard'
-import CompetitionCard from '@/components/CompetitionCard'
-import CapIcon from '@/public/icons/cap'
-import VideoCard from '@/components/VideoCard'
+import BadgeInstrument from '../components/molecules/BadgeInstrument'
+import TagUser from '../components/TagUser'
+import Button from '../components/atoms/Button'
+import CardContainer from '../components/molecules/CardContainer'
+import Card from '../components/molecules/Card'
+import ActivityCard from '../components/organisms/ActivityCard'
+import CourseCard from '../components/organisms/CourseCard'
+import ArticleCard from '../components/organisms/ArticleCard'
+import CompetitionCard from '../components/organisms/CompetitionCard'
+import CapIcon from '../public/icons/menu/Cap'
+import VideoCard from '../components/organisms/VideoCard'
 import { Instruments } from '../types/instruments'
 
 export default function Person () {
   return (
     <div className={style.person}>
       <Header name='Svetlana Makarova' />
-      <CardContainer>
-        {/* <Card> */}
-        <div className={style.general_infos}>
-          {/* <Card> */}
-          <figure
-            className={style.person_pic}
-            style={{
-              backgroundImage: `url(https://tse4.mm.bing.net/th?id=OIP.PiKTYKOuZn_6SQvrMOLpigHaFI&pid=Api)`
-            }}
-          />
-          {/* </Card> */}
+      <div className={style.hero_details}>
+        <figure
+          className={style.person_pic}
+          style={{
+            backgroundImage: `url(https://tse4.mm.bing.net/th?id=OIP.PiKTYKOuZn_6SQvrMOLpigHaFI&pid=Api)`,
+            gridColumn: '1/3'
+          }}
+        />
+        <div className={style.main_infos} style={{ gridColumn: '3/7' }}>
           <div className={style.name_and_instrument}>
             <div className={style.instrument_list}>
               <BadgeInstrument
@@ -49,36 +47,47 @@ export default function Person () {
             </div>
             <h3>Svetlana Makarova</h3>
           </div>
-          <Card textLink='' hrefLink=''>
-            <div className={style.infos_details}>
-              <div className={style.tag_list}>
-                <TagUser size='sm'>Teacher</TagUser>
-                <TagUser size='sm'>Student</TagUser>
-              </div>
-              {/* <div className={style.main_infos}> */}
-              <span>Nationality: Russian</span>
-              <span>Instruments: Violin, Piano, Oboe</span>
+          {/* <CardContainer> */}
+          <Card style={{ gridColumn: '3/7' }}>
+            <div className={style.general_infos}>
+              {/* <CardContainer> */}
+                <div className={style.infos_details}>
+                  <div className={style.tag_list}>
+                    <TagUser size='sm'>Teacher</TagUser>
+                    <TagUser size='sm'>Student</TagUser>
+                  </div>
+                  <span>Nationality: Russian</span>
+                  <span>Instruments: Violin, Piano, Oboe</span>
+                </div>
             </div>
-            {/* </div> */}
           </Card>
+          {/* </CardContainer> */}
         </div>
-        {/* </Card> */}
-          <Card style={{ gridColumn: '1' }} title='Participated academies'>
-            {/* <div className={style.academies_card}> */}
-              <CompetitionCard
-                instrument={Instruments.Piano}
-                title='The Queen Sonja International Music Competition'
-                place='Oslo, Norway'
-                date={new Date('2023-08-31T13:12:00.838Z')}
-                award={50000}
-              />
-            {/* </div> */}
-          </Card>
+      </div>
+      <CardContainer>
+      
+        <Card title='Participated academies' style={{ gridColumn: '1/3' }}>
+          <div className={style.academies_card}>
+            <div className={style.academy_details}>
+              <span>
+                Domaine Forget International Music & Dance Academy from august
+                2nd to 5th 2022
+              </span>
+            </div>
+            <div className={style.academy_details}>
+              <span>
+                Domaine Forget International Music & Dance Academy from august
+                2nd to 5th 2022
+              </span>
+            </div>
+            <hr />
+          </div>
+        </Card>
         <Card
-          style={{ gridColumn: '1', gridRow: '1/4' }}
           title='Related masterclasses'
           textLink='see all masterclasses'
           hrefLink=''
+          style={{ gridColumn: '1/7' }}
         >
           <div className={style.related_masterclasses_container}>
             <CourseCard
@@ -108,7 +117,7 @@ export default function Person () {
           </div>
         </Card>
         <Card
-          style={{ gridColumn: '5/7', gridRow: '3/4' }}
+          style={{ gridColumn: '1/7', gridRow: '3/4' }}
           title='Related competitions'
         >
           <div className={style.related_competitions_container}>
@@ -119,12 +128,21 @@ export default function Person () {
                 place='Oslo, Norway'
                 date={new Date('2023-08-31T13:12:00.838Z')}
                 award={50000}
+                thumbnail={false}
+              />
+              <CompetitionCard
+                instrument={Instruments.Piano}
+                title='The Queen Sonja International Music Competition'
+                place='Oslo, Norway'
+                date={new Date('2023-08-31T13:12:00.838Z')}
+                award={50000}
+                thumbnail={false}
               />
             </div>
           </div>
         </Card>
         <Card
-          style={{ gridColumn: '1', gridRow: '4/4' }}
+          style={{ gridColumn: '1/7', gridRow: '4/4' }}
           title='Related articles'
         >
           <div className={style.related_articles_container}>
@@ -134,36 +152,22 @@ export default function Person () {
               author='parisoperafan'
               date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
             />
+            <hr />
             <ArticleCard
               instrument={Instruments.Piano}
               title='Where to listen classical music at Paris'
               author='parisoperafan'
               date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
             />
+            <hr />
+
             <ArticleCard
               instrument={Instruments.Piano}
               title='Where to listen classical music at Paris'
               author='parisoperafan'
               date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
             />
-            <ArticleCard
-              instrument={Instruments.Piano}
-              title='Where to listen classical music at Paris'
-              author='parisoperafan'
-              date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-            />
-            <ArticleCard
-              instrument={Instruments.Piano}
-              title='Where to listen classical music at Paris'
-              author='parisoperafan'
-              date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-            />
-            <ArticleCard
-              instrument={Instruments.Piano}
-              title='Where to listen classical music at Paris'
-              author='parisoperafan'
-              date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-            />
+            <hr />
           </div>
         </Card>
       </CardContainer>
