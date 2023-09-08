@@ -26,7 +26,7 @@ export default function Person () {
             gridColumn: '1/3'
           }}
         />
-        <div className={style.main_infos} style={{ gridColumn: '3/7' }}>
+        <div className={style.main_infos}>
           <div className={style.name_and_instrument}>
             <div className={style.instrument_list}>
               <BadgeInstrument
@@ -47,10 +47,8 @@ export default function Person () {
             </div>
             <h3>Svetlana Makarova</h3>
           </div>
-          {/* <CardContainer> */}
-          <Card style={{ gridColumn: '3/7' }}>
+          <Card>
             <div className={style.general_infos}>
-              {/* <CardContainer> */}
               <div className={style.infos_details}>
                 <div className={style.tag_list}>
                   <TagUser size='sm'>Teacher</TagUser>
@@ -61,13 +59,14 @@ export default function Person () {
               </div>
             </div>
           </Card>
-          {/* </CardContainer> */}
         </div>
-      </div>
-      <CardContainer>
-        <Card style={{ gridColumn: '3/7' }}>
+        <Card className={style.card_description}>
           <div className={style.description}>
-          <input type="checkbox" className={style.readMoreState} id="post-1" />
+            <input
+              type='checkbox'
+              className={style.readMoreState}
+              id='post-1'
+            />
 
             <p>
               Svetlana Makarova TF Svetlana Makarova VIOLIN Born in Moscow,
@@ -104,10 +103,10 @@ export default function Person () {
               of international competitions. Svetlana Makarova plays a violin by
               Niccolò Gagliano dating from 1745.
             </p>
-            <label htmlFor="post-1" className={style.readMoreTrigger}></label>
+            <label htmlFor='post-1' className={style.readMoreTrigger}></label>
           </div>
         </Card>
-        <Card title='Participated academies' style={{ gridColumn: '1/3' }}>
+        <Card title='Participated academies' className={style.card_academies}>
           <div className={style.academies_card}>
             <div className={style.academy_details}>
               <span>
@@ -124,6 +123,8 @@ export default function Person () {
             <hr />
           </div>
         </Card>
+      </div>
+      <CardContainer>
         <Card
           title='Related masterclasses'
           textLink='see all masterclasses'
