@@ -1,5 +1,5 @@
-@import '../../variables.scss';
-@import '../../fonts.scss';
+@import "../../variables.scss";
+@import "../../fonts.scss";
 
 .course_card {
   display: flex;
@@ -15,9 +15,11 @@
   > .thumbnail {
     min-width: 100px;
     min-height: fit-content;
-    background-color: #f0f;
     border-radius: 10px;
     position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
     @media screen and (min-width: $breakpoint-mobile) {
       aspect-ratio: 16 / 10;
