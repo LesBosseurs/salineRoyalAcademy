@@ -1,5 +1,5 @@
-@import '../../variables.scss';
-@import '../../fonts.scss';
+@import "../../variables.scss";
+@import "../../fonts.scss";
 
 .article_card {
   display: flex;
@@ -95,7 +95,9 @@
     min-width: 80px;
     height: 80px;
     display: flex;
-    background: #f0f;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 10px;
 
     @media screen and (min-width: $breakpoint-mobile) {
