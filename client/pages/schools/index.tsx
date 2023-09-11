@@ -12,7 +12,7 @@ type SchoolCardProps = {
   director:string;
 }
 
-function SchoolCard(id, name, director){
+function SchoolCard(id:number, name:string, director:string){
   return (
       <Link className={schoolStyle.school_card} href={id?("/schools/"+id):("")}>
         <div className={schoolStyle.thumbnail}>
