@@ -1,6 +1,8 @@
 import { RefObject } from 'react';
 import style from '../../styles/components/common/NotificationsCard.module.scss';
 import ClickOutside from './ClickOutside';
+import BadgesNotify from "@/components/organisms/BadgesNotify";
+
 
 interface NotificationsCardProps {
   clickOutside: (state: boolean) => void;
@@ -18,7 +20,9 @@ export default function NotificationsCard({
         onClick={() => clickOutside(false)}
       >
         <div className={style.container}>
-          <span>Notifs</span>
+          <BadgesNotify state={"new"}>Badge name</BadgesNotify>
+          <BadgesNotify state={"upgrade"}>Badge name</BadgesNotify>
+          <BadgesNotify state={"new"}>Badge name</BadgesNotify>
         </div>
       </ClickOutside>
     </div>

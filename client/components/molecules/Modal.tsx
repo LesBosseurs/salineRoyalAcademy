@@ -1,6 +1,6 @@
 import React from 'react';
 import style from '@/styles/components/molecules/Modal.module.scss';
-import Cross from '@/public/icons/cross';
+import Cross from '@/public/icons/others/cross';
 
 type ModalProps = {
   title:string,

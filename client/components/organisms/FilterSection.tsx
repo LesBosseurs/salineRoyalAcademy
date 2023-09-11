@@ -1,5 +1,5 @@
 import FormField from "@/components/molecules/FormField";
-import Search from "@/public/icons/search";
+import Search from "@/public/icons/others/search";
 import Button from "@/components/atoms/Button";
 import Modal from "@/components/molecules/Modal";
 import FormFilter from "@/components/organisms/FormFilter";
