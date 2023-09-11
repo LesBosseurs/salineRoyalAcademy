@@ -1,0 +1,20 @@
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.badge_notify{
+  text-decoration: unset;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 15px;
+  .description{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .title{
+      font-weight : bolder;
+    }
+  }
+}
