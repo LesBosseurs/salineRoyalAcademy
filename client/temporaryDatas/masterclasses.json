@@ -1,0 +1,19 @@
+[{
+    "_id": "1", 
+    "titre" : "Violin Concerto No. 1 in D major, Op. 6, 1st movement",
+    "image": "https://s3.salineacademy.com/srafront/cache/responsive_image_desktop/responsive_image/0001/01/cefe98d70536091941fd6d4fa8954b423d85cdcf.jpg", 
+    "description": "In this session, Professor Svetlana Makarova and student Tianren Xie work together on the Violin Concerto No. 1 in D Major, op.6 1st movement by Italian composer and violinist Niccolò Paganini. Firstly, Xie is instructed to work on his right hand’s articulation and to pay attention to his harmonic line within the cadence. The student must also anticipate the lifts and the culminating points in the music to better anticipate them. Makarova advises him to try and differentiate each note and to build an “interacting polyphony in between themes”. Xie must also train slowly, avoid lifting his bow too much and be aware of the sonorities and colours of the piece, which are very much Baroque and operatic in style.", 
+    "quote": "", 
+    "genre": "", 
+    "instruments": ["violin"], 
+    "published_date": "11/02/2021", 
+    "spoken_language": "french",
+    "benefits": ["Anticipating points of culmination.", "Posture and bowing techniques.", "Differentiating each note.", "Practicing techniques.", "Articulating with the right hand."], 
+    "compositor" : "Paganini", 
+    "producer": "the Saline royale Academy", 
+    "students": ["Tianre Xie"], 
+    "duration": "39min", 
+    "difficulty": 2, 
+    "teacher": "Svetlana Makarova"
+}
+]
