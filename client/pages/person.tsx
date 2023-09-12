@@ -13,8 +13,15 @@ import CompetitionCard from '../components/organisms/CompetitionCard'
 import CapIcon from '../public/icons/menu/Cap'
 import VideoCard from '../components/organisms/VideoCard'
 import { Instruments } from '../types/instruments'
-
+import personData from '../temporaryDatas/person.json'
+import mcData from '../temporaryDatas/masterclasses.json'
+import articleData from '../temporaryDatas/articles.json'
 export default function Person () {
+  //capitalize the first letter of each words of a string
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   return (
     <div className={style.person}>
       <Header name='Svetlana Makarova' />
@@ -22,40 +29,44 @@ export default function Person () {
         <figure
           className={style.person_pic}
           style={{
-            backgroundImage: `url(https://tse4.mm.bing.net/th?id=OIP.PiKTYKOuZn_6SQvrMOLpigHaFI&pid=Api)`,
+            backgroundImage: `url(${personData.image})`,
             gridColumn: '1/3'
           }}
         />
         <div className={style.main_infos}>
           <div className={style.name_and_instrument}>
             <div className={style.instrument_list}>
-              <BadgeInstrument
-                size='lg'
-                fill='#fff'
-                instrument={Instruments.Violin}
-              />
-              <BadgeInstrument
-                size='lg'
-                fill='#fff'
-                instrument={Instruments.Piano}
-              />
-              <BadgeInstrument
-                size='lg'
-                fill='#fff'
-                instrument={Instruments.Cello}
-              />
+              {personData.instruments.map(instrument => {
+                return (
+                  <BadgeInstrument
+                    size='lg'
+                    fill='#fff'
+                    instrument={instrument}
+                  />
+                )
+              })}
             </div>
-            <h3>Svetlana Makarova</h3>
+            <h3>
+              {personData.first_name} {personData.last_name}
+            </h3>
           </div>
           <Card>
             <div className={style.general_infos}>
               <div className={style.infos_details}>
                 <div className={style.tag_list}>
-                  <TagUser size='sm'>Teacher</TagUser>
-                  <TagUser size='sm'>Student</TagUser>
+                  {personData.type.map(type => {
+                    return (
+                      <TagUser size='sm'>{capitalizeFirstLetter(type)}</TagUser>
+                    )
+                  })}
                 </div>
                 <span>Nationality: Russian</span>
-                <span>Instruments: Violin, Piano, Oboe</span>
+                <span>
+                  Instruments:{' '}
+                  {personData.instruments.map(instrument => {
+                    return capitalizeFirstLetter(instrument) + ' '
+                  })}
+                </span>
               </div>
             </div>
           </Card>
@@ -68,58 +79,19 @@ export default function Person () {
               id='post-1'
             />
 
-            <p>
-              Svetlana Makarova TF Svetlana Makarova VIOLIN Born in Moscow,
-              violinist Svetlana Makarova won first prize in the Moscow
-              International Youth Tchaikovsky Competition at the age of just
-              ten, and thereafter received many other awards. After gaining her
-              master’s degree and postgraduate diploma as well as her PhD with
-              Maya Glezarova at Moscow Conservatory, in 2008 she was invited by
-              Lorin Maazel to join the orchestra of Palau de Les Arts Reina
-              Sofía in Spain. An artist in popular demand, Svetlana Makarova
-              regularly performs at major international festivals such as the
-              Verbier Festival, the Kuhmo Chamber Music Festival, the Miyazaki
-              Shrine Grand Festival and the Paganiniana Festival. She has played
-              in halls including Zurich’s Tonhalle, the La Scala, La Fenice and
-              La Pergola opera houses, the Auditorio Nacional de Música in
-              Madrid, the Seoul Arts Center and Moscow’s Tchaikovsky Concert
-              Hall. Chamber music plays an important role in her musical career,
-              and has led her to work with respected artists such as Frans
-              Helmerson, Pavel Vernikov, Natalia Gutman, Gilles Apap and Patrick
-              Demenga. As an established soloist she has performed with renowned
-              orchestras including the Lithuanian Chamber Orchestra, Kremerata
-              Baltica, Württembergische Philharmonie Reutlingen, South-west
-              German Chamber Orchestra Pforzheim, the Valencia Orchestra, the
-              Korean Soloists Orchestra, Moscow Philharmonic Orchestra and the
-              Odessa State Symphony Orchestra. In addition to performing,
-              Svetlana Makarova conveys her experience to the next generation as
-              a teacher. Prior to becoming a professor at the Haute Ecole de
-              Musique de Lausanne in 2014, she taught at institutions including
-              Gnessin State Musical College (Moscow), Scuola di Musica di
-              Fiesole (Florence) and at Lieceu Conservatory (Barcelona).
-              Furthermore, she gives numerous masterclasses in Italy, France,
-              Switzerland, Austria, Germany, Russia, Japan, Korea and China. As
-              a respected teacher, she is regularly invited to sit on the juries
-              of international competitions. Svetlana Makarova plays a violin by
-              Niccolò Gagliano dating from 1745.
-            </p>
+            <p>{personData.description}</p>
             <label htmlFor='post-1' className={style.readMoreTrigger}></label>
           </div>
         </Card>
         <Card title='Participated academies' className={style.card_academies}>
           <div className={style.academies_card}>
-            <div className={style.academy_details}>
-              <span>
-                Domaine Forget International Music & Dance Academy from august
-                2nd to 5th 2022
-              </span>
-            </div>
-            <div className={style.academy_details}>
-              <span>
-                Domaine Forget International Music & Dance Academy from august
-                2nd to 5th 2022
-              </span>
-            </div>
+            {personData.academies.map(academy => {
+              return (
+                <div className={style.academy_details}>
+                  <span>{academy}</span>
+                </div>
+              )
+            })}
             <hr />
           </div>
         </Card>
@@ -132,30 +104,17 @@ export default function Person () {
           style={{ gridColumn: '1/7' }}
         >
           <div className={style.related_masterclasses_container}>
-            <CourseCard
-              title='Fantasy in C'
-              professor='Robert Shumann'
-              instrument={Instruments.Piano}
-              difficulty={2}
-              actualChapter='Chap. 2'
-              pourcentage={20}
-            />
-            <CourseCard
-              title='Fantasy in C'
-              professor='Robert Shumann'
-              instrument={Instruments.Piano}
-              difficulty={2}
-              actualChapter='Chap. 2'
-              pourcentage={20}
-            />
-            <CourseCard
-              title='Fantasy in C'
-              professor='Robert Shumann'
-              instrument={Instruments.Piano}
-              difficulty={2}
-              actualChapter='Chap. 2'
-              pourcentage={20}
-            />
+            {mcData.map(masterclass => {
+              return (
+                <CourseCard
+                  title={masterclass.titre}
+                  professor={masterclass.teacher}
+                  instrument={masterclass.instruments}
+                  difficulty={masterclass.difficulty}
+                  image={masterclass.image}
+                />
+              )
+            })}
           </div>
         </Card>
         <Card
@@ -188,27 +147,17 @@ export default function Person () {
           title='Related articles'
         >
           <div className={style.related_articles_container}>
-            <ArticleCard
-              instrument={Instruments.Piano}
-              title='Where to listen classical music at Paris'
-              author='parisoperafan'
-              date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-            />
-            <hr />
-            <ArticleCard
-              instrument={Instruments.Piano}
-              title='Where to listen classical music at Paris'
-              author='parisoperafan'
-              date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-            />
-            <hr />
-
-            <ArticleCard
-              instrument={Instruments.Piano}
-              title='Where to listen classical music at Paris'
-              author='parisoperafan'
-              date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-            />
+            {articleData.map(article => {
+              return (
+                <ArticleCard
+                instrument={Instruments.Piano}
+                title={article.title}
+                author={article.author}
+                date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
+                image={article.image}
+              />
+              )
+            })}
             <hr />
           </div>
         </Card>
