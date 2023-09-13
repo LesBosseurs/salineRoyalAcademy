@@ -7,20 +7,16 @@ interface BadgeInstrumentProps {
   instrument:instruments;
 }
 
-export default function BadgeInstrument({
-  fill,
-  size,
-  instrument,
-}: BadgeInstrumentProps) {
+export default function BadgeInstrument(props: BadgeInstrumentProps) {
   return (
     <div
-      className={`${style.badge_instrument} ${instrument}`}
+      className={`${style.badge_instrument} ${props.instrument}`}
       style={{
-        height: size === 'md' ? '20px' : '30px',
-        width: size === 'md' ? '20px' : '30px',
+        height: props.size === 'md' ? '20px' : '30px',
+        width: props.size === 'md' ? '20px' : '30px',
       }}
     >
-      <InstrumentIcon fill={fill} instrument={instrument} />
+      <InstrumentIcon fill={props.fill} instrument={props.instrument} />
     </div>
   );
 }
