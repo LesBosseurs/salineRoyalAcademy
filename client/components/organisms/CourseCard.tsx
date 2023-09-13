@@ -1,43 +1,46 @@
-import style from '../../styles/components/organisms/CourseCard.module.scss';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import TagDifficulty from '@/components/atoms/Tag';
-import BadgeInstrument from '@/components/molecules/BadgeInstrument';
-import Link from "next/link";
+import style from '../../styles/components/organisms/CourseCard.module.scss'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
+import 'react-circular-progressbar/dist/styles.css'
+import TagDifficulty from '@/components/atoms/Tag'
+import BadgeInstrument from '@/components/molecules/BadgeInstrument'
+import Link from 'next/link'
+import { instruments } from '../../interfaces/InstrumentsInterface'
 
 type CourseCardProps = {
-  id?: number;
-  title: string;
-  professor: string;
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
-  difficulty: 0 | 1 | 2;
-  actualChapter: string;
-  pourcentage?: number;
-};
+  id?: number
+  title: string
+  professor: string
+  instruments: []
+  difficulty: 0 | 1 | 2
+  actualChapter: string
+  pourcentage?: number
+  image: string
+}
 
-export default function CourseCard({
+export default function CourseCard ({
   id,
   title,
   professor,
-  instrument,
+  instruments,
   difficulty,
   actualChapter,
   pourcentage,
+  image
 }: CourseCardProps) {
   return (
-    <Link className={style.course_card} href={id?("http://localhost:3000/courses/"+id):("")}>
-      <div className={style.thumbnail}>
-        <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
+    <Link
+      className={style.course_card}
+      href={id ? 'http://localhost:3000/courses/' + id : ''}
+    >
+      <div
+        className={style.thumbnail}
+        style={{ backgroundImage: `url(${image})` }}
+      >
+        {instruments?.map(instrument => {
+          return (
+            <BadgeInstrument fill='#fff' instrument={instrument} size='lg' />
+          )
+        })}
         {pourcentage ? (
           <div className={style.progress_bar}>
             <div style={{ width: `${pourcentage}%` }}></div>
@@ -49,7 +52,15 @@ export default function CourseCard({
       <div className={style.description}>
         <div>
           <div>
-            <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
+            {instruments?.map(instrument => {
+              return (
+                <BadgeInstrument
+                  fill='#fff'
+                  instrument={instrument}
+                  size='md'
+                />
+              )
+            })}
             <span>{title}</span>
           </div>
           <span>{professor}</span>
@@ -65,7 +76,7 @@ export default function CourseCard({
           styles={buildStyles({
             textColor: '#000',
             pathColor: '#b18b36',
-            trailColor: 'white',
+            trailColor: 'white'
           })}
           value={pourcentage}
           text={`${pourcentage}%`}
@@ -74,5 +85,5 @@ export default function CourseCard({
         ''
       )}
     </Link>
-  );
+  )
 }
