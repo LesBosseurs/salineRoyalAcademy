@@ -8,6 +8,7 @@ type ArticleCardProps = {
   title: string;
   author: string;
   date: Date;
+  image: string; 
 };
 
 export default function ArticleCard({
@@ -15,6 +16,7 @@ export default function ArticleCard({
   title,
   author,
   date,
+  image
 }: ArticleCardProps) {
   function formatDate(dateString: Date) {
     var date = new Date(dateString);
@@ -56,7 +58,7 @@ export default function ArticleCard({
           </div>
         </div>
       </div>
-      <div className={style.pic}>
+      <div className={style.pic} style={{backgroundImage: `url(${image})`}}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>
     </div>
