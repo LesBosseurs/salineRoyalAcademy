@@ -110,7 +110,7 @@ export default function Person () {
                 <CourseCard
                   title={masterclass.titre}
                   professor={masterclass.teacher}
-                  instrument={masterclass.instruments}
+                  instruments={masterclass.instruments}
                   difficulty={masterclass.difficulty}
                   image={masterclass.image}
                 />

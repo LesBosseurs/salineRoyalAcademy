@@ -10,7 +10,7 @@ type CourseCardProps = {
   id?: number
   title: string
   professor: string
-  instruments: []
+  instruments: string[]
   difficulty: 0 | 1 | 2
   actualChapter: string
   pourcentage?: number
