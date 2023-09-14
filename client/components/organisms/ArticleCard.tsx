@@ -1,36 +1,36 @@
-import Image from 'next/image';
-import style from '../../styles/components/organisms/ArticleCard.module.scss';
-import BadgeInstrument from '../molecules/BadgeInstrument';
-import {instruments} from "@/interfaces/InstrumentsInterface";
+import Image from 'next/image'
+import style from '../../styles/components/organisms/ArticleCard.module.scss'
+import BadgeInstrument from '../molecules/BadgeInstrument'
+import { instruments } from '@/interfaces/InstrumentsInterface'
 
 type ArticleCardProps = {
-  instrument:instruments;
-  title: string;
-  author: string;
-  date: Date;
-  image: string; 
-};
+  instruments: string[]
+  title: string
+  author: string
+  date: Date
+  image: string
+}
 
-export default function ArticleCard({
-  instrument,
+export default function ArticleCard ({
+  instruments,
   title,
   author,
   date,
   image
 }: ArticleCardProps) {
-  function formatDate(dateString: Date) {
-    var date = new Date(dateString);
-    var now = new Date();
-    var timeDiff = Math.abs(now.getTime() - date.getTime());
+  function formatDate (dateString: Date) {
+    var date = new Date(dateString)
+    var now = new Date()
+    var timeDiff = Math.abs(now.getTime() - date.getTime())
     if (timeDiff < 24 * 60 * 60 * 1000) {
-      var hours = Math.floor(timeDiff / (60 * 60 * 1000));
-      var minutes = Math.floor((timeDiff % (60 * 60 * 1000)) / (60 * 1000));
-      return hours + 'h ' + minutes + 'min';
+      var hours = Math.floor(timeDiff / (60 * 60 * 1000))
+      var minutes = Math.floor((timeDiff % (60 * 60 * 1000)) / (60 * 1000))
+      return hours + 'h ' + minutes + 'min'
     } else {
-      var month = date.getMonth() + 1;
-      var day = date.getDate();
-      var year = date.getFullYear();
-      return month + '/' + day + '/' + year;
+      var month = date.getMonth() + 1
+      var day = date.getDate()
+      var year = date.getFullYear()
+      return month + '/' + day + '/' + year
     }
   }
 
@@ -39,8 +39,8 @@ export default function ArticleCard({
       <div className={style.description}>
         <div className={style.author_desc}>
           <Image
-            src="/prov/profile-picture.jpeg"
-            alt="profil picture of author"
+            src='/prov/profile-picture.jpeg'
+            alt='profil picture of author'
             width={20}
             height={20}
           />
@@ -53,14 +53,26 @@ export default function ArticleCard({
         <div className={style.infos}>
           <span>{formatDate(date)}</span>
           <div>
-            <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
+            {instruments.map(instrument => {
+              return (
+                <BadgeInstrument
+                  fill='#fff'
+                  instrument={instrument}
+                  size='md'
+                />
+              )
+            })}
             <span>tag</span>
           </div>
         </div>
       </div>
-      <div className={style.pic} style={{backgroundImage: `url(${image})`}}>
-        <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
+      <div className={style.pic} style={{ backgroundImage: `url(${image})` }}>
+        {instruments.map(instrument => {
+          return (
+            <BadgeInstrument fill='#fff' instrument={instrument} size='lg' />
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }

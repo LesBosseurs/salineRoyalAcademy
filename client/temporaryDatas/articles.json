@@ -4,7 +4,8 @@
     "image": "https://img.rts.ch/articles/2023/image/8dyxqy-26164379.image?w=640&h=640", 
     "people": ["Svetlana Makarova"], 
     "author": "RTS", 
-    "published_date": "26/08/2023"
+    "published_date": "26/08/2023",
+    "instruments": ["violin"]
 },
 {
     "title": "En direct du Sion Festival 2022", 
@@ -12,5 +13,6 @@
     "image": "https://tse1.explicit.bing.net/th?id=OIP.-cCc9FP7xifezQ3IPH6VwQAAAA&pid=Api", 
     "people": ["Svetlana Makarova"], 
     "author": "RTS", 
-    "published_date": "14/08/2022"
+    "published_date": "14/08/2022", 
+    "instruments": ["violin"]
 }]

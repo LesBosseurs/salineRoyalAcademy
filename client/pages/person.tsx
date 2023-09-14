@@ -16,6 +16,7 @@ import { Instruments } from '../types/instruments'
 import personData from '../temporaryDatas/person.json'
 import mcData from '../temporaryDatas/masterclasses.json'
 import articleData from '../temporaryDatas/articles.json'
+import { instruments } from '../interfaces/InstrumentsInterface';
 export default function Person () {
   //capitalize the first letter of each words of a string
   const capitalizeFirstLetter = (string: string) => {
@@ -150,7 +151,7 @@ export default function Person () {
             {articleData.map(article => {
               return (
                 <ArticleCard
-                instrument={Instruments.Piano}
+                instruments={article.instruments}
                 title={article.title}
                 author={article.author}
                 date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
