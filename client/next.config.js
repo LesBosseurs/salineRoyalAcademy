@@ -10,6 +10,18 @@ module.exports = {
       aggregateTimeout: 300,
     },
   }),
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.rts.ch',
+      },
+      {
+        protocol: 'https', 
+        hostname: 'tse1.explicit.bing.net'
+      }
+    ],
+  },
   async rewrites() {
     return [
       {
