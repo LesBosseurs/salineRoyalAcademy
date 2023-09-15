@@ -1,22 +1,26 @@
-import Header from '../../../components/common/Header'
-import style from '../../../styles/pages/person.module.scss'
-import CardContainerStyle from '../../../styles/components/CardContainer.module.scss'
-import BadgeInstrument from '../../../components/molecules/BadgeInstrument'
-import TagUser from '../../../components/TagUser'
-import Button from '../../../components/atoms/Button'
-import CardContainer from '../../../components/molecules/CardContainer'
-import Card from '../../../components/molecules/Card'
-import ActivityCard from '../../../components/organisms/ActivityCard'
-import CourseCard from '../../../components/organisms/CourseCard'
-import ArticleCard from '../../../components/organisms/ArticleCard'
-import CompetitionCard from '../../../components/organisms/CompetitionCard'
-import CapIcon from '../../../public/icons/menu/Cap'
-import VideoCard from '../../../components/organisms/VideoCard'
-import { Instruments } from '../../../types/instruments'
-import personData from '../../../temporaryDatas/person.json'
-import mcData from '../../../temporaryDatas/masterclasses.json'
-import articleData from '../../../temporaryDatas/articles.json'
-import { instruments } from '../../../interfaces/InstrumentsInterface';
+import Header from '../../../../components/common/Header'
+import style from '../../../../styles/pages/person.module.scss'
+import CardContainerStyle from '../../../../styles/components/CardContainer.module.scss'
+import BadgeInstrument from '../../../../components/molecules/BadgeInstrument'
+import TagUser from '../../../../components/TagUser'
+import Button from '../../../../components/atoms/Button'
+import CardContainer from '../../../../components/molecules/CardContainer'
+import Card from '../../../../components/molecules/Card'
+import ActivityCard from '../../../../components/organisms/ActivityCard'
+import CourseCard from '../../../../components/organisms/CourseCard'
+import ArticleCard from '../../../../components/organisms/ArticleCard'
+import CompetitionCard from '../../../../components/organisms/CompetitionCard'
+import CapIcon from '../../../../public/icons/menu/Cap'
+import VideoCard from '../../../../components/organisms/VideoCard'
+import { Instruments } from '../../../../types/instruments'
+
+// Temporary datas --- about to be removed
+import personData from '../../../../temporaryDatas/person.json'
+import mcData from '../../../../temporaryDatas/masterclasses.json'
+import articleData from '../../../../temporaryDatas/articles.json'
+//
+
+
 export default function Person () {
   //capitalize the first letter of each words of a string
   const capitalizeFirstLetter = (string: string) => {
@@ -151,12 +155,12 @@ export default function Person () {
             {articleData.map(article => {
               return (
                 <ArticleCard
-                instruments={article.instruments}
-                title={article.title}
-                author={article.author}
-                date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-                image={article.image}
-              />
+                  instruments={article.instruments}
+                  title={article.title}
+                  author={article.author}
+                  date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
+                  image={article.image}
+                />
               )
             })}
             <hr />
