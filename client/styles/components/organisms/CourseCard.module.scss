@@ -12,6 +12,11 @@
     flex-direction: column;
   }
 
+  @media screen and (min-width: $breakpoint-desktop) {
+    max-width: 320px;
+  }
+
+
   > .thumbnail {
     min-width: 100px;
     min-height: fit-content;
