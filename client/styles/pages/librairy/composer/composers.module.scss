@@ -1,0 +1,53 @@
+@import "../../../fonts.scss";
+@import "../../../variables.scss";
+
+.composer {
+
+    .hero_details {
+        @media screen and (min-width: $breakpoint-laptop) {
+            max-height: 650px !important;
+        }
+        .card_main_dates {
+            order: 2;
+            max-width: 415px;
+    
+            @include subtitle; 
+            
+            .main_dates {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .date_group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap-sm; 
+                    
+                    span.label{
+                        @include link; 
+                    }
+                    span.date {
+                        @include subtitle; 
+                        color: $primary-yellow; 
+                    }
+
+                }
+            }
+        }
+    }
+
+    .related_oeuvres_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+            flex-direction: row;
+        }
+        gap: $gap-sm;
+
+        a {
+            width: 100%;
+            max-width: 320px;
+        }
+    }
+}

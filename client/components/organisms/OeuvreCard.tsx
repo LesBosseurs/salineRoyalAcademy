@@ -8,6 +8,7 @@ type OeuvreCardProps = {
   instrument:instruments[];
   title: string;
   composer:string;
+  image: string
 }
 
 export default function OeuvreCard ({

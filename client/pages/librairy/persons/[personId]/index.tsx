@@ -1,5 +1,6 @@
 import Header from '../../../../components/common/Header'
-import style from '../../../../styles/pages/person.module.scss'
+import style from '../../../../styles/pages/librairy/persons/person.module.scss'
+import ComposerStyle from '../../../../styles/pages/librairy/composers/composers.module.scss'
 import CardContainerStyle from '../../../../styles/components/CardContainer.module.scss'
 import BadgeInstrument from '../../../../components/molecules/BadgeInstrument'
 import TagUser from '../../../../components/TagUser'
@@ -20,6 +21,8 @@ import mcData from '../../../../temporaryDatas/masterclasses.json'
 import articleData from '../../../../temporaryDatas/articles.json'
 //
 
+import { useRouter } from 'next/router'
+import OeuvreCard from '@/components/organisms/OeuvreCard'
 
 export default function Person () {
   //capitalize the first letter of each words of a string
@@ -27,10 +30,28 @@ export default function Person () {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
+  const getSlug = () => {
+    const router = useRouter()
+    const routes = router.asPath.split('/')
+    for (let index = 0; index < routes.length; index++) {
+      const slug = routes[index]
+      switch (slug) {
+        case 'composers':
+          return 'composers'
+        case 'persons':
+          return 'persons'
+        default:
+          break
+      }
+    }
+  }
+
+  console.log(getSlug())
+
   return (
-    <div className={style.person}>
+    <div className={`${style.person} ${ComposerStyle.composer}`}>
       <Header name='Svetlana Makarova' />
-      <div className={style.hero_details}>
+      <div className={`${style.hero_details} ${ComposerStyle.hero_details}`}>
         <figure
           className={style.person_pic}
           style={{
@@ -88,20 +109,39 @@ export default function Person () {
             <label htmlFor='post-1' className={style.readMoreTrigger}></label>
           </div>
         </Card>
-        <Card title='Participated academies' className={style.card_academies}>
-          <div className={style.academies_card}>
-            {personData.academies.map(academy => {
-              return (
-                <div className={style.academy_details}>
-                  <span>{academy}</span>
+
+        {getSlug() === 'composers' ? (
+          <>
+            <Card className={ComposerStyle.card_main_dates}>
+              <div className={ComposerStyle.main_dates} >
+                <div className={ComposerStyle.date_group}>
+                  <span className={ComposerStyle.label}>Born</span>
+                  <span className={ComposerStyle.date}>June 8th 1810</span>
                 </div>
-              )
-            })}
-            <hr />
-          </div>
-        </Card>
+                <div className={ComposerStyle.date_group}>
+                  <span className={ComposerStyle.label}>Death</span>
+                  <span className={ComposerStyle.date} >July 29th 1856</span>
+                </div>
+              </div>
+            </Card>
+          </>
+        ) : (
+          <Card title='Participated academies' className={style.card_academies}>
+            <div className={style.academies_card}>
+              {personData.academies.map(academy => {
+                return (
+                  <div className={style.academy_details}>
+                    <span>{academy}</span>
+                  </div>
+                )
+              })}
+              <hr />
+            </div>
+          </Card>
+        )}
       </div>
       <CardContainer>
+        {/* Related Masterclasses Section */}
         <Card
           title='Related masterclasses'
           textLink='see all masterclasses'
@@ -122,50 +162,77 @@ export default function Person () {
             })}
           </div>
         </Card>
-        <Card
-          style={{ gridColumn: '1/7', gridRow: '3/4' }}
-          title='Related competitions'
-        >
-          <div className={style.related_competitions_container}>
-            <div className={style.competitions_card}>
-              <CompetitionCard
-                instrument={Instruments.Piano}
-                title='The Queen Sonja International Music Competition'
-                place='Oslo, Norway'
-                date={new Date('2023-08-31T13:12:00.838Z')}
-                award={50000}
-                thumbnail={false}
-              />
-              <CompetitionCard
-                instrument={Instruments.Piano}
-                title='The Queen Sonja International Music Competition'
-                place='Oslo, Norway'
-                date={new Date('2023-08-31T13:12:00.838Z')}
-                award={50000}
-                thumbnail={false}
-              />
-            </div>
-          </div>
-        </Card>
-        <Card
-          style={{ gridColumn: '1/7', gridRow: '4/4' }}
-          title='Related articles'
-        >
-          <div className={style.related_articles_container}>
-            {articleData.map(article => {
-              return (
-                <ArticleCard
-                  instruments={article.instruments}
-                  title={article.title}
-                  author={article.author}
-                  date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
-                  image={article.image}
+        {getSlug() === 'composers' ? (
+          <>
+            <Card style={{ gridColumn: '1/7', gridRow: '3/4' }}>
+              <div className={ComposerStyle.related_oeuvres_container}>
+                <OeuvreCard
+                  title={'title'}
+                  id={1}
+                  instrument={['violin']}
+                  composer='Composer'
+                  image={''}
                 />
-              )
-            })}
-            <hr />
-          </div>
-        </Card>
+                <OeuvreCard
+                  title={'title'}
+                  id={1}
+                  instrument={['violin']}
+                  composer='Composer'
+                  image={''}
+                />
+              </div>
+            </Card>
+          </>
+        ) : (
+          <>
+            {/* Related Competitions Section */}
+            <Card
+              style={{ gridColumn: '1/7', gridRow: '3/4' }}
+              title='Related competitions'
+            >
+              <div className={style.related_competitions_container}>
+                <div className={style.competitions_card}>
+                  <CompetitionCard
+                    instrument={Instruments.Piano}
+                    title='The Queen Sonja International Music Competition'
+                    place='Oslo, Norway'
+                    date={new Date('2023-08-31T13:12:00.838Z')}
+                    award={50000}
+                    thumbnail={false}
+                  />
+                  <CompetitionCard
+                    instrument={Instruments.Piano}
+                    title='The Queen Sonja International Music Competition'
+                    place='Oslo, Norway'
+                    date={new Date('2023-08-31T13:12:00.838Z')}
+                    award={50000}
+                    thumbnail={false}
+                  />
+                </div>
+              </div>
+            </Card>
+            {/* Related Articles Section */}
+            <Card
+              style={{ gridColumn: '1/7', gridRow: '4/4' }}
+              title='Related articles'
+            >
+              <div className={style.related_articles_container}>
+                {articleData.map(article => {
+                  return (
+                    <ArticleCard
+                      instruments={article.instruments}
+                      title={article.title}
+                      author={article.author}
+                      date={new Date('Thu Jul 06 2023 19:41:21 GMT+0200')}
+                      image={article.image}
+                    />
+                  )
+                })}
+                <hr />
+              </div>
+            </Card>
+          </>
+        )}
       </CardContainer>
     </div>
   )
