@@ -22,7 +22,7 @@ $instrument-color-viola: #ff6500;
 $instrument-color-voice: #830300;
 $instrument-color-trombone: #fd0000;
 $instrument-color-oboe: #ffcc00;
-$instrument-color-fulte: #d862d7;
+$instrument-color-flute: #d862d7;
 $instrument-color-clarinet: #0a940a;
 $instrument-color-chamber-music: #c2466b;
 
@@ -55,7 +55,7 @@ $instrument-color-chamber-music: #c2466b;
 }
 
 .flute {
-  background-color: $instrument-color-fulte;
+  background-color: $instrument-color-flute;
 }
 
 .clarinet {
@@ -91,6 +91,6 @@ $shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.12);
 
 /* Responsive Breakpoint */
 $breakpoint-mobile: 425px;
-$breakpoint-tablet: 768px;
+$breakpoint-tablet: 775px;
 $breakpoint-laptop: 1024px;
 $breakpoint-desktop: 1500px;

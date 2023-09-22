@@ -1,0 +1,58 @@
+@import '../../variables';
+@import '../../fonts';
+
+.filter_instruments {
+  width: 100%;
+  box-sizing: border-box;
+  > h2 {
+    @include title-regular;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      @include head;
+    }
+  }
+
+  .intruments_container {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      gap: 20px;
+    }
+  }
+
+  .slider_container {
+    padding: 2px 2px;
+    --swiper-navigation-size: 24px;
+    --swiper-navigation-color: $secondary-gray;
+  }
+
+  .card {
+    width: fit-content;
+    .instrument_card {
+      display: flex;
+      border-radius: 10px;
+      padding: 5px 8px;
+      gap: 8px;
+      align-items: center;
+
+      > span {
+        @include paragraph-semi-bold;
+        white-space: nowrap;
+
+        @media screen and (min-width: $breakpoint-laptop) {
+          @include lead;
+        }
+      }
+  }
+
+    .instrument_card {
+      box-shadow: 0 0 8px -1px rgba(0, 0, 0, 0.25);
+    }
+
+  }
+
+
+}
+

@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 @import '../../fonts.scss';
 
-.course_card {
+.group_card {
   display: flex;
   gap: 5px;
   width: unset;
@@ -31,27 +31,6 @@
         position: absolute;
         top: 5px;
         right: 5px;
-      }
-    }
-
-    > .progress_bar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 10px;
-      background-color: #00000055;
-      border-radius: 0 0 10px 10px;
-      overflow: hidden;
-      display: none;
-
-      @media screen and (min-width: $breakpoint-mobile) {
-        display: flex;
-      }
-
-      > div {
-        display: flex;
-        background-color: $primary-yellow;
-        height: 100%;
       }
     }
   }
@@ -93,6 +72,10 @@
 
       > span {
         @include info-regular;
+        padding-bottom: 5px;
+        @media screen and (min-width: $breakpoint-mobile) {
+          padding-bottom: 0;
+        }
       }
     }
 

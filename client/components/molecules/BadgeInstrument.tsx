@@ -1,20 +1,10 @@
 import InstrumentIcon from '../atoms/InstrumentIcon';
 import style from '../../styles/components/molecules/BadgeIntrument.module.scss';
-
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
 interface BadgeInstrumentProps {
   fill: string;
   size: 'md' | 'lg';
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  instrument:instrumentsProps;
 }
 
 export default function BadgeInstrument({

@@ -1,0 +1,49 @@
+@import '../../variables';
+@import '../../fonts';
+.school_card {
+  display: flex;
+  gap: 5px;
+  width: unset;
+  text-decoration: unset;
+  color: $secondary-dark;
+
+  @media screen and (min-width: $breakpoint-mobile) {
+    flex-direction: column;
+  }
+
+  > .thumbnail {
+    min-width: 100px;
+    min-height: 50px;
+    background-color: #f0f;
+    border-radius: 10px;
+    position: relative;
+    aspect-ratio: 16 / 10;
+
+  }
+
+  > .description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+
+      > span:first-of-type {
+        @include paragraph-semi-bold;
+      }
+
+      > span:last-of-type {
+        @include info-regular;
+      }
+    }
+  }
+}

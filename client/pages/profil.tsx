@@ -48,19 +48,19 @@ export default function Profil() {
             <VideoCard
               title="Beethoven : Sonate pour piano n°1 chre..."
               duration="1'10"
-              instrument="trombone"
+              instrument="piano"
               publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
             <VideoCard
               title="Beethoven : Sonate pour piano n°1 chre..."
               duration="1'10"
-              instrument="trombone"
+              instrument="piano"
               publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
             <VideoCard
               title="Beethoven : Sonate pour piano n°1 chre..."
               duration="1'10"
-              instrument="trombone"
+              instrument="piano"
               publicationDate={new Date('2023-08-14T13:12:00.838Z')}
             />
           </div>
