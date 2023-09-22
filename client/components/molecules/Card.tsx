@@ -31,7 +31,7 @@ export default function Card({
 
   return (
     <section
-      style={size.width > 1024 ? style : { gridColumn: '1/7' }}
+      style={size.width > 1023 ? style : { gridColumn: '1/7' }}
       className={`${styleFile.section} ${className}`}
     >
       {title && (

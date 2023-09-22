@@ -1,18 +1,11 @@
 import style from '../../styles/components/organisms/ActivityCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
+import Link from "next/link";
 
 type ActivityCardProps = {
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  id?: number;
+  instrument:instrumentsProps;
   title: string;
   author: string;
   creationDate: Date;
@@ -21,6 +14,7 @@ type ActivityCardProps = {
 };
 
 export default function ActivityCard({
+  id,
   instrument,
   title,
   author,
@@ -33,7 +27,7 @@ export default function ActivityCard({
   };
 
   return (
-    <div className={style.activity_card}>
+    <Link className={style.activity_card} href={id?("/activities/"+id):("")}>
       <div>
         <BadgeInstrument fill="#fff" instrument={instrument} size="md" />
         <span>{title}</span>
@@ -46,6 +40,6 @@ export default function ActivityCard({
         <div></div>
         <span>3 attendees</span>
       </div>
-    </div>
+    </Link>
   );
 }

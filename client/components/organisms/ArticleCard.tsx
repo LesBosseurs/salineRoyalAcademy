@@ -1,25 +1,19 @@
 import Image from 'next/image';
 import style from '../../styles/components/organisms/ArticleCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
+import {instrumentsProps} from "@/interfaces/InstrumentsInterface";
+import Link from "next/link";
 
 type ArticleCardProps = {
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  id: number;
+  instrument:instrumentsProps;
   title: string;
   author: string;
   date: Date;
 };
 
 export default function ArticleCard({
+  id,
   instrument,
   title,
   author,
@@ -42,7 +36,7 @@ export default function ArticleCard({
   }
 
   return (
-    <div className={style.article_card}>
+    <Link className={style.article_card} href={id?("/articles/"+id):("")}>
       <div className={style.description}>
         <div className={style.author_desc}>
           <Image
@@ -68,6 +62,6 @@ export default function ArticleCard({
       <div className={style.pic}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
       </div>
-    </div>
+    </Link>
   );
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 import style from '@/styles/components/molecules/Modal.module.scss';
-import Cross from '@/public/icons/cross';
+import Cross from '@/public/icons/others/cross';
 
 type ModalProps = {
+  title:string,
   setOpenModal: (state: boolean) => void;
   open: boolean;
   children: React.ReactNode;
 };
 
-export default function Modal({ setOpenModal, open, children }: ModalProps) {
+export default function Modal({ title, setOpenModal, open, children }: ModalProps) {
   if (!open) {
     return '';
   }
@@ -19,7 +20,7 @@ export default function Modal({ setOpenModal, open, children }: ModalProps) {
           <Cross fill={'#000'} />
         </div>
         <div className={style.separator}></div>
-        <h2>Filter</h2>
+        <h2>{title}</h2>
         {children}
       </div>
     </div>

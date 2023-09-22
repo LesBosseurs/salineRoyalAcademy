@@ -1,0 +1,46 @@
+@import '../../variables';
+@import '../../fonts';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+
+  @media screen and (min-width: $breakpoint-laptop) {
+    flex-direction: row-reverse;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .search_input {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      width: 50%;
+    }
+  }
+
+  .filter_button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      display: none;
+    }
+  }
+
+  .instruments{
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 15px;
+
+    @media screen and (min-width: $breakpoint-laptop) {
+      width: 65%;
+      padding-top: 0;
+    }
+  }
+}
