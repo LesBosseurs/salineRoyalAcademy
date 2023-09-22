@@ -19,7 +19,7 @@ router.get('/', UserController.getAllUsers);
 router.post('/', UserController.createUser);
 
 // Route pour obtenir un utilisateur par ID
-router.get('/:id', UserController.getUserById);
+router.get('/:id', UserController.getUserById); // Il faudra changer cette roule par /profile et regarder en cookie l'id stocké 
 
 // Route pour mettre à jour un utilisateur
 router.put('/:id', UserController.updateUser);

@@ -23,7 +23,24 @@ class UserRepository {
     try {
       let c = await pool.connect()
       try {
-        const query = 'SELECT * FROM users, study WHERE users.user_id = $1 AND study.user_id = $1';
+        const query = `
+        SELECT 
+          users.user_id, 
+          users.first_name, 
+          users.last_name, 
+          users.email, 
+          users.phone, 
+          users.notifications, 
+          users.instruments, 
+          users.status, 
+          users.link_picture,
+          study.*, 
+          user_program_tracking.*
+        FROM users
+        LEFT JOIN study ON users.user_id = study.user_id
+        LEFT JOIN user_program_tracking ON users.user_id = user_program_tracking.user_id
+        WHERE users.user_id = $1;
+      `;
         const values = [userId];
         const result = await pool.query(query, values);
         return result.rows[0];
@@ -60,8 +77,8 @@ class UserRepository {
       const c = await pool.connect();
       try {
         const query = `
-        INSERT INTO users (first_name, last_name, email, password, phone, notifications, instruments, status)
-        VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+        INSERT INTO users (first_name, last_name, email, password, phone, notifications, instruments, status, link_picture)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)
         RETURNING user_id
       `;
         const values = [
@@ -72,7 +89,8 @@ class UserRepository {
           user.phone || null,
           user.notifications || false,
           user.instruments || null,
-          user.status || 'New'
+          user.status || 'New',
+          user.link_picture || null
         ];
         const result = await pool.query(query, values);
         const insertedUserId = result.rows[0].user_id;

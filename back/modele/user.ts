@@ -8,5 +8,6 @@ export interface User {
     notifications?: string;
     instruments?: string[];
     status?: string;
+    link_picture?: string;
   }
   

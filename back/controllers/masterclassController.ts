@@ -23,6 +23,16 @@ class MasterclassController {
     }
   }
 
+  static async getMasterclassByUserId(req: Request, res: Response): Promise<void> {
+    try {
+      const userId = parseInt(req.params.id);
+      const masterclass = await MasterclassService.getMasterclassByUserId(userId);
+      res.status(200).json({ success: true, message: 'Masterclass by User retrieved successfully', data: masterclass });
+    } catch (error: any) {
+      res.status(500).json({ success: false, message: 'Failed to retrieve masterclass by ID', errorMessage: error.message });
+    }
+  }
+
   static async createMasterclass(req: Request, res: Response): Promise<void> {
     try {
       const masterclassData = req.body;
