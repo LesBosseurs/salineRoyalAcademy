@@ -4,42 +4,18 @@ import Link from 'next/link';
 import ArrowRight from '@/public/icons/others/ArrowRight';
 import { useRef } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
-import BadgeInstrument from '@/components/molecules/BadgeInstrument';
+import FilterInstruments from "@/components/molecules/FilterInstruments";
 
 export default function Suggestion() {
   const heightListCourses = useRef<HTMLInputElement>(null);
   const size = useWindowSize();
 
-  const instrumentsList = [
-    'cello',
-    'chamber-music',
-    'clarinet',
-    'flute',
-    'oboe',
-    'piano',
-    'trombone',
-    'viola',
-    'violin',
-    'voice',
-  ];
-
   return (
     <section className={style.suggestion}>
       <h2>What instrument do you play?</h2>
-      <div className={style.carousel_instruments}>
+      <div className={style.section_filter_instruments}>
         <div className={style.intruments_container}>
-          {instrumentsList.map((instrument: any, key: number) => {
-            return (
-              <div key={key} className={style.instrument_card}>
-                <BadgeInstrument
-                  fill="#fff"
-                  instrument={instrument}
-                  size="lg"
-                />
-                <span>{instrument}</span>
-              </div>
-            );
-          })}
+          <FilterInstruments navigation={true}/>
         </div>
       </div>
       <div className={style.courses_container}>

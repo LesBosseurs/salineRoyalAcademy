@@ -6,19 +6,10 @@ import { Pagination } from 'swiper/modules';
 import ComingSoonCard from './_ComingSoonCard';
 import { useState } from 'react';
 import useWindowSize from '@/hooks/useWindowSize';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type ComingSoonCardProps = {
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  instrument:instruments;
   title: string;
   text: string;
 };

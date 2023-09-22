@@ -1,19 +1,10 @@
 import Image from 'next/image';
 import style from '../../styles/components/organisms/ArticleCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type ArticleCardProps = {
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  instrument:instruments;
   title: string;
   author: string;
   date: Date;

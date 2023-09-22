@@ -3,8 +3,10 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import TagDifficulty from '@/components/atoms/Tag';
 import BadgeInstrument from '@/components/molecules/BadgeInstrument';
+import Link from "next/link";
 
 type CourseCardProps = {
+  id?: number;
   title: string;
   professor: string;
   instrument:
@@ -24,6 +26,7 @@ type CourseCardProps = {
 };
 
 export default function CourseCard({
+  id,
   title,
   professor,
   instrument,
@@ -32,7 +35,7 @@ export default function CourseCard({
   pourcentage,
 }: CourseCardProps) {
   return (
-    <div className={style.course_card}>
+    <Link className={style.course_card} href={id?("http://localhost:3000/courses/"+id):("")}>
       <div className={style.thumbnail}>
         <BadgeInstrument fill="#fff" instrument={instrument} size="lg" />
         {pourcentage ? (
@@ -70,6 +73,6 @@ export default function CourseCard({
       ) : (
         ''
       )}
-    </div>
+    </Link>
   );
 }

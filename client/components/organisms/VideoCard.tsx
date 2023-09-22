@@ -1,21 +1,12 @@
 import style from '../../styles/components/organisms/VideoCard.module.scss';
 import BadgeInstrument from '../molecules/BadgeInstrument';
 import ButtonPlayIcon from '@/public/icons/videos/ButtonPlay';
+import {instruments} from "@/interfaces/InstrumentsInterface";
 
 type VideoCardProps = {
   title: string;
   duration: string;
-  instrument:
-    | 'cello'
-    | 'chamber-music'
-    | 'clarinet'
-    | 'flute'
-    | 'oboe'
-    | 'piano'
-    | 'trombone'
-    | 'viola'
-    | 'violin'
-    | 'voice';
+  instrument:instruments;
   publicationDate: Date;
 };
 

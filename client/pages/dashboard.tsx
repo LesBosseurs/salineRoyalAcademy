@@ -1,6 +1,5 @@
 import Header from '@/components/common/Header';
 import style from '../styles/pages/dashboard.module.scss';
-import CardContainerStyle from '../styles/components/CardContainer.module.scss';
 import Button from '@/components/atoms/Button';
 import Image from 'next/image';
 import Card from '@/components/molecules/Card';
