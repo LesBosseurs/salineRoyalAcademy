@@ -3,19 +3,28 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes';
 import schoolRoutes from './routes/schoolRoutes';
 import groupeRoutes from './routes/groupRoutes';
+import gamificationRoutes from './routes/gamificationRoutes';
+import GamificationService from './service/gamificationService';
 import masterclassRoutes from './routes/masterclassRoutes'
+import { Server} from "socket.io";
+const http = require("http");
+require('dotenv').config();
 
 const app = express();
 const port = 4000;
+const portSocket = 4031;
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
+app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/api/users', userRoutes);
 app.use('/api/schools', schoolRoutes);
 app.use('/api/groups', groupeRoutes);
+app.use('/api/gamifications', gamificationRoutes);
 app.use('/api/masterclass', masterclassRoutes);
 
 // Serve the frontend
@@ -25,3 +34,43 @@ app.use('/api/masterclass', masterclassRoutes);
 app.listen(port, () => {
   console.log(`Serveur en cours d'exécution sur le port ${port}`);
 });
+
+// SOCKET SERVER
+
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+
+
+io.on("connection", (socket) => {
+
+  console.log("Nouveau client connecté");
+  const room = socket.id + process.env.SOCKET_SECRET;
+
+  socket.on("joinRoom", () => {
+    socket.join(room);
+  });
+
+  socket.on("updateBadges", async (data: { id: Number }) => {
+    const user_id = data.id;
+    try {
+      const updateUserBadges = await GamificationService.updateUserBadges(user_id);
+      if(updateUserBadges.length > 0) {
+        socket.to(room).emit("receive_user_badges_notification", updateUserBadges);
+      }
+    } catch (error) {
+      console.error(`Error update user's badges for the user : ${user_id}`, error);
+    }
+  });
+
+});
+
+server.listen(portSocket, () => {
+  console.log(`Serveur socket en cours d'exécution sur le port ${portSocket}`);
+});
+
